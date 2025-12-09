@@ -13,7 +13,7 @@ sections:
     actions:
       - label: Start Free Trial
         altText: Start your free trial
-        url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
+        url: /signup
         showIcon: false
         icon: arrowRight
         iconPosition: right
@@ -281,7 +281,7 @@ sections:
     actions:
       - label: Start Free Trial
         altText: Start your free trial
-        url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
+        url: /signup
         showIcon: false
         icon: arrowRight
         iconPosition: right
