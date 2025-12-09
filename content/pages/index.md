@@ -13,7 +13,7 @@ sections:
     actions:
       - label: Start Free Trial
         altText: Start your free trial
-        url: /signup
+        url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
         showIcon: false
         icon: arrowRight
         iconPosition: right
@@ -22,7 +22,7 @@ sections:
         type: Button
       - label: Watch Demo
         altText: Watch demo video
-        url: /demo
+        url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
         showIcon: true
         icon: arrowRight
         iconPosition: right
@@ -30,7 +30,7 @@ sections:
         elementId: ''
         type: Link
     media:
-      url: /images/main-hero.svg
+      url: /images/doveify-dashboard.png
       altText: Doveify Clinics dashboard preview
       elementId: ''
       type: ImageBlock
@@ -187,9 +187,9 @@ sections:
             boxShadow: md
         image:
           type: ImageBlock
-          altText: Appointments icon
+          altText: Appointments feature
           elementId: ''
-          url: /images/abstract-feature1.svg
+          url: /images/doveify-dashboard.png
           styles:
             self:
               borderRadius: large
@@ -198,8 +198,8 @@ sections:
         text: >-
           Digital patient files, treatment history, notes - all in one place.
         image:
-          url: /images/abstract-feature2.svg
-          altText: Patient records icon
+          url: /images/doveify-login.png
+          altText: Patient records feature
           elementId: ''
           type: ImageBlock
           styles:
@@ -225,8 +225,8 @@ sections:
         text: >-
           Create invoices, track payments, manage your revenue.
         image:
-          url: /images/abstract-feature1.svg
-          altText: Billing icon
+          url: /images/doveify-dashboard.png
+          altText: Billing feature
           elementId: ''
           type: ImageBlock
           styles:
@@ -281,7 +281,7 @@ sections:
     actions:
       - label: Start Free Trial
         altText: Start your free trial
-        url: /signup
+        url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
         showIcon: false
         icon: arrowRight
         iconPosition: right
@@ -312,7 +312,7 @@ sections:
 seo:
   metaTitle: Doveify Clinics - All-in-One Clinic Management Software
   metaDescription: Manage appointments, patient records, treatments, and billing from a single dashboard. Start your free 14-day trial with done-for-you setup.
-  socialImage: /images/main-hero.jpg
+  socialImage: /images/doveify-dashboard.png
   type: Seo
 type: PageLayout
 ---
