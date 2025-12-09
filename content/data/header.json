@@ -3,7 +3,12 @@
     "logo": {
         "url": "/images/logo.png",
         "altText": "Doveify Logo",
-        "type": "ImageBlock"
+        "type": "ImageBlock",
+        "styles": {
+            "self": {
+                "width": "48px"
+            }
+        }
     },
     "primaryLinks": [
         {
