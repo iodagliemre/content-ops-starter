@@ -1,0 +1,69 @@
+{
+    "title": "Doveify",
+    "text": "Smart software for modern businesses",
+    "primaryLinks": {
+        "title": "Products",
+        "links": [
+            {
+                "label": "Clinic OS",
+                "altText": "Clinic OS",
+                "url": "/",
+                "icon": "arrowRight",
+                "iconPosition": "right",
+                "style": "secondary",
+                "type": "Link"
+            },
+            {
+                "label": "Broker's Brain",
+                "altText": "Broker's Brain",
+                "url": "/brokers-brain",
+                "icon": "arrowRight",
+                "iconPosition": "right",
+                "style": "secondary",
+                "type": "Link"
+            },
+            {
+                "label": "Contact",
+                "url": "/#contact",
+                "icon": "arrowRight",
+                "iconPosition": "right",
+                "style": "secondary",
+                "type": "Link"
+            }
+        ],
+        "type": "FooterLinksGroup"
+    },
+    "secondaryLinks": {
+        "title": "Legal",
+        "links": [
+            {
+                "label": "Privacy Policy",
+                "altText": "Privacy Policy",
+                "url": "/privacy",
+                "icon": "arrowRight",
+                "iconPosition": "right",
+                "style": "secondary",
+                "type": "Link"
+            }
+        ],
+        "type": "FooterLinksGroup"
+    },
+    "socialLinks": [
+        {
+            "altText": "LinkedIn link",
+            "url": "https://www.linkedin.com/company/doveify",
+            "icon": "linkedin",
+            "type": "Social"
+        },
+        {
+            "altText": "Email link",
+            "url": "mailto:contact@doveify.com",
+            "icon": "mail",
+            "type": "Social"
+        }
+    ],
+    "legalLinks": [],
+    "copyrightText": "© 2024 Doveify. All rights reserved.",
+    "colors": "bg-dark-fg-light",
+    "type": "Footer"
+}

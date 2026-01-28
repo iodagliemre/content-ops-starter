@@ -1,0 +1,90 @@
+{
+    "light": "#FFFFFF",
+    "dark": "#1F2937",
+    "neutral": "#F0F7FF",
+    "neutralAlt": "#E5F0FF",
+    "primary": "#2563EB",
+    "fontBody": "sans",
+    "fontHeadlines": "sans",
+    "h1": {
+        "size": "6xl",
+        "weight": "bold",
+        "decoration": "none",
+        "case": "none",
+        "letterSpacing": "normal",
+        "type": "ThemeStyleHeading"
+    },
+    "h2": {
+        "size": "5xl",
+        "weight": "bold",
+        "decoration": "none",
+        "case": "none",
+        "letterSpacing": "normal",
+        "type": "ThemeStyleHeading"
+    },
+    "h3": {
+        "size": "3xl",
+        "weight": "semibold",
+        "decoration": "none",
+        "case": "none",
+        "letterSpacing": "normal",
+        "type": "ThemeStyleHeading"
+    },
+    "h4": {
+        "size": "2xl",
+        "weight": "semibold",
+        "decoration": "none",
+        "case": "none",
+        "letterSpacing": "normal",
+        "type": "ThemeStyleHeading"
+    },
+    "h5": {
+        "size": "xl",
+        "weight": "semibold",
+        "decoration": "none",
+        "case": "none",
+        "letterSpacing": "normal",
+        "type": "ThemeStyleHeading"
+    },
+    "h6": {
+        "size": "lg",
+        "weight": "semibold",
+        "decoration": "none",
+        "case": "none",
+        "letterSpacing": "normal",
+        "type": "ThemeStyleHeading"
+    },
+    "buttonPrimary": {
+        "weight": "medium",
+        "case": "none",
+        "letterSpacing": "normal",
+        "borderRadius": "lg",
+        "shadow": "md",
+        "horizontalPadding": 32,
+        "verticalPadding": 14,
+        "type": "ThemeStyleButton"
+    },
+    "buttonSecondary": {
+        "weight": "medium",
+        "case": "none",
+        "letterSpacing": "normal",
+        "borderRadius": "lg",
+        "shadow": "none",
+        "horizontalPadding": 32,
+        "verticalPadding": 14,
+        "type": "ThemeStyleButton"
+    },
+    "linkPrimary": {
+        "weight": "medium",
+        "case": "none",
+        "letterSpacing": "normal",
+        "type": "ThemeStyleLink"
+    },
+    "linkSecondary": {
+        "weight": "normal",
+        "case": "none",
+        "letterSpacing": "normal",
+        "type": "ThemeStyleLink"
+    },
+    "type": "ThemeStyle"
+}

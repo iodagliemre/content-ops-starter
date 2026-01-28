@@ -1,0 +1,43 @@
+{
+    "title": "Doveify",
+    "primaryLinks": [
+        {
+            "label": "Clinic OS",
+            "url": "/",
+            "icon": "arrowRight",
+            "iconPosition": "right",
+            "style": "secondary",
+            "type": "Link"
+        },
+        {
+            "label": "Broker's Brain",
+            "url": "/brokers-brain",
+            "icon": "arrowRight",
+            "iconPosition": "right",
+            "style": "secondary",
+            "type": "Link"
+        },
+        {
+            "label": "Contact",
+            "url": "/#contact",
+            "icon": "arrowRight",
+            "iconPosition": "right",
+            "style": "secondary",
+            "type": "Link"
+        }
+    ],
+    "secondaryLinks": [
+        {
+            "label": "Start Free Trial",
+            "altText": "Start Free Trial",
+            "url": "/signup",
+            "icon": "arrowRight",
+            "iconPosition": "right",
+            "style": "primary",
+            "type": "Button"
+        }
+    ],
+    "variant": "logo-left-primary-nav-centered",
+    "colors": "bg-light-fg-dark",
+    "type": "Header"
+}
