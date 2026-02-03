@@ -13,15 +13,15 @@ sections:
     actions:
       - label: Start Free Trial
         altText: Start your free trial
-        url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
+        url: '/signup/'
         showIcon: false
         icon: arrowRight
         iconPosition: right
         style: primary
         elementId: ''
         type: Button
-      - label: Watch Demo
-        altText: Watch demo video
+      - label: Book a Demo
+        altText: Book a demo
         url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
         showIcon: true
         icon: arrowRight
@@ -225,7 +225,7 @@ sections:
         text: >-
           Create invoices, track payments, manage your revenue.
         image:
-          url: /images/doveify-dashboard.png
+          url: /images/doveify-login.png
           altText: Billing feature
           elementId: ''
           type: ImageBlock
@@ -281,7 +281,7 @@ sections:
     actions:
       - label: Start Free Trial
         altText: Start your free trial
-        url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
+        url: '/signup/'
         showIcon: false
         icon: arrowRight
         iconPosition: right

@@ -57,13 +57,13 @@
         },
         {
             "altText": "Email link",
-            "url": "mailto:contact@doveify.com",
+            "url": "mailto:hello@doveify.io",
             "icon": "mail",
             "type": "Social"
         }
     ],
     "legalLinks": [],
-    "copyrightText": "© 2024 Doveify. All rights reserved.",
+    "copyrightText": "© 2025 Doveify. All rights reserved.",
     "colors": "bg-dark-fg-light",
     "type": "Footer"
 }

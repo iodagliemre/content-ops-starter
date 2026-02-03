@@ -23,7 +23,7 @@ sections:
         type: Button
       - label: See Demo
         altText: Watch demo
-        url: '#demo'
+        url: 'https://brokerbrain.doveify.io'
         showIcon: true
         icon: arrowRight
         iconPosition: right
@@ -307,7 +307,7 @@ sections:
       type: TitleBlock
     subtitle: ''
     text: >
-      Built for real estate agencies who lose deals to slow response times.
+      Built for small to medium real estate agencies (11-50 employees) who lose deals to slow WhatsApp response times. If your team handles leads manually and struggles with follow-ups, Broker's Brain is for you.
     actions: []
     media: null
     badge:
@@ -382,7 +382,7 @@ sections:
         title: How long to set up?
         subtitle: ''
         text: >-
-          2-3 weeks for full deployment, including training.
+          Most agencies are up and running within 1 week, including AI training and team onboarding.
         actions: []
         colors: bg-light-fg-dark
         styles:
