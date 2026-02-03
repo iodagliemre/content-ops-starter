@@ -277,7 +277,16 @@ sections:
       type: TitleBlock
     subtitle: ''
     text: >
-      Start your free trial today and see how easy managing your clinic can be. No credit card required.
+      Have questions? We'd love to hear from you.
+
+
+      📧 [emre@doveify.io](mailto:emre@doveify.io)
+
+
+      📧 [elifoflaz@doveify.io](mailto:elifoflaz@doveify.io)
+
+
+      🔗 [LinkedIn](https://www.linkedin.com/company/doveify)
     actions:
       - label: Start Free Trial
         altText: Start your free trial
