@@ -1,6 +1,6 @@
 {
     "title": "Doveify",
-    "text": "Smart software for modern businesses",
+    "text": "Smart software for modern businesses | 📍 Istanbul • London • Dubai",
     "primaryLinks": {
         "title": "Products",
         "links": [
@@ -23,8 +23,9 @@
                 "type": "Link"
             },
             {
-                "label": "Contact",
-                "url": "/#contact",
+                "label": "Book a Demo",
+                "altText": "Book a Demo",
+                "url": "https://cal.com/emre-dagli-ffwxpr/doveify-demo",
                 "icon": "arrowRight",
                 "iconPosition": "right",
                 "style": "secondary",
@@ -59,6 +60,12 @@
             "altText": "Email link",
             "url": "mailto:hello@doveify.io",
             "icon": "mail",
+            "type": "Social"
+        },
+        {
+            "altText": "Instagram link",
+            "url": "https://instagram.com/doveify.io",
+            "icon": "instagram",
             "type": "Social"
         }
     ],
