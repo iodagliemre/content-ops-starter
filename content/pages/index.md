@@ -7,9 +7,14 @@ sections:
       text: All-in-One Clinic OS
       color: text-dark
       type: TitleBlock
-    subtitle: ''
+    subtitle:
+      text: Run your clinic. Not spreadsheets.
     text: >
-      Manage appointments, patient records, treatments, and billing — from a single dashboard. Start your free 14-day trial with done-for-you setup.
+      Appointments, patients, billing — finally in one system.
+      Start your free 14-day trial with done-for-you setup.
+
+
+      ✓ Trusted by early-stage clinics  •  ✓ GDPR-ready  •  ✓ No long-term contracts
     actions:
       - label: Start Free Trial
         altText: Start your free trial
@@ -20,8 +25,8 @@ sections:
         style: primary
         elementId: ''
         type: Button
-      - label: Book a Demo
-        altText: Book a demo
+      - label: Book a 15-min Demo
+        altText: Book a 15-min demo
         url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
         showIcon: true
         icon: arrowRight
