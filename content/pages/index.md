@@ -324,7 +324,7 @@ sections:
       subtitle:
         textAlign: center
 seo:
-  metaTitle: Doveify Clinics - All-in-One Clinic Management Software
+  metaTitle: Doveify - AI-Powered Business Automation | Clinic OS & Broker's Brain
   metaDescription: Manage appointments, patient records, treatments, and billing from a single dashboard. Start your free 14-day trial with done-for-you setup.
   socialImage: /images/doveify-dashboard.png
   type: Seo
