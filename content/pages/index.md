@@ -7,8 +7,7 @@ sections:
       text: All-in-One Clinic OS
       color: text-dark
       type: TitleBlock
-    subtitle:
-      text: Run your clinic. Not spreadsheets.
+    subtitle: Run your clinic. Not spreadsheets.
     text: >
       Appointments, patients, billing — finally in one system.
       Start your free 14-day trial with done-for-you setup.
