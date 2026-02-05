@@ -2,7 +2,7 @@
     "title": "Doveify",
     "primaryLinks": [
         {
-            "label": "Clinic OS",
+            "label": "Clinic OS (Beta)",
             "url": "/",
             "icon": "arrowRight",
             "iconPosition": "right",
@@ -18,8 +18,8 @@
             "type": "Link"
         },
         {
-            "label": "Contact",
-            "url": "/#contact",
+            "label": "Book a Demo",
+            "url": "https://cal.com/emre-dagli-ffwxpr/doveify-demo",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",
