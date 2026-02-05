@@ -62,13 +62,13 @@ sections:
         self:
           textAlign: center
       type: TitleBlock
-    subtitle: Your peace of mind is our priority
+    subtitle: Built for clinics that want clarity, speed, and control — without complexity.
     items:
       - type: FeaturedItem
-        title: GDPR Compliant
+        title: Secure by Design
         subtitle: ''
         text: >-
-          Your patient data is secure and fully compliant with GDPR regulations.
+          Your patient data is protected. GDPR-ready, no compromises.
         actions: []
         elementId: null
         colors: bg-light-fg-dark
@@ -92,10 +92,10 @@ sections:
           styles:
             self:
               borderRadius: x-large
-      - title: Done-for-you Setup
+      - title: Zero Setup Headaches
         subtitle: ''
         text: >-
-          Our team sets up everything for you so you can start using it right away.
+          We configure everything. You just log in and start.
         image:
           url: /images/icon2.svg
           altText: Setup icon
@@ -116,10 +116,10 @@ sections:
             justifyContent: center
             boxShadow: md
         type: FeaturedItem
-      - title: No Tech Hassle
+      - title: Real-time Clarity
         subtitle: ''
         text: >-
-          Designed for healthcare professionals, not IT experts. Easy to use interface.
+          See appointments, patients & revenue — all in one view.
         image:
           url: /images/icon3.svg
           altText: Easy to use icon
