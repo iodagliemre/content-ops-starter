@@ -271,6 +271,118 @@ sections:
         justifyContent: center
       subtitle:
         textAlign: center
+  - type: FeaturedItemsSection
+    title:
+      text: WhatsApp Automation Built-In
+      color: text-dark
+      styles:
+        self:
+          textAlign: center
+      type: TitleBlock
+    subtitle: Instant replies. Smart reminders. Zero missed leads. Your WhatsApp works while you sleep — powered by AI.
+    items:
+      - type: FeaturedItem
+        title: Smart Reminders
+        subtitle: ''
+        text: >-
+          Automated appointment reminders and confirmations via WhatsApp. Reduce no-shows by up to 40%.
+        actions: []
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            borderRadius: large
+            flexDirection: col
+            justifyContent: center
+            textAlign: center
+            boxShadow: md
+        image:
+          type: ImageBlock
+          altText: Smart Reminders icon
+          elementId: ''
+          url: /images/icon1.svg
+          styles:
+            self:
+              borderRadius: x-large
+      - type: FeaturedItem
+        title: AI-Powered Chatbot
+        subtitle: ''
+        text: >-
+          24/7 intelligent responses to patient inquiries. Book appointments, answer questions, and qualify leads automatically.
+        actions: []
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            borderRadius: large
+            flexDirection: col
+            justifyContent: center
+            textAlign: center
+            boxShadow: md
+        image:
+          type: ImageBlock
+          altText: AI Chatbot icon
+          elementId: ''
+          url: /images/icon2.svg
+          styles:
+            self:
+              borderRadius: x-large
+      - type: FeaturedItem
+        title: Follow-Up Sequences
+        subtitle: ''
+        text: >-
+          Automated follow-up messages that convert leads into customers. Never miss an opportunity again.
+        actions: []
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            borderRadius: large
+            flexDirection: col
+            justifyContent: center
+            textAlign: center
+            boxShadow: md
+        image:
+          type: ImageBlock
+          altText: Follow-up icon
+          elementId: ''
+          url: /images/icon3.svg
+          styles:
+            self:
+              borderRadius: x-large
+    actions: []
+    badge:
+      label: Works with WhatsApp Business API • No extra apps needed • Setup in 24 hours
+      color: text-primary
+      styles:
+        self:
+          textAlign: center
+      type: Badge
+    elementId: whatsapp
+    variant: three-col-grid
+    colors: bg-neutral-fg-dark
+    styles:
+      self:
+        padding:
+          - pb-16
+          - pt-16
+          - pl-16
+          - pr-16
+        justifyContent: center
+      subtitle:
+        textAlign: center
   - type: GenericSection
     title:
       text: Ready to simplify your clinic?
