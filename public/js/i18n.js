@@ -349,21 +349,28 @@
     `;
     document.head.appendChild(style);
 
+    // Check if we're on the homepage
+    function isHomepage() {
+      const path = window.location.pathname;
+      return path === '/' || path === '/index.html' || path === '';
+    }
+
+    // Only apply translations on homepage, but always show toggle button
+    function applyIfHomepage() {
+      createToggleButton();
+      if (isHomepage()) {
+        addI18nAttributes();
+        translatePage(getCurrentLang());
+      }
+    }
+
     // Wait for DOM to be ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-          addI18nAttributes();
-          createToggleButton();
-          translatePage(getCurrentLang());
-        }, 500);
+        setTimeout(applyIfHomepage, 500);
       });
     } else {
-      setTimeout(() => {
-        addI18nAttributes();
-        createToggleButton();
-        translatePage(getCurrentLang());
-      }, 500);
+      setTimeout(applyIfHomepage, 500);
     }
 
     // Re-apply on route changes (Next.js SPA navigation)
@@ -372,11 +379,7 @@
       const url = location.href;
       if (url !== lastUrl) {
         lastUrl = url;
-        setTimeout(() => {
-          addI18nAttributes();
-          createToggleButton();
-          translatePage(getCurrentLang());
-        }, 500);
+        setTimeout(applyIfHomepage, 500);
       }
     }).observe(document, { subtree: true, childList: true });
   }
