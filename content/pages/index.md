@@ -302,12 +302,12 @@ sections:
             boxShadow: md
         image:
           type: ImageBlock
-          altText: Smart Reminders icon
+          altText: Smart Reminders
           elementId: ''
-          url: /images/icon1.svg
+          url: /images/smart-reminders.png
           styles:
             self:
-              borderRadius: x-large
+              borderRadius: large
       - type: FeaturedItem
         title: AI-Powered Chatbot
         subtitle: ''
@@ -329,12 +329,12 @@ sections:
             boxShadow: md
         image:
           type: ImageBlock
-          altText: AI Chatbot icon
+          altText: AI-Powered Chatbot
           elementId: ''
-          url: /images/icon2.svg
+          url: /images/ai-chatbot.png
           styles:
             self:
-              borderRadius: x-large
+              borderRadius: large
       - type: FeaturedItem
         title: Follow-Up Sequences
         subtitle: ''
@@ -356,12 +356,12 @@ sections:
             boxShadow: md
         image:
           type: ImageBlock
-          altText: Follow-up icon
+          altText: Follow-Up Sequences
           elementId: ''
-          url: /images/icon3.svg
+          url: /images/follow-up.png
           styles:
             self:
-              borderRadius: x-large
+              borderRadius: large
     actions: []
     badge:
       label: Works with WhatsApp Business API • No extra apps needed • Setup in 24 hours
