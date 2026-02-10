@@ -35,7 +35,7 @@ sections:
         type: Link
     media:
       url: /images/doveify-dashboard.png
-      altText: Doveify Clinics dashboard preview
+      altText: Doveify dashboard preview
       elementId: ''
       type: ImageBlock
     badge:

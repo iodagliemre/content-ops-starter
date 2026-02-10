@@ -131,7 +131,7 @@ sections:
       text:
         textAlign: center
 seo:
-  metaTitle: Start Free Trial - Doveify Clinics
+  metaTitle: Start Free Trial - Doveify
   metaDescription: Start your free 14-day trial of Doveify Clinic Management Software. No credit card required.
   type: Seo
 type: PageLayout
