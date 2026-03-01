@@ -83,7 +83,6 @@ sections:
             type: Link
       - type: FeaturedItem
         title: Education & Coaching
-        tagline: Coming Soon
         image:
           url: /images/sector-education.png
           altText: Education & Coaching Dashboard
@@ -93,7 +92,6 @@ sections:
         actions: []
       - type: FeaturedItem
         title: Logistics & Supply Chain
-        tagline: Coming Soon
         image:
           url: /images/sector-logistics.png
           altText: Logistics Dashboard
@@ -103,7 +101,6 @@ sections:
         actions: []
       - type: FeaturedItem
         title: Manufacturing
-        tagline: Coming Soon
         image:
           url: /images/sector-manufacturing.png
           altText: Manufacturing Dashboard
@@ -113,7 +110,6 @@ sections:
         actions: []
       - type: FeaturedItem
         title: Tourism & Hospitality
-        tagline: Coming Soon
         image:
           url: /images/sector-tourism.png
           altText: Tourism Dashboard
@@ -148,18 +144,30 @@ sections:
         title: '01 — Data Collection'
         text: >-
           All data from APIs, WhatsApp, IoT sensors, and emails collected in a centralized data hub. Smart parser engine processes unstructured data automatically.
+        styles:
+          self:
+            textAlign: center
       - type: FeaturedItem
         title: '02 — AI Decision Center'
         text: >-
           AI analyzes incoming data, classifies urgency (critical vs routine), and assigns priority scores. Processing time under 30 seconds.
+        styles:
+          self:
+            textAlign: center
       - type: FeaturedItem
         title: '03 — Autonomous Action'
         text: >-
           Smart task assignment to the right person or tool, Google Calendar integration for scheduling, WhatsApp notifications to clients and team members.
+        styles:
+          self:
+            textAlign: center
       - type: FeaturedItem
         title: '04 — Command Dashboard'
         text: >-
           Real-time monitoring, performance analytics, and manual override capability. Modern, responsive, and fully white-labeled to your brand.
+        styles:
+          self:
+            textAlign: center
     variant: two-col-grid
     colors: bg-light-fg-dark
     styles:
@@ -169,6 +177,7 @@ sections:
           - pl-8
           - pb-16
           - pr-8
+        justifyContent: center
       subtitle:
         textAlign: center
   - type: FeaturedItemsSection
@@ -195,6 +204,9 @@ sections:
 
 
           ✕ Shared infrastructure — your data sits next to competitors
+        styles:
+          self:
+            textAlign: center
       - type: FeaturedItem
         title: '✅ Owner (Doveify)'
         text: >-
@@ -208,6 +220,9 @@ sections:
 
 
           ✓ Isolated server — your own DigitalOcean Droplet and Docker containers
+        styles:
+          self:
+            textAlign: center
     variant: two-col-grid
     colors: bg-neutral-fg-dark
     styles:
@@ -232,18 +247,30 @@ sections:
         title: 100% Ownership
         text: >-
           Don't rent software, own it. Your system belongs entirely to you. No vendor lock-in, no surprises.
+        styles:
+          self:
+            textAlign: center
       - type: FeaturedItem
         title: Lifetime Usage
         text: >-
           No monthly license fees. One-time investment with optional annual maintenance. The system keeps running forever.
+        styles:
+          self:
+            textAlign: center
       - type: FeaturedItem
         title: Full Customization
         text: >-
           The system adapts to your workflows, not the other way around. Every feature tailored to how you actually work.
+        styles:
+          self:
+            textAlign: center
       - type: FeaturedItem
         title: Data Sovereignty
         text: >-
           Your data stays on your own server. Not in shared SaaS pools. Each client gets isolated DigitalOcean Droplets and Docker containers.
+        styles:
+          self:
+            textAlign: center
     variant: two-col-grid
     colors: bg-light-fg-dark
     styles:
@@ -253,6 +280,7 @@ sections:
           - pl-8
           - pb-16
           - pr-8
+        justifyContent: center
   - type: GenericSection
     title:
       text: Open-Source Technology Stack
@@ -300,7 +328,10 @@ sections:
       📧 elifdagli@doveify.io  •  📱 +90 535 258 45 78
 
 
-      📧 elifoflaz@doveify.io  •  📧 hello@doveify.com  •  [LinkedIn](https://www.linkedin.com/company/doveify)
+      📧 elifoflaz@doveify.io  •  📧 hello@doveify.com
+
+
+      [LinkedIn](https://www.linkedin.com/company/110607996/admin/dashboard/)  •  [Instagram](https://www.instagram.com/doveify.io/)
     actions:
       - label: Book a Demo
         url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
