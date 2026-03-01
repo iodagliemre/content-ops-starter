@@ -84,24 +84,40 @@ sections:
       - type: FeaturedItem
         title: Education & Coaching
         tagline: Coming Soon
+        image:
+          url: /images/sector-education.png
+          altText: Education & Coaching Dashboard
+          type: ImageBlock
         text: >-
           Student registration, lesson planning, progress tracking, and automated notification systems. Built for training centers and coaching businesses.
         actions: []
       - type: FeaturedItem
         title: Logistics & Supply Chain
         tagline: Coming Soon
+        image:
+          url: /images/sector-logistics.png
+          altText: Logistics Dashboard
+          type: ImageBlock
         text: >-
           Route optimization, fleet tracking, delay prediction, and automatic customer notifications via WhatsApp. Eliminate operational blind spots.
         actions: []
       - type: FeaturedItem
         title: Manufacturing
         tagline: Coming Soon
+        image:
+          url: /images/sector-manufacturing.png
+          altText: Manufacturing Dashboard
+          type: ImageBlock
         text: >-
           Production line tracking, quality control automation, inventory and supply chain management. Full factory floor visibility.
         actions: []
       - type: FeaturedItem
         title: Tourism & Hospitality
         tagline: Coming Soon
+        image:
+          url: /images/sector-tourism.png
+          altText: Tourism Dashboard
+          type: ImageBlock
         text: >-
           Reservation management, guest communication, operations automation. Streamline your hotel or tourism business.
         actions: []
