@@ -46,6 +46,9 @@ sections:
     title:
       text: Industry Solutions
       color: text-dark
+      styles:
+        self:
+          textAlign: center
       type: TitleBlock
     subtitle: >-
       Custom digital infrastructure designed for your specific industry workflows.
@@ -118,6 +121,9 @@ sections:
     title:
       text: How It Works
       color: text-dark
+      styles:
+        self:
+          textAlign: center
       type: TitleBlock
     subtitle: >-
       Your business's digital nervous system — a 4-layer integrated architecture that perceives, thinks, and takes action.
@@ -153,6 +159,9 @@ sections:
     title:
       text: 'SaaS vs Doveify: Stop Being a Tenant'
       color: text-dark
+      styles:
+        self:
+          textAlign: center
       type: TitleBlock
     subtitle: >-
       Why pay rent for a generic software apartment when you can own a custom-built digital building on your own server?
@@ -198,6 +207,9 @@ sections:
     title:
       text: Why Doveify?
       color: text-dark
+      styles:
+        self:
+          textAlign: center
       type: TitleBlock
     items:
       - type: FeaturedItem
@@ -229,6 +241,9 @@ sections:
     title:
       text: Open-Source Technology Stack
       color: text-dark
+      styles:
+        self:
+          textAlign: center
       type: TitleBlock
     subtitle: >-
       No black box. Fully transparent, modern, and scalable architecture.
@@ -252,6 +267,9 @@ sections:
     title:
       text: Meet Your Digital Architect
       color: text-dark
+      styles:
+        self:
+          textAlign: center
       type: TitleBlock
     subtitle: >-
       Contact us to create a custom architecture plan for your business.

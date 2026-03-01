@@ -2,7 +2,7 @@
     "title": "Doveify",
     "primaryLinks": [
         {
-            "label": "Clinic OS (Beta)",
+            "label": "Clinic OS",
             "url": "/clinic/",
             "icon": "arrowRight",
             "iconPosition": "right",
@@ -11,7 +11,15 @@
         },
         {
             "label": "Broker's Brain",
-            "url": "/brokers-brain",
+            "url": "/brokers-brain/",
+            "icon": "arrowRight",
+            "iconPosition": "right",
+            "style": "secondary",
+            "type": "Link"
+        },
+        {
+            "label": "Contact",
+            "url": "/#contact",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",
