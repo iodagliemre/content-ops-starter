@@ -3,7 +3,7 @@
     "primaryLinks": [
         {
             "label": "Clinic OS (Beta)",
-            "url": "/",
+            "url": "/clinic/",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",

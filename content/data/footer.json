@@ -7,7 +7,7 @@
             {
                 "label": "Clinic OS",
                 "altText": "Clinic OS",
-                "url": "/",
+                "url": "/clinic/",
                 "icon": "arrowRight",
                 "iconPosition": "right",
                 "style": "secondary",
