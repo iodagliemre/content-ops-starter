@@ -59,8 +59,8 @@ sections:
         text: >-
           Appointments, patient tracking, treatment management, inventory, billing, and 24/7 patient communication via WhatsApp automation. Fully integrated clinic management system.
         image:
-          url: /images/doveify-dashboard.png
-          altText: Clinic OS Dashboard
+          url: /images/clinic-dashboard.png
+          altText: Doveify Clinic OS Dashboard
           type: ImageBlock
         actions:
           - label: Explore Clinic OS →

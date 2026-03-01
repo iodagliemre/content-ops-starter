@@ -34,8 +34,8 @@ sections:
         elementId: ''
         type: Link
     media:
-      url: /images/doveify-dashboard.png
-      altText: Doveify dashboard preview
+      url: /images/clinic-dashboard.png
+      altText: Doveify Clinic OS Dashboard
       elementId: ''
       type: ImageBlock
     badge:
@@ -191,9 +191,9 @@ sections:
             boxShadow: md
         image:
           type: ImageBlock
-          altText: Appointments feature
+          altText: Smart Appointments Calendar
           elementId: ''
-          url: /images/doveify-dashboard.png
+          url: /images/clinic-calendar.png
           styles:
             self:
               borderRadius: large
@@ -202,8 +202,8 @@ sections:
         text: >-
           Digital patient files, treatment history, notes - all in one place.
         image:
-          url: /images/doveify-login.png
-          altText: Patient records feature
+          url: /images/clinic-patient-media.png
+          altText: Patient Records
           elementId: ''
           type: ImageBlock
           styles:
@@ -229,8 +229,8 @@ sections:
         text: >-
           Create invoices, track payments, manage your revenue.
         image:
-          url: /images/doveify-login.png
-          altText: Billing feature
+          url: /images/clinic-invoices.png
+          altText: Billing & Invoicing
           elementId: ''
           type: ImageBlock
           styles:
