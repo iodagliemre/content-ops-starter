@@ -4,439 +4,299 @@ slug: /
 sections:
   - type: GenericSection
     title:
-      text: All-in-One Clinic OS
+      text: Digital Architecture For Your Business
       color: text-dark
       type: TitleBlock
-    subtitle: Run your clinic. Not spreadsheets.
-    text: >
-      Appointments, patients, billing — finally in one system.
-      Start your free 14-day trial with done-for-you setup.
-
-
-      ✓ Trusted by early-stage clinics  •  ✓ GDPR-ready  •  ✓ No long-term contracts
+    subtitle: >-
+      AI-powered, fully customized automation systems that you own.
+      Stop renting software — build your own digital infrastructure.
     actions:
-      - label: Start Free Trial
-        altText: Start your free trial
-        url: '/signup/'
-        showIcon: false
-        icon: arrowRight
-        iconPosition: right
-        style: primary
-        elementId: ''
-        type: Button
-      - label: Book a 15-min Demo
-        altText: Book a 15-min demo
+      - label: Book a Demo
         url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
-        showIcon: true
-        icon: arrowRight
-        iconPosition: right
-        style: secondary
-        elementId: ''
-        type: Link
-    media:
-      url: /images/doveify-dashboard.png
-      altText: Doveify dashboard preview
-      elementId: ''
-      type: ImageBlock
-    badge:
-      label: EARLY ACCESS BETA • LIMITED SPOTS
-      color: text-primary
-      type: Badge
-    elementId: ''
-    colors: bg-light-fg-dark
-    styles:
-      self:
-        alignItems: center
-        flexDirection: row
-        padding:
-          - pt-16
-          - pl-16
-          - pb-16
-          - pr-16
-  - type: FeaturedItemsSection
-    title:
-      text: Why Choose Us
-      color: text-dark
-      styles:
-        self:
-          textAlign: center
-      type: TitleBlock
-    subtitle: Built for clinics that want clarity, speed, and control — without complexity.
-    items:
-      - type: FeaturedItem
-        title: Secure by Design
-        subtitle: ''
-        text: >-
-          Your patient data is protected. GDPR-ready, no compromises.
-        actions: []
-        elementId: null
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: large
-            flexDirection: col
-            justifyContent: center
-            textAlign: center
-            boxShadow: md
-        image:
-          type: ImageBlock
-          altText: GDPR Compliant icon
-          elementId: ''
-          url: /images/icon1.svg
-          styles:
-            self:
-              borderRadius: x-large
-      - title: Zero Setup Headaches
-        subtitle: ''
-        text: >-
-          We configure everything. You just log in and start.
-        image:
-          url: /images/icon2.svg
-          altText: Setup icon
-          elementId: ''
-          type: ImageBlock
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: large
-            flexDirection: col
-            textAlign: center
-            justifyContent: center
-            boxShadow: md
-        type: FeaturedItem
-      - title: Real-time Clarity
-        subtitle: ''
-        text: >-
-          See appointments, patients & revenue — all in one view.
-        image:
-          url: /images/icon3.svg
-          altText: Easy to use icon
-          elementId: ''
-          type: ImageBlock
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: large
-            flexDirection: col
-            textAlign: center
-            boxShadow: md
-        type: FeaturedItem
-    actions: []
-    badge:
-      label: ''
-      color: text-primary
-      styles:
-        self:
-          textAlign: center
-      type: Badge
-    elementId: ''
-    variant: three-col-grid
-    colors: bg-neutral-fg-dark
-    styles:
-      self:
-        padding:
-          - pb-16
-          - pt-16
-          - pl-16
-          - pr-16
-        justifyContent: center
-      subtitle:
-        textAlign: center
-  - type: FeaturedItemsSection
-    title:
-      text: Everything you need to run your practice
-      color: text-dark
-      styles:
-        self:
-          textAlign: center
-      type: TitleBlock
-    subtitle: ''
-    items:
-      - type: FeaturedItem
-        title: Smart Appointments
-        subtitle: ''
-        text: >-
-          Manage your calendar, send automatic reminders, reduce no-shows.
-        actions: []
-        elementId: null
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: large
-            flexDirection: col
-            justifyContent: flex-start
-            textAlign: left
-            boxShadow: md
-        image:
-          type: ImageBlock
-          altText: Appointments feature
-          elementId: ''
-          url: /images/doveify-dashboard.png
-          styles:
-            self:
-              borderRadius: large
-      - title: Patient Records
-        subtitle: ''
-        text: >-
-          Digital patient files, treatment history, notes - all in one place.
-        image:
-          url: /images/doveify-login.png
-          altText: Patient records feature
-          elementId: ''
-          type: ImageBlock
-          styles:
-            self:
-              borderRadius: large
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: large
-            flexDirection: col
-            textAlign: left
-            justifyContent: flex-start
-            boxShadow: md
-        type: FeaturedItem
-      - title: Billing & Invoicing
-        subtitle: ''
-        text: >-
-          Create invoices, track payments, manage your revenue.
-        image:
-          url: /images/doveify-login.png
-          altText: Billing feature
-          elementId: ''
-          type: ImageBlock
-          styles:
-            self:
-              borderRadius: large
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: large
-            flexDirection: col
-            textAlign: left
-            boxShadow: md
-        type: FeaturedItem
-    actions: []
-    badge:
-      label: ''
-      color: text-primary
-      styles:
-        self:
-          textAlign: center
-      type: Badge
-    elementId: features
-    variant: three-col-grid
-    colors: bg-light-fg-dark
-    styles:
-      self:
-        padding:
-          - pb-16
-          - pt-16
-          - pl-16
-          - pr-16
-        justifyContent: center
-      subtitle:
-        textAlign: center
-  - type: FeaturedItemsSection
-    title:
-      text: WhatsApp Automation Built-In
-      color: text-dark
-      styles:
-        self:
-          textAlign: center
-      type: TitleBlock
-    subtitle: Instant replies. Smart reminders. Zero missed leads. Your WhatsApp works while you sleep — powered by AI.
-    items:
-      - type: FeaturedItem
-        title: Smart Reminders
-        subtitle: ''
-        text: >-
-          Automated appointment reminders and confirmations via WhatsApp. Reduce no-shows by up to 40%.
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: large
-            flexDirection: col
-            justifyContent: center
-            textAlign: center
-            boxShadow: md
-        image:
-          type: ImageBlock
-          altText: Smart Reminders
-          elementId: ''
-          url: /images/smart-reminders.png
-          styles:
-            self:
-              borderRadius: large
-      - type: FeaturedItem
-        title: AI-Powered Chatbot
-        subtitle: ''
-        text: >-
-          24/7 intelligent responses to patient inquiries. Book appointments, answer questions, and qualify leads automatically.
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: large
-            flexDirection: col
-            justifyContent: center
-            textAlign: center
-            boxShadow: md
-        image:
-          type: ImageBlock
-          altText: AI-Powered Chatbot
-          elementId: ''
-          url: /images/ai-chatbot.png
-          styles:
-            self:
-              borderRadius: large
-      - type: FeaturedItem
-        title: Follow-Up Sequences
-        subtitle: ''
-        text: >-
-          Automated follow-up messages that convert leads into customers. Never miss an opportunity again.
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: large
-            flexDirection: col
-            justifyContent: center
-            textAlign: center
-            boxShadow: md
-        image:
-          type: ImageBlock
-          altText: Follow-Up Sequences
-          elementId: ''
-          url: /images/follow-up.png
-          styles:
-            self:
-              borderRadius: large
-    actions: []
-    badge:
-      label: Works with WhatsApp Business API • No extra apps needed • Setup in 24 hours
-      color: text-primary
-      styles:
-        self:
-          textAlign: center
-      type: Badge
-    elementId: whatsapp
-    variant: three-col-grid
-    colors: bg-neutral-fg-dark
-    styles:
-      self:
-        padding:
-          - pb-16
-          - pt-16
-          - pl-16
-          - pr-16
-        justifyContent: center
-      subtitle:
-        textAlign: center
-  - type: GenericSection
-    title:
-      text: Ready to simplify your clinic?
-      color: text-light
-      styles:
-        self:
-          textAlign: center
-      type: TitleBlock
-    subtitle: ''
-    text: >
-      Have questions? We'd love to hear from you.
-
-
-      📧 [emre@doveify.io](mailto:emre@doveify.io)
-
-
-      📧 [elifoflaz@doveify.io](mailto:elifoflaz@doveify.io)
-
-
-      🔗 [LinkedIn](https://www.linkedin.com/company/doveify)
-    actions:
-      - label: Start Free Trial
-        altText: Start your free trial
-        url: '/signup/'
-        showIcon: false
         icon: arrowRight
         iconPosition: right
         style: primary
-        elementId: ''
         type: Button
-    media: null
+      - label: Explore Solutions
+        url: '#solutions'
+        style: secondary
+        type: Button
     badge:
-      label: ''
+      label: 'OWN YOUR SYSTEM • SAAS ALTERNATIVE'
       color: text-primary
       type: Badge
-    elementId: contact
-    colors: bg-dark-fg-light
+    text: >-
+      ✓ Your data stays with you • ✓ GDPR-ready • ✓ No long-term contracts
+    colors: bg-light-fg-dark
     styles:
       self:
         alignItems: center
         flexDirection: col
-        justifyContent: center
         padding:
-          - pt-20
-          - pl-16
+          - pt-28
+          - pl-8
           - pb-20
-          - pr-16
+          - pr-8
+        justifyContent: center
       text:
         textAlign: center
       subtitle:
         textAlign: center
+  - type: FeaturedItemsSection
+    title:
+      text: Industry Solutions
+      color: text-dark
+      type: TitleBlock
+    subtitle: >-
+      Custom digital infrastructure designed for your specific industry workflows.
+    items:
+      - type: FeaturedItem
+        title: Healthcare & Clinics
+        tagline: Clinic OS — Live
+        text: >-
+          Appointments, patient tracking, treatment management, inventory, billing, and 24/7 patient communication via WhatsApp automation. Fully integrated clinic management system.
+        image:
+          url: /images/doveify-dashboard.png
+          altText: Clinic OS Dashboard
+          type: ImageBlock
+        actions:
+          - label: Explore Clinic OS →
+            url: /clinic/
+            style: primary
+            type: Link
+      - type: FeaturedItem
+        title: Real Estate
+        tagline: Broker's Brain — Live
+        text: >-
+          Lead management, automatic portfolio matching, AI-powered WhatsApp responses, and instant client follow-up. Turn leads into closings without hiring.
+        image:
+          url: /images/brokerbrain-dashboard.png
+          altText: Broker's Brain Dashboard
+          type: ImageBlock
+        actions:
+          - label: Explore Broker's Brain →
+            url: /brokers-brain/
+            style: primary
+            type: Link
+      - type: FeaturedItem
+        title: Education & Coaching
+        tagline: Coming Soon
+        text: >-
+          Student registration, lesson planning, progress tracking, and automated notification systems. Built for training centers and coaching businesses.
+        actions: []
+      - type: FeaturedItem
+        title: Logistics & Supply Chain
+        tagline: Coming Soon
+        text: >-
+          Route optimization, fleet tracking, delay prediction, and automatic customer notifications via WhatsApp. Eliminate operational blind spots.
+        actions: []
+      - type: FeaturedItem
+        title: Manufacturing
+        tagline: Coming Soon
+        text: >-
+          Production line tracking, quality control automation, inventory and supply chain management. Full factory floor visibility.
+        actions: []
+      - type: FeaturedItem
+        title: Tourism & Hospitality
+        tagline: Coming Soon
+        text: >-
+          Reservation management, guest communication, operations automation. Streamline your hotel or tourism business.
+        actions: []
+    variant: three-col-grid
+    colors: bg-neutral-fg-dark
+    styles:
+      self:
+        padding:
+          - pt-16
+          - pl-8
+          - pb-16
+          - pr-8
+      subtitle:
+        textAlign: center
+    elementId: solutions
+  - type: FeaturedItemsSection
+    title:
+      text: How It Works
+      color: text-dark
+      type: TitleBlock
+    subtitle: >-
+      Your business's digital nervous system — a 4-layer integrated architecture that perceives, thinks, and takes action.
+    items:
+      - type: FeaturedItem
+        title: '01 — Data Collection'
+        text: >-
+          All data from APIs, WhatsApp, IoT sensors, and emails collected in a centralized data hub. Smart parser engine processes unstructured data automatically.
+      - type: FeaturedItem
+        title: '02 — AI Decision Center'
+        text: >-
+          AI analyzes incoming data, classifies urgency (critical vs routine), and assigns priority scores. Processing time under 30 seconds.
+      - type: FeaturedItem
+        title: '03 — Autonomous Action'
+        text: >-
+          Smart task assignment to the right person or tool, Google Calendar integration for scheduling, WhatsApp notifications to clients and team members.
+      - type: FeaturedItem
+        title: '04 — Command Dashboard'
+        text: >-
+          Real-time monitoring, performance analytics, and manual override capability. Modern, responsive, and fully white-labeled to your brand.
+    variant: two-col-grid
+    colors: bg-light-fg-dark
+    styles:
+      self:
+        padding:
+          - pt-16
+          - pl-8
+          - pb-16
+          - pr-8
+      subtitle:
+        textAlign: center
+  - type: FeaturedItemsSection
+    title:
+      text: 'SaaS vs Doveify: Stop Being a Tenant'
+      color: text-dark
+      type: TitleBlock
+    subtitle: >-
+      Why pay rent for a generic software apartment when you can own a custom-built digital building on your own server?
+    items:
+      - type: FeaturedItem
+        title: '❌ Tenant (SaaS)'
+        text: >-
+          ✕ Time-limited rental — you lose access when you stop paying
+
+
+          ✕ Limited control — can't customize beyond what they allow
+
+
+          ✕ Recurring license fees — costs add up year after year
+
+
+          ✕ Shared infrastructure — your data sits next to competitors
+      - type: FeaturedItem
+        title: '✅ Owner (Doveify)'
+        text: >-
+          ✓ Digital ownership — the system is 100% yours forever
+
+
+          ✓ Full data sovereignty — your database is private, not shared
+
+
+          ✓ Zero license cost — one-time investment, lifetime usage
+
+
+          ✓ Isolated server — your own DigitalOcean Droplet and Docker containers
+    variant: two-col-grid
+    colors: bg-neutral-fg-dark
+    styles:
+      self:
+        padding:
+          - pt-16
+          - pl-8
+          - pb-16
+          - pr-8
+      subtitle:
+        textAlign: center
+  - type: FeaturedItemsSection
+    title:
+      text: Why Doveify?
+      color: text-dark
+      type: TitleBlock
+    items:
+      - type: FeaturedItem
+        title: 100% Ownership
+        text: >-
+          Don't rent software, own it. Your system belongs entirely to you. No vendor lock-in, no surprises.
+      - type: FeaturedItem
+        title: Lifetime Usage
+        text: >-
+          No monthly license fees. One-time investment with optional annual maintenance. The system keeps running forever.
+      - type: FeaturedItem
+        title: Full Customization
+        text: >-
+          The system adapts to your workflows, not the other way around. Every feature tailored to how you actually work.
+      - type: FeaturedItem
+        title: Data Sovereignty
+        text: >-
+          Your data stays on your own server. Not in shared SaaS pools. Each client gets isolated DigitalOcean Droplets and Docker containers.
+    variant: two-col-grid
+    colors: bg-light-fg-dark
+    styles:
+      self:
+        padding:
+          - pt-16
+          - pl-8
+          - pb-16
+          - pr-8
+  - type: GenericSection
+    title:
+      text: Open-Source Technology Stack
+      color: text-dark
+      type: TitleBlock
+    subtitle: >-
+      No black box. Fully transparent, modern, and scalable architecture.
+    text: >-
+      **n8n** — Workflow Engine & Business Logic  |  **OpenAI GPT-4o + Whisper** — Natural Language Processing  |  **PostgreSQL** — Structured Data Memory  |  **Docker / DigitalOcean** — Isolated Server Environment
+    colors: bg-neutral-fg-dark
+    styles:
+      self:
+        alignItems: center
+        flexDirection: col
+        padding:
+          - pt-12
+          - pl-8
+          - pb-12
+          - pr-8
+      text:
+        textAlign: center
+      subtitle:
+        textAlign: center
+  - type: GenericSection
+    title:
+      text: Meet Your Digital Architect
+      color: text-dark
+      type: TitleBlock
+    subtitle: >-
+      Contact us to create a custom architecture plan for your business.
+    text: >-
+      **Emre Dağlı**
+
+      📧 emre@doveify.io  •  📱 +90 542 805 08 15
+
+
+      **Elif Dağlı**
+
+      📧 elifdagli@doveify.io  •  📱 +90 535 258 45 78
+
+
+      📧 elifoflaz@doveify.io  •  📧 hello@doveify.com  •  [LinkedIn](https://www.linkedin.com/company/doveify)
+    actions:
+      - label: Book a Demo
+        url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
+        icon: arrowRight
+        iconPosition: right
+        style: primary
+        type: Button
+      - label: Start Free Trial
+        url: /signup/
+        style: secondary
+        type: Button
+    colors: bg-light-fg-dark
+    styles:
+      self:
+        alignItems: center
+        flexDirection: col
+        padding:
+          - pt-20
+          - pl-8
+          - pb-20
+          - pr-8
+      text:
+        textAlign: center
+      subtitle:
+        textAlign: center
+    elementId: contact
 seo:
-  metaTitle: Doveify - AI-Powered Business Automation | Clinic OS & Broker's Brain
-  metaDescription: Manage appointments, patient records, treatments, and billing from a single dashboard. Start your free 14-day trial with done-for-you setup.
+  metaTitle: 'Doveify — Digital Architecture For Your Business'
+  metaDescription: >-
+    AI-powered, fully customized automation systems that you own. Custom solutions for healthcare, real estate, education, logistics, manufacturing, and tourism.
   socialImage: /images/doveify-dashboard.png
   type: Seo
 type: PageLayout
