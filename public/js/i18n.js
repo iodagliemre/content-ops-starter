@@ -2,120 +2,93 @@
 (function() {
   'use strict';
 
+  // Direct text-to-translation mapping (EN -> TR)
   const translations = {
-    en: {
-      // Hero section
-      'hero.badge': 'EARLY ACCESS BETA • LIMITED SPOTS',
-      'hero.title': 'All-in-One Clinic OS',
-      'hero.subtitle': 'Run your clinic. Not spreadsheets.',
-      'hero.text': 'Appointments, patients, billing — finally in one system. Start your free 14-day trial with done-for-you setup.',
-      'hero.trust': '✓ Trusted by early-stage clinics  •  ✓ GDPR-ready  •  ✓ No long-term contracts',
-      'hero.cta1': 'Start Free Trial',
-      'hero.cta2': 'Book a 15-min Demo',
+    // HERO
+    "OWN YOUR SYSTEM • SAAS ALTERNATIVE": "SİSTEMİNİZİN SAHİBİ OLUN • SAAS ALTERNATİFİ",
+    "Digital Architecture For Your Business": "İşletmeniz İçin Dijital Mimari",
+    "AI-powered, fully customized automation systems that you own. Stop renting software — build your own digital infrastructure.": "Yapay zekâ tabanlı, size ait ve tamamen özelleştirilmiş otomasyon sistemleri. Kiracı olmayı bırakın — kendi dijital altyapınızın sahibi olun.",
+    "✓ Your data stays with you • ✓ GDPR-ready • ✓ No long-term contracts": "✓ Verileriniz sizde kalır • ✓ GDPR uyumlu • ✓ Uzun vadeli sözleşme yok",
+    "Book a Demo": "Demo Talep Et",
+    "Explore Solutions": "Çözümlerimizi İncele",
 
-      // Why Choose Us
-      'why.title': 'Why Choose Us',
-      'why.subtitle': 'Built for clinics that want clarity, speed, and control — without complexity.',
-      'why.card1.title': 'Secure by Design',
-      'why.card1.text': 'Your patient data is protected. GDPR-ready, no compromises.',
-      'why.card2.title': 'Zero Setup Headaches',
-      'why.card2.text': 'We configure everything. You just log in and start.',
-      'why.card3.title': 'Real-time Clarity',
-      'why.card3.text': 'See appointments, patients & revenue — all in one view.',
+    // INDUSTRY SOLUTIONS
+    "Industry Solutions": "Sektörel Çözümler",
+    "Custom digital infrastructure designed for your specific industry workflows.": "Her sektöre özel, iş akışlarınıza göre tasarlanmış dijital altyapı.",
+    "Healthcare & Clinics": "Sağlık & Klinik",
+    "Clinic OS — Live": "Clinic OS — Aktif",
+    "Appointments, patient tracking, treatment management, inventory, billing, and 24/7 patient communication via WhatsApp automation. Fully integrated clinic management system.": "Randevu, hasta takibi, tedavi yönetimi, stok, fatura ve WhatsApp ile 7/24 hasta iletişimi. Tam entegre klinik yönetim sistemi.",
+    "Explore Clinic OS →": "Clinic OS'u İncele →",
+    "Real Estate": "Emlak & Gayrimenkul",
+    "Broker's Brain — Live": "Broker's Brain — Aktif",
+    "Lead management, automatic portfolio matching, AI-powered WhatsApp responses, and instant client follow-up. Turn leads into closings without hiring.": "Lead yönetimi, otomatik portföy eşleştirme, yapay zekâ destekli WhatsApp yanıtları ve anlık müşteri takibi. İşe alım yapmadan satışları kapatın.",
+    "Explore Broker's Brain →": "Broker's Brain'i İncele →",
+    "Education & Coaching": "Eğitim & Koçluk",
+    "Student registration, lesson planning, progress tracking, and automated notification systems. Built for training centers and coaching businesses.": "Öğrenci kayıt, ders planlama, ilerleme takibi ve otomatik bildirim sistemleri. Eğitim merkezleri ve koçluk işletmeleri için.",
+    "Logistics & Supply Chain": "Lojistik & Tedarik Zinciri",
+    "Route optimization, fleet tracking, delay prediction, and automatic customer notifications via WhatsApp. Eliminate operational blind spots.": "Rota optimizasyonu, araç takibi, gecikme tahmini ve WhatsApp ile otomatik müşteri bilgilendirme. Operasyonel kör noktaları ortadan kaldırın.",
+    "Manufacturing": "Üretim",
+    "Production line tracking, quality control automation, inventory and supply chain management. Full factory floor visibility.": "Üretim hattı takibi, kalite kontrol otomasyonu, stok ve tedarik zinciri yönetimi. Tam fabrika görünürlüğü.",
+    "Tourism & Hospitality": "Turizm & Otelcilik",
+    "Reservation management, guest communication, operations automation. Streamline your hotel or tourism business.": "Rezervasyon yönetimi, misafir iletişimi, operasyon otomasyonu. Otel veya turizm işletmenizi sadeleştirin.",
 
-      // Features
-      'features.title': 'Everything you need to run your practice',
-      'features.card1.title': 'Smart Appointments',
-      'features.card1.text': 'Manage your calendar, send automatic reminders, reduce no-shows.',
-      'features.card2.title': 'Patient Records',
-      'features.card2.text': 'Digital patient files, treatment history, notes - all in one place.',
-      'features.card3.title': 'Billing & Invoicing',
-      'features.card3.text': 'Create invoices, track payments, manage your revenue.',
+    // HOW IT WORKS
+    "How It Works": "Nasıl Çalışır?",
+    "Your business's digital nervous system — a 4-layer integrated architecture that perceives, thinks, and takes action.": "İşletmenizin dijital sinir sistemi — algılayan, düşünen ve harekete geçen 4 katmanlı entegre mimari.",
+    "01 — Data Collection": "01 — Veri Toplama",
+    "All data from APIs, WhatsApp, IoT sensors, and emails collected in a centralized data hub. Smart parser engine processes unstructured data automatically.": "API, WhatsApp, IoT sensörler ve e-postalardan gelen tüm veriler merkezi veri havuzunda toplanır. Akıllı ayrıştırma motoru yapılandırılmamış veriyi otomatik işler.",
+    "02 — AI Decision Center": "02 — AI Karar Merkezi",
+    "AI analyzes incoming data, classifies urgency (critical vs routine), and assigns priority scores. Processing time under 30 seconds.": "Yapay zekâ gelen veriyi analiz eder, aciliyeti sınıflandırır ve öncelik puanı atar. İşleme süresi 30 saniyenin altında.",
+    "03 — Autonomous Action": "03 — Otonom Aksiyon",
+    "Smart task assignment to the right person or tool, Google Calendar integration for scheduling, WhatsApp notifications to clients and team members.": "Doğru kişi veya araca akıllı görev atama, Google Calendar entegrasyonu ve WhatsApp ile müşteri ve ekibe otomatik bildirim.",
+    "04 — Command Dashboard": "04 — Yönetim Paneli",
+    "Real-time monitoring, performance analytics, and manual override capability. Modern, responsive, and fully white-labeled to your brand.": "Gerçek zamanlı izleme, performans analitiği ve manuel müdahale imkânı. Modern, responsive ve tamamen sizin markanıza uygun.",
 
-      // WhatsApp section
-      'whatsapp.title': 'WhatsApp Automation Built-In',
-      'whatsapp.subtitle': 'Instant replies. Smart reminders. Zero missed leads. Your WhatsApp works while you sleep — powered by AI.',
-      'whatsapp.card1.title': 'Smart Reminders',
-      'whatsapp.card1.text': 'Automated appointment reminders and confirmations via WhatsApp. Reduce no-shows by up to 40%.',
-      'whatsapp.card2.title': 'AI-Powered Chatbot',
-      'whatsapp.card2.text': '24/7 intelligent responses to patient inquiries. Book appointments, answer questions, and qualify leads automatically.',
-      'whatsapp.card3.title': 'Follow-Up Sequences',
-      'whatsapp.card3.text': 'Automated follow-up messages that convert leads into customers. Never miss an opportunity again.',
-      'whatsapp.badge': 'Works with WhatsApp Business API • No extra apps needed • Setup in 24 hours',
+    // SAAS VS DOVEIFY
+    "SaaS vs Doveify: Stop Being a Tenant": "SaaS vs Doveify: Kiracı Olmayı Bırakın",
+    "Why pay rent for a generic software apartment when you can own a custom-built digital building on your own server?": "Kendi sunucunuzda size özel bir dijital bina inşa edebilecekken neden genel bir yazılım dairesine kira ödeyesiniz?",
+    "❌ Tenant (SaaS)": "❌ Kiracı (SaaS)",
+    "✅ Owner (Doveify)": "✅ Mülk Sahibi (Doveify)",
+    "✕ Time-limited rental — you lose access when you stop paying": "✕ Süreli kiralama — ödemeyi durdurunca erişim kaybolur",
+    "✕ Limited control — can't customize beyond what they allow": "✕ Kısıtlı kontrol — izin verdiklerinin ötesinde özelleştiremezsiniz",
+    "✕ Recurring license fees — costs add up year after year": "✕ Tekrarlayan lisans ücretleri — maliyetler yıldan yıla birikir",
+    "✕ Shared infrastructure — your data sits next to competitors": "✕ Paylaşılan altyapı — verileriniz rakiplerin yanında",
+    "✓ Digital ownership — the system is 100% yours forever": "✓ Dijital mülkiyet — sistem sonsuza kadar %100 sizin",
+    "✓ Full data sovereignty — your database is private, not shared": "✓ Tam veri egemenliği — veritabanınız özel, paylaşılmaz",
+    "✓ Zero license cost — one-time investment, lifetime usage": "✓ Sıfır lisans maliyeti — tek seferlik yatırım, ömür boyu kullanım",
+    "✓ Isolated server — your own DigitalOcean Droplet and Docker containers": "✓ İzole sunucu — kendi DigitalOcean Droplet ve Docker konteynerleriniz",
 
-      // Contact section
-      'contact.title': 'Ready to simplify your clinic?',
-      'contact.text': 'Have questions? We\'d love to hear from you.',
+    // WHY DOVEIFY
+    "Why Doveify?": "Neden Doveify?",
+    "100% Ownership": "%100 Mülkiyet",
+    "Don't rent software, own it. Your system belongs entirely to you. No vendor lock-in, no surprises.": "Yazılımı kiralamayın, sahibi olun. Sisteminiz tamamen size ait. Bağımlılık yok, sürpriz yok.",
+    "Lifetime Usage": "Ömür Boyu Kullanım",
+    "No monthly license fees. One-time investment with optional annual maintenance. The system keeps running forever.": "Aylık lisans ücreti yok. Opsiyonel yıllık bakım ile tek seferlik yatırım. Sistem sonsuza kadar çalışır.",
+    "Full Customization": "Tam Özelleştirme",
+    "The system adapts to your workflows, not the other way around. Every feature tailored to how you actually work.": "Sistem sizin iş akışlarınıza uyar, tersi değil. Her özellik gerçek çalışma şeklinize göre tasarlanır.",
+    "Data Sovereignty": "Veri Egemenliği",
+    "Your data stays on your own server. Not in shared SaaS pools. Each client gets isolated DigitalOcean Droplets and Docker containers.": "Verileriniz kendi sunucunuzda kalır. Paylaşılan SaaS havuzlarında değil. Her müşteri izole sunucu ortamına sahip olur.",
 
-      // Navigation
-      'nav.clinicos': 'Clinic OS (Beta)',
-      'nav.brokersbrain': 'Broker\'s Brain',
-      'nav.demo': 'Book a Demo',
-      'nav.trial': 'Start Free Trial',
+    // TECH STACK
+    "Open-Source Technology Stack": "Açık Kaynak Teknoloji Motoru",
+    "No black box. Fully transparent, modern, and scalable architecture.": "'Black box' yok. Tamamen şeffaf, modern ve ölçeklenebilir mimari.",
 
-      // Footer
-      'footer.tagline': 'Smart software for modern businesses | 📍 Istanbul • London • Dubai',
-      'footer.products': 'Products',
-      'footer.legal': 'Legal',
-      'footer.privacy': 'Privacy Policy'
-    },
-    tr: {
-      // Hero section
-      'hero.badge': 'ERKEN ERİŞİM BETA • SINIRLI KONTENJAN',
-      'hero.title': 'Hepsi Bir Arada Klinik Yönetim Sistemi',
-      'hero.subtitle': 'Kliniğinizi yönetin. Tabloları değil.',
-      'hero.text': 'Randevular, hastalar, faturalar — sonunda tek sistemde. 14 günlük ücretsiz denemenizi başlatın, kurulumu biz yapalım.',
-      'hero.trust': '✓ Erken aşama klinikler güveniyor  •  ✓ GDPR uyumlu  •  ✓ Uzun vadeli sözleşme yok',
-      'hero.cta1': 'Ücretsiz Deneyin',
-      'hero.cta2': '15 Dakikalık Demo',
+    // CONTACT
+    "Meet Your Digital Architect": "Dijital Mimarınızla Tanışın",
+    "Contact us to create a custom architecture plan for your business.": "İşletmenize özel mimari planı oluşturmak için bizimle iletişime geçin.",
+    "Start Free Trial": "Ücretsiz Dene",
 
-      // Why Choose Us
-      'why.title': 'Neden Biz?',
-      'why.subtitle': 'Netlik, hız ve kontrol isteyen klinikler için — karmaşıklık olmadan.',
-      'why.card1.title': 'Güvenli Tasarım',
-      'why.card1.text': 'Hasta verileriniz korunur. GDPR uyumlu, taviz yok.',
-      'why.card2.title': 'Kurulum Derdi Yok',
-      'why.card2.text': 'Her şeyi biz yapılandırıyoruz. Siz sadece giriş yapın ve başlayın.',
-      'why.card3.title': 'Anlık Görünürlük',
-      'why.card3.text': 'Randevular, hastalar ve gelir — tek ekranda.',
-
-      // Features
-      'features.title': 'Kliniğinizi yönetmek için ihtiyacınız olan her şey',
-      'features.card1.title': 'Akıllı Randevu Yönetimi',
-      'features.card1.text': 'Takviminizi yönetin, otomatik hatırlatmalar gönderin, randevu kaçırmalarını azaltın.',
-      'features.card2.title': 'Hasta Kayıtları',
-      'features.card2.text': 'Dijital hasta dosyaları, tedavi geçmişi, notlar — tek yerde.',
-      'features.card3.title': 'Faturalama',
-      'features.card3.text': 'Fatura oluşturun, ödemeleri takip edin, gelirinizi yönetin.',
-
-      // WhatsApp section
-      'whatsapp.title': 'Entegre WhatsApp Otomasyonu',
-      'whatsapp.subtitle': 'Anında yanıtlar. Akıllı hatırlatmalar. Kaçan müşteri yok. WhatsApp\'ınız siz uyurken çalışır — yapay zeka destekli.',
-      'whatsapp.card1.title': 'Akıllı Hatırlatmalar',
-      'whatsapp.card1.text': 'WhatsApp üzerinden otomatik randevu hatırlatma ve onay. Randevu kaçırmalarını %40\'a kadar azaltın.',
-      'whatsapp.card2.title': 'Yapay Zeka Destekli Chatbot',
-      'whatsapp.card2.text': 'Hasta sorularına 7/24 akıllı yanıtlar. Otomatik randevu alma, soru yanıtlama ve müşteri değerlendirme.',
-      'whatsapp.card3.title': 'Otomatik Takip Mesajları',
-      'whatsapp.card3.text': 'Müşteri adaylarını müşteriye dönüştüren otomatik takip mesajları. Bir fırsatı daha asla kaçırmayın.',
-      'whatsapp.badge': 'WhatsApp Business API ile çalışır • Ekstra uygulama gerekmez • 24 saatte kurulum',
-
-      // Contact section
-      'contact.title': 'Kliniğinizi sadeleştirmeye hazır mısınız?',
-      'contact.text': 'Sorularınız mı var? Sizden haber almak isteriz.',
-
-      // Navigation
-      'nav.clinicos': 'Klinik OS (Beta)',
-      'nav.brokersbrain': 'Broker\'s Brain',
-      'nav.demo': 'Demo Talep Et',
-      'nav.trial': 'Ücretsiz Deneyin',
-
-      // Footer
-      'footer.tagline': 'Modern işletmeler için akıllı yazılımlar | 📍 İstanbul • Londra • Dubai',
-      'footer.products': 'Ürünler',
-      'footer.legal': 'Yasal',
-      'footer.privacy': 'Gizlilik Politikası'
-    }
+    // NAV & FOOTER
+    "Clinic OS": "Clinic OS",
+    "Broker's Brain": "Broker's Brain",
+    "Contact": "İletişim",
+    "Products": "Ürünler",
+    "Legal": "Yasal",
+    "Privacy Policy": "Gizlilik Politikası"
   };
+
+  // Store original texts for reverting
+  let originalTexts = new Map();
 
   // Get current language from localStorage or default to 'en'
   function getCurrentLang() {
@@ -127,15 +100,56 @@
     localStorage.setItem('doveify-lang', lang);
   }
 
-  // Translate all elements with data-i18n attribute
-  function translatePage(lang) {
-    const elements = document.querySelectorAll('[data-i18n]');
+  // Translate page to Turkish
+  function translateToTurkish() {
+    const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, a, button, li');
+    
     elements.forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang] && translations[lang][key]) {
-        el.textContent = translations[lang][key];
+      // Skip elements with children that also have text (avoid double translation)
+      if (el.children.length > 0) {
+        const childTexts = Array.from(el.children).some(child => 
+          child.textContent && child.textContent.trim().length > 0
+        );
+        if (childTexts) return;
+      }
+      
+      const text = el.textContent?.trim();
+      if (text && translations[text]) {
+        // Store original text if not already stored
+        if (!originalTexts.has(el)) {
+          originalTexts.set(el, text);
+        }
+        el.textContent = translations[text];
       }
     });
+
+    // Update html lang attribute
+    document.documentElement.lang = 'tr';
+  }
+
+  // Revert to English (reload page to get original content)
+  function translateToEnglish() {
+    // Restore original texts if available
+    if (originalTexts.size > 0) {
+      originalTexts.forEach((originalText, el) => {
+        if (el && el.isConnected) {
+          el.textContent = originalText;
+        }
+      });
+      document.documentElement.lang = 'en';
+    } else {
+      // If no stored texts, reload the page
+      location.reload();
+    }
+  }
+
+  // Main translate function
+  function translatePage(lang) {
+    if (lang === 'tr') {
+      translateToTurkish();
+    } else {
+      translateToEnglish();
+    }
 
     // Update toggle button text
     const toggleBtn = document.getElementById('lang-toggle');
@@ -144,8 +158,11 @@
       toggleBtn.setAttribute('aria-label', lang === 'en' ? 'Türkçe\'ye geç' : 'Switch to English');
     }
 
-    // Update html lang attribute
-    document.documentElement.lang = lang;
+    const toggleBtnMobile = document.getElementById('lang-toggle-mobile');
+    if (toggleBtnMobile) {
+      toggleBtnMobile.textContent = lang === 'en' ? 'TR' : 'EN';
+      toggleBtnMobile.setAttribute('aria-label', lang === 'en' ? 'Türkçe\'ye geç' : 'Switch to English');
+    }
   }
 
   // Toggle language
@@ -158,18 +175,15 @@
 
   // Create and inject the toggle button into header
   function createToggleButton() {
-    // Wait for header to be available
     const checkHeader = setInterval(() => {
       const header = document.querySelector('.sb-component-header');
       if (!header) return;
 
-      // Check if button already exists
       if (document.getElementById('lang-toggle')) {
         clearInterval(checkHeader);
         return;
       }
 
-      // Find the secondary links container (where "Start Free Trial" button is)
       const secondaryLinksDesktop = header.querySelector('ul.lg\\:flex.ml-auto, ul.hidden.lg\\:flex.lg\\:items-center.ml-auto');
       
       if (secondaryLinksDesktop) {
@@ -187,7 +201,6 @@
         secondaryLinksDesktop.insertBefore(li, secondaryLinksDesktop.firstChild);
       }
 
-      // Also add to mobile menu if it exists
       const mobileMenuLinks = header.querySelectorAll('.fixed ul');
       mobileMenuLinks.forEach(ul => {
         if (!ul.querySelector('#lang-toggle-mobile')) {
@@ -210,117 +223,14 @@
     }, 100);
   }
 
-  // Add data-i18n attributes to elements based on their content
-  function addI18nAttributes() {
-    const mappings = [
-      // Hero
-      { selector: '.sb-component-badge', text: 'EARLY ACCESS BETA', key: 'hero.badge' },
-      { selector: 'h1, .h1', text: 'All-in-One Clinic OS', key: 'hero.title' },
-      
-      // Navigation links
-      { selector: 'a, button', text: 'Clinic OS (Beta)', key: 'nav.clinicos' },
-      { selector: 'a, button', text: 'Book a Demo', key: 'nav.demo' },
-      { selector: 'a, button', text: 'Start Free Trial', key: 'nav.trial' },
-      
-      // Section titles and content will be matched by walking the DOM
-    ];
-
-    // Walk through all text nodes and tag translatable elements
-    const walker = document.createTreeWalker(
-      document.body,
-      NodeFilter.SHOW_ELEMENT,
-      null,
-      false
-    );
-
-    const textMappings = {
-      // Exact text matches
-      'All-in-One Clinic OS': 'hero.title',
-      'Run your clinic. Not spreadsheets.': 'hero.subtitle',
-      'Start Free Trial': 'hero.cta1',
-      'Book a 15-min Demo': 'hero.cta2',
-      'Why Choose Us': 'why.title',
-      'Built for clinics that want clarity, speed, and control — without complexity.': 'why.subtitle',
-      'Secure by Design': 'why.card1.title',
-      'Your patient data is protected. GDPR-ready, no compromises.': 'why.card1.text',
-      'Zero Setup Headaches': 'why.card2.title',
-      'We configure everything. You just log in and start.': 'why.card2.text',
-      'Real-time Clarity': 'why.card3.title',
-      'See appointments, patients & revenue — all in one view.': 'why.card3.text',
-      'Everything you need to run your practice': 'features.title',
-      'Smart Appointments': 'features.card1.title',
-      'Manage your calendar, send automatic reminders, reduce no-shows.': 'features.card1.text',
-      'Patient Records': 'features.card2.title',
-      'Digital patient files, treatment history, notes - all in one place.': 'features.card2.text',
-      'Billing & Invoicing': 'features.card3.title',
-      'Create invoices, track payments, manage your revenue.': 'features.card3.text',
-      'WhatsApp Automation Built-In': 'whatsapp.title',
-      'Instant replies. Smart reminders. Zero missed leads. Your WhatsApp works while you sleep — powered by AI.': 'whatsapp.subtitle',
-      'Smart Reminders': 'whatsapp.card1.title',
-      'Automated appointment reminders and confirmations via WhatsApp. Reduce no-shows by up to 40%.': 'whatsapp.card1.text',
-      'AI-Powered Chatbot': 'whatsapp.card2.title',
-      '24/7 intelligent responses to patient inquiries. Book appointments, answer questions, and qualify leads automatically.': 'whatsapp.card2.text',
-      'Follow-Up Sequences': 'whatsapp.card3.title',
-      'Automated follow-up messages that convert leads into customers. Never miss an opportunity again.': 'whatsapp.card3.text',
-      'Works with WhatsApp Business API • No extra apps needed • Setup in 24 hours': 'whatsapp.badge',
-      'Ready to simplify your clinic?': 'contact.title',
-      'Clinic OS (Beta)': 'nav.clinicos',
-      "Broker's Brain": 'nav.brokersbrain',
-      'Book a Demo': 'nav.demo',
-      'Products': 'footer.products',
-      'Legal': 'footer.legal',
-      'Privacy Policy': 'footer.privacy',
-    };
-
-    let node;
-    while (node = walker.nextNode()) {
-      const text = node.textContent?.trim();
-      if (text && textMappings[text] && !node.getAttribute('data-i18n')) {
-        // Check if this is a leaf node (no child elements with text)
-        const hasChildText = Array.from(node.children).some(child => child.textContent?.trim());
-        if (!hasChildText || node.children.length === 0) {
-          node.setAttribute('data-i18n', textMappings[text]);
-        }
-      }
-    }
-
-    // Handle paragraphs with partial matches
-    document.querySelectorAll('p').forEach(p => {
-      const text = p.textContent?.trim();
-      if (text && text.includes('Appointments, patients, billing')) {
-        p.setAttribute('data-i18n', 'hero.text');
-      }
-      if (text && text.includes('Have questions?')) {
-        p.setAttribute('data-i18n', 'contact.text');
-      }
-      if (text && text.includes('Smart software for modern')) {
-        p.setAttribute('data-i18n', 'footer.tagline');
-      }
-    });
-
-    // Handle trust badges line
-    document.querySelectorAll('p').forEach(p => {
-      const text = p.textContent?.trim();
-      if (text && text.includes('Trusted by early-stage')) {
-        p.setAttribute('data-i18n', 'hero.trust');
-      }
-    });
-
-    // Handle badge elements
-    document.querySelectorAll('.sb-component-badge span, [class*="badge"] span').forEach(span => {
-      const text = span.textContent?.trim();
-      if (text === 'EARLY ACCESS BETA • LIMITED SPOTS') {
-        span.setAttribute('data-i18n', 'hero.badge');
-      }
-      if (text && text.includes('WhatsApp Business API')) {
-        span.setAttribute('data-i18n', 'whatsapp.badge');
-      }
-    });
+  // Check if current page should have translation support
+  function shouldTranslate() {
+    const path = window.location.pathname;
+    return path === '/' || path === '/index.html' || path === '' || path === '/clinic/' || path === '/clinic';
   }
 
   // Initialize
   function init() {
-    // Add CSS for toggle button
     const style = document.createElement('style');
     style.textContent = `
       .lang-toggle-btn {
@@ -349,42 +259,32 @@
     `;
     document.head.appendChild(style);
 
-    // Check if we're on the homepage
-    function isHomepage() {
-      const path = window.location.pathname;
-      return path === '/' || path === '/index.html' || path === '';
-    }
-
-    // Only apply translations on homepage, but always show toggle button
-    function applyIfHomepage() {
+    function applyTranslations() {
       createToggleButton();
-      if (isHomepage()) {
-        addI18nAttributes();
-        translatePage(getCurrentLang());
+      if (shouldTranslate() && getCurrentLang() === 'tr') {
+        translatePage('tr');
       }
     }
 
-    // Wait for DOM to be ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(applyIfHomepage, 500);
+        setTimeout(applyTranslations, 500);
       });
     } else {
-      setTimeout(applyIfHomepage, 500);
+      setTimeout(applyTranslations, 500);
     }
 
-    // Re-apply on route changes (Next.js SPA navigation)
     let lastUrl = location.href;
     new MutationObserver(() => {
       const url = location.href;
       if (url !== lastUrl) {
         lastUrl = url;
-        setTimeout(applyIfHomepage, 500);
+        originalTexts.clear();
+        setTimeout(applyTranslations, 500);
       }
     }).observe(document, { subtree: true, childList: true });
   }
 
-  // Expose toggle function globally
   window.doveifyToggleLang = toggleLanguage;
   window.doveifySetLang = (lang) => {
     setLang(lang);
