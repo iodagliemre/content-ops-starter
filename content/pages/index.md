@@ -353,6 +353,7 @@ sections:
       self:
         alignItems: center
         flexDirection: col
+        justifyContent: center
         padding:
           - pt-20
           - pl-8
