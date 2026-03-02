@@ -6,6 +6,9 @@ sections:
     title:
       text: Digital Architecture For Your Business
       color: text-dark
+      styles:
+        self:
+          textAlign: center
       type: TitleBlock
     subtitle: >-
       AI-powered, fully customized automation systems that you own.
@@ -126,6 +129,7 @@ sections:
           - pl-8
           - pb-16
           - pr-8
+        justifyContent: center
       subtitle:
         textAlign: center
     elementId: solutions
@@ -232,6 +236,7 @@ sections:
           - pl-8
           - pb-16
           - pr-8
+        justifyContent: center
       subtitle:
         textAlign: center
   - type: FeaturedItemsSection
