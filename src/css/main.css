@@ -280,6 +280,104 @@
             @apply bg-light;
         }
     }
+    #saas-vs-doveify {
+        @apply bg-light text-dark;
+    }
+    #saas-vs-doveify .sb-component-title,
+    #saas-vs-doveify .sb-component-title span {
+        color: #1e3a8a;
+    }
+    #saas-vs-doveify > div > div > p.text-lg {
+        color: #1e3a8a;
+        font-weight: 500;
+        letter-spacing: 0.015em;
+        line-height: 1.6;
+    }
+    #saas-vs-doveify .grid .sb-card {
+        position: relative;
+        overflow: visible;
+        background: #fff;
+        color: #475569;
+        font-weight: 500;
+        letter-spacing: 0.015em;
+        line-height: 1.7;
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 4px 14px rgba(15, 23, 42, 0.05);
+        transition: all 0.2s ease;
+    }
+    #saas-vs-doveify .grid .sb-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1), 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+    #saas-vs-doveify #saas-tenant-card {
+        border-left: 3px solid #ef4444;
+    }
+    #saas-vs-doveify #saas-owner-card {
+        border-left: 3px solid transparent;
+    }
+    #saas-vs-doveify #saas-owner-card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        border-radius: 0.75rem 0 0 0.75rem;
+        background: linear-gradient(180deg, #22c55e 0%, #2563eb 100%);
+    }
+    #saas-vs-doveify .grid .sb-card .h3 {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: 0.02em;
+        line-height: 1.3;
+    }
+    #saas-vs-doveify .grid .sb-card .sb-markdown {
+        color: #475569;
+        font-weight: 500;
+        line-height: 1.7;
+        letter-spacing: 0.015em;
+    }
+    #saas-vs-doveify .grid .sb-card .sb-markdown > * + * {
+        margin-top: 0;
+        padding-top: 0.875rem;
+        padding-bottom: 0.875rem;
+        border-top: 1px solid #f1f5f9;
+    }
+    #saas-vs-doveify .grid .sb-card .sb-markdown > *:first-child {
+        padding-top: 0;
+    }
+    #saas-vs-doveify .grid .sb-card .sb-markdown p {
+        margin-top: 0;
+    }
+    .sb-component-header #nav-start-trial.sb-component-button-primary {
+        background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+        border-color: transparent;
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 9999px;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        transition: all 0.2s ease;
+    }
+    .sb-component-header #nav-start-trial.sb-component-button-primary:hover {
+        background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+        border-color: transparent;
+        color: #fff;
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+        transform: translateY(-1px);
+    }
+    .sb-component-header #nav-book-demo.sb-component-link-secondary {
+        font-weight: 600;
+        color: #2563eb;
+        transition: all 0.2s ease;
+    }
+    .sb-component-header #nav-book-demo.sb-component-link-secondary:hover {
+        color: #7c3aed;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
     .sb-phases-section {
         @apply text-light;
         background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);

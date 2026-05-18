@@ -201,21 +201,25 @@ sections:
       - type: PhaseItem
         tagline: Phase 1
         title: Algorithm Evolution
+        image: /images/phase-1.png
         text: >-
           AI algorithms evolve, big data is processed, and predictive and analytical capabilities grow.
       - type: PhaseItem
         tagline: Phase 2
         title: Adapting AI Tools to Systems
+        image: /images/phase-2.png
         text: >-
           AI agent systems emerge, company-specific solutions are developed, and process-based automations go live.
       - type: PhaseItem
         tagline: Phase 3
         title: Hardware & AI Integration
+        image: /images/phase-3.png
         text: >-
           IoT and smart sensors come online, real-time data flows are established, and the digital and physical worlds integrate.
       - type: PhaseItem
         tagline: Phase 4
         title: Autonomous & Connected Systems
+        image: /images/phase-4.png
         text: >-
           Systems communicate with each other, operations are managed autonomously, and strategy-aligned meaningful outcomes are produced.
     quote: >-
@@ -277,6 +281,7 @@ sections:
       subtitle:
         textAlign: center
   - type: FeaturedItemsSection
+    elementId: saas-vs-doveify
     title:
       text: 'SaaS vs Doveify: Stop Being a Tenant'
       color: text-dark
@@ -288,6 +293,7 @@ sections:
       Why pay rent for a generic software apartment when you can own a custom-built digital building on your own server?
     items:
       - type: FeaturedItem
+        elementId: saas-tenant-card
         title: '❌ Tenant (SaaS)'
         text: >-
           ✕ Time-limited rental — you lose access when you stop paying
@@ -302,8 +308,11 @@ sections:
           ✕ Shared infrastructure — your data sits next to competitors
         styles:
           self:
-            textAlign: center
+            textAlign: left
+            padding:
+              - p-6
       - type: FeaturedItem
+        elementId: saas-owner-card
         title: '✅ Owner (Doveify)'
         text: >-
           ✓ Digital ownership — the system is 100% yours forever
@@ -318,9 +327,11 @@ sections:
           ✓ Isolated server — your own DigitalOcean Droplet and Docker containers
         styles:
           self:
-            textAlign: center
+            textAlign: left
+            padding:
+              - p-6
     variant: two-col-grid
-    colors: bg-neutral-fg-dark
+    colors: bg-light-fg-dark
     styles:
       self:
         padding:

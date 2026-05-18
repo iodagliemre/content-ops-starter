@@ -137,8 +137,18 @@
 
   // Translate page to Turkish
   function translateToTurkish() {
-    const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, a, button, li');
-    
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const text = el.textContent?.trim();
+      if (text && translations[text]) {
+        if (!originalTexts.has(el)) {
+          originalTexts.set(el, text);
+        }
+        el.textContent = translations[text];
+      }
+    });
+
+    const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, a, button, li, blockquote');
+
     elements.forEach(el => {
       // Skip elements with children that also have text (avoid double translation)
       if (el.children.length > 0) {
@@ -269,26 +279,27 @@
     const style = document.createElement('style');
     style.textContent = `
       .lang-toggle-btn {
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-        color: white;
-        border: none;
-        padding: 6px 12px;
-        border-radius: 20px;
+        background: rgba(15, 23, 42, 0.06);
+        color: #374151;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        padding: 6px 14px;
+        border-radius: 9999px;
         font-size: 12px;
-        font-weight: 600;
+        font-weight: 500;
         cursor: pointer;
         transition: all 0.2s ease;
         margin-right: 8px;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.02em;
       }
       .lang-toggle-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        background: rgba(37, 99, 235, 0.08);
+        border-color: rgba(37, 99, 235, 0.25);
+        color: #2563eb;
       }
       .lang-toggle-mobile {
         width: 100%;
         padding: 12px;
-        border-radius: 8px;
+        border-radius: 9999px;
         margin: 0;
       }
     `;

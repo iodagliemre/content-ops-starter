@@ -59,7 +59,8 @@
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",
-            "type": "Link"
+            "type": "Link",
+            "elementId": "nav-book-demo"
         }
     ],
     "secondaryLinks": [
@@ -70,7 +71,8 @@
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "primary",
-            "type": "Button"
+            "type": "Button",
+            "elementId": "nav-start-trial"
         }
     ],
     "variant": "logo-left-primary-nav-centered",

@@ -7,6 +7,14 @@ export const PhaseItem: Model = {
     labelField: 'title',
     fields: [
         {
+            type: 'image',
+            name: 'image',
+            label: 'Image',
+            required: false,
+            hidden: false,
+            localized: false
+        },
+        {
             type: 'string',
             name: 'tagline',
             label: 'Phase label',
