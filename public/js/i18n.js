@@ -12,6 +12,18 @@
     "Book a Demo": "Demo Talep Et",
     "Explore Solutions": "Çözümlerimizi İncele",
 
+    // TURK ISG AI PROMO
+    "AI Assistant for Occupational Health & Safety Professionals": "ISG Uzmanları İçin Yapay Zeka Asistanı",
+    "Trained on Law No. 6331, Ministry checklists, and risk assessment guidelines. Designed for 80,000+ OHS professionals.": "6331 sayılı Kanun, Bakanlık kontrol listeleri ve risk değerlendirmesi kılavuzlarıyla eğitilmiş. 80.000+ ISG uzmanı için tasarlandı.",
+    "Legislation Query": "Mevzuat Sorgulama",
+    "Instant answers backed by legal sources": "Yasal dayanaklı anında yanıt",
+    "Photo Analysis": "Fotoğraf Analizi",
+    "On-site DÖF reports from field photos": "Sahadan DÖF raporu",
+    "Practice Exam": "Deneme Sınavı",
+    "2,700+ ÖSYM-style questions": "2.700+ ÖSYM sorusu",
+    "Try for Free →": "Ücretsiz Deneyin →",
+    "Learn More →": "Detaylı Bilgi →",
+
     // INDUSTRY SOLUTIONS
     "Industry Solutions": "Sektörel Çözümler",
     "Custom digital infrastructure designed for your specific industry workflows.": "Her sektöre özel, iş akışlarınıza göre tasarlanmış dijital altyapı.",
@@ -23,6 +35,10 @@
     "Broker's Brain — Live": "Broker's Brain — Aktif",
     "Lead management, automatic portfolio matching, AI-powered WhatsApp responses, and instant client follow-up. Turn leads into closings without hiring.": "Lead yönetimi, otomatik portföy eşleştirme, yapay zekâ destekli WhatsApp yanıtları ve anlık müşteri takibi. İşe alım yapmadan satışları kapatın.",
     "Explore Broker's Brain →": "Broker's Brain'i İncele →",
+    "OSGB Management": "OSGB Yönetimi",
+    "OSGB Web — Live": "OSGB Web — Aktif",
+    "Digital workflow platform for occupational health and safety companies. Employee tracking, document management, appointment scheduling, and reporting. Built specifically for OSGB companies in Turkey.": "OSGB'ler için dijital iş akışı platformu. Çalışan takibi, belge yönetimi, randevu sistemi ve raporlama. Türkiye'deki OSGB şirketleri için özel tasarlanmış.",
+    "Explore OSGB Web →": "OSGB Web'i Keşfet →",
     "Education & Coaching": "Eğitim & Koçluk",
     "Student registration, lesson planning, progress tracking, and automated notification systems. Built for training centers and coaching businesses.": "Öğrenci kayıt, ders planlama, ilerleme takibi ve otomatik bildirim sistemleri. Eğitim merkezleri ve koçluk işletmeleri için.",
     "Logistics & Supply Chain": "Lojistik & Tedarik Zinciri",
@@ -31,6 +47,23 @@
     "Production line tracking, quality control automation, inventory and supply chain management. Full factory floor visibility.": "Üretim hattı takibi, kalite kontrol otomasyonu, stok ve tedarik zinciri yönetimi. Tam fabrika görünürlüğü.",
     "Tourism & Hospitality": "Turizm & Otelcilik",
     "Reservation management, guest communication, operations automation. Streamline your hotel or tourism business.": "Rezervasyon yönetimi, misafir iletişimi, operasyon otomasyonu. Otel veya turizm işletmenizi sadeleştirin.",
+
+    // DIGITAL TRANSFORMATION PHASES
+    "The 4 Phases of Digital Transformation": "Dijital Dönüşümün 4 Fazı",
+    "Data, processes, hardware, and decision mechanisms working together.": "Veri, süreç, donanım ve karar mekanizmalarının birlikte çalışması.",
+    "Phase 1": "1. FAZ",
+    "Algorithm Evolution": "Algoritma Gelişimi",
+    "AI algorithms evolve, big data is processed, and predictive and analytical capabilities grow.": "Yapay zeka algoritmaları gelişir, büyük veri işlenir, tahminleme ve analiz kabiliyeti artar.",
+    "Phase 2": "2. FAZ",
+    "Adapting AI Tools to Systems": "AI Araçlarının Sistemlere Uyarlanması",
+    "AI agent systems emerge, company-specific solutions are developed, and process-based automations go live.": "AI Agent sistemleri oluşur, şirkete özel çözümler geliştirilir, süreç bazlı otomasyonlar hayata geçirilir.",
+    "Phase 3": "3. FAZ",
+    "Hardware & AI Integration": "Donanım & AI Entegrasyonu",
+    "IoT and smart sensors come online, real-time data flows are established, and the digital and physical worlds integrate.": "IoT ve akıllı sensörler devreye girer, gerçek zamanlı veri akışı sağlanır, dijital ve fiziksel dünya entegre olur.",
+    "Phase 4": "4. FAZ",
+    "Autonomous & Connected Systems": "Otonom & Bağlı Sistemler",
+    "Systems communicate with each other, operations are managed autonomously, and strategy-aligned meaningful outcomes are produced.": "Sistemler kendi aralarında iletişim kurar, operasyonlar otonom şekilde yönetilir, stratejiye uygun anlamlı sonuçlar üretilir.",
+    "Businesses that cannot measure cannot manage; businesses that cannot manage cannot compete.": "Ölçemeyen işletmeler yönetemez; yönetemeyen işletmeler rekabet edemez.",
 
     // HOW IT WORKS
     "How It Works": "Nasıl Çalışır?",
@@ -81,6 +114,8 @@
     // NAV & FOOTER
     "Clinic OS": "Clinic OS",
     "Broker's Brain": "Broker's Brain",
+    "TURK ISG AI": "TURK ISG AI",
+    "OSGB Web": "OSGB Web",
     "Contact": "İletişim",
     "Products": "Ürünler",
     "Legal": "Yasal",

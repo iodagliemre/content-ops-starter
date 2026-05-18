@@ -280,6 +280,26 @@
             @apply bg-light;
         }
     }
+    .sb-phases-section {
+        @apply text-light;
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    }
+    .sb-turkisg-promo {
+        @apply text-light;
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 45%, #1e3a8a 100%);
+    }
+    .sb-turkisg-promo .sb-component-button-primary {
+        @apply border-light bg-light text-primary hover:bg-neutral;
+    }
+    .sb-turkisg-promo .sb-component-button-secondary {
+        @apply border-light text-light hover:bg-light/10;
+    }
+    .sb-turkisg-promo .sb-markdown a {
+        @apply text-light underline;
+    }
+    .sb-turkisg-promo .sb-markdown a:hover {
+        @apply text-neutral;
+    }
     /* Only for cards */
     .bg-neutralAlt-fg-dark {
         @apply text-dark bg-neutralAlt;

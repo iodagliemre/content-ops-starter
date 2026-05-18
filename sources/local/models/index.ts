@@ -20,11 +20,15 @@ import { Link } from './Link';
 import { PageLayout } from './PageLayout';
 import { PagedPostsSection } from './PagedPostsSection';
 import { Person } from './Person';
+import { PhaseItem } from './PhaseItem';
+import { PhasesSection } from './PhasesSection';
 import { PostFeedLayout } from './PostFeedLayout';
 import { PostFeedSection } from './PostFeedSection';
 import { PostLayout } from './PostLayout';
 import { PricingPlan } from './PricingPlan';
 import { PricingSection } from './PricingSection';
+import { PromoFeature } from './PromoFeature';
+import { ProductPromoSection } from './ProductPromoSection';
 import { RecentPostsSection } from './RecentPostsSection';
 import { SelectFormControl } from './SelectFormControl';
 import { Social } from './Social';
@@ -66,11 +70,15 @@ export const allModels = {
     PageLayout,
     PagedPostsSection,
     Person,
+    PhaseItem,
+    PhasesSection,
     PostFeedLayout,
     PostFeedSection,
     PostLayout,
     PricingPlan,
     PricingSection,
+    PromoFeature,
+    ProductPromoSection,
     RecentPostsSection,
     SelectFormControl,
     Social,

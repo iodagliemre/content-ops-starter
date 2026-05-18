@@ -242,8 +242,14 @@ function MobileMenu(props) {
 
 function SiteLogoLink({ title, logo, enableAnnotations }) {
     return (
-        <Link href="/" className="flex items-center">
-            {logo && <ImageBlock {...logo} {...(enableAnnotations && { 'data-sb-field-path': 'logo' })} />}
+        <Link href="/" className="flex items-center gap-2">
+            {logo && (
+                <ImageBlock
+                    {...logo}
+                    imageClassName="w-9 rounded-lg shrink-0"
+                    {...(enableAnnotations && { 'data-sb-field-path': 'logo' })}
+                />
+            )}
             {title && (
                 <span className="h4" {...(enableAnnotations && { 'data-sb-field-path': 'title' })}>
                     {title}
@@ -355,7 +361,7 @@ function LinkWithSubnav(props) {
                 <ul
                     className={classNames(
                         colors,
-                        inMobileMenu ? 'p-4 space-y-3' : 'absolute top-full left-0 w-44 border-t border-primary shadow-header z-10 px-6 pt-5 pb-6 space-y-4',
+                        inMobileMenu ? 'p-4 space-y-3' : 'absolute top-full left-0 min-w-[12rem] w-max border-t border-primary shadow-header z-10 px-6 pt-5 pb-6 space-y-4',
                         isSubNavOpen ? 'block' : 'hidden'
                     )}
                     {...(fieldPath && { 'data-sb-field-path': '.links' })}

@@ -45,6 +45,45 @@ sections:
         textAlign: center
       subtitle:
         textAlign: center
+  - type: ProductPromoSection
+    elementId: turkisg-ai-promo
+    title:
+      text: AI Assistant for Occupational Health & Safety Professionals
+      color: text-light
+      styles:
+        self:
+          textAlign: center
+      type: TitleBlock
+    subtitle: >-
+      Trained on Law No. 6331, Ministry checklists, and risk assessment guidelines. Designed for 80,000+ OHS professionals.
+    items:
+      - type: PromoFeature
+        title: Legislation Query
+        text: Instant answers backed by legal sources
+      - type: PromoFeature
+        title: Photo Analysis
+        text: On-site DÖF reports from field photos
+      - type: PromoFeature
+        title: Practice Exam
+        text: 2,700+ ÖSYM-style questions
+    actions:
+      - label: Try for Free →
+        url: https://app.turkisgai.doveify.io/
+        icon: arrowRight
+        iconPosition: right
+        style: primary
+        type: Button
+      - label: Learn More →
+        url: https://turkisgai.doveify.io/
+        icon: arrowRight
+        iconPosition: right
+        style: secondary
+        type: Button
+    styles:
+      self:
+        padding:
+          - py-20
+          - px-4
   - type: FeaturedItemsSection
     title:
       text: Industry Solutions
@@ -82,6 +121,20 @@ sections:
         actions:
           - label: Explore Broker's Brain →
             url: /brokers-brain/
+            style: primary
+            type: Link
+      - type: FeaturedItem
+        title: OSGB Management
+        tagline: OSGB Web — Live
+        text: >-
+          Digital workflow platform for occupational health and safety companies. Employee tracking, document management, appointment scheduling, and reporting. Built specifically for OSGB companies in Turkey.
+        image:
+          url: /images/sector-logistics.png
+          altText: OSGB Web Dashboard
+          type: ImageBlock
+        actions:
+          - label: Explore OSGB Web →
+            url: https://osgb.doveify.io/
             style: primary
             type: Link
       - type: FeaturedItem
@@ -133,6 +186,45 @@ sections:
       subtitle:
         textAlign: center
     elementId: solutions
+  - type: PhasesSection
+    elementId: digital-transformation-phases
+    title:
+      text: The 4 Phases of Digital Transformation
+      color: text-light
+      styles:
+        self:
+          textAlign: center
+      type: TitleBlock
+    subtitle: >-
+      Data, processes, hardware, and decision mechanisms working together.
+    items:
+      - type: PhaseItem
+        tagline: Phase 1
+        title: Algorithm Evolution
+        text: >-
+          AI algorithms evolve, big data is processed, and predictive and analytical capabilities grow.
+      - type: PhaseItem
+        tagline: Phase 2
+        title: Adapting AI Tools to Systems
+        text: >-
+          AI agent systems emerge, company-specific solutions are developed, and process-based automations go live.
+      - type: PhaseItem
+        tagline: Phase 3
+        title: Hardware & AI Integration
+        text: >-
+          IoT and smart sensors come online, real-time data flows are established, and the digital and physical worlds integrate.
+      - type: PhaseItem
+        tagline: Phase 4
+        title: Autonomous & Connected Systems
+        text: >-
+          Systems communicate with each other, operations are managed autonomously, and strategy-aligned meaningful outcomes are produced.
+    quote: >-
+      Businesses that cannot measure cannot manage; businesses that cannot manage cannot compete.
+    styles:
+      self:
+        padding:
+          - py-20
+          - px-4
   - type: FeaturedItemsSection
     title:
       text: How It Works

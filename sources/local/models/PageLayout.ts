@@ -47,6 +47,8 @@ export const PageLayout: Model = {
                     'GenericSection',
                     'ImageGallerySection',
                     'PricingSection',
+                    'PhasesSection',
+                    'ProductPromoSection',
                     'RecentPostsSection'
                 ]
             }

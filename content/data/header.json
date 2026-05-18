@@ -1,21 +1,49 @@
 {
     "title": "Doveify",
+    "logo": {
+        "url": "/images/logo.png",
+        "altText": "Doveify",
+        "type": "ImageBlock"
+    },
     "primaryLinks": [
         {
-            "label": "Clinic OS",
-            "url": "/clinic/",
-            "icon": "arrowRight",
-            "iconPosition": "right",
-            "style": "secondary",
-            "type": "Link"
-        },
-        {
-            "label": "Broker's Brain",
-            "url": "/brokers-brain/",
-            "icon": "arrowRight",
-            "iconPosition": "right",
-            "style": "secondary",
-            "type": "Link"
+            "label": "Products",
+            "labelStyle": "secondary",
+            "type": "SubNav",
+            "links": [
+                {
+                    "label": "Clinic OS",
+                    "url": "https://doveify.io/clinic/",
+                    "icon": "arrowRight",
+                    "iconPosition": "right",
+                    "style": "secondary",
+                    "type": "Link"
+                },
+                {
+                    "label": "Broker's Brain",
+                    "url": "https://doveify.io/brokers-brain/",
+                    "icon": "arrowRight",
+                    "iconPosition": "right",
+                    "style": "secondary",
+                    "type": "Link"
+                },
+                {
+                    "label": "TURK ISG AI",
+                    "url": "https://turkisgai.doveify.io/",
+                    "icon": "arrowRight",
+                    "iconPosition": "right",
+                    "style": "secondary",
+                    "type": "Link"
+                },
+                {
+                    "label": "OSGB Web",
+                    "url": "https://osgb.doveify.io/",
+                    "icon": "arrowRight",
+                    "iconPosition": "right",
+                    "style": "secondary",
+                    "type": "Link"
+                }
+            ]
         },
         {
             "label": "Contact",
