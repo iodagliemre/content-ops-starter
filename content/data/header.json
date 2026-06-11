@@ -7,7 +7,7 @@
     },
     "primaryLinks": [
         {
-            "label": "Products",
+            "label": "SaaS Products",
             "labelStyle": "secondary",
             "type": "SubNav",
             "links": [
@@ -65,14 +65,14 @@
     ],
     "secondaryLinks": [
         {
-            "label": "Start Free Trial",
-            "altText": "Start Free Trial",
-            "url": "/signup",
+            "label": "Book a Demo",
+            "altText": "Book a Demo",
+            "url": "https://cal.com/emre-dagli-ffwxpr/doveify-demo",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "primary",
             "type": "Button",
-            "elementId": "nav-start-trial"
+            "elementId": "nav-book-demo"
         }
     ],
     "variant": "logo-left-primary-nav-centered",

@@ -4,15 +4,14 @@ slug: /
 sections:
   - type: GenericSection
     title:
-      text: Digital Architecture For Your Business
+      text: Digital Architecture That Belongs to Your Business
       color: text-dark
       styles:
         self:
           textAlign: center
       type: TitleBlock
     subtitle: >-
-      AI-powered, fully customized automation systems that you own.
-      Stop renting software — build your own digital infrastructure.
+      AI-powered automation systems designed specifically for you. We build together — your knowledge, data, and decision mechanisms reside in your infrastructure, under your control.
     actions:
       - label: Book a Demo
         url: 'https://cal.com/emre-dagli-ffwxpr/doveify-demo'
@@ -25,11 +24,11 @@ sections:
         style: secondary
         type: Button
     badge:
-      label: 'OWN YOUR SYSTEM • SAAS ALTERNATIVE'
+      label: 'OWNERSHIP • EXPERTISE • SOLUTION PARTNERSHIP'
       color: text-primary
       type: Badge
     text: >-
-      ✓ Your data stays with you • ✓ GDPR-ready • ✓ No long-term contracts
+      ✓ Your data under your control • ✓ KVKK & GDPR compliant • ✓ Industry-specific solutions
     colors: bg-light-fg-dark
     styles:
       self:
@@ -44,6 +43,21 @@ sections:
       text:
         textAlign: center
       subtitle:
+        textAlign: center
+  - type: GenericSection
+    elementId: doveify-manifesto
+    text: >-
+      Digital tools empower businesses — but real strength lies in preserving your own knowledge, operational intelligence, and strategic direction. Doveify stands alongside ready-made software solutions, not against them. Our difference is building a digital infrastructure that belongs to your business, keeping your critical processes, data, and decision mechanisms under your ownership. We are not a software vendor — we are your solution partner, building your digital architecture together and standing by you for long-term growth. Because we believe sustainable digital transformation begins not by handing over to a platform, but by taking ownership of your own system.
+    colors: bg-light-fg-dark
+    styles:
+      self:
+        alignItems: center
+        flexDirection: col
+        padding:
+          - py-12
+          - px-8
+        justifyContent: center
+      text:
         textAlign: center
   - type: ProductPromoSection
     elementId: turkisg-ai-promo
@@ -230,101 +244,62 @@ sections:
           - py-20
           - px-4
   - type: FeaturedItemsSection
-    title:
-      text: How It Works
-      color: text-dark
-      styles:
-        self:
-          textAlign: center
-      type: TitleBlock
-    subtitle: >-
-      Your business's digital nervous system — a 4-layer integrated architecture that perceives, thinks, and takes action.
-    items:
-      - type: FeaturedItem
-        title: '01 — Data Collection'
-        text: >-
-          All data from APIs, WhatsApp, IoT sensors, and emails collected in a centralized data hub. Smart parser engine processes unstructured data automatically.
-        styles:
-          self:
-            textAlign: center
-      - type: FeaturedItem
-        title: '02 — AI Decision Center'
-        text: >-
-          AI analyzes incoming data, classifies urgency (critical vs routine), and assigns priority scores. Processing time under 30 seconds.
-        styles:
-          self:
-            textAlign: center
-      - type: FeaturedItem
-        title: '03 — Autonomous Action'
-        text: >-
-          Smart task assignment to the right person or tool, Google Calendar integration for scheduling, WhatsApp notifications to clients and team members.
-        styles:
-          self:
-            textAlign: center
-      - type: FeaturedItem
-        title: '04 — Command Dashboard'
-        text: >-
-          Real-time monitoring, performance analytics, and manual override capability. Modern, responsive, and fully white-labeled to your brand.
-        styles:
-          self:
-            textAlign: center
-    variant: two-col-grid
-    colors: bg-light-fg-dark
-    styles:
-      self:
-        padding:
-          - pt-16
-          - pl-8
-          - pb-16
-          - pr-8
-        justifyContent: center
-      subtitle:
-        textAlign: center
-  - type: FeaturedItemsSection
     elementId: saas-vs-doveify
     title:
-      text: 'SaaS vs Doveify: Stop Being a Tenant'
+      text: 'Right Model, Right Time'
       color: text-dark
       styles:
         self:
           textAlign: center
       type: TitleBlock
     subtitle: >-
-      Why pay rent for a generic software apartment when you can own a custom-built digital building on your own server?
+      SaaS is a tool, ownership is a strategy. The question isn't which is better — it's which fits your business needs today and tomorrow.
     items:
       - type: FeaturedItem
-        elementId: saas-tenant-card
-        title: '❌ Tenant (SaaS)'
+        elementId: saas-approach-card
+        title: 'Ready-Made Software (SaaS) Approach'
         text: >-
-          ✕ Time-limited rental — you lose access when you stop paying
+          This model may be the right choice when:
 
 
-          ✕ Limited control — can't customize beyond what they allow
+          → You want to quickly digitize standard business processes
 
 
-          ✕ Recurring license fees — costs add up year after year
+          → You're testing the market with low initial costs
 
 
-          ✕ Shared infrastructure — your data sits next to competitors
+          → Small team, limited IT resources — you want to leave maintenance to the provider
+
+
+          → You don't yet need deep industry-specific customization
+
+
+          → You're looking for a short-term or seasonal solution
         styles:
           self:
             textAlign: left
             padding:
               - p-6
       - type: FeaturedItem
-        elementId: saas-owner-card
-        title: '✅ Owner (Doveify)'
+        elementId: doveify-approach-card
+        title: 'Doveify Ownership Approach'
         text: >-
-          ✓ Digital ownership — the system is 100% yours forever
+          This model provides strategic advantage when:
 
 
-          ✓ Full data sovereignty — your database is private, not shared
+          ✓ You want full control and customization in critical processes
 
 
-          ✓ Zero license cost — one-time investment, lifetime usage
+          ✓ You're in a regulation-heavy industry — data sovereignty is mandatory
 
 
-          ✓ Isolated server — your own DigitalOcean Droplet and Docker containers
+          ✓ You want to preserve your institutional memory and operational intelligence in your own system
+
+
+          ✓ You're thinking long-term strategic investment — update and roadmap decisions in your hands
+
+
+          ✓ Your workflows are industry-specific, standard platform limits aren't enough
         styles:
           self:
             textAlign: left
@@ -337,12 +312,39 @@ sections:
         padding:
           - pt-16
           - pl-8
-          - pb-16
+          - pb-8
           - pr-8
         justifyContent: center
       subtitle:
         textAlign: center
+  - type: GenericSection
+    title:
+      text: ''
+      color: text-dark
+      type: TitleBlock
+    subtitle: ''
+    text: >-
+      Doveify stands on the ownership side — because we believe businesses should not hand over strategic control of their most critical processes to another provider.
+    actions: []
+    media: null
+    badge: null
+    elementId: doveify-ownership-note
+    colors: bg-light-fg-dark
+    styles:
+      self:
+        alignItems: center
+        flexDirection: col
+        justifyContent: center
+        padding:
+          - pt-0
+          - pl-8
+          - pb-16
+          - pr-8
+      text:
+        textAlign: center
+        fontStyle: italic
   - type: FeaturedItemsSection
+    elementId: why-doveify
     title:
       text: Why Doveify?
       color: text-dark
@@ -350,37 +352,71 @@ sections:
         self:
           textAlign: center
       type: TitleBlock
+    badge:
+      label: 'WHY DOVEIFY'
+      color: text-primary
+      styles:
+        self:
+          textAlign: center
+      type: Badge
     items:
       - type: FeaturedItem
         title: 100% Ownership
         text: >-
-          Don't rent software, own it. Your system belongs entirely to you. No vendor lock-in, no surprises.
+          Your system belongs entirely to you. Your critical business processes and data always remain under your control.
         styles:
           self:
-            textAlign: center
+            textAlign: left
+            padding:
+              - p-6
+            borderRadius: large
+            boxShadow: md
       - type: FeaturedItem
-        title: Lifetime Usage
+        title: Long-Term Value
         text: >-
-          No monthly license fees. One-time investment with optional annual maintenance. The system keeps running forever.
+          One-time investment with optional annual maintenance and support. Your system evolves with you as it grows.
         styles:
           self:
-            textAlign: center
+            textAlign: left
+            padding:
+              - p-6
+            borderRadius: large
+            boxShadow: md
       - type: FeaturedItem
-        title: Full Customization
+        title: Industry-Specific Solutions
         text: >-
-          The system adapts to your workflows, not the other way around. Every feature tailored to how you actually work.
+          Not generic tools, but systems focused on the real problems of your industry. Field-tested solutions in healthcare, occupational safety, real estate, and OSGB management.
         styles:
           self:
-            textAlign: center
+            textAlign: left
+            padding:
+              - p-6
+            borderRadius: large
+            boxShadow: md
       - type: FeaturedItem
         title: Data Sovereignty
         text: >-
-          Your data stays on your own server. Not in shared SaaS pools. Each client gets isolated DigitalOcean Droplets and Docker containers.
+          Your data on your own server, under your control only. Isolated infrastructure for each business — no shared environment.
         styles:
           self:
-            textAlign: center
-    variant: two-col-grid
-    colors: bg-light-fg-dark
+            textAlign: left
+            padding:
+              - p-6
+            borderRadius: large
+            boxShadow: md
+      - type: FeaturedItem
+        title: Long-Term Solution Partnership
+        text: >-
+          We don't sell software and leave. We build your digital infrastructure and support it sustainably.
+        styles:
+          self:
+            textAlign: left
+            padding:
+              - p-6
+            borderRadius: large
+            boxShadow: md
+    variant: three-col-grid
+    colors: bg-neutral-fg-dark
     styles:
       self:
         padding:
@@ -389,33 +425,6 @@ sections:
           - pb-16
           - pr-8
         justifyContent: center
-  - type: GenericSection
-    title:
-      text: Open-Source Technology Stack
-      color: text-dark
-      styles:
-        self:
-          textAlign: center
-      type: TitleBlock
-    subtitle: >-
-      No black box. Fully transparent, modern, and scalable architecture.
-    text: >-
-      **n8n** — Workflow Engine & Business Logic  |  **OpenAI GPT-4o + Whisper** — Natural Language Processing  |  **PostgreSQL** — Structured Data Memory  |  **Docker / DigitalOcean** — Isolated Server Environment
-    colors: bg-neutral-fg-dark
-    styles:
-      self:
-        alignItems: center
-        flexDirection: col
-        justifyContent: center
-        padding:
-          - pt-12
-          - pl-8
-          - pb-12
-          - pr-8
-      text:
-        textAlign: center
-      subtitle:
-        textAlign: center
   - type: GenericSection
     title:
       text: Meet Your Digital Architect

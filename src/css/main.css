@@ -280,15 +280,22 @@
             @apply bg-light;
         }
     }
+    #doveify-manifesto .sb-markdown {
+        @apply mx-auto max-w-[800px] text-center text-lg italic leading-relaxed text-dark/80 sm:text-xl;
+    }
+    #doveify-manifesto .sb-markdown p {
+        margin-top: 0;
+    }
+    /* SaaS vs Doveify - Right Model, Right Time Section */
     #saas-vs-doveify {
         @apply bg-light text-dark;
     }
     #saas-vs-doveify .sb-component-title,
     #saas-vs-doveify .sb-component-title span {
-        color: #1e3a8a;
+        color: #0f172a;
     }
     #saas-vs-doveify > div > div > p.text-lg {
-        color: #1e3a8a;
+        color: #475569;
         font-weight: 500;
         letter-spacing: 0.015em;
         line-height: 1.6;
@@ -297,86 +304,179 @@
         position: relative;
         overflow: visible;
         background: #fff;
-        color: #475569;
-        font-weight: 500;
-        letter-spacing: 0.015em;
+        color: #64748b;
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: 0.01em;
         line-height: 1.7;
-        border-radius: 0.75rem;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 4px 14px rgba(15, 23, 42, 0.05);
-        transition: all 0.2s ease;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+        transition: all 0.3s ease;
     }
     #saas-vs-doveify .grid .sb-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1), 0 10px 28px rgba(15, 23, 42, 0.08);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15);
     }
-    #saas-vs-doveify #saas-tenant-card {
-        border-left: 3px solid #ef4444;
-    }
-    #saas-vs-doveify #saas-owner-card {
-        border-left: 3px solid transparent;
-    }
-    #saas-vs-doveify #saas-owner-card::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        border-radius: 0.75rem 0 0 0.75rem;
-        background: linear-gradient(180deg, #22c55e 0%, #2563eb 100%);
+    #saas-vs-doveify #saas-approach-card,
+    #saas-vs-doveify #doveify-approach-card {
+        border-left: none;
     }
     #saas-vs-doveify .grid .sb-card .h3 {
-        font-size: 1.375rem;
+        font-size: 20px;
         font-weight: 700;
         color: #0f172a;
-        letter-spacing: 0.02em;
+        letter-spacing: -0.01em;
         line-height: 1.3;
     }
     #saas-vs-doveify .grid .sb-card .sb-markdown {
-        color: #475569;
-        font-weight: 500;
+        color: #64748b;
+        font-weight: 400;
+        font-size: 15px;
         line-height: 1.7;
-        letter-spacing: 0.015em;
+        letter-spacing: 0.01em;
+    }
+    #saas-vs-doveify .grid .sb-card .sb-markdown p:first-child {
+        @apply font-semibold text-dark;
+    }
+    #doveify-ownership-note .sb-markdown {
+        @apply mx-auto max-w-3xl text-center italic text-dark/70;
+    }
+    #saas-vs-doveify .grid .sb-card .sb-markdown strong {
+        color: #475569;
+        font-weight: 600;
     }
     #saas-vs-doveify .grid .sb-card .sb-markdown > * + * {
-        margin-top: 0;
-        padding-top: 0.875rem;
-        padding-bottom: 0.875rem;
-        border-top: 1px solid #f1f5f9;
-    }
-    #saas-vs-doveify .grid .sb-card .sb-markdown > *:first-child {
-        padding-top: 0;
+        margin-top: 0.75rem;
     }
     #saas-vs-doveify .grid .sb-card .sb-markdown p {
         margin-top: 0;
     }
-    .sb-component-header #nav-start-trial.sb-component-button-primary {
+
+    /* Why Doveify Section - Enhanced Card Styling */
+    #why-doveify {
+        background: #fafbfc;
+    }
+    #why-doveify .sb-component-badge {
+        color: #2563eb;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+    #why-doveify .sb-component-title,
+    #why-doveify .sb-component-title span {
+        color: #0f172a;
+    }
+    #why-doveify .grid {
+        gap: 24px;
+    }
+    #why-doveify .grid .sb-card {
+        position: relative;
+        background: #fff;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+        transition: all 0.3s ease;
+        overflow: visible;
+    }
+    #why-doveify .grid .sb-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15);
+    }
+    #why-doveify .grid .sb-card .h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: -0.01em;
+        line-height: 1.3;
+    }
+    #why-doveify .grid .sb-card .sb-markdown {
+        color: #64748b;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    #why-doveify .grid .sb-card .sb-markdown p {
+        margin-top: 0;
+    }
+    /* Navbar Global Link Styling */
+    .sb-component-header .sb-component-link {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    /* Navbar SaaS Products Dropdown Styling */
+    .sb-component-header .sb-component-sub-nav > button,
+    .sb-component-header .sb-component-sub-nav > span {
+        font-size: 16px;
+        font-weight: 700;
+        transition: all 0.2s ease;
+    }
+    .sb-component-header .sb-component-sub-nav > button:hover,
+    .sb-component-header .sb-component-sub-nav > span:hover {
+        color: #2563eb;
+    }
+    .sb-component-header .sb-component-sub-nav ul {
+        min-width: 200px;
+    }
+    .sb-component-header .sb-component-sub-nav ul li {
+        padding: 0;
+    }
+    .sb-component-header .sb-component-sub-nav ul li a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    .sb-component-header .sb-component-sub-nav ul li a:hover {
+        background: #f1f5f9;
+        color: #2563eb;
+    }
+    .sb-component-header .sb-component-sub-nav ul li a::after {
+        content: '→';
+        margin-left: 8px;
+        opacity: 0.5;
+        transition: all 0.2s ease;
+    }
+    .sb-component-header .sb-component-sub-nav ul li a:hover::after {
+        opacity: 1;
+        transform: translateX(2px);
+    }
+
+    /* Navbar Demo Button Styling */
+    .sb-component-header #nav-book-demo.sb-component-button-primary {
         background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
         border-color: transparent;
         color: #fff;
-        padding: 10px 22px;
+        padding: 14px 28px;
         border-radius: 9999px;
+        font-size: 16px;
         font-weight: 600;
         letter-spacing: 0.03em;
         box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
         transition: all 0.2s ease;
     }
-    .sb-component-header #nav-start-trial.sb-component-button-primary:hover {
+    .sb-component-header #nav-book-demo.sb-component-button-primary:hover {
         background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
         border-color: transparent;
         color: #fff;
         box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
         transform: translateY(-1px);
     }
-    .sb-component-header #nav-book-demo.sb-component-link-secondary {
-        font-weight: 600;
-        color: #2563eb;
-        transition: all 0.2s ease;
-    }
-    .sb-component-header #nav-book-demo.sb-component-link-secondary:hover {
-        color: #7c3aed;
-        text-decoration: underline;
-        text-underline-offset: 3px;
+
+    /* Language Toggle Button Styling */
+    .lang-toggle-btn {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 14px !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
     .sb-phases-section {
         @apply text-light;

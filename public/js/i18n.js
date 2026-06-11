@@ -5,12 +5,15 @@
   // Direct text-to-translation mapping (EN -> TR)
   const translations = {
     // HERO
-    "OWN YOUR SYSTEM • SAAS ALTERNATIVE": "SİSTEMİNİZİN SAHİBİ OLUN • SAAS ALTERNATİFİ",
-    "Digital Architecture For Your Business": "İşletmeniz İçin Dijital Mimari",
-    "AI-powered, fully customized automation systems that you own. Stop renting software — build your own digital infrastructure.": "Yapay zekâ tabanlı, size ait ve tamamen özelleştirilmiş otomasyon sistemleri. Kiracı olmayı bırakın — kendi dijital altyapınızın sahibi olun.",
-    "✓ Your data stays with you • ✓ GDPR-ready • ✓ No long-term contracts": "✓ Verileriniz sizde kalır • ✓ GDPR uyumlu • ✓ Uzun vadeli sözleşme yok",
+    "OWNERSHIP • EXPERTISE • SOLUTION PARTNERSHIP": "SAHİPLİK • UZMANLIK • ÇÖZÜM ORTAKLIĞI",
+    "Digital Architecture That Belongs to Your Business": "İşletmenize Ait Dijital Mimari",
+    "AI-powered automation systems designed specifically for you. We build together — your knowledge, data, and decision mechanisms reside in your infrastructure, under your control.": "Yapay zekâ destekli, size özel olarak tasarlanan otomasyon sistemleri. Birlikte kuruyoruz; bilgi birikiminiz, verileriniz ve karar mekanizmalarınız sizin altyapınızda — sizin kontrolünüzde.",
+    "✓ Your data under your control • ✓ KVKK & GDPR compliant • ✓ Industry-specific solutions": "✓ Verileriniz sizin kontrolünüzde • ✓ KVKK & GDPR uyumlu • ✓ Sektöre özel çözümler",
     "Book a Demo": "Demo Talep Et",
-    "Explore Solutions": "Çözümlerimizi İncele",
+    "Explore Solutions": "Çözümlerimizi Keşfedin",
+
+    // MANIFESTO
+    "Digital tools empower businesses — but real strength lies in preserving your own knowledge, operational intelligence, and strategic direction. Doveify stands alongside ready-made software solutions, not against them. Our difference is building a digital infrastructure that belongs to your business, keeping your critical processes, data, and decision mechanisms under your ownership. We are not a software vendor — we are your solution partner, building your digital architecture together and standing by you for long-term growth. Because we believe sustainable digital transformation begins not by handing over to a platform, but by taking ownership of your own system.": "Dijital araçlar işletmeleri güçlendirir — ama asıl güç, işletmenin kendi bilgi birikimini, operasyonel zekasını ve stratejik yönünü koruyabilmesindedir. Doveify, hazır yazılım çözümlerinin karşısında değil yanında durur. Farkımız, işletmenize ait bir dijital altyapı kurarak kritik süreçlerinizi, verilerinizi ve karar mekanizmalarınızı sizin sahipliğinizde tutmamızdır. Biz bir yazılım satıcısı değil, dijital mimarinizi birlikte inşa eden ve uzun vadeli büyümenizde yanınızda kalan çözüm ortağınızız. Çünkü inanıyoruz ki sürdürülebilir dijital dönüşüm, bir platforma teslim olmakla değil, kendi sisteminize sahip çıkmakla başlar.",
 
     // TURK ISG AI PROMO
     "AI Assistant for Occupational Health & Safety Professionals": "ISG Uzmanları İçin Yapay Zeka Asistanı",
@@ -77,30 +80,38 @@
     "04 — Command Dashboard": "04 — Yönetim Paneli",
     "Real-time monitoring, performance analytics, and manual override capability. Modern, responsive, and fully white-labeled to your brand.": "Gerçek zamanlı izleme, performans analitiği ve manuel müdahale imkânı. Modern, responsive ve tamamen sizin markanıza uygun.",
 
-    // SAAS VS DOVEIFY
-    "SaaS vs Doveify: Stop Being a Tenant": "SaaS vs Doveify: Kiracı Olmayı Bırakın",
-    "Why pay rent for a generic software apartment when you can own a custom-built digital building on your own server?": "Kendi sunucunuzda size özel bir dijital bina inşa edebilecekken neden genel bir yazılım dairesine kira ödeyesiniz?",
-    "❌ Tenant (SaaS)": "❌ Kiracı (SaaS)",
-    "✅ Owner (Doveify)": "✅ Mülk Sahibi (Doveify)",
-    "✕ Time-limited rental — you lose access when you stop paying": "✕ Süreli kiralama — ödemeyi durdurunca erişim kaybolur",
-    "✕ Limited control — can't customize beyond what they allow": "✕ Kısıtlı kontrol — izin verdiklerinin ötesinde özelleştiremezsiniz",
-    "✕ Recurring license fees — costs add up year after year": "✕ Tekrarlayan lisans ücretleri — maliyetler yıldan yıla birikir",
-    "✕ Shared infrastructure — your data sits next to competitors": "✕ Paylaşılan altyapı — verileriniz rakiplerin yanında",
-    "✓ Digital ownership — the system is 100% yours forever": "✓ Dijital mülkiyet — sistem sonsuza kadar %100 sizin",
-    "✓ Full data sovereignty — your database is private, not shared": "✓ Tam veri egemenliği — veritabanınız özel, paylaşılmaz",
-    "✓ Zero license cost — one-time investment, lifetime usage": "✓ Sıfır lisans maliyeti — tek seferlik yatırım, ömür boyu kullanım",
-    "✓ Isolated server — your own DigitalOcean Droplet and Docker containers": "✓ İzole sunucu — kendi DigitalOcean Droplet ve Docker konteynerleriniz",
+    // SAAS VS DOVEIFY - RIGHT MODEL, RIGHT TIME
+    "Right Model, Right Time": "Doğru Model, Doğru Zamanda",
+    "SaaS is a tool, ownership is a strategy. The question isn't which is better — it's which fits your business needs today and tomorrow.": "SaaS bir araçtır, sahiplik bir stratejidir. Soru hangisinin daha iyi olduğu değil — işletmenizin bugünkü ve yarınki ihtiyacına hangisinin uyduğu.",
+    "Ready-Made Software (SaaS) Approach": "Hazır Yazılım (SaaS) Yaklaşımı",
+    "Doveify Ownership Approach": "Doveify Sahiplik Yaklaşımı",
+    "This model may be the right choice when:": "Bu model şu durumlarda doğru tercih olabilir:",
+    "This model provides strategic advantage when:": "Bu model şu durumlarda stratejik avantaj sağlar:",
+    "→ You want to quickly digitize standard business processes": "→ Standart iş süreçlerini hızla dijitalleştirmek istiyorsunuz",
+    "→ You're testing the market with low initial costs": "→ Düşük başlangıç maliyetiyle pazarı test ediyorsunuz",
+    "→ Small team, limited IT resources — you want to leave maintenance to the provider": "→ Küçük ekip, sınırlı IT kaynağı — bakım ve güncellemeyi sağlayıcıya bırakmak istiyorsunuz",
+    "→ You don't yet need deep industry-specific customization": "→ Sektöre özel derin özelleştirmeye henüz ihtiyaç duymuyorsunuz",
+    "→ You're looking for a short-term or seasonal solution": "→ Kısa vadeli veya dönemsel bir çözüm arıyorsunuz",
+    "✓ You want full control and customization in critical processes": "✓ Kritik iş süreçlerinizde tam kontrol ve özelleştirme istiyorsunuz",
+    "✓ You're in a regulation-heavy industry — data sovereignty is mandatory": "✓ Regülasyon ağırlıklı bir sektördesiniz — veri egemenliği zorunluluk",
+    "✓ You want to preserve your institutional memory and operational intelligence in your own system": "✓ Kurumsal hafızanızı ve operasyonel zekanızı kendi sisteminizde korumak istiyorsunuz",
+    "✓ You're thinking long-term strategic investment — update and roadmap decisions in your hands": "✓ Uzun vadeli stratejik yatırım düşünüyorsunuz — güncelleme ve yol haritası kararları sizin elinizde olsun",
+    "✓ Your workflows are industry-specific, standard platform limits aren't enough": "✓ İş akışlarınız sektöre özel, standart bir platformun sunduğu sınırlar yetmiyor",
+    "Doveify stands on the ownership side — because we believe businesses should not hand over strategic control of their most critical processes to another provider.": "Doveify, sahiplik tarafında yer alır — çünkü inanıyoruz ki işletmelerin en kritik süreçlerinde stratejik kontrolü başka bir sağlayıcıya devretmemesi gerekir.",
 
     // WHY DOVEIFY
+    "WHY DOVEIFY": "NEDEN DOVEİFY",
     "Why Doveify?": "Neden Doveify?",
-    "100% Ownership": "%100 Mülkiyet",
-    "Don't rent software, own it. Your system belongs entirely to you. No vendor lock-in, no surprises.": "Yazılımı kiralamayın, sahibi olun. Sisteminiz tamamen size ait. Bağımlılık yok, sürpriz yok.",
-    "Lifetime Usage": "Ömür Boyu Kullanım",
-    "No monthly license fees. One-time investment with optional annual maintenance. The system keeps running forever.": "Aylık lisans ücreti yok. Opsiyonel yıllık bakım ile tek seferlik yatırım. Sistem sonsuza kadar çalışır.",
-    "Full Customization": "Tam Özelleştirme",
-    "The system adapts to your workflows, not the other way around. Every feature tailored to how you actually work.": "Sistem sizin iş akışlarınıza uyar, tersi değil. Her özellik gerçek çalışma şeklinize göre tasarlanır.",
+    "100% Ownership": "%100 Sahiplik",
+    "Your system belongs entirely to you. Your critical business processes and data always remain under your control.": "Sisteminiz tamamen size ait. Kritik iş süreçleriniz ve verileriniz her zaman sizin kontrolünüzde kalır.",
+    "Long-Term Value": "Uzun Vadeli Değer",
+    "One-time investment with optional annual maintenance and support. Your system evolves with you as it grows.": "Tek seferlik yatırım, isteğe bağlı yıllık bakım ve destek. Sisteminiz büyüdükçe sizinle birlikte evrilir.",
+    "Industry-Specific Solutions": "Sektöre Özel Çözümler",
+    "Not generic tools, but systems focused on the real problems of your industry. Field-tested solutions in healthcare, occupational safety, real estate, and OSGB management.": "Genel araçlar değil, sektörünüzün gerçek sorunlarına odaklanan sistemler. Sağlık, iş güvenliği, gayrimenkul ve OSGB yönetiminde sahada test edilmiş çözümler.",
     "Data Sovereignty": "Veri Egemenliği",
-    "Your data stays on your own server. Not in shared SaaS pools. Each client gets isolated DigitalOcean Droplets and Docker containers.": "Verileriniz kendi sunucunuzda kalır. Paylaşılan SaaS havuzlarında değil. Her müşteri izole sunucu ortamına sahip olur.",
+    "Your data on your own server, under your control only. Isolated infrastructure for each business — no shared environment.": "Verileriniz kendi sunucunuzda, yalnızca sizin kontrolünüzde. Her işletmeye izole altyapı — paylaşılan ortam yok.",
+    "Long-Term Solution Partnership": "Uzun Vadeli Çözüm Ortaklığı",
+    "We don't sell software and leave. We build your digital infrastructure and support it sustainably.": "Bir yazılım satıp ayrılmıyoruz. Dijital altyapınızı kuruyoruz ve sürdürülebilir şekilde destekliyoruz.",
 
     // TECH STACK
     "Open-Source Technology Stack": "Açık Kaynak Teknoloji Motoru",
@@ -118,16 +129,19 @@
     "OSGB Web": "OSGB Web",
     "Contact": "İletişim",
     "Products": "Ürünler",
+    "SaaS Products": "SaaS Ürünler",
     "Legal": "Yasal",
-    "Privacy Policy": "Gizlilik Politikası"
+    "Privacy Policy": "Gizlilik Politikası",
+    "Start Free Trial": "Demo Talep Et",
+    "DOVEIFY AI SOLUTIONS LTD. | Your business's digital solution partner | 📍 Istanbul • London": "DOVEIFY AI SOLUTIONS LTD. | İşletmenizin dijital çözüm ortağı | 📍 Istanbul • London"
   };
 
   // Store original texts for reverting
   let originalTexts = new Map();
 
-  // Get current language from localStorage or default to 'en'
+  // Get current language from localStorage or default to 'tr' (Turkish is now default)
   function getCurrentLang() {
-    return localStorage.getItem('doveify-lang') || 'en';
+    return localStorage.getItem('doveify-lang') || 'tr';
   }
 
   // Set language preference
@@ -135,19 +149,23 @@
     localStorage.setItem('doveify-lang', lang);
   }
 
-  // Translate page to Turkish
+  // Translate page to Turkish (restore original Turkish content)
   function translateToTurkish() {
-    document.querySelectorAll('[data-i18n]').forEach((el) => {
-      const text = el.textContent?.trim();
-      if (text && translations[text]) {
-        if (!originalTexts.has(el)) {
-          originalTexts.set(el, text);
+    // Restore original Turkish texts if available
+    if (originalTexts.size > 0) {
+      originalTexts.forEach((originalText, el) => {
+        if (el && el.isConnected) {
+          el.textContent = originalText;
         }
-        el.textContent = translations[text];
-      }
-    });
+      });
+      originalTexts.clear();
+    }
+    document.documentElement.lang = 'tr';
+  }
 
-    const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, a, button, li, blockquote');
+  // Translate to English (uses translations object TR → EN)
+  function translateToEnglish() {
+    const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, a, button, li, blockquote, strong, em');
 
     elements.forEach(el => {
       // Skip elements with children that also have text (avoid double translation)
@@ -160,7 +178,7 @@
       
       const text = el.textContent?.trim();
       if (text && translations[text]) {
-        // Store original text if not already stored
+        // Store original Turkish text if not already stored
         if (!originalTexts.has(el)) {
           originalTexts.set(el, text);
         }
@@ -168,54 +186,37 @@
       }
     });
 
-    // Update html lang attribute
-    document.documentElement.lang = 'tr';
+    document.documentElement.lang = 'en';
   }
 
-  // Revert to English (reload page to get original content)
-  function translateToEnglish() {
-    // Restore original texts if available
-    if (originalTexts.size > 0) {
-      originalTexts.forEach((originalText, el) => {
-        if (el && el.isConnected) {
-          el.textContent = originalText;
-        }
-      });
-      document.documentElement.lang = 'en';
-    } else {
-      // If no stored texts, reload the page
-      location.reload();
-    }
-  }
-
-  // Main translate function
-  function translatePage(lang) {
+  // Main language switch function
+  function switchLanguage(lang) {
     if (lang === 'tr') {
       translateToTurkish();
     } else {
       translateToEnglish();
     }
 
-    // Update toggle button text
+    // Update toggle button text (show opposite language as option)
     const toggleBtn = document.getElementById('lang-toggle');
     if (toggleBtn) {
-      toggleBtn.textContent = lang === 'en' ? 'TR' : 'EN';
-      toggleBtn.setAttribute('aria-label', lang === 'en' ? 'Türkçe\'ye geç' : 'Switch to English');
+      toggleBtn.textContent = lang === 'tr' ? 'EN' : 'TR';
+      toggleBtn.setAttribute('aria-label', lang === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç');
     }
 
     const toggleBtnMobile = document.getElementById('lang-toggle-mobile');
     if (toggleBtnMobile) {
-      toggleBtnMobile.textContent = lang === 'en' ? 'TR' : 'EN';
-      toggleBtnMobile.setAttribute('aria-label', lang === 'en' ? 'Türkçe\'ye geç' : 'Switch to English');
+      toggleBtnMobile.textContent = lang === 'tr' ? 'EN' : 'TR';
+      toggleBtnMobile.setAttribute('aria-label', lang === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç');
     }
   }
 
   // Toggle language
   function toggleLanguage() {
     const currentLang = getCurrentLang();
-    const newLang = currentLang === 'en' ? 'tr' : 'en';
+    const newLang = currentLang === 'tr' ? 'en' : 'tr';
     setLang(newLang);
-    translatePage(newLang);
+    switchLanguage(newLang);
   }
 
   // Create and inject the toggle button into header
@@ -238,8 +239,8 @@
         const btn = document.createElement('button');
         btn.id = 'lang-toggle';
         btn.className = 'lang-toggle-btn';
-        btn.textContent = getCurrentLang() === 'en' ? 'TR' : 'EN';
-        btn.setAttribute('aria-label', getCurrentLang() === 'en' ? 'Türkçe\'ye geç' : 'Switch to English');
+        btn.textContent = getCurrentLang() === 'tr' ? 'EN' : 'TR';
+        btn.setAttribute('aria-label', getCurrentLang() === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç');
         btn.onclick = toggleLanguage;
         
         li.appendChild(btn);
@@ -255,8 +256,8 @@
           const btn = document.createElement('button');
           btn.id = 'lang-toggle-mobile';
           btn.className = 'lang-toggle-btn lang-toggle-mobile';
-          btn.textContent = getCurrentLang() === 'en' ? 'TR' : 'EN';
-          btn.setAttribute('aria-label', getCurrentLang() === 'en' ? 'Türkçe\'ye geç' : 'Switch to English');
+          btn.textContent = getCurrentLang() === 'tr' ? 'EN' : 'TR';
+          btn.setAttribute('aria-label', getCurrentLang() === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç');
           btn.onclick = toggleLanguage;
           
           li.appendChild(btn);
@@ -282,10 +283,15 @@
         background: rgba(15, 23, 42, 0.06);
         color: #374151;
         border: 1px solid rgba(15, 23, 42, 0.12);
-        padding: 6px 14px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-radius: 9999px;
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 600;
         cursor: pointer;
         transition: all 0.2s ease;
         margin-right: 8px;
@@ -298,6 +304,7 @@
       }
       .lang-toggle-mobile {
         width: 100%;
+        height: auto;
         padding: 12px;
         border-radius: 9999px;
         margin: 0;
@@ -307,8 +314,9 @@
 
     function applyTranslations() {
       createToggleButton();
-      if (shouldTranslate() && getCurrentLang() === 'tr') {
-        translatePage('tr');
+      // Content is Turkish by default, only translate if user preference is English
+      if (shouldTranslate() && getCurrentLang() === 'en') {
+        switchLanguage('en');
       }
     }
 
@@ -334,7 +342,7 @@
   window.doveifyToggleLang = toggleLanguage;
   window.doveifySetLang = (lang) => {
     setLang(lang);
-    translatePage(lang);
+    switchLanguage(lang);
   };
 
   init();
