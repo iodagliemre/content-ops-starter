@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 32" role="img" aria-label="Doveify">
+  <!--
+    Wordmark, metin tabanlı (outline değil). Referans görseldeki nav yazı tipi ince/geometrik
+    sans + geniş letter-spacing (bkz. docs/design/reference/homepage-ref-v1.png). Bu proje
+    Inter'i self-host ediyor (bkz. src/pages/_app.js, G4); font-family burada da Inter + sistem
+    sans yedeği kullanır. fill="currentColor" — kullanan bileşen metin rengini belirler.
+    Faz 2'de CD kaynağından gerçek outline vektör ile değiştirilmesi önerilir (RAPOR-P00.md G2).
+  -->
+  <text
+    x="0"
+    y="23"
+    fill="currentColor"
+    font-family="Inter, 'Segoe UI', system-ui, sans-serif"
+    font-size="22"
+    font-weight="600"
+    letter-spacing="2.5"
+  >DOVEIFY</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" fill="none" role="img" aria-label="heartbeat">
+  <!--
+    Tek path, EKG/heartbeat çizgisi. pathLength="1" -> stroke-dasharray/dashoffset ile
+    tek seferlik "çizilme" animasyonu (Faz 1, P-GATE-1 hero prototipi) bu path'e bağlanacak.
+    Renk/kalınlık tüketen bileşende (stroke, stroke-width) ayarlanır; burada currentColor.
+  -->
+  <path
+    pathLength="1"
+    d="M0,20 H60 L72,8 L84,32 L96,20 H120 L128,14 L136,26 L144,20 H240"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

@@ -1,8 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap');
+@import 'tailwindcss';
+@config '../../tailwind.config.js';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+ * V2 brand tokens — measured from docs/design/reference/homepage-ref-v1.png (1024x1536).
+ * Source coordinates + methodology: docs/design/TOKENS.md.
+ * Not yet wired into any component (P00 = tokens only); P1 consumes these for nav/hero/etc.
+ * Old content-ops-starter tokens (light/dark/neutral/neutralAlt/primary, from
+ * content/data/style.json via the @config above) are untouched — /clinic, /brokers-brain,
+ * /privacy, /signup keep rendering exactly as before.
+ */
+@theme {
+    --color-v2-bg-base: #050b14;
+    --color-v2-bg-elevated: #1c2f47;
+    --color-v2-text-primary: #ffffff;
+    --color-v2-text-secondary: #9aa0a6;
+    --color-v2-blue: #2563eb;
+    --color-v2-blue-from: #2e8ae9;
+    --color-v2-blue-to: #2452b9;
+    --color-v2-border: rgba(120, 160, 255, 0.18);
+}
 
 @layer base {
     body {

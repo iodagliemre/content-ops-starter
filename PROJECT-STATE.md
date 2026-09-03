@@ -16,7 +16,7 @@
 ## Faz Durumu
 | Faz | Ad | Durum |
 |---|---|---|
-| 0 | Kurulum (repo, docs, brand assets, içerik envanteri) | 🟡 Devam — dosyalar oluşturuldu, repo açılmadı |
+| 0 | Kurulum (repo, docs, brand assets, içerik envanteri) | ✅ Tamam — `tsc`/`build`/`lint` üçü de exit 0. bkz. RAPOR-P00.md |
 | 1 | Referans → Araştırma → Performance Gate (hero motion prototipi) | ⬜ Bekliyor |
 | 2 | Approved Design → DESIGN-LOCK | ⬜ Bekliyor |
 | 3 | Implementation (P1–P5) | ⬜ Bekliyor |
@@ -41,7 +41,13 @@
 8. **Nav** — Görsel nav: Ürünlerimiz / Web Factory / Dijital Dönüşüm / Sahiplik / Çalışmalar / İletişim. Mevcut sitedeki "Book a Demo" (cal.com) ve TurkISG AI nav'da yok. Demo CTA nereye?
 9. ✅ **Hero motion tekniği** — Framer Motion ONAYLI (bu proje için). Önce CSS dene; Framer Motion yalnızca CSS ile temiz çözülemeyen yerde (hero kafa oluşumu, 3D carousel). Performance Gate şartı değişmez. (03.09.2026)
 10. **Hero görseli kaynağı** — Dijital kafa: (a) CD'den statik PNG/WebP katmanları, (b) SVG parçacıklar + CSS. Performance Gate'e göre karar
-11. ✅ **Stackbit / Netlify Create** — `v2`'de ÇIKARILIR. Düz Next.js. `content/` → `_legacy/content/`. Git geçmişi + Netlify site bağlantısı korunur. (03.09.2026)
+11. ✅ **Stackbit / Netlify Create** — `v2`'de ÇIKARILIR. Düz Next.js. (03.09.2026) **Uygulama notu
+    (PAKET-00)**: sadece Stackbit visual-editor'ın kendisi (`stackbit.config.ts`, `@stackbit/cms-git`)
+    kaldırıldı. `content/` ve `sources/local/models` — Stackbit'e değil, `/clinic`, `/brokers-brain`,
+    `/privacy`, `/signup` render zincirine bağımlı çıktı; onlar P6'da (subpage'ler flat bileşene
+    dönüşene kadar) yerinde kalacak. Sadece `content/pages/index.md` `_legacy/content/pages/`'e
+    taşındı (yeni V2 homepage `src/components/HomePageV2/` içinde, `[[...slug]].js`'in özel-durum
+    render'ıyla geliyor — bkz. RAPOR-P00.md "Olay kaydı #3"). Git geçmişi + Netlify site bağlantısı korunur.
 12. ✅ **Tailwind v3 → v4** — ONAYLI. (03.09.2026)
 
 ## Kilitli Kurallar (bu proje)
@@ -55,7 +61,15 @@
 - Hero headline: "DİJİTAL ZEKÂ. GERÇEK ETKİ." (görselden, onaysız değiştirilmez)
 
 ## Son Paket
-- Yok. İlk paket: `paketler/PAKET-00-KURULUM.md` (repo kurulduktan sonra)
+- `paketler/PAKET-00-KURULUM.md` — G0-G5 tamamlandı, kapı geçti (`tsc`/`build`/`lint` → exit 0).
+  Detay, iki gerçek olay (yanlışlıkla `sources/` silinmesi + `git checkout` ile düzeltilmesi;
+  Next.js'in literal `/` route ile optional catch-all'ı aynı anda kabul etmemesi ve buna verilen
+  çözüm) dahil: RAPOR-P00.md.
 
 ## Sonraki Adım
-Emre: `git status` / pull kontrolü → `v2` branch aç → bu klasörü repo köküne kopyala → PAKET-00'ı Claude Code'a ver. Karar #2 (dil) açık; PAKET-00 TR varsayılanla ilerler, EN altyapısı P5'te. #4–#8 Faz 1 sonuna kadar karara bağlanmalı.
+1. Karar #2 (dil) açık; PAKET-00 TR varsayılanla ilerledi, EN altyapısı P5'te. #4–#8 Faz 1
+   sonuna kadar karara bağlanmalı.
+2. Faz 1 (P-GATE-1 hero prototipi) için `paketler/` altına yeni paket hazırlanabilir. Önemli
+   kısıt: yeni homepage kodu `src/components/HomePageV2/` altında kalmalı — ayrı bir
+   `src/pages/index.*` dosyası `[[...slug]].js` (optional catch-all) durduğu sürece Next.js
+   derleme hatası verir (bkz. RAPOR-P00.md "Olay kaydı #3").
