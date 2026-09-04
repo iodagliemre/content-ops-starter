@@ -20,6 +20,71 @@
     --color-v2-border: rgba(120, 160, 255, 0.18);
 }
 
+/*
+ * PAKET-P1-HERO-NAV G1: self-hosted Inter, real woff2 files (not next/font/google anymore —
+ * see src/pages/_app.js). Files harvested from @fontsource/inter (latin + latin-ext, weights
+ * 300/400/500 only — no 700, per brief F6). unicode-range values copied verbatim from that
+ * package so latin-ext (İ ı Ş ş Ğ ğ Ü ü Ö ö Ç ç Â â) loads only when actually needed.
+ * fontFamily.sans in tailwind.config.js points straight at 'Inter' now — shared with the old
+ * subpages (/clinic etc., same decision as PAKET-00). Those pages use font-weight 700 in a
+ * few places (headings, style.json); with no 700 file shipped, browsers synthesize bold from
+ * 400/500 there. Pre-existing, not touched by this package — see RAPOR-P1-HERO-NAV.md.
+ */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: url('/fonts/inter-latin-300.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+        U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: url('/fonts/inter-latin-ext-300.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+        U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('/fonts/inter-latin-400.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+        U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url('/fonts/inter-latin-ext-400.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+        U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 500;
+    src: url('/fonts/inter-latin-500.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+        U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 500;
+    src: url('/fonts/inter-latin-ext-500.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+        U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 @layer base {
     body {
         @apply text-base;
@@ -580,6 +645,12 @@
  * scale+blur) fixed it — see docs/perf/GATE-1-hero.md and RAPOR-P01.md for the full
  * before/after. This is beyond PAKET-01 G5.6's listed remediation steps (a-d); logged as its
  * own step since none of those four touch opacity.
+ *
+ * ===== PAKET-P1-HERO-NAV update =====
+ * F7 replaced the head layer's reveal with "overlay-fade": image stays opacity:1 throughout
+ * (LCP requirement above still holds — nothing changed there), a bg-v2-bg-base overlay on top
+ * fades 1→0 instead. `.v2-hero-head-layer` keeps doing scale(.96→1) only (blur was already
+ * dropped for the same LCP-adjacent reasoning, kept dropped — see RAPOR-P1-HERO-NAV.md).
  */
 .v2-fade-in,
 .v2-fade-up {
@@ -592,6 +663,10 @@
     opacity: 1;
     transform: scale(1);
     filter: blur(0);
+}
+.v2-hero-head-overlay {
+    /* Settled/reduced-motion default: fully faded (invisible), image fully revealed. */
+    opacity: 0;
 }
 .v2-heartbeat-path {
     stroke-dasharray: 1;
@@ -607,6 +682,9 @@
     }
     .v2-hero-head-layer {
         animation: v2HeadIn 0.9s ease-out both;
+    }
+    .v2-hero-head-overlay {
+        animation: v2OverlayFade 0.9s ease-out both;
     }
     .v2-heartbeat-path {
         animation: v2Draw 1s ease-out both;
@@ -637,6 +715,14 @@
     }
     to {
         transform: scale(1);
+    }
+}
+@keyframes v2OverlayFade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     }
 }
 @keyframes v2Draw {

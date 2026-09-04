@@ -6,8 +6,8 @@ import Hero from './Hero';
  * V2 homepage. Rendered from src/pages/[[...slug]].js when urlPath === '/' (see that file's
  * Page() function) — not its own page file, see RAPOR-P00.md "Olay kaydı #3" for why.
  *
- * PAKET-01: nav + hero are real now. The other 6 sections stay placeholder (out of scope for
- * this package — "hero dışı section'lara dokunma", paketler/PAKET-01-HERO-GATE.md).
+ * PAKET-01 built nav + hero; PAKET-P1-HERO-NAV brought them to DESIGN-LOCK v0.1. The other 6
+ * sections stay placeholder (out of scope for both packages).
  */
 
 const PLACEHOLDER_SECTIONS: Array<{ id: string; label: string }> = [
@@ -28,6 +28,10 @@ export default function HomePageV2() {
                 <link rel="icon" href="/icon.svg" type="image/svg+xml" />
                 <link rel="icon" href="/favicon.ico" sizes="any" />
                 <link rel="apple-touch-icon" href="/apple-icon.png" />
+                {/* PAKET-P1-HERO-NAV G1: headline is weight 300 and is LCP-adjacent content;
+                    preload both subset files it actually needs (TR chars İ/Â live in latin-ext). */}
+                <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-300.woff2" crossOrigin="anonymous" />
+                <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-ext-300.woff2" crossOrigin="anonymous" />
                 {/* og:description / diğer meta etiketleri P5'te (SEO paketi) eklenecek */}
                 <meta property="og:title" content="Doveify" />
                 <meta property="og:image" content="/og-image.jpg" />

@@ -5,9 +5,10 @@ import Heartbeat from './Heartbeat';
 import { site } from '../../../content/site';
 
 /**
- * PAKET-01 G1. Fixed h-20 (matches Hero's `min-h-[calc(100vh-5rem)]`, CLS-safe).
- * Anchor hrefs (#urunler etc.) are structural, not content — labels come from content/site.ts
- * verbatim (nav.primary + nav.cta), matching each to a homepage section id 1:1.
+ * PAKET-P1-HERO-NAV G2 (was PAKET-01 G1). h-16 mobile / h-20 desktop, no border — nav sits on
+ * the same bg-v2-bg-base as hero (F1). Brand signature is one flex row: mark <img> (gradient-id
+ * reasons, see RAPOR-P01.md), wordmark as real text (not <img> — needs the self-hosted Inter
+ * font, which an <img>-loaded SVG can't reach), heartbeat inline SVG right after it (F2).
  */
 const SECTION_IDS = ['urunler', 'web-factory', 'donusum', 'sahiplik', 'calismalar'] as const;
 
@@ -16,12 +17,14 @@ export default function Nav() {
     const links = site.nav.primary.map((label, i) => ({ label, href: `#${SECTION_IDS[i]}` }));
 
     return (
-        <header className="relative z-50 h-20 border-b border-v2-border">
+        <header className="relative z-50 h-16 bg-v2-bg-base lg:h-20">
             <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6">
-                <a href="#hero" className="v2-fade-in flex shrink-0 items-center gap-3">
-                    <img src="/brand/logo-mark.svg" alt="" width={32} height={32} className="h-8 w-8" />
-                    <img src="/brand/logo-wordmark.svg" alt="Doveify" width={120} height={16} className="h-4 w-auto" />
-                    <Heartbeat className="h-4 w-16 text-v2-text-secondary" delayMs={300} />
+                <a href="#hero" className="v2-fade-in flex shrink-0 items-center gap-1.5 lg:gap-2.5">
+                    <img src="/brand/logo-mark.svg" alt="" width={28} height={28} className="h-7 w-7 shrink-0" />
+                    <span className="font-sans text-[15px] font-normal uppercase leading-none tracking-[0.22em] text-white">
+                        Doveify
+                    </span>
+                    <Heartbeat className="h-3.5 w-14 shrink-0 text-v2-blue" strokeWidth={1.5} delayMs={300} />
                 </a>
 
                 <nav className="hidden items-center gap-8 lg:flex" aria-label="Ana menü">
@@ -29,14 +32,14 @@ export default function Nav() {
                         <a
                             key={link.href}
                             href={link.href}
-                            className="text-sm text-v2-text-secondary transition-colors hover:text-v2-text-primary"
+                            className="text-[15px] font-normal text-v2-text-secondary transition-colors hover:text-v2-text-primary"
                         >
                             {link.label}
                         </a>
                     ))}
                     <a
                         href="#iletisim"
-                        className="rounded-full border border-v2-border px-5 py-2 text-sm text-v2-text-primary transition-colors hover:border-v2-blue"
+                        className="flex h-10 items-center rounded-full border border-v2-border px-5 text-[15px] font-normal text-v2-text-primary transition-colors hover:border-v2-blue"
                     >
                         {site.nav.cta}
                     </a>
@@ -54,7 +57,7 @@ export default function Nav() {
             </div>
 
             {open && (
-                <div className="fixed inset-x-0 top-20 bottom-0 z-40 flex flex-col gap-1 overflow-y-auto bg-v2-bg-base px-6 py-8 lg:hidden">
+                <div className="fixed inset-x-0 top-16 bottom-0 z-40 flex flex-col gap-1 overflow-y-auto bg-v2-bg-base px-6 py-8 lg:hidden">
                     {links.map((link) => (
                         <a
                             key={link.href}

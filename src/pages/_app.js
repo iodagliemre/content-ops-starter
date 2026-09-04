@@ -1,22 +1,16 @@
 import '../css/main.css';
 import Script from 'next/script';
-import { Inter } from 'next/font/google';
 
-// Self-hosted (next/font downloads + serves from our own domain, no runtime Google
-// Fonts request). latin-ext covers Turkish characters (İ ı Ş ş Ğ ğ Ü ü Ö ö Ç ç Â â).
-// See docs/RAPOR-P00.md (G4) for why next/font/google was chosen over next/font/local.
-const inter = Inter({
-    subsets: ['latin', 'latin-ext'],
-    weight: ['400', '500', '700'],
-    variable: '--font-inter',
-    display: 'swap'
-});
+// PAKET-P1-HERO-NAV G1: next/font/google replaced with real self-hosted woff2 files
+// (@font-face rules in src/css/main.css, weights 300/400/500 only — no 700, see brief F6).
+// Previously used next/font/google (see RAPOR-P00.md G4) as a stopgap before real font
+// files existed in the repo.
 
 export default function MyApp({ Component, pageProps }) {
     return (
-        <div className={inter.variable}>
+        <>
             <Component {...pageProps} />
             <Script src="/js/i18n.js" strategy="afterInteractive" />
-        </div>
+        </>
     );
 }
