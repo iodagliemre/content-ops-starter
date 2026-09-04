@@ -1,18 +1,16 @@
 import Head from 'next/head';
+import Nav from './Nav';
+import Hero from './Hero';
 
 /**
- * V2 homepage skeleton (PAKET-00 / G1).
- * Placeholder only — section content, nav and footer are rebuilt for real in P1-P4.
+ * V2 homepage. Rendered from src/pages/[[...slug]].js when urlPath === '/' (see that file's
+ * Page() function) — not its own page file, see RAPOR-P00.md "Olay kaydı #3" for why.
  *
- * Rendered from src/pages/[[...slug]].js when urlPath === '/' (see that file's Page()
- * function). Not its own page file: Next.js forbids a literal `pages/index.*` route
- * coexisting with an optional catch-all (`[[...slug]]`) at the same specificity — see
- * RAPOR-P00.md for the full story. This component-in-the-catch-all approach avoids that
- * conflict entirely while keeping /clinic, /brokers-brain, /privacy, /signup untouched.
+ * PAKET-01: nav + hero are real now. The other 6 sections stay placeholder (out of scope for
+ * this package — "hero dışı section'lara dokunma", paketler/PAKET-01-HERO-GATE.md).
  */
 
-const SECTIONS: Array<{ id: string; label: string }> = [
-    { id: 'hero', label: 'Hero' },
+const PLACEHOLDER_SECTIONS: Array<{ id: string; label: string }> = [
     { id: 'urunler', label: 'Ürünlerimiz' },
     { id: 'web-factory', label: 'Web Factory' },
     { id: 'donusum', label: 'Dijital Dönüşüm' },
@@ -35,14 +33,10 @@ export default function HomePageV2() {
                 <meta property="og:image" content="/og-image.jpg" />
             </Head>
             <div className="min-h-screen bg-v2-bg-base text-v2-text-primary">
-                <header className="border-b border-v2-border px-6 py-4">
-                    <div className="mx-auto flex max-w-7xl items-center justify-between">
-                        <span className="text-lg font-semibold tracking-wide">DOVEIFY</span>
-                        <span className="text-sm text-v2-text-secondary">[BEKLEYEN-İÇERİK] Nav — P1&apos;de</span>
-                    </div>
-                </header>
+                <Nav />
                 <main>
-                    {SECTIONS.map((section) => (
+                    <Hero />
+                    {PLACEHOLDER_SECTIONS.map((section) => (
                         <section
                             key={section.id}
                             id={section.id}

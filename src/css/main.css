@@ -559,3 +559,91 @@
         }
     }
 }
+
+/*
+ * ===== PAKET-01: V2 hero motion =====
+ * One-shot only (no infinite-loop class above applies here). Default state on every class
+ * below is the FINAL visible/settled state — the `animation` property is only added inside
+ * the `prefers-reduced-motion: no-preference` query, so reduced-motion users get the end
+ * result immediately with no transform/blur/undrawn-line ever shown. Per-element timing
+ * (animation-delay) is set inline where each class is used — see src/components/HomePageV2/.
+ * Sequence + exact numbers: docs/design/reference/CD-SAYFA-KURGUSU.md "HERO MOTION KARARI",
+ * paketler/PAKET-01-HERO-GATE.md G4.
+ *
+ * Deviation from G4's table: .v2-hero-head-layer does NOT animate opacity (spec said
+ * "opacity 0→1 + scale + blur"). Measured cause: Chrome only registers an element as an
+ * LCP candidate from a paint where it already has non-zero opacity — an element that starts
+ * at opacity:0 and reaches 1 purely via a compositor-side animation never re-fires that
+ * check, so the real LCP candidate (this hero head image) was invisible to Lighthouse and
+ * the page fell back to the tiny nav logo, which produced a `NO_LCP` / null performance
+ * score under --throttling-method=simulate. Dropping opacity from this one keyframe (kept
+ * scale+blur) fixed it — see docs/perf/GATE-1-hero.md and RAPOR-P01.md for the full
+ * before/after. This is beyond PAKET-01 G5.6's listed remediation steps (a-d); logged as its
+ * own step since none of those four touch opacity.
+ */
+.v2-fade-in,
+.v2-fade-up {
+    opacity: 1;
+}
+.v2-fade-up {
+    transform: none;
+}
+.v2-hero-head-layer {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+.v2-heartbeat-path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .v2-fade-in {
+        animation: v2FadeIn 0.4s ease-out both;
+    }
+    .v2-fade-up {
+        animation: v2FadeUp 0.6s ease-out both;
+    }
+    .v2-hero-head-layer {
+        animation: v2HeadIn 0.9s ease-out both;
+    }
+    .v2-heartbeat-path {
+        animation: v2Draw 1s ease-out both;
+    }
+}
+
+@keyframes v2FadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes v2FadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes v2HeadIn {
+    from {
+        transform: scale(0.96);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes v2Draw {
+    from {
+        stroke-dashoffset: 1;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}

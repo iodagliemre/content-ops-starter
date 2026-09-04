@@ -17,7 +17,7 @@
 | Faz | Ad | Durum |
 |---|---|---|
 | 0 | Kurulum (repo, docs, brand assets, içerik envanteri) | ✅ Tamam — `tsc`/`build`/`lint` üçü de exit 0. bkz. RAPOR-P00.md |
-| 1 | Referans → Araştırma → Performance Gate (hero motion prototipi) | ⬜ Bekliyor |
+| 1 | Referans → Araştırma → Performance Gate (hero motion prototipi) | 🟡 Kapı sayısal olarak geçti (mobil Lighthouse medyan 95, CLS 0) — FAZ-PLANI.md'nin resmi kapanışı Emre'nin "geç" demesini bekliyor. bkz. RAPOR-P01.md, docs/perf/GATE-1-hero.md |
 | 2 | Approved Design → DESIGN-LOCK | ⬜ Bekliyor |
 | 3 | Implementation (P1–P5) | ⬜ Bekliyor |
 | 4 | Visual QA + Lighthouse + Deploy (preview) | ⬜ Bekliyor |
@@ -39,8 +39,8 @@
 6. **Why Doveify manifesto (CD 06)** — Görselde yok. Eklenecek mi, çıkarılacak mı?
 7. **Work/Proof** — CD: site crop'ları; görsel: logo bandı (memarts, teknikradyo, Delta OSGB, BİNNUR, akort, ERA ROSE). Öneri: logo bandı (Faz 1), crop'lar Faz 2 içerik gelince
 8. **Nav** — Görsel nav: Ürünlerimiz / Web Factory / Dijital Dönüşüm / Sahiplik / Çalışmalar / İletişim. Mevcut sitedeki "Book a Demo" (cal.com) ve TurkISG AI nav'da yok. Demo CTA nereye?
-9. ✅ **Hero motion tekniği** — Framer Motion ONAYLI (bu proje için). Önce CSS dene; Framer Motion yalnızca CSS ile temiz çözülemeyen yerde (hero kafa oluşumu, 3D carousel). Performance Gate şartı değişmez. (03.09.2026)
-10. **Hero görseli kaynağı** — Dijital kafa: (a) CD'den statik PNG/WebP katmanları, (b) SVG parçacıklar + CSS. Performance Gate'e göre karar
+9. ✅ **Hero motion tekniği** — Framer Motion ONAYLI (bu proje için). Önce CSS dene; Framer Motion yalnızca CSS ile temiz çözülemeyen yerde (hero kafa oluşumu, 3D carousel). Performance Gate şartı değişmez. (03.09.2026) **PAKET-01 sonucu**: saf CSS yeterli oldu, Framer Motion'a hiç gerek kalmadı. **Sapma**: kafa katmanı animasyonundan `opacity` çıkarıldı (scale+blur yerine sadece scale) — `opacity:0` ile başlayan elemanlar Chrome'da LCP adayı sayılmıyor, `NO_LCP` hatasına yol açıyordu. Detay: RAPOR-P01.md, docs/perf/GATE-1-hero.md. Faz 2'de CD ile teyit edilmeli.
+10. ✅ **Hero görseli kaynağı** — (a) seçildi: referans görselden Python/Pillow ile kesilmiş statik WebP (`public/hero/head-placeholder*.webp`), gerçek CD katmanları gelene kadar placeholder. Performance Gate'i geçti (mobil medyan 95). (03.09.2026)
 11. ✅ **Stackbit / Netlify Create** — `v2`'de ÇIKARILIR. Düz Next.js. (03.09.2026) **Uygulama notu
     (PAKET-00)**: sadece Stackbit visual-editor'ın kendisi (`stackbit.config.ts`, `@stackbit/cms-git`)
     kaldırıldı. `content/` ve `sources/local/models` — Stackbit'e değil, `/clinic`, `/brokers-brain`,
@@ -61,15 +61,19 @@
 - Hero headline: "DİJİTAL ZEKÂ. GERÇEK ETKİ." (görselden, onaysız değiştirilmez)
 
 ## Son Paket
-- `paketler/PAKET-00-KURULUM.md` — G0-G5 tamamlandı, kapı geçti (`tsc`/`build`/`lint` → exit 0).
-  Detay, iki gerçek olay (yanlışlıkla `sources/` silinmesi + `git checkout` ile düzeltilmesi;
-  Next.js'in literal `/` route ile optional catch-all'ı aynı anda kabul etmemesi ve buna verilen
-  çözüm) dahil: RAPOR-P00.md.
+- `paketler/PAKET-01-HERO-GATE.md` — Nav + Hero gerçek içerikle kuruldu, CSS motion (G4)
+  uygulandı, Performance Gate koşuldu. Kapı sayısal olarak geçti: `tsc`/`build`/`lint` exit 0,
+  mobil Lighthouse medyan 95, CLS 0. Yolda bir `NO_LCP` hatası bulunup kök nedeniyle
+  düzeltildi (opacity animasyonu LCP adayını gizliyordu — bkz. RAPOR-P01.md,
+  docs/perf/GATE-1-hero.md). Ekran görüntüleri: docs/qa/P01-1280.png, P01-375.png.
 
 ## Sonraki Adım
-1. Karar #2 (dil) açık; PAKET-00 TR varsayılanla ilerledi, EN altyapısı P5'te. #4–#8 Faz 1
-   sonuna kadar karara bağlanmalı.
-2. Faz 1 (P-GATE-1 hero prototipi) için `paketler/` altına yeni paket hazırlanabilir. Önemli
-   kısıt: yeni homepage kodu `src/components/HomePageV2/` altında kalmalı — ayrı bir
-   `src/pages/index.*` dosyası `[[...slug]].js` (optional catch-all) durduğu sürece Next.js
-   derleme hatası verir (bkz. RAPOR-P00.md "Olay kaydı #3").
+1. **Emre**: `docs/perf/GATE-1-hero.md` + `docs/qa/P01-*.png` incele, Faz 1'i "geç" de
+   (FAZ-PLANI.md'nin resmi kapı şartı). #9'daki opacity sapmasını CD ile teyit et.
+2. Karar #2 (dil) açık; #4–#8 hâlâ açık — Faz 1'in FAZ-PLANI.md'deki resmi kapanışı için bu
+   fazın sonuna kadar karara bağlanmalı olmaları gerekiyordu, PAKET-01 kapsamı (sadece hero+nav)
+   bunlara dokunmadı.
+3. Gate geçtikten sonra Faz 2 (Approved Design + DESIGN-LOCK): referans görsel `docs/design/
+   approved/`'a kopyalanır, `DESIGN-LOCK.md` yazılır. Önemli kısıt hâlâ geçerli: yeni homepage
+   kodu `src/components/HomePageV2/` altında kalmalı, ayrı bir `src/pages/index.*` açılmamalı
+   (bkz. RAPOR-P00.md "Olay kaydı #3").

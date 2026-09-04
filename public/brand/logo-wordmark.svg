@@ -1,16 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 32" role="img" aria-label="Doveify">
   <!--
     Wordmark, metin tabanlı (outline değil). Referans görseldeki nav yazı tipi ince/geometrik
-    sans + geniş letter-spacing (bkz. docs/design/reference/homepage-ref-v1.png). Bu proje
-    Inter'i self-host ediyor (bkz. src/pages/_app.js, G4); font-family burada da Inter + sistem
-    sans yedeği kullanır. fill="currentColor" — kullanan bileşen metin rengini belirler.
-    Faz 2'de CD kaynağından gerçek outline vektör ile değiştirilmesi önerilir (RAPOR-P00.md G2).
+    sans + geniş letter-spacing (bkz. docs/design/reference/homepage-ref-v1.png).
+    PAKET-01 G1: bu dosya <img> ile kullanılıyor (gradyan id çakışmasını önlemek için, bkz.
+    RAPOR-P01.md), bu yüzden fill sabit #FFFFFF (nav her zaman koyu v2 zemin üstünde) —
+    currentColor bir <img> içinde host sayfadan renk miras alamaz. Aynı sebeple font-family
+    burada self-host Inter'e erişemez (izole doküman), sistem sans yedeğine düşer; bu görsel
+    kalite kaybı Faz 2'de CD'den gerçek outline vektör istenene kadar kabul edilebilir
+    (RAPOR-P00.md G2 "manuel vektör önerilir" notunun devamı).
   -->
   <text
     x="0"
     y="23"
-    fill="currentColor"
-    font-family="Inter, 'Segoe UI', system-ui, sans-serif"
+    fill="#FFFFFF"
+    font-family="'Segoe UI', system-ui, sans-serif"
     font-size="22"
     font-weight="600"
     letter-spacing="2.5"
