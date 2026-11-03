@@ -31,6 +31,7 @@ export const site = {
     // verisi + artık BEKLEYEN-İÇERİK olmayan açıklama metni + 4. ürün TurkISG AI orada).
     // Burada sadece tarihsel referans için bırakıldı, hiçbir bileşen bunu tüketmiyor.
 
+    // PAKET-P3-WEBFACTORY-DONUSUM: gerçek veri content/webFactory.ts'te, hiçbir bileşen bunu tüketmiyor.
     webFactory: {
         eyebrow: 'WEB FACTORY',
         heading: 'Markanızı dijitalde zirveye taşıyoruz.',
@@ -38,9 +39,8 @@ export const site = {
         cta: "WEB FACTORY'Yİ KEŞFET"
     },
 
-    // Bekleyen karar #4 (PROJECT-STATE.md): CD metni "DATA → AI → SYSTEMS → AUTONOMY" tek hat
-    // vs. referans görsel 4 ikonlu kart (Strateji/Süreç/Veri/Teknoloji). Aşağıda GÖRSEL esas
-    // alındı (Emre onayına kadar); CD versiyonu için bkz. docs/content/ICERIK-ENVANTERI.md "4 Faz".
+    // Karar #4 kapandı: tek hat DATA → AI → SYSTEMS → AUTONOMY (PAKET-P3-WEBFACTORY-DONUSUM). Gerçek
+    // veri content/transformation.ts'te; aşağıdaki 4 kartlı eski taslağı hiçbir bileşen tüketmiyor.
     digitalTransformation: {
         eyebrow: 'DİJİTAL DÖNÜŞÜM',
         heading: 'Dönüşüm bir tercih değil, rekabet avantajıdır.',

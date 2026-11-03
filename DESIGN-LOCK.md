@@ -1,6 +1,6 @@
 # DESIGN-LOCK.md — Doveify Site V2
 
-> v0.2 — 05.09.2026. Kilitli: NAV, HERO (P1 + P1-R CD APPROVED). Diğer bölümler: CD-REVİZE-BEKLİYOR (PROJECT-STATE #4–#8).
+> v0.3 — 03.11.2026. Kilitli: NAV, HERO, ÜRÜNLER.
 > v0.1 → v0.2 değişiklikleri: kafa maske değerleri (CD Karar 01 revizyonu), Karar 04 "görsel davranış kilitli / teknik yöntem serbest", P1 KİLİT listesi eklendi.
 > Görsel otorite: `docs/design/approved/homepage-v1.png` (referans görselin onaylı kopyası, 05.09.2026 CD + Emre onayı).
 > Değişiklik: yalnızca Emre + CD onayıyla, bu dosyada versiyon artırılarak.
@@ -44,5 +44,14 @@
 Hero desktop/mobil kompozisyonu · kafa ölçek ve konumu · headline ölçek/ağırlık · logo + DOVEIFY + heartbeat ilişkisi · hero heartbeat · CTA hiyerarşisi · nav kompozisyonu · motion timing / final-state-stop.
 Referans screenshot: `docs/qa/P1R-1280.png`, `docs/qa/P1R-375.png`.
 
-## ÜRÜNLER / WEB FACTORY / DİJİTAL DÖNÜŞÜM / SAHİPLİK / ÇALIŞMALAR / İLETİŞİM
+## ÜRÜNLER (kilitli — CD P2AR GEÇTİ, 03.11.2026)
+- Sıra: Broker's Brain ← CLINIC OS → OSGB Web → TurkISG AI; ilk state Clinic OS merkez.
+- Desktop sahne: merkez 560×320; yan 440×280, rotateY ∓30°, translateX ∓310px, translateZ −200px, opacity .9; yan/merkez derinlik ilişkisi ve konumlar kilitli. Yer yansıması yok; sahne altı radial parlama.
+- Mobil: snap-rail, kart calc(100vw − 88px), gap 16, komşu kart peek 19px, pasif scale .94.
+- Otomatik kaydırma YOK; uçlarda oklar disabled; tek transition .55s.
+- Görseller placeholder; final ürün görselleri geldiğinde yalnızca görsel treatment QA, geometri değişmez.
+- Mevcut tipografi, renk, CTA, ok butonları kilitli.
+- Referans screenshot: docs/qa/P2AR-1280-carousel-crop.png, P2AR-375-carousel-crop.png.
+
+## WEB FACTORY / DİJİTAL DÖNÜŞÜM / SAHİPLİK / ÇALIŞMALAR / İLETİŞİM
 CD-REVİZE-BEKLİYOR. Görsel otorite `approved/homepage-v1.png`; ölçü/motion kuralları v0.2'de.

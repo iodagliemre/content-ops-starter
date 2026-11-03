@@ -789,7 +789,7 @@
  */
 .v2-cv-auto {
     content-visibility: auto;
-    contain-intrinsic-size: auto 892px; /* placeholder sections, measured @1280 */
+    contain-intrinsic-size: auto 48px; /* placeholder sections' content box, measured @1280 */
 }
 .v2-cv-products {
     content-visibility: auto;
@@ -797,9 +797,200 @@
 }
 @media (max-width: 1023px) {
     .v2-cv-auto {
-        contain-intrinsic-size: auto 1092px; /* placeholder sections, measured @375 */
+        contain-intrinsic-size: auto 72px; /* placeholder sections' content box, measured @375 */
     }
     .v2-cv-products {
         contain-intrinsic-size: auto 601px; /* #urunler content box, measured @375 */
+    }
+}
+
+/*
+ * ===== PAKET-P3-WEBFACTORY-DONUSUM =====
+ * G1: anchor targets land below the nav's height (80px desktop / 64px mobile).
+ */
+#urunler,
+#web-factory,
+#donusum,
+#sahiplik,
+#why,
+#calismalar,
+#iletisim {
+    scroll-margin-top: 64px;
+}
+@media (min-width: 1024px) {
+    #urunler,
+    #web-factory,
+    #donusum,
+    #sahiplik,
+    #why,
+    #calismalar,
+    #iletisim {
+        scroll-margin-top: 80px;
+    }
+}
+
+/*
+ * Same .is-visible pattern as .v2-reveal: the hidden pre-reveal state only exists inside the
+ * no-preference query, so reduced motion gets the final frame. JS sets .is-visible on the section.
+ */
+.v2-cv-webfactory {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 300px; /* content box, measured @1280 */
+}
+.v2-cv-donusum {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 270px; /* content box, measured @1280 */
+}
+@media (max-width: 1023px) {
+    .v2-cv-webfactory {
+        contain-intrinsic-size: auto 504px; /* content box, measured @375 */
+    }
+    .v2-cv-donusum {
+        contain-intrinsic-size: auto 800px; /* content box, measured @375 */
+    }
+}
+
+/* G2: Web Factory collage, once: opacity 0→1 + translateY 16→0, .6s. */
+@keyframes v2WfCollageIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+@media (prefers-reduced-motion: no-preference) {
+    :not(.is-visible) > .v2-wf-collage {
+        opacity: 0;
+    }
+    .is-visible > .v2-wf-collage {
+        animation: v2WfCollageIn 0.6s ease-out both;
+    }
+}
+
+/*
+ * G3: Dijital Dönüşüm line. Mobile is the base: vertical line at x=20px, 44px text inset, 32px
+ * between stages. Desktop: horizontal, 4 equal cells, the line runs from the first node's center
+ * to 24px past the last node and fades out over its last 10%.
+ */
+.v2-tx-track {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.v2-tx-line {
+    position: absolute;
+    left: 19.25px;
+    top: 10px;
+    bottom: 0;
+    width: 1.5px;
+    background: var(--color-v2-border);
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    transform-origin: top;
+}
+.v2-tx-stage {
+    padding-left: 44px;
+}
+.v2-tx-node {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-v2-blue);
+    border-radius: 9999px;
+    background: radial-gradient(circle, var(--color-v2-blue) 4.5px, var(--color-v2-bg-base) 5px);
+    filter: drop-shadow(0 0 6px rgba(47, 123, 255, 0.45));
+}
+@media (min-width: 1024px) {
+    .v2-tx-track {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+    }
+    .v2-tx-line {
+        left: 10px;
+        right: calc(25% - 44px);
+        top: 9.25px;
+        bottom: auto;
+        width: auto;
+        height: 1.5px;
+        mask-image: linear-gradient(to right, black 90%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+        transform-origin: left;
+    }
+    .v2-tx-stage {
+        padding-left: 0;
+        padding-right: 16px;
+    }
+    .v2-tx-node {
+        left: 0;
+    }
+    .v2-tx-text {
+        padding-top: 40px;
+    }
+}
+
+/* G3 reveal, once, ≤1.8s total: line .9s; nodes .15s apart; each text .1s after its node; quote last. */
+@keyframes v2TxLineY {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+@keyframes v2TxLineX {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+@keyframes v2TxNode {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@media (prefers-reduced-motion: no-preference) {
+    #donusum:not(.is-visible) .v2-tx-line {
+        transform: scaleY(0);
+    }
+    #donusum:not(.is-visible) .v2-tx-node,
+    #donusum:not(.is-visible) .v2-tx-text,
+    #donusum:not(.is-visible) .v2-tx-quote {
+        opacity: 0;
+    }
+    #donusum.is-visible .v2-tx-line {
+        animation: v2TxLineY 0.9s ease-out both;
+    }
+    #donusum.is-visible .v2-tx-node {
+        animation: v2TxNode 0.4s ease-out both;
+        animation-delay: calc(var(--v2-i) * 0.15s);
+    }
+    #donusum.is-visible .v2-tx-text {
+        animation: v2FadeUp 0.6s ease-out both;
+        animation-delay: calc(var(--v2-i) * 0.15s + 0.1s);
+    }
+    #donusum.is-visible .v2-tx-quote {
+        animation: v2FadeUp 0.6s ease-out both;
+        animation-delay: 1.2s;
+    }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+    #donusum:not(.is-visible) .v2-tx-line {
+        transform: scaleX(0);
+    }
+    #donusum.is-visible .v2-tx-line {
+        animation-name: v2TxLineX;
     }
 }

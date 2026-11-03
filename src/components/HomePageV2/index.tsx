@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Nav from './Nav';
 import Hero from './Hero';
 import Products from './Products';
+import WebFactory from './WebFactory';
+import Transformation from './Transformation';
 
 /**
  * V2 homepage. Rendered from src/pages/[[...slug]].js when urlPath === '/' (see that file's
@@ -9,7 +11,8 @@ import Products from './Products';
  *
  * PAKET-01 built nav + hero; PAKET-P1-HERO-NAV brought them to DESIGN-LOCK v0.1;
  * PAKET-P2-URUNLER-CAROUSEL (P2-A) built the real Ürünler section; PAKET-P2AR-CAROUSEL-DUZELTME
- * fixed its visuals + performance. The other 5 sections stay placeholder (out of scope).
+ * fixed its visuals + performance; PAKET-P3-WEBFACTORY-DONUSUM built Web Factory + Dijital Dönüşüm.
+ * The remaining sections stay placeholder (P4).
  *
  * B1 (P2AR): `Products` is a normal static import again, not `next/dynamic`. P2-A's dynamic
  * split was meant to help — instead its own chunk fetch/eval competed with the hero's LCP image
@@ -18,9 +21,8 @@ import Products from './Products';
  */
 
 const PLACEHOLDER_SECTIONS: Array<{ id: string; label: string }> = [
-    { id: 'web-factory', label: 'Web Factory' },
-    { id: 'donusum', label: 'Dijital Dönüşüm' },
     { id: 'sahiplik', label: 'Sahiplik' },
+    { id: 'why', label: 'Why Doveify' },
     { id: 'calismalar', label: 'Çalışmalar' },
     { id: 'iletisim', label: 'İletişim' }
 ];
@@ -47,6 +49,8 @@ export default function HomePageV2() {
                 <main>
                     <Hero />
                     <Products />
+                    <WebFactory />
+                    <Transformation />
                     {PLACEHOLDER_SECTIONS.map((section) => (
                         <section
                             key={section.id}

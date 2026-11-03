@@ -45,3 +45,7 @@ tmp*
 
 # typescript
 tsconfig.tsbuildinfo
+
+# perf diagnostics
+docs/perf/_diag*
+docs/perf/*-FIX*
