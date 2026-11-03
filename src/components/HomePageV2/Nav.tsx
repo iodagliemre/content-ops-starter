@@ -9,8 +9,13 @@ import { site } from '../../../content/site';
  * the same bg-v2-bg-base as hero (F1). Brand signature is one flex row: mark <img> (gradient-id
  * reasons, see RAPOR-P01.md), wordmark as real text (not <img> — needs the self-hosted Inter
  * font, which an <img>-loaded SVG can't reach), heartbeat inline SVG right after it (F2).
+ *
+ * PAKET-P2-URUNLER-CAROUSEL G0: the one authorized exception to the P1 LOCK LIST (DESIGN-LOCK
+ * v0.2) — the "İletişim" pill now links out to cal.com (Karar #8) instead of anchor-scrolling
+ * to the still-placeholder #iletisim section. Composition/size/style untouched.
  */
 const SECTION_IDS = ['urunler', 'web-factory', 'donusum', 'sahiplik', 'calismalar'] as const;
+const CAL_COM_URL = 'https://cal.com/emre-dagli-ffwxpr/doveify-demo';
 
 export default function Nav() {
     const [open, setOpen] = useState(false);
@@ -38,7 +43,9 @@ export default function Nav() {
                         </a>
                     ))}
                     <a
-                        href="#iletisim"
+                        href={CAL_COM_URL}
+                        target="_blank"
+                        rel="noopener"
                         className="flex h-10 items-center rounded-full border border-v2-border px-5 text-[15px] font-normal text-v2-text-primary transition-colors hover:border-v2-blue"
                     >
                         {site.nav.cta}
@@ -69,7 +76,9 @@ export default function Nav() {
                         </a>
                     ))}
                     <a
-                        href="#iletisim"
+                        href={CAL_COM_URL}
+                        target="_blank"
+                        rel="noopener"
                         onClick={() => setOpen(false)}
                         className="mt-6 rounded-full border border-v2-border px-5 py-3 text-center text-lg text-v2-text-primary"
                     >

@@ -733,3 +733,73 @@
         stroke-dashoffset: 0;
     }
 }
+
+/*
+ * ===== PAKET-P2-URUNLER-CAROUSEL =====
+ * .v2-reveal: below-the-fold one-shot entrance (Ürünler section). Unlike hero's fixed-delay
+ * .v2-fade-up (visible on page load), this section is off-screen at load, so JS
+ * (IntersectionObserver, see Products.tsx) adds .is-visible the first time it scrolls into
+ * view. Default state is still the reduced-motion-safe "already visible" — the invisible
+ * pre-reveal state only exists inside the no-preference query, so a user who never scrolls
+ * (or has reduced motion) never has hidden content.
+ */
+.v2-reveal {
+    opacity: 1;
+    transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .v2-reveal:not(.is-visible) {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    .v2-reveal.is-visible {
+        animation: v2FadeUp 0.6s ease-out both;
+    }
+}
+
+/* Desktop 3D carousel card: single transition on transform/opacity so repeated clicks
+   mid-animation retarget smoothly (no manual animation queueing needed). G5: 0s under
+   reduced motion — state still changes, it just jumps instead of easing. */
+.v2-product-card {
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+        filter 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.v2-product-card-mobile {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+    .v2-product-card,
+    .v2-product-card-mobile {
+        transition-duration: 0s;
+    }
+}
+
+/* Hide the mobile rail's scrollbar (swipe/snap is the interaction, not a visible scrollbar). */
+.v2-product-rail::-webkit-scrollbar {
+    display: none;
+}
+
+/*
+ * PAKET-P2AR-CAROUSEL-DUZELTME B2: below-fold sections skip layout/paint until near the
+ * viewport. `contain-intrinsic-size` reserves the placeholder box height so there's no layout
+ * shift when a section switches from the placeholder box to its real content as it nears the
+ * viewport — values below are measured against each section's real rendered height (see
+ * RAPOR-P2AR.md "B2"), not the brief's round-number starting guess. The value applies to the
+ * content box, so #urunler's excludes its padding (96+64 desktop, 96+48 mobile).
+ */
+.v2-cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 892px; /* placeholder sections, measured @1280 */
+}
+.v2-cv-products {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 576px; /* #urunler content box, measured @1280 */
+}
+@media (max-width: 1023px) {
+    .v2-cv-auto {
+        contain-intrinsic-size: auto 1092px; /* placeholder sections, measured @375 */
+    }
+    .v2-cv-products {
+        contain-intrinsic-size: auto 601px; /* #urunler content box, measured @375 */
+    }
+}

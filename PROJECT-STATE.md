@@ -19,7 +19,7 @@
 | 0 | Kurulum (repo, docs, brand assets, içerik envanteri) | ✅ Tamam — `tsc`/`build`/`lint` üçü de exit 0. bkz. RAPOR-P00.md |
 | 1 | Referans → Araştırma → Performance Gate (hero motion prototipi) | ✅ Emre "geç" dedi (mobil Lighthouse medyan 95, CLS 0). bkz. RAPOR-P01.md, docs/perf/GATE-1-hero.md |
 | 2 | Approved Design → DESIGN-LOCK | 🟡 LOCK v0.1 var (NAV, HERO kilitli — PAKET-P1-HERO-NAV brief'inin otoritesi) ama repoda DEĞİL: `DESIGN-LOCK.md` ve `docs/design/approved/homepage-v1.png` bulunamadı. Emre'de/CD'de duruyor olabilir — repoya eklenmeli. |
-| 3 | Implementation (P1–P5) | 🟡 Başladı — **P1 (PAKET-P1-HERO-NAV + PAKET-P1R-KAFA-MASKE)**: nav+hero LOCK v0.1'e uydurma + kafa maske revizyonu tamam, kapı geçti. bkz. RAPOR-P1-HERO-NAV.md, RAPOR-P1R-KAFA-MASKE.md. P2-P5 bekliyor. |
+| 3 | Implementation (P1–P5) | 🟡 Başladı — **P1 (PAKET-P1-HERO-NAV + PAKET-P1R-KAFA-MASKE)**: nav+hero LOCK v0.1'e uydurma + kafa maske revizyonu tamam, kapı geçti. **P2-A + P2AR (Ürünler bölümü)**: implementasyon commit'lenmedi, tsc/build/lint geçti, **performans kapısı GEÇMEDİ** (son kodda mobil medyan 88, hedef ≥95). bkz. RAPOR-P1-HERO-NAV.md, RAPOR-P1R-KAFA-MASKE.md, RAPOR-P2A.md, RAPOR-P2AR.md. P3-P5 bekliyor. |
 | 4 | Visual QA + Lighthouse + Deploy (preview) | ⬜ Bekliyor |
 | 5 | DNS cutover + eski site arşivi | ⬜ Bekliyor |
 
@@ -27,11 +27,9 @@
 - Referans: `docs/design/reference/homepage-ref-v1.png` (CD üretimi, 03.09.2026)
 - Karar: Emre — "bunun aynısına evireceğiz". Referans görsel ANA yön.
 - CD metni (`docs/design/reference/CD-SAYFA-KURGUSU.md`) tamamlayıcı; görsel ile çeliştiğinde **görsel esas**, çelişki aşağıda karara açılır.
-- `docs/design/approved/` hâlâ BOŞ (repoda). `DESIGN-LOCK.md` hâlâ repoda YOK. Ama
-  `paketler/PAKET-P1-HERO-NAV.md` brief'i bunları "Otorite: DESIGN-LOCK.md v0.1 (NAV, HERO
-  kilitli) + docs/design/approved/homepage-v1.png" olarak referans veriyor — yani bir yerde
-  (Emre'de/CD'de) var ama repoya eklenmemiş. Repoya eklenene kadar sonraki paketler piksel
-  karşılaştırma yapamıyor, sadece brief metnindeki yazılı değerlerle çalışıyor.
+- `docs/design/approved/homepage-v1.png` ve `DESIGN-LOCK.md` (v0.2, 05.09.2026) artık repoda —
+  önceki "eksik" notu güncel değildi, ikisi de eklendi. `DESIGN-LOCK.md`: NAV, HERO kilitli (P1 +
+  P1-R CD APPROVED); diğer bölümler CD-REVİZE-BEKLİYOR (aşağıdaki #4–#8).
 
 ## Bekleyen Kararlar (Emre)
 1. ✅ **Repo** — `D:/content-ops-starter-main`, branch `v2`
@@ -64,28 +62,30 @@
 - Hero headline: "DİJİTAL ZEKÂ. GERÇEK ETKİ." (görselden, onaysız değiştirilmez)
 
 ## Son Paket
-- `paketler/PAKET-P1R-KAFA-MASKE.md` — P1'in mikro revizyonu (CD Karar 01, 05.09.2026),
-  yalnızca kafa maskesi + placeholder zemini. Maske: yatay `46%`, dikey `20-80%` (daha geniş/
-  yumuşak erime, özellikle sol-üst köşe). Placeholder zemin rengi `--color-v2-bg-base`'e göre
-  yeniden boyandı (eski dosyalar `_legacy/hero/`'da yedekte, dosya adları değişmedi).
-  Kapı geçti: `tsc`/`build`/`lint` exit 0 (yeni uyarı yok), mobil Lighthouse medyan 95, CLS 0,
-  LCP elementi doğru (kafa görseli, dosya değişmesine rağmen kırılmadı). Detay + "RGB farkı 0"
-  neden tam sağlanamadığının gerekçesi: RAPOR-P1R-KAFA-MASKE.md. Ekran görüntüleri:
-  docs/qa/P1R-1280.png, P1R-375.png, P1R-1280-hero-crop.png (P1 crop'uyla aynı bölge — doğrudan
-  karşılaştırılabilir), P1R-375-hero-crop.png. Nav/headline/CTA/motion timing/performans
-  mimarisi DOKUNULMADI (brief kısıtı). **Eksik hâlâ geçerli**: `DESIGN-LOCK.md` ve
-  `docs/design/approved/homepage-v1.png` repoda yok (PAKET-P1-HERO-NAV'dan beri).
+- **P2AR** — `paketler/PAKET-P2AR-CAROUSEL-DUZELTME.md` (P2-A'nın görsel + performans revizyonu).
+  Rapor: RAPOR-P2AR.md. Kod commit'lenmedi.
+- **Kapı durumu: GEÇMEDİ.** Son kodda mobil Lighthouse medyan **88** (94, 88, 88; LCP 3425 ms, TBT
+  139 ms; hedef ≥95). Önceki kodda: B1+B2+B3 → 93, B4 → 91, B4 tekrar → 93, kayma düzeltmesi → 87–88.
+- **Ölçüm notu:** koşum sırasında Chrome penceresi açıktı (PID 10480) ve başka node süreçleri vardı;
+  "başka chrome/node kapalıyken" koşulu sağlanmadı. CPU kıyas değeri 1278–2455, uyarı yok. Eski kod benzer
+  CPU'da 92–93 veriyordu; düşüşün sebebi ayrıştırılmadı (hipotez RAPOR-P2AR.md §1).
+- Geçenler: CLS 0, LCP = hero kafa (18 koşum), `tsc`/`build`/`lint` exit 0 (yeni uyarı yok), yatay
+  taşma yok (1280 ve 375'te `scrollWidth === clientWidth`, ölçüldü), mobilde `scrollY` 0.
+- **A7 kapandı:** görsel 480×200 tam görünür, 24 px taşıyor, CTA tıklanabilir.
+- **A6 hedef tutmadı:** görünür peek ölçülen 19,4 px, hedef 28 (sebep pasif `scale(.94)`).
+- **A4 hedef tutmadı:** bölüm ölçülen 735,6 px, hedef 640–700 (verilen değerlerin toplamı).
+- A1, A2, A3, A5, A7, B1–B4 uygulandı (sapmalar RAPOR-P2AR.md). 5 QA görüntüsü son koddan çekildi.
 
 ## Sonraki Adım
-1. **Emre**: `DESIGN-LOCK.md` ve `docs/design/approved/homepage-v1.png`'yi repoya ekle — hâlâ
-   yok, sonraki paketlerin piksel-karşılaştırmalı QA yapabilmesi için gerekli.
-2. **Emre QA** (1280 + 375): `docs/qa/P1R-*.png`'yi P1 crop'larıyla karşılaştır → onayla veya
-   düzeltme iste → **P1 + P1R tek commit** (brief'in talimatı — P1R, P1'in commit'lenmemiş
-   çalışma ağacı üzerine bina edildi, ikisi ayrı commit değil).
-3. Commit sonrası **Faz 3 P2**: CD kararları #4-#8 (Dijital Dönüşüm, Sahiplik, Why Doveify,
-   Work/Proof, Nav demo CTA'sı) netleşmeden diğer section'lara geçilmemeli — bunlar hâlâ açık.
-   Karar #2 (dil) de açık.
-4. `DESIGN-LOCK.md` v0.2 güncellemesi (kafa maske değerleri) **Delivery Lead (Claude)** tarafından
-   yazılacak — Implementation (bu oturum) buna dokunmadı, brief'in talimatı.
-5. Kısıt hâlâ geçerli: yeni homepage kodu `src/components/HomePageV2/` altında kalmalı, ayrı
-   bir `src/pages/index.*` açılmamalı (bkz. RAPOR-P00.md "Olay kaydı #3").
+CD görsel onayı → commit → P3
+
+Bu adımdan önce açık kalanlar (RAPOR-P2AR.md "Açık sorunlar" ve "Bekleyen kararlar"):
+- **Performans kararı:** medyan 88 kabul mü, basitleştirme mi (paket B4 "DUR" kuralı). Karardan önce
+  Chrome tamamen kapalıyken tekrar ölçmek sonucu daha güvenilir kılar.
+- **Görsel kararlar:** mobil peek 19,4 px kabul mü (28 px için kart `calc(100vw - 104px)` veya pasif ölçek
+  kalkar); bölüm 735,6 px kabul mü (hedef için padding 36 px kısılır).
+- **CD paketi:** `docs/design/P2A-OLCU-ONERISI.md` hâlâ P2-A değerlerinde; güncel ölçüler
+  RAPOR-P2AR.md'de.
+- CD kararları #4–#8 ve karar #2 (dil) hâlâ açık.
+- Kısıt hâlâ geçerli: yeni homepage kodu `src/components/HomePageV2/` altında kalmalı, ayrı
+  bir `src/pages/index.*` açılmamalı (bkz. RAPOR-P00.md "Olay kaydı #3").

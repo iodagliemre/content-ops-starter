@@ -27,32 +27,9 @@ export const site = {
         ctaSecondary: "WEB FACTORY'Yİ İNCELE"
     },
 
-    products: {
-        eyebrow: 'ÜRÜNLERİMİZ',
-        heading: 'İşinizi geleceğe taşıyan dijital sistemler.',
-        description: '[BEKLEYEN-İÇERİK] — sağ üstteki açıklama metni referans görselde okunaklı değil, CD teyidi gerekiyor',
-        cardCta: 'DETAYLARI GÖR',
-        items: [
-            {
-                key: 'clinic-os',
-                name: 'CLINIC OS',
-                description: 'Sağlık kurumları için bütünleşik yönetim sistemi.',
-                href: '/clinic/'
-            },
-            {
-                key: 'brokers-brain',
-                name: "BROKER'S BRAIN",
-                description: 'Gayrimenkul profesyonelleri için akıllı takip ve analiz platformu.',
-                href: '/brokers-brain/'
-            },
-            {
-                key: 'osgb-web',
-                name: 'OSGB WEB',
-                description: 'İş sağlığı ve güvenliği süreçlerinizi dijitalleştiren platform.',
-                href: 'https://osgb.doveify.io/'
-            }
-        ]
-    },
+    // PAKET-P2-URUNLER-CAROUSEL: bu alanın yerini content/products.ts aldı (gerçek carousel
+    // verisi + artık BEKLEYEN-İÇERİK olmayan açıklama metni + 4. ürün TurkISG AI orada).
+    // Burada sadece tarihsel referans için bırakıldı, hiçbir bileşen bunu tüketmiyor.
 
     webFactory: {
         eyebrow: 'WEB FACTORY',
