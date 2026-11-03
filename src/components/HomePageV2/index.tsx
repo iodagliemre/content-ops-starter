@@ -4,6 +4,11 @@ import Hero from './Hero';
 import Products from './Products';
 import WebFactory from './WebFactory';
 import Transformation from './Transformation';
+import Ownership from './Ownership';
+import Why from './Why';
+import Work from './Work';
+import FinalCta from './FinalCta';
+import Footer from './Footer';
 
 /**
  * V2 homepage. Rendered from src/pages/[[...slug]].js when urlPath === '/' (see that file's
@@ -11,21 +16,15 @@ import Transformation from './Transformation';
  *
  * PAKET-01 built nav + hero; PAKET-P1-HERO-NAV brought them to DESIGN-LOCK v0.1;
  * PAKET-P2-URUNLER-CAROUSEL (P2-A) built the real Ürünler section; PAKET-P2AR-CAROUSEL-DUZELTME
- * fixed its visuals + performance; PAKET-P3-WEBFACTORY-DONUSUM built Web Factory + Dijital Dönüşüm.
- * The remaining sections stay placeholder (P4).
+ * fixed its visuals + performance; PAKET-P3-WEBFACTORY-DONUSUM built Web Factory + Dijital Dönüşüm;
+ * PAKET-P4-SAHIPLIK-FINAL built Sahiplik, Why Doveify, Çalışmalar, Final CTA and the footer. No
+ * placeholder sections remain.
  *
  * B1 (P2AR): `Products` is a normal static import again, not `next/dynamic`. P2-A's dynamic
  * split was meant to help — instead its own chunk fetch/eval competed with the hero's LCP image
  * for network+CPU during the exact window Lighthouse measures, for a below-fold component that's
  * already in the static HTML either way (`ssr: true` was always the default). See RAPOR-P2AR.md.
  */
-
-const PLACEHOLDER_SECTIONS: Array<{ id: string; label: string }> = [
-    { id: 'sahiplik', label: 'Sahiplik' },
-    { id: 'why', label: 'Why Doveify' },
-    { id: 'calismalar', label: 'Çalışmalar' },
-    { id: 'iletisim', label: 'İletişim' }
-];
 
 export default function HomePageV2() {
     return (
@@ -51,22 +50,12 @@ export default function HomePageV2() {
                     <Products />
                     <WebFactory />
                     <Transformation />
-                    {PLACEHOLDER_SECTIONS.map((section) => (
-                        <section
-                            key={section.id}
-                            id={section.id}
-                            className="v2-cv-auto mx-auto max-w-7xl px-6 py-24"
-                        >
-                            <p className="text-xs uppercase tracking-widest text-v2-text-secondary">{section.label}</p>
-                            <p className="mt-2 text-v2-text-secondary">
-                                [BEKLEYEN-İÇERİK] — bu bölüm sonraki paketlerde doldurulacak.
-                            </p>
-                        </section>
-                    ))}
+                    <Ownership />
+                    <Why />
+                    <Work />
+                    <FinalCta />
                 </main>
-                <footer className="px-6 py-10 text-sm text-v2-text-secondary">
-                    [BEKLEYEN-İÇERİK] Footer — P1&apos;de
-                </footer>
+                <Footer />
             </div>
         </>
     );

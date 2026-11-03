@@ -994,3 +994,104 @@
         animation-name: v2TxLineX;
     }
 }
+
+/*
+ * ===== PAKET-P4-SAHIPLIK-FINAL =====
+ * Same .is-visible pattern as P3: hidden pre-reveal states exist only inside the no-preference
+ * query, reduced motion gets the final frame. contain-intrinsic-size = measured content box.
+ */
+.v2-cv-sahiplik,
+.v2-cv-why,
+.v2-cv-calismalar,
+.v2-cv-iletisim {
+    content-visibility: auto;
+}
+.v2-cv-sahiplik {
+    contain-intrinsic-size: auto 620px; /* content box, measured @1280 */
+}
+.v2-cv-why {
+    contain-intrinsic-size: auto 552px; /* content box, measured @1280 */
+}
+.v2-cv-calismalar {
+    contain-intrinsic-size: auto 192px; /* content box, measured @1280 */
+}
+.v2-cv-iletisim {
+    contain-intrinsic-size: auto 315px; /* content box, measured @1280 */
+}
+@media (max-width: 1023px) {
+    .v2-cv-sahiplik {
+        contain-intrinsic-size: auto 1070px; /* content box, measured @375 */
+    }
+    .v2-cv-why {
+        contain-intrinsic-size: auto 853px; /* content box, measured @375 */
+    }
+    .v2-cv-calismalar {
+        contain-intrinsic-size: auto 377px; /* content box, measured @375 */
+    }
+    .v2-cv-iletisim {
+        contain-intrinsic-size: auto 339px; /* content box, measured @375 */
+    }
+}
+
+/* G3: client logos stay monochrome; hover/focus only raises opacity (no brand colour, CD). */
+.v2-logo {
+    filter: grayscale(1) brightness(1.7);
+    opacity: 0.55;
+    transition: opacity 0.2s ease-out;
+}
+.v2-logo:hover,
+.v2-logo:focus-visible {
+    opacity: 0.85;
+}
+
+/* G5: footer heartbeat is static (drawn, no animation). */
+.v2-footer .v2-heartbeat-path {
+    animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    /* G1: statement lines .15s apart, then the comparison block (.6s). */
+    #sahiplik:not(.is-visible) .v2-own-line,
+    #sahiplik:not(.is-visible) .v2-own-body {
+        opacity: 0;
+    }
+    #sahiplik.is-visible .v2-own-line {
+        animation: v2FadeUp 0.6s ease-out both;
+        animation-delay: calc(var(--v2-i) * 0.15s);
+    }
+    #sahiplik.is-visible .v2-own-body {
+        animation: v2FadeUp 0.6s ease-out both;
+        animation-delay: 0.45s;
+    }
+
+    /* G2: figure fadeUp .6s; list items .1s apart. */
+    #why:not(.is-visible) .v2-why-figure,
+    #why:not(.is-visible) .v2-why-item {
+        opacity: 0;
+    }
+    #why.is-visible .v2-why-figure {
+        animation: v2FadeUp 0.6s ease-out both;
+    }
+    #why.is-visible .v2-why-item {
+        animation: v2FadeUp 0.6s ease-out both;
+        animation-delay: calc(0.2s + var(--v2-i) * 0.1s);
+    }
+
+    /* G3: logos fade in .08s apart (on the <li>, so the link's .55 opacity stays intact). */
+    #calismalar:not(.is-visible) .v2-work-logo {
+        opacity: 0;
+    }
+    #calismalar.is-visible .v2-work-logo {
+        animation: v2FadeIn 0.6s ease-out both;
+        animation-delay: calc(var(--v2-i) * 0.08s);
+    }
+
+    /* G4: the large heartbeat draws once, when the section enters the viewport (not at page load). */
+    #iletisim:not(.is-visible) .v2-heartbeat-path {
+        animation: none;
+        stroke-dashoffset: 1;
+    }
+    #iletisim.is-visible .v2-heartbeat-path {
+        animation: v2Draw 1s ease-out both;
+    }
+}

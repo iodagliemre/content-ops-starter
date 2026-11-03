@@ -1,6 +1,6 @@
 # DESIGN-LOCK.md — Doveify Site V2
 
-> v0.3 — 03.11.2026. Kilitli: NAV, HERO, ÜRÜNLER.
+> v0.4 — 03.11.2026. Kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM.
 > v0.1 → v0.2 değişiklikleri: kafa maske değerleri (CD Karar 01 revizyonu), Karar 04 "görsel davranış kilitli / teknik yöntem serbest", P1 KİLİT listesi eklendi.
 > Görsel otorite: `docs/design/approved/homepage-v1.png` (referans görselin onaylı kopyası, 05.09.2026 CD + Emre onayı).
 > Değişiklik: yalnızca Emre + CD onayıyla, bu dosyada versiyon artırılarak.
@@ -53,5 +53,18 @@ Referans screenshot: `docs/qa/P1R-1280.png`, `docs/qa/P1R-375.png`.
 - Mevcut tipografi, renk, CTA, ok butonları kilitli.
 - Referans screenshot: docs/qa/P2AR-1280-carousel-crop.png, P2AR-375-carousel-crop.png.
 
-## WEB FACTORY / DİJİTAL DÖNÜŞÜM / SAHİPLİK / ÇALIŞMALAR / İLETİŞİM
+## WEB FACTORY (kilitli — CD P3-R1 GEÇTİ)
+- 3 kolon: başlık (1–3) / kolaj (4–9) / açıklama + tek CTA → web.doveify.io (10–12).
+- Kolaj: merkez ekran 450×300 dik; yan ekranlar 255×170, rotateY ∓18°, translateZ −80, translateX ∓205, opacity .85. Perspective 1200. Tarayıcı şeridi 6px, 1px kenarlık, radius 8.
+- Görseller: Teknik Telsiz (merkez), Dr. Serap Korkmaz (sol), Dry Clean Online (sağ). Değişiklik CD onayıyla.
+- Mobil: yalnız merkez ekran, içerik alanının %100'ü (3:2).
+- Referans: docs/qa/P3R-1280-webfactory.png, P3R-375-webfactory.png.
+
+## DİJİTAL DÖNÜŞÜM (kilitli — CD P3 GEÇTİ)
+- Tek hat DATA → AI → SYSTEMS → AUTONOMY; ikon yok. Desktop yatay hat (1.5px), 4 düğüm (10px mavi + 20px halka, glow); mobil dikey hat solda.
+- Metin kolonları: etiket 500 12px mavi / başlık 400 16px / açıklama 400 13px secondary. Alıntı 300 20px, 24px mavi çizgi.
+- Reveal: hat scaleX/scaleY .9s + düğümler .15s kademeli, ≤1.8s, bir kez.
+- Referans: docs/qa/P3-1280-donusum.png, P3-375-donusum.png.
+
+## SAHİPLİK / WHY DOVEIFY / ÇALIŞMALAR / FİNAL CTA / FOOTER — CD-REVİZE-BEKLİYOR (P4)
 CD-REVİZE-BEKLİYOR. Görsel otorite `approved/homepage-v1.png`; ölçü/motion kuralları v0.2'de.

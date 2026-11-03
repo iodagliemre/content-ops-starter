@@ -19,7 +19,7 @@
 | 0 | Kurulum (repo, docs, brand assets, içerik envanteri) | ✅ Tamam — `tsc`/`build`/`lint` üçü de exit 0. bkz. RAPOR-P00.md |
 | 1 | Referans → Araştırma → Performance Gate (hero motion prototipi) | ✅ Emre "geç" dedi (mobil Lighthouse medyan 95, CLS 0). bkz. RAPOR-P01.md, docs/perf/GATE-1-hero.md |
 | 2 | Approved Design → DESIGN-LOCK | ✅ LOCK v0.3 (03.11.2026) — kilitli: NAV, HERO, ÜRÜNLER. Diğer bölümler CD-REVİZE-BEKLİYOR. |
-| 3 | Implementation (P1–P5) | 🟡 Başladı — **P1 (PAKET-P1-HERO-NAV + PAKET-P1R-KAFA-MASKE)**: nav+hero LOCK v0.1'e uydurma + kafa maske revizyonu tamam, kapı geçti. **P2 (P2-A + P2AR, Ürünler)**: ✅ CD P2AR GEÇTİ (03.11.2026), commit `2c3e038`; ≥95 hedefi PERF paketine ertelendi. **P3 (Web Factory + Dijital Dönüşüm)**: 🟡 uygulandı, kapı geçti (mobil medyan 89, eşik 88); **P3-R1** (CD revizyonu, Web Factory) uygulandı, kapı geçti (medyan 95); commit'lenmedi, CD görsel onayı bekliyor. bkz. RAPOR-P1-HERO-NAV.md, RAPOR-P1R-KAFA-MASKE.md, RAPOR-P2A.md, RAPOR-P2AR.md, RAPOR-P3.md. P4-P5 bekliyor. |
+| 3 | Implementation (P1–P5) | 🟡 Başladı — **P1 (PAKET-P1-HERO-NAV + PAKET-P1R-KAFA-MASKE)**: nav+hero LOCK v0.1'e uydurma + kafa maske revizyonu tamam, kapı geçti. **P2 (P2-A + P2AR, Ürünler)**: ✅ CD P2AR GEÇTİ (03.11.2026), commit `2c3e038`; ≥95 hedefi PERF paketine ertelendi. **P3 (Web Factory + Dijital Dönüşüm)**: 🟡 uygulandı, kapı geçti (mobil medyan 89, eşik 88); **P3-R1** (CD revizyonu, Web Factory) uygulandı (medyan 95); ✅ CD P3-R1 GEÇTİ, commit `1fb90fd`. **P4 (Sahiplik + Why Doveify + Çalışmalar + Final CTA + Footer)**: 🟡 uygulandı, homepage içerik olarak tamam; görsel kapı geçti, mobil medyan 86 (eşik 88; aynı ortamda P4'süz taban 84, gerileme yok); commit'lenmedi, CD onayı bekliyor. bkz. RAPOR-P1-HERO-NAV.md, RAPOR-P1R-KAFA-MASKE.md, RAPOR-P2A.md, RAPOR-P2AR.md, RAPOR-P3.md, RAPOR-P4.md. P5 bekliyor. |
 | 4 | Visual QA + Lighthouse + Deploy (preview) | ⬜ Bekliyor |
 | 5 | DNS cutover + eski site arşivi | ⬜ Bekliyor |
 
@@ -35,9 +35,9 @@
 2. **Dil** — Referans TR, mevcut site EN. Seçenek: (a) sadece TR, (b) TR ana + EN ikinci, (c) sadece EN. Öneri: TR/EN, TR varsayılan (Türkiye pazarı + London için EN gerekli)
 3. ✅ **Logo bileşimi** — amblem sol + wordmark + heartbeat (wordmark'ın devamı). Amblem favicon/OG'de de kullanılır. (03.09.2026)
 4. ✅ **Dijital Dönüşüm bölümü** — tek hat `DATA → AI → SYSTEMS → AUTONOMY` (CD). P3'te uygulandı.
-5. **Sahiplik bölümü** — CD kararı alındı, P4'te uygulanacak.
-6. **Why Doveify manifesto (CD 06)** — CD kararı alındı, P4'te uygulanacak (`#why` placeholder'ı hazır).
-7. **Work/Proof** — CD kararı alındı, P4'te uygulanacak (Çalışmalar logo bandı).
+5. ✅ **Sahiplik bölümü** — "TOOLS ARE RENTED. KNOWLEDGE SHOULD NOT BE." + ikonsuz SaaS/Doveify karşılaştırma (CD). P4'te uygulandı.
+6. ✅ **Why Doveify (CD 06)** — `100% OWNERSHIP` + 5 maddelik editorial liste. P4'te uygulandı.
+7. ✅ **Work/Proof** — 6 gerçek projenin logo bandı (CD). P4'te uygulandı.
 8. ✅ **Nav** — İletişim pili cal.com demo linkine gidiyor (P2).
 9. ✅ **Hero motion tekniği** — Framer Motion ONAYLI (bu proje için). Önce CSS dene; Framer Motion yalnızca CSS ile temiz çözülemeyen yerde (hero kafa oluşumu, 3D carousel). Performance Gate şartı değişmez. (03.09.2026) **PAKET-01 sonucu**: saf CSS yeterli oldu, Framer Motion'a hiç gerek kalmadı. **Sapma (hâlâ geçerli)**: kafa katmanı animasyonunda `opacity` YOK — `opacity:0` ile başlayan elemanlar Chrome'da LCP adayı sayılmıyor, `NO_LCP` hatasına yol açıyordu (RAPOR-P01.md, docs/perf/GATE-1-hero.md). **PAKET-P1-HERO-NAV günceli**: LOCK'un "overlay-fade" tarifi (F7) bu kısıtla uyumlu şekilde uygulandı — kafa `opacity:1` sabit, üstündeki `bg` renkli overlay `opacity 1→0` fade oluyor (görsel olarak "kafa beliriyor" hissi opacity yerine overlay ile veriliyor). Emre/CD onayı hâlâ bekliyor.
 10. ✅ **Hero görseli kaynağı** — (a) seçildi: referans görselden Python/Pillow ile kesilmiş statik WebP (`public/hero/head-placeholder*.webp`), gerçek CD katmanları gelene kadar placeholder. Performance Gate'i geçti (mobil medyan 95). (03.09.2026) **PAKET-P1-HERO-NAV**: aynı görsel, maske F5'e göre güncellendi (2 linear-gradient + intersect — sol/üst/alt erime, sağ keskin), boyut/konum değişmedi. **PAKET-P1R-KAFA-MASKE (CD Karar 01 revizyonu, 05.09.2026)**: maske değerleri yatay `38%→46%`, dikey `14-86%→20-80%`; placeholder zemin rengi `--color-v2-bg-base` (#050B14) ile eşleşecek şekilde yeniden boyandı (eski dosyalar `_legacy/hero/`'da). Tam "RGB farkı 0" lossy WebP ile sağlanamadı (1-3 birim kaldı, gözle ayırt edilemez) — detay RAPOR-P1R-KAFA-MASKE.md. Kafa boyutu/konumu DEĞİŞMEDİ (CD: "büyütülmeyecek").
@@ -61,28 +61,24 @@
 - Hero headline: "DİJİTAL ZEKÂ. GERÇEK ETKİ." (görselden, onaysız değiştirilmez)
 
 ## Son Paket
-- **P3** — `paketler/PAKET-P3-WEBFACTORY-DONUSUM.md`: LOCK v0.3, Web Factory, Dijital Dönüşüm (tek hat),
-  placeholder temizliği. Rapor: RAPOR-P3.md. Commit'lenmedi.
-- **Kapı durumu: GEÇTİ.** Mobil Lighthouse medyan **89** (79, 89, 98; LCP 3474 ms, TBT 100 ms; eşik 88,
-  P2: 88). Koşumlar arası fark büyük, eşik 1 puanla geçildi. CLS 0, LCP = hero kafa.
-- `tsc`/`build`/`lint` exit 0 (yeni uyarı yok), yatay taşma yok (1280 ve 375'te ölçüldü).
-- Ekran görüntüleri: `docs/qa/P3-1280.png`, `P3-1280-webfactory.png`, `P3-1280-donusum.png`, `P3-375.png`,
-  `P3-375-donusum.png`.
-- **P3-R1** (CD revizyonu, yalnız Web Factory): merkez ekran 450×300, yan ekranlar 255×170 (%15 küçük), gerçek site
-  ekranları (`screen-1` Teknik Telsiz 900×600 48 KB, `screen-2`/`screen-3` 600×400 16/28 KB), mobilde merkez 327×218.
-  **Kapı GEÇTİ:** tsc/build/lint 0, yatay taşma yok, mobil medyan **95** (72, 95, 96; LCP 2051 ms, TBT 241 ms), CLS 0,
-  LCP = kafa. Üç koşumda da "yavaş CPU" uyarısı var; medyan iyileşme göstermez. Ekran görüntüleri:
-  `docs/qa/P3R-1280-webfactory.png`, `P3R-375-webfactory.png`. Ayrıntı: RAPOR-P3.md "P3-R1".
+- **P4** — `paketler/PAKET-P4-SAHIPLIK-FINAL.md`: LOCK v0.4 (WEB FACTORY, DİJİTAL DÖNÜŞÜM kilitli), Sahiplik, Why Doveify,
+  Çalışmalar (6 gerçek logo), Final CTA, footer; placeholder kalmadı. Rapor: RAPOR-P4.md. Commit'lenmedi.
+- **Kapı:** tsc/build/lint 0 (yeni uyarı yok), yatay taşma yok, CLS 0, LCP = hero kafa ✅. **Mobil medyan 86 — eşik 88'in altında ❌**
+  (P4: 61, 86, 94; tekrar P4b: 95, 84, 86). Aynı oturumda P4 bölümleri kapalı ölçülen taban medyan 84: düşüş P4'ten değil,
+  ortamdan (CPU kıyas değeri düşük koşumlar 82–86, yüksek olanlar 94–95).
+- Ekran görüntüleri: `docs/qa/P4-1280.png`, `P4-1280-sahiplik.png`, `P4-1280-why.png`, `P4-1280-calismalar-cta.png`,
+  `P4-375.png`, `P4-375-sahiplik.png`.
 
 ## Sonraki Adım
-CD görsel onayı → commit → P4 (Sahiplik + Why Doveify + Çalışmalar logo bandı + Final CTA/İletişim)
+CD onayı → commit → P5 (SEO/OG/sitemap/dil #2) → PERF → Faz 4
 
-Açık kalanlar (RAPOR-P3.md "Bekleyen kararlar"):
-- ✅ **LOCK uyuşmazlığı — düzeltildi 03.11.2026:** LOCK v0.3'te yan kart `translateX` değeri ∓395px'ten
-  koddaki ∓310px'e çekildi. Kod değişmedi.
-- ✅ **LOCK referans kareleri — düzeltildi 03.11.2026:** LOCK artık `P2AR-1280-carousel-crop.png` ve
-  `P2AR-375-carousel-crop.png` karelerini gösteriyor.
+Açık kalanlar (RAPOR-P4.md "Bekleyen kararlar"):
+- **Performans kapısı:** medyan 86 kabul mü, ölçüm temiz ortamda (Chrome kapalı ya da CI) tekrarlansın mı?
+- **Why liste aralığı:** 16 + 1 + 16 px uygulandı; çizginin iki yanında 32'şer px isteniyor mu?
+- **Logolar:** Teknik Telsiz'in işlenmiş kopyası beyaza boyandı (siyah logo filtreyle görünmüyordu); Bizim OSGB ve Ömer Mutfak
+  64 px'e büyütüldü, daha büyük kaynak gerekebilir.
+- **Nav marka imzası:** footer'daki `BrandSignature.tsx` ile aynı; Nav P1 kilitli olduğu için hâlâ inline kopyayı kullanıyor.
 - **PERF paketi:** ≥95 hedefi buna ertelendi.
-- Karar #2 (dil) hâlâ açık.
+- Karar #2 (dil) hâlâ açık (P5).
 - Kısıt hâlâ geçerli: yeni homepage kodu `src/components/HomePageV2/` altında kalmalı, ayrı
   bir `src/pages/index.*` açılmamalı (bkz. RAPOR-P00.md "Olay kaydı #3").
