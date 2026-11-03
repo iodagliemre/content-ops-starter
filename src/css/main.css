@@ -1010,7 +1010,7 @@
     contain-intrinsic-size: auto 620px; /* content box, measured @1280 */
 }
 .v2-cv-why {
-    contain-intrinsic-size: auto 552px; /* content box, measured @1280 */
+    contain-intrinsic-size: auto 600px; /* content box, measured @1280 (P5: longer G1 copy) */
 }
 .v2-cv-calismalar {
     contain-intrinsic-size: auto 192px; /* content box, measured @1280 */
@@ -1023,7 +1023,7 @@
         contain-intrinsic-size: auto 1070px; /* content box, measured @375 */
     }
     .v2-cv-why {
-        contain-intrinsic-size: auto 853px; /* content box, measured @375 */
+        contain-intrinsic-size: auto 877px; /* content box, measured @375 (P5: longer G1 copy) */
     }
     .v2-cv-calismalar {
         contain-intrinsic-size: auto 377px; /* content box, measured @375 */
@@ -1094,4 +1094,13 @@
     #iletisim.is-visible .v2-heartbeat-path {
         animation: v2Draw 1s ease-out both;
     }
+}
+
+/*
+ * ===== PAKET-P5-SEO-META-DIL =====
+ * G4: visible keyboard focus on every V2 page (mouse clicks don't show it: :focus-visible).
+ */
+.v2-root :focus-visible {
+    outline: 2px solid var(--color-v2-blue);
+    outline-offset: 2px;
 }

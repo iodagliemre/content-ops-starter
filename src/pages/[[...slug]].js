@@ -13,7 +13,7 @@ import HomePageV2 from '../components/HomePageV2';
 // longer exists in the Stackbit-style content data; we inject it below instead.
 function Page(props) {
     if (props.isHomeV2) {
-        return <HomePageV2 />;
+        return <HomePageV2 locale={props.locale} />;
     }
     const { page, site } = props;
     const { modelName } = page.__metadata;
@@ -53,13 +53,19 @@ export function getStaticPaths() {
     if (!paths.includes('/')) {
         paths.push('/');
     }
+    // PAKET-P5-SEO-META-DIL G2: EN homepage, same component with locale 'en'.
+    paths.push('/en');
     return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
     const urlPath = '/' + (params.slug || []).join('/');
+    // `v2` tells _app.js this is a V2 page (no legacy i18n.js); `locale` also sets <html lang> (_document.js).
     if (urlPath === '/') {
-        return { props: { isHomeV2: true } };
+        return { props: { isHomeV2: true, v2: true, locale: 'tr' } };
+    }
+    if (urlPath === '/en') {
+        return { props: { isHomeV2: true, v2: true, locale: 'en' } };
     }
     const data = allContent();
     const props = await resolveStaticProps(urlPath, data);

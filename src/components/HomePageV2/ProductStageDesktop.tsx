@@ -1,7 +1,8 @@
 import type { CSSProperties } from 'react';
 import classNames from 'classnames';
 import ArrowRight from '../svgs/arrow-right';
-import { productsSection, products, type Product } from '../../../content/products';
+import { useLocale } from './locale';
+import { productsContent, type Product } from '../../../content/products';
 
 /**
  * PAKET-P2AR-CAROUSEL-DUZELTME A1-A3, A7 (desktop ≥1024). Pure CSS 3D transform, no JS
@@ -32,6 +33,7 @@ export default function ProductStageDesktop({
      */
     interactive: boolean;
 }) {
+    const { items: products } = productsContent[useLocale()];
     return (
         <div className="relative mt-16 hidden lg:block">
             {/* A7: no paint clipping here, the center card's image overflows the scene's card area.
@@ -108,6 +110,7 @@ function Card({
     onSelect: () => void;
     interactive: boolean;
 }) {
+    const { section: productsSection } = productsContent[useLocale()];
     const isCenter = offset === 0;
     const isSidePosition = Math.abs(offset) === 1;
     const isSide = isSidePosition && interactive;

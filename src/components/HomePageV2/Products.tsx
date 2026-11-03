@@ -5,7 +5,8 @@ import ChevronRight from '../svgs/chevron-right';
 import ProductStageDesktop from './ProductStageDesktop';
 import ProductRailMobile from './ProductRailMobile';
 import { onIdle } from './onIdle';
-import { productsSection, products, INITIAL_ACTIVE_INDEX } from '../../../content/products';
+import { useLocale } from './locale';
+import { productsContent, INITIAL_ACTIVE_INDEX } from '../../../content/products';
 
 /**
  * PAKET-P2-URUNLER-CAROUSEL G2 + G5. Section header (eyebrow/H2/description/arrows) + shared
@@ -18,6 +19,7 @@ import { productsSection, products, INITIAL_ACTIVE_INDEX } from '../../../conten
  * See .v2-reveal in main.css for the reduced-motion-safe pattern this reuses.
  */
 export default function Products() {
+    const { section: productsSection, items: products, prevLabel, nextLabel } = productsContent[useLocale()];
     const [activeIndex, setActiveIndex] = useState(INITIAL_ACTIVE_INDEX);
     const sectionRef = useRef<HTMLElement>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -90,8 +92,8 @@ export default function Products() {
                     {productsSection.description}
                 </p>
                 <div className="mt-6 hidden shrink-0 items-center gap-3 lg:flex">
-                    <ArrowButton direction="left" disabled={atStart} onClick={() => setActiveIndex((i) => i - 1)} />
-                    <ArrowButton direction="right" disabled={atEnd} onClick={() => setActiveIndex((i) => i + 1)} />
+                    <ArrowButton direction="left" label={prevLabel} disabled={atStart} onClick={() => setActiveIndex((i) => i - 1)} />
+                    <ArrowButton direction="right" label={nextLabel} disabled={atEnd} onClick={() => setActiveIndex((i) => i + 1)} />
                 </div>
             </div>
 
@@ -107,10 +109,12 @@ export default function Products() {
 
 function ArrowButton({
     direction,
+    label,
     disabled,
     onClick
 }: {
     direction: 'left' | 'right';
+    label: string;
     disabled: boolean;
     onClick: () => void;
 }) {
@@ -118,7 +122,7 @@ function ArrowButton({
     return (
         <button
             type="button"
-            aria-label={direction === 'left' ? 'Önceki ürün' : 'Sonraki ürün'}
+            aria-label={label}
             aria-disabled={disabled}
             disabled={disabled}
             onClick={onClick}

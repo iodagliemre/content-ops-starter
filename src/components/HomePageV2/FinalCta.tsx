@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 import Heartbeat from './Heartbeat';
 import { useRevealOnce } from './useRevealOnce';
-import { finalCtaSection } from '../../../content/finalCta';
+import { useLocale } from './locale';
+import { finalCtaContent } from '../../../content/finalCta';
 
 /**
  * PAKET-P4-SAHIPLIK-FINAL G4. Centered block, no decoration other than a large hero-style heartbeat
@@ -10,6 +11,7 @@ import { finalCtaSection } from '../../../content/finalCta';
  */
 export default function FinalCta() {
     const { ref, isVisible } = useRevealOnce<HTMLElement>();
+    const finalCtaSection = finalCtaContent[useLocale()];
     const { primary, secondary } = finalCtaSection;
 
     return (

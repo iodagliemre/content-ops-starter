@@ -10,7 +10,9 @@ export default function MyApp({ Component, pageProps }) {
     return (
         <>
             <Component {...pageProps} />
-            <Script src="/js/i18n.js" strategy="afterInteractive" />
+            {/* PAKET-P5-SEO-META-DIL: the legacy site's DOM translator (EN→TR, default TR) stays on the old
+                pages only. On V2 pages it would rewrite the /en copy back to Turkish after hydration. */}
+            {!pageProps.v2 && <Script src="/js/i18n.js" strategy="afterInteractive" />}
         </>
     );
 }

@@ -14,8 +14,9 @@ export const site = {
         ogImage: '/og-image.jpg'
     },
 
+    // P5: nav ve hero artık content/nav.ts ve content/hero.ts'ten okunuyor; bu iki alan yalnız kayıt için.
     nav: {
-        primary: ['Ürünlerimiz', 'Web Factory', 'Dijital Dönüşüm', 'Sahiplik', 'Çalışmalar'],
+        primary: ['Sistemler', 'Web Factory', 'Dijital Dönüşüm', 'Sahiplik', 'Çalışmalar'],
         cta: 'İletişim'
     },
 
@@ -23,7 +24,7 @@ export const site = {
         h1Line1: 'DİJİTAL ZEKÂ.',
         h1Line2: 'GERÇEK ETKİ.',
         subtitle: 'Doveify, işletmelerin dijital geleceğini tasarlar, geliştirir ve büyütür.',
-        ctaPrimary: 'ÜRÜNLERİMİZİ KEŞFET',
+        ctaPrimary: 'SİSTEMLERİ KEŞFET',
         ctaSecondary: "WEB FACTORY'Yİ İNCELE"
     },
 

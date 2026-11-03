@@ -1,15 +1,16 @@
 import ArrowRight from '../svgs/arrow-right';
 import Heartbeat from './Heartbeat';
 import HeroHead from './HeroHead';
-import { site } from '../../../content/site';
+import { useLocale } from './locale';
+import { heroContent } from '../../../content/hero';
 
 /**
  * PAKET-P1-HERO-NAV G3 (typography + hero heartbeat) on top of PAKET-01 G2's grid/structure.
- * Copy is content/site.ts verbatim — nothing invented here. Motion delays (1600/1800/2000/
+ * Copy is content/hero.ts (TR = the old content/site.ts hero, verbatim) — nothing invented here. Motion delays (1600/1800/2000/
  * 2100ms) unchanged from PAKET-01 G4, per this package's G5 instruction to keep them as-is.
  */
 export default function Hero() {
-    const { hero } = site;
+    const hero = heroContent[useLocale()];
 
     return (
         <section

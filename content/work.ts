@@ -3,13 +3,17 @@
  * docs/design/reference/logos/; işlenmiş halleri public/logos/ (64px yükseklik WebP, SVG olduğu gibi).
  * width/height = dosyanın kendi boyutu (CLS için en-boy oranı); gösterim yüksekliği CSS'te.
  */
+import type { Localized } from './locale';
 
-export const workSection = {
-    eyebrow: 'ÇALIŞMALAR',
-    heading: 'Gerçek sonuçlar, gerçek hikayeler.',
-    cta: 'TÜM ÇALIŞMALARI GÖR',
-    href: 'https://web.doveify.io'
-} as const;
+type WorkContent = { eyebrow: string; heading: string; cta: string };
+
+/** PAKET-P5-SEO-META-DIL G2: `{ tr, en }`; EN yeni çeviri. Logolar ve linkler dilden bağımsız. */
+export const workContent: Localized<WorkContent> = {
+    tr: { eyebrow: 'ÇALIŞMALAR', heading: 'Gerçek sonuçlar, gerçek hikayeler.', cta: 'TÜM ÇALIŞMALARI GÖR' },
+    en: { eyebrow: 'OUR WORK', heading: 'Real results, real-world stories.', cta: 'SEE ALL WORK' }
+};
+
+export const WORK_HREF = 'https://web.doveify.io';
 
 export type WorkLogo = {
     name: string;

@@ -1,7 +1,8 @@
 import type { CSSProperties } from 'react';
 import classNames from 'classnames';
 import { useRevealOnce } from './useRevealOnce';
-import { ownershipSection } from '../../../content/ownership';
+import { useLocale } from './locale';
+import { ownershipContent } from '../../../content/ownership';
 
 /**
  * PAKET-P4-SAHIPLIK-FINAL G1 (CD #5). Typography + contrast, no icons. Desktop: full-width statement,
@@ -11,6 +12,7 @@ import { ownershipSection } from '../../../content/ownership';
  */
 export default function Ownership() {
     const { ref, isVisible } = useRevealOnce<HTMLElement>();
+    const ownershipSection = ownershipContent[useLocale()];
     const [saas, doveify] = ownershipSection.columns;
 
     return (
