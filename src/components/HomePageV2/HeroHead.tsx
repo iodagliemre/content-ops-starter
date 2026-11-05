@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Head from 'next/head';
+import Image, { getImageProps } from 'next/image';
 import classNames from 'classnames';
 
 export type HeroHeadLayer = {
@@ -23,9 +24,14 @@ export type HeroHeadLayer = {
  * first frame (required for LCP — see RAPOR-P01.md's opacity finding, still true here), and a
  * bg-v2-bg-base overlay sitting on top fades 1→0 while the wrapper scales .96→1. Both animate
  * on the wrapper's `onAnimationEnd`, which then drops both `will-change` hints together.
+ *
+ * PAKET-P6 A3: the desktop variant gets its own preload, scoped to `(min-width: 1024px)` so phones never
+ * fetch it (Next's `priority` preload can't take a media query, which is why only mobile uses it).
+ * Same srcset/sizes as the <Image> below, so the browser reuses the preloaded response. No visual change.
  */
 export default function HeroHead({ layers }: { layers: HeroHeadLayer[] }) {
     const [settled, setSettled] = useState(false);
+    const desktop = layers[0] ? getImageProps({ src: layers[0].desktopSrc, alt: '', fill: true, quality: 65, sizes: '58vw' }).props : null;
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
@@ -35,26 +41,40 @@ export default function HeroHead({ layers }: { layers: HeroHeadLayer[] }) {
     }, []);
 
     return (
-        <div className="relative mx-auto aspect-[644/440] max-h-[42vh] w-auto lg:h-auto lg:max-h-none lg:w-full">
-            {layers.map((layer, i) => (
-                <div
-                    key={i}
-                    className="absolute inset-0"
-                    style={{
-                        maskImage:
-                            'linear-gradient(to right, transparent 0%, #000 46%, #000 100%), linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%)',
-                        maskComposite: 'intersect',
-                        WebkitMaskImage:
-                            'linear-gradient(to right, transparent 0%, #000 46%, #000 100%), linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%)',
-                        WebkitMaskComposite: 'source-in'
-                    }}
-                >
+        <>
+            {desktop && (
+                <Head>
+                    <link
+                        key="hero-desktop-preload"
+                        rel="preload"
+                        as="image"
+                        imageSrcSet={desktop.srcSet}
+                        imageSizes={desktop.sizes}
+                        media="(min-width: 1024px)"
+                        {...{ fetchpriority: 'high' }}
+                    />
+                </Head>
+            )}
+            <div className="relative mx-auto aspect-[644/440] max-h-[42vh] w-auto lg:h-auto lg:max-h-none lg:w-full">
+                {layers.map((layer, i) => (
                     <div
-                        className={classNames('v2-hero-head-layer absolute inset-0', !settled && 'will-change-transform')}
-                        style={{ animationDelay: `${900 + i * 120}ms` }}
-                        onAnimationEnd={() => setSettled(true)}
+                        key={i}
+                        className="absolute inset-0"
+                        style={{
+                            maskImage:
+                                'linear-gradient(to right, transparent 0%, #000 46%, #000 100%), linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%)',
+                            maskComposite: 'intersect',
+                            WebkitMaskImage:
+                                'linear-gradient(to right, transparent 0%, #000 46%, #000 100%), linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%)',
+                            WebkitMaskComposite: 'source-in'
+                        }}
                     >
-                        {/*
+                        <div
+                            className={classNames('v2-hero-head-layer absolute inset-0', !settled && 'will-change-transform')}
+                            style={{ animationDelay: `${900 + i * 120}ms` }}
+                            onAnimationEnd={() => setSettled(true)}
+                        >
+                            {/*
                           Only the mobile variant gets `priority` (Next always emits its preload
                           link regardless of the hidden/lg:block CSS below — there's no way to
                           scope that link to a media query). Mobile is the hard Performance Gate
@@ -62,34 +82,28 @@ export default function HeroHead({ layers }: { layers: HeroHeadLayer[] }) {
                           native lazy-load, which a `display:none` image never actually starts
                           until it's shown — see RAPOR-P01.md.
                         */}
-                        <Image
-                            src={layer.desktopSrc}
-                            alt={layer.alt ?? ''}
-                            fill
-                            quality={65}
-                            sizes="58vw"
-                            className="hidden object-contain lg:block"
-                        />
-                        <Image
-                            src={layer.mobileSrc}
-                            alt={layer.alt ?? ''}
-                            fill
-                            priority
-                            quality={65}
-                            sizes="90vw"
-                            className="block object-contain lg:hidden"
-                        />
-                        <div
-                            aria-hidden="true"
-                            className={classNames(
-                                'v2-hero-head-overlay pointer-events-none absolute inset-0 bg-v2-bg-base',
-                                !settled && '[will-change:opacity]'
-                            )}
-                            style={{ animationDelay: `${900 + i * 120}ms` }}
-                        />
+                            <Image src={layer.desktopSrc} alt={layer.alt ?? ''} fill quality={65} sizes="58vw" className="hidden object-contain lg:block" />
+                            <Image
+                                src={layer.mobileSrc}
+                                alt={layer.alt ?? ''}
+                                fill
+                                priority
+                                quality={65}
+                                sizes="90vw"
+                                className="block object-contain lg:hidden"
+                            />
+                            <div
+                                aria-hidden="true"
+                                className={classNames(
+                                    'v2-hero-head-overlay pointer-events-none absolute inset-0 bg-v2-bg-base',
+                                    !settled && '[will-change:opacity]'
+                                )}
+                                style={{ animationDelay: `${900 + i * 120}ms` }}
+                            />
+                        </div>
                     </div>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
+        </>
     );
 }

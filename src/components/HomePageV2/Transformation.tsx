@@ -1,8 +1,7 @@
 import type { CSSProperties } from 'react';
 import classNames from 'classnames';
 import { useRevealOnce } from './useRevealOnce';
-import { useLocale } from './locale';
-import { transformationContent } from '../../../content/transformation';
+import { useDict } from './locale';
 
 /**
  * PAKET-P3-WEBFACTORY-DONUSUM G3. One line, four stages (CD #4): no cards, no icons. Horizontal on
@@ -11,7 +10,7 @@ import { transformationContent } from '../../../content/transformation';
  */
 export default function Transformation() {
     const { ref, isVisible } = useRevealOnce<HTMLElement>();
-    const { section: transformationSection, stages: transformationStages } = transformationContent[useLocale()];
+    const { section: transformationSection, stages: transformationStages } = useDict().transformation;
 
     return (
         <section

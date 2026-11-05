@@ -1,17 +1,19 @@
 import classNames from 'classnames';
 import Heartbeat from './Heartbeat';
 import { useRevealOnce } from './useRevealOnce';
-import { useLocale } from './locale';
-import { finalCtaContent } from '../../../content/finalCta';
+import { useDict } from './locale';
+import type { FinalCtaContent } from '../../../content/finalCta';
 
 /**
  * PAKET-P4-SAHIPLIK-FINAL G4. Centered block, no decoration other than a large hero-style heartbeat
  * that draws once when the section enters the viewport (main.css: #iletisim .v2-heartbeat-path).
  * Heartbeat.tsx is P1-locked, so the "draw on reveal" timing lives in CSS, not in a new prop.
+ * PAKET-P6 B2: case pages reuse it with their own copy (`content`); layout and motion are the same.
  */
-export default function FinalCta() {
+export default function FinalCta({ content }: { content?: FinalCtaContent }) {
     const { ref, isVisible } = useRevealOnce<HTMLElement>();
-    const finalCtaSection = finalCtaContent[useLocale()];
+    const dictCta = useDict().finalCta;
+    const finalCtaSection = content ?? dictCta;
     const { primary, secondary } = finalCtaSection;
 
     return (

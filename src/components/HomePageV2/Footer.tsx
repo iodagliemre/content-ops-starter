@@ -1,6 +1,6 @@
 import BrandSignature from './BrandSignature';
-import { useLocale } from './locale';
-import { footerContent, type FooterLink } from '../../../content/footer';
+import { useDict } from './locale';
+import type { FooterLink } from '../../../content/footer';
 
 /**
  * PAKET-P4-SAHIPLIK-FINAL G5. Desktop: brand in 4 columns, three link columns sharing the other 8.
@@ -8,7 +8,7 @@ import { footerContent, type FooterLink } from '../../../content/footer';
  * allows (footer separator).
  */
 export default function Footer() {
-    const footer = footerContent[useLocale()];
+    const footer = useDict().footer;
     return (
         <footer className="v2-footer border-t border-v2-border/40">
             <div className="mx-auto max-w-7xl px-6 pb-12 pt-16">

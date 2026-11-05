@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import ArrowRight from '../svgs/arrow-right';
 import { onIdle } from './onIdle';
-import { useLocale } from './locale';
-import { productsContent, INITIAL_ACTIVE_INDEX } from '../../../content/products';
+import { useDict } from './locale';
+import { INITIAL_ACTIVE_INDEX } from '../../../content/products';
 
 /**
  * PAKET-P2-URUNLER-CAROUSEL G4 (mobile <1024). No 3D — horizontal scroll-snap, user-controlled
@@ -19,7 +19,7 @@ import { productsContent, INITIAL_ACTIVE_INDEX } from '../../../content/products
  * See RAPOR-P2A.md for the before/after Lighthouse numbers this was measured against.
  */
 export default function ProductRailMobile() {
-    const { section: productsSection, items: products } = productsContent[useLocale()];
+    const { section: productsSection, items: products } = useDict().products;
     const railRef = useRef<HTMLDivElement>(null);
     const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
     const [activeIndex, setActiveIndex] = useState(INITIAL_ACTIVE_INDEX);

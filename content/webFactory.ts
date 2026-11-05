@@ -4,25 +4,8 @@
  * üretildi (docs/design/reference/webfactory-src-{1,2,3}.png): merkez Teknik Telsiz, sol src-2, sağ src-3.
  * PAKET-P5-SEO-META-DIL G2: `{ tr, en }`; EN yeni çeviri (RAPOR-P5.md).
  */
-import type { Localized } from './locale';
 
-type WebFactoryContent = { eyebrow: string; heading: string; description: string; cta: string };
-
-export const webFactoryContent: Localized<WebFactoryContent> = {
-    tr: {
-        eyebrow: 'WEB FACTORY',
-        heading: 'Markanızı dijitalde zirveye taşıyoruz.',
-        description: 'Strateji, tasarım ve yazılımı bir araya getirerek yüksek performanslı web deneyimleri sunuyoruz.',
-        cta: "WEB FACTORY'Yİ KEŞFET"
-    },
-    en: {
-        eyebrow: 'WEB FACTORY',
-        heading: 'We take your brand to the top in digital.',
-        description: 'We bring strategy, design and software together to deliver high-performance web experiences.',
-        cta: 'EXPLORE WEB FACTORY'
-    }
-};
-
+export type WebFactoryContent = { eyebrow: string; heading: string; description: string; cta: string };
 export const webFactoryLinks = {
     href: 'https://web.doveify.io',
     screens: {

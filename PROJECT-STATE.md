@@ -18,8 +18,8 @@
 |---|---|---|
 | 0 | Kurulum (repo, docs, brand assets, içerik envanteri) | ✅ Tamam — `tsc`/`build`/`lint` üçü de exit 0. bkz. RAPOR-P00.md |
 | 1 | Referans → Araştırma → Performance Gate (hero motion prototipi) | ✅ Emre "geç" dedi (mobil Lighthouse medyan 95, CLS 0). bkz. RAPOR-P01.md, docs/perf/GATE-1-hero.md |
-| 2 | Approved Design → DESIGN-LOCK | ✅ LOCK v0.3 (03.11.2026) — kilitli: NAV, HERO, ÜRÜNLER. Diğer bölümler CD-REVİZE-BEKLİYOR. |
-| 3 | Implementation (P1–P5) | 🟡 Başladı — **P1 (PAKET-P1-HERO-NAV + PAKET-P1R-KAFA-MASKE)**: nav+hero LOCK v0.1'e uydurma + kafa maske revizyonu tamam, kapı geçti. **P2 (P2-A + P2AR, Ürünler)**: ✅ CD P2AR GEÇTİ (03.11.2026), commit `2c3e038`; ≥95 hedefi PERF paketine ertelendi. **P3 (Web Factory + Dijital Dönüşüm)**: 🟡 uygulandı, kapı geçti (mobil medyan 89, eşik 88); **P3-R1** (CD revizyonu, Web Factory) uygulandı (medyan 95); ✅ CD P3-R1 GEÇTİ, commit `1fb90fd`. **P4 (Sahiplik + Why Doveify + Çalışmalar + Final CTA + Footer)**: 🟡 uygulandı, homepage içerik olarak tamam; görsel kapı geçti, mobil medyan 86 (eşik 88; aynı ortamda P4'süz taban 84, gerileme yok); commit'lenmedi, CD onayı bekliyor. bkz. RAPOR-P1-HERO-NAV.md, RAPOR-P1R-KAFA-MASKE.md, RAPOR-P2A.md, RAPOR-P2AR.md, RAPOR-P3.md, RAPOR-P4.md, RAPOR-P5.md. **P5 (SEO/meta/OG + TR/EN)**: ✅ uygulandı, kapı geçti (Lighthouse A11y 96 / BP 100 / SEO 100, `/` ve `/en/` 200, LOCK bölümlerinde piksel değişmedi); commit'lenmedi. bkz. RAPOR-P5.md. Sırada PERF → P6 → Faz 4. |
+| 2 | Approved Design → DESIGN-LOCK | ✅ LOCK v0.5 (04.11.2026) — kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM, FİNAL CTA, FOOTER, VAKA SAYFASI ŞABLONU. Sahiplik / Why / Çalışmalar CD-REVİZE-BEKLİYOR. |
+| 3 | Implementation (P1–P6) | ✅ P1–P6 uygulandı (P6: performans, vaka sayfaları, temizlik — RAPOR-P6.md). Commit `5ad56bb` üzerinde P6 commit'lenmedi. Performans kapısı Emre kararıyla kapandı (05.11.2026): geçerli final koşum 97, A0 tabanı medyan 98 (5'lik final set alınamadı, sapma RAPOR-P6.md'de). bkz. RAPOR-P1…RAPOR-P6. |
 | 4 | Visual QA + Lighthouse + Deploy (preview) | ⬜ Bekliyor |
 | 5 | DNS cutover + eski site arşivi | ⬜ Bekliyor |
 
@@ -55,7 +55,7 @@
 - Sonsuz animasyon YOK. Hero bir kez oynar, durur.
 - Arka plan: neredeyse siyah lacivert. Beyaz tipografi. Doveify mavisi sadece aktif noktalarda.
 - Glow sadece: insan kafası, heartbeat, sistem geçişleri.
-- Performance Gate: Mobil Lighthouse ≥95, CLS ≈0.
+- Performance Gate: Mobil Lighthouse ≥95, CLS ≈0. Ölçüm: prod build + `next start`, Chrome kapalı, **adaptör takılı** (pilde CPU kısılır; CPU kıyas <1200 → set geçersiz, P6).
 - Hero motion sırası: logo → heartbeat (0.8–1.2s) → parçalar toplanır → kafa formu → headline fadeUp .6s → CTA'lar → dur.
 - Mevcut site içerik omurgası korunur (bkz. `docs/content/ICERIK-ENVANTERI.md`); metin değişikliği ancak Emre talimatıyla.
 - Hero headline: "DİJİTAL ZEKÂ. GERÇEK ETKİ." (görselden, onaysız değiştirilmez)
@@ -63,29 +63,31 @@
 - Doveify SaaS satmaz; Clinic OS/Broker's Brain/OSGB Web/TurkISG AI kuruma özel kurulan sistem örnekleridir. Sitede 'ürün' değil 'sistem'. (Emre 03.11.2026)
 
 ## Son Paket
-- **P5** — `paketler/PAKET-P5-SEO-META-DIL.md`: Sahiplik/Why metin düzeltmesi (veri egemenliği), TR/EN dil altyapısı (`/`, `/en/`,
-  dil anahtarı), meta/OG/Twitter/hreflang/JSON-LD, OG görselleri, favicon + manifest, robots + sitemap, V2 404, odak halkası.
-  Rapor: RAPOR-P5.md. Commit'lenmedi.
-- **P5 ek:** "ürün" → "sistem" (eyebrow, açıklama, kart CTA, nav, hero CTA 1, footer, meta; TR + EN). Yalnız metin, görsel aynı.
-- **Kapı GEÇTİ:** tsc/build/lint 0 (yeni uyarı yok); `/` ve `/en/` 200, hydration/konsol uyarısı yok; yatay taşma yok; CLS 0,
-  LCP = kafa; Lighthouse mobil medyan **A11y 96 · BP 100 · SEO 100** (Performance bilgi amaçlı: 86).
-- TR referansla piksel karşılaştırması: kilitli bölümler aynı; farklar yalnız G1 metni, Why yüksekliği (+48/+24 px) ve doğru Türkçe
-  "İLETİŞİM". Eski `/js/i18n.js` V2 sayfalarında kapatıldı (EN metni Türkçeye çeviriyordu).
-- Ekran görüntüleri: `docs/qa/P5-1280-nav-lang.png`, `P5-375-nav-lang.png`, `P5-1280-en.png`, `P5-og.png`, `P5-404.png`.
+- **P6** — `paketler/PAKET-P6-PERF-ALTSAYFA-TEMIZLIK.md`: performans (A0 taban + A1–A4), vaka sayfaları (B), repo temizliği (C).
+  Rapor: RAPOR-P6.md. Commit'lenmedi.
+- **Performans:** A0 tabanı (P6 öncesi kod, Chrome kapalı, adaptör takılı, CPU kıyas 2920–3251) mobil medyan **98** (95–98),
+  LCP 2,4 s, TBT 0, CLS 0. Önceki paketlerdeki 84–89'un sebebi pil modu (CPU kısılıyor, kıyas <1200). A5 basitleştirmesi gerekmedi.
+  **Geçerli final set yok:** 04.11'de Chrome açık + pil; 05.11'de Chrome kapalı ama sistem yine pilde (`PowerOnline=False`) → 1/5 koşum
+  geçerli (CPU 2640, skor 97), set geçersiz (`_legacy/perf/P6-FINALpil-*`). **Emre kararı (05.11.2026): "97 yeterli" → kapı kapandı.**
+- **A1:** sözlük `content/tr|en/` + `getStaticProps`; First Load `/` 101 → 94,3 kB (11,3 kB'si CSS; yalnız JS ~83 kB).
+- **B:** `/`, `/en/`, `/sistemler/{clinic-os,brokers-brain}/`, `/en/systems/...` → 200; `/clinic`, `/brokers-brain`, `/signup`,
+  `/pricing`, `/careers` → 301; blog + `/privacy` catch-all'da. Vaka içerikte `[EMRE-SONUÇ]` ×2, `[EMRE-STACK]` ×1 (sayfa başına).
+- **C:** kullanılmayan Stackbit bileşenleri, sayfaları, eski CSS ve deneme perf setleri `_legacy/`'de; `npm audit` 53 → 22
+  (kalanlar major); Node 22; `.gitattributes`; `README-V2.md`.
+- tsc/build/lint 0 (lint uyarısı 3 → 2); yatay taşma yok; homepage kilitli bölümleri P5 ile piksel aynı (farklar yalnız P5 ek metinleri).
 
 ## Sonraki Adım
-PERF → P6 → Faz 4
+1. Emre `git add --renormalize . && git commit`, sonra Faz 4: `git push -u origin v2` → Netlify branch preview URL → CD final tam-sayfa QA
+   (home TR/EN + 2 vaka + 404) → Faz 5 cutover.
 
-- **P6:** `/clinic` ve `/brokers-brain` vaka sayfası olacak; `/signup` ve `/pricing` → 301.
-
-Açık kalanlar (RAPOR-P5.md "Bekleyen kararlar" + önceki paketler):
-- **Kontrast:** Doveify mavisi `#2563eb` koyu zeminde 3,82:1 — küçük mavi metinler (eyebrow, text-link CTA, etiketler) WCAG 4,5'in
-  altında; tek düşen a11y kalemi. LOCK rengi; karar CD'nin (PERF/P6).
-- **EN çeviriler:** "yeni çeviri" listesi Emre gözden geçirecek (RAPOR-P5.md).
-- ✅ **TR meta description — düzeltildi 04.11.2026:** Emre'nin kısaltılmış metni, 154 karakter (≤155).
-- **404:** yalnız TR; EN 404 isteniyor mu?
-- **PERF paketi:** ≥95 hedefi; son ölçümlerde medyan 86, CPU'su düşük koşumlar 82–86, yüksek olanlar 94–95 (RAPOR-P4.md).
-- **P4'ten:** Why liste aralığı, Teknik Telsiz logosunun beyaz kopyası, Bizim OSGB / Ömer Mutfak için büyük kaynak,
-  Nav'ın `BrandSignature.tsx`'e geçmesi.
-- Kısıt hâlâ geçerli: yeni homepage kodu `src/components/HomePageV2/` altında kalmalı, ayrı
-  bir `src/pages/index.*` açılmamalı (bkz. RAPOR-P00.md "Olay kaydı #3").
+Açık kalanlar:
+- **Vaka içerik placeholder'ları:** `[EMRE-SONUÇ]` (Clinic OS: gelinmeyen randevu değişimi, kurulum süresi; Broker's Brain: yanıt süresi
+  değişimi, kurulum süresi) ve `[EMRE-STACK]` (iki sistem) — Emre doldurur.
+- **Kontrast:** Doveify mavisi `#2563eb` koyu zeminde 3,82:1; küçük mavi metinler WCAG 4,5 altında (tek düşen a11y kalemi, A11y 96). Karar CD'nin.
+- **Bağımlılıklar:** kalan 22 zafiyet major sürüm istiyor (Next 16, ESLint 9 / eslint-config-next, glob, swiper) → P7. `swiper` artık
+  kullanılmıyor; kaldırılabilir (kritik zafiyet).
+- **EN çeviriler** (P5 + P6 vaka sayfaları) Emre gözden geçirecek; **404** yalnız TR.
+- **P4'ten:** Why liste aralığı, Teknik Telsiz logosunun beyaz kopyası, Bizim OSGB / Ömer Mutfak için büyük kaynak, Nav'ın
+  `BrandSignature.tsx`'e geçmesi.
+- Kod yeri: V2 bileşenleri `src/components/HomePageV2/`; P6 ile `src/pages/index.tsx` ve `src/pages/en/` açıldı (catch-all artık
+  `[...slug].js`, yalnız blog + privacy).

@@ -5,16 +5,12 @@ import { getComponent } from '../components/components-registry';
 import { resolveStaticProps } from '../utils/static-props-resolvers';
 import { resolveStaticPaths } from '../utils/static-paths-resolvers';
 import { seoGenerateTitle, seoGenerateMetaTags, seoGenerateMetaDescription } from '../utils/seo-utils';
-import HomePageV2 from '../components/HomePageV2';
 
-// V2 homepage is rendered here, not as its own pages/index.* file — Next.js forbids a
-// literal index route coexisting with this optional catch-all at the same specificity.
-// See RAPOR-P00.md for why. content/pages/index.md was moved to _legacy/, so '/' no
-// longer exists in the Stackbit-style content data; we inject it below instead.
+// PAKET-P6 B1: required catch-all (was the optional `[[...slug]].js`). The V2 homepage moved to
+// src/pages/index.tsx + src/pages/en/index.tsx and the case pages to /sistemler + /en/systems, so this
+// only renders what is left of the Stackbit content: the blog and /privacy (content untouched). The
+// old /clinic, /brokers-brain, /signup, /pricing, /careers pages are in _legacy/ and 301 (next.config.js).
 function Page(props) {
-    if (props.isHomeV2) {
-        return <HomePageV2 locale={props.locale} />;
-    }
     const { page, site } = props;
     const { modelName } = page.__metadata;
     if (!modelName) {
@@ -49,24 +45,12 @@ function Page(props) {
 
 export function getStaticPaths() {
     const data = allContent();
-    const paths = resolveStaticPaths(data);
-    if (!paths.includes('/')) {
-        paths.push('/');
-    }
-    // PAKET-P5-SEO-META-DIL G2: EN homepage, same component with locale 'en'.
-    paths.push('/en');
+    const paths = resolveStaticPaths(data).filter((p) => p !== '/');
     return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
     const urlPath = '/' + (params.slug || []).join('/');
-    // `v2` tells _app.js this is a V2 page (no legacy i18n.js); `locale` also sets <html lang> (_document.js).
-    if (urlPath === '/') {
-        return { props: { isHomeV2: true, v2: true, locale: 'tr' } };
-    }
-    if (urlPath === '/en') {
-        return { props: { isHomeV2: true, v2: true, locale: 'en' } };
-    }
     const data = allContent();
     const props = await resolveStaticProps(urlPath, data);
     return { props };

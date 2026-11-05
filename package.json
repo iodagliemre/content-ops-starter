@@ -37,5 +37,8 @@
         "prettier": "^3.3.2",
         "typescript": "^5.6.2"
     },
-    "main": "next.config.js"
+    "main": "next.config.js",
+    "engines": {
+        "node": ">=22"
+    }
 }

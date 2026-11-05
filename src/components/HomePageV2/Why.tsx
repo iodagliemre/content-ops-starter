@@ -1,8 +1,7 @@
 import type { CSSProperties } from 'react';
 import classNames from 'classnames';
 import { useRevealOnce } from './useRevealOnce';
-import { useLocale } from './locale';
-import { whyContent } from '../../../content/why';
+import { useDict } from './locale';
 
 /**
  * PAKET-P4-SAHIPLIK-FINAL G2 (CD #6). Large typography + an editorial list, no cards or grid tiles.
@@ -11,7 +10,7 @@ import { whyContent } from '../../../content/why';
  */
 export default function Why() {
     const { ref, isVisible } = useRevealOnce<HTMLElement>();
-    const whySection = whyContent[useLocale()];
+    const whySection = useDict().why;
 
     return (
         <section

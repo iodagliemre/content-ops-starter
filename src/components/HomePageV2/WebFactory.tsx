@@ -2,8 +2,8 @@ import type { CSSProperties } from 'react';
 import classNames from 'classnames';
 import ArrowRight from '../svgs/arrow-right';
 import { useRevealOnce } from './useRevealOnce';
-import { useLocale } from './locale';
-import { webFactoryContent, webFactoryLinks } from '../../../content/webFactory';
+import { useDict } from './locale';
+import { webFactoryLinks } from '../../../content/webFactory';
 
 /**
  * PAKET-P3-WEBFACTORY-DONUSUM G2. Passage to web.doveify.io, not a product showcase: one message,
@@ -20,7 +20,7 @@ const SIDE_TRANSLATE_X = 205;
 
 export default function WebFactory() {
     const { ref, isVisible } = useRevealOnce<HTMLElement>();
-    const webFactorySection = { ...webFactoryContent[useLocale()], ...webFactoryLinks };
+    const webFactorySection = { ...useDict().webFactory, ...webFactoryLinks };
     const { screens } = webFactorySection;
 
     return (

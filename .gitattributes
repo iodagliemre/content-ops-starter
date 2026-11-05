@@ -1,0 +1,8 @@
+# PAKET-P6 C: line endings normalised to LF in the repo (ends the CRLF warnings on Windows).
+# One-time, run by Emre: git add --renormalize . && git commit
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+*.woff2 binary

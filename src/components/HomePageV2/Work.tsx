@@ -2,8 +2,8 @@ import type { CSSProperties } from 'react';
 import classNames from 'classnames';
 import ArrowRight from '../svgs/arrow-right';
 import { useRevealOnce } from './useRevealOnce';
-import { useLocale } from './locale';
-import { workContent, workLogos, WORK_HREF } from '../../../content/work';
+import { useDict } from './locale';
+import { workLogos, WORK_HREF } from '../../../content/work';
 
 /**
  * PAKET-P4-SAHIPLIK-FINAL G3 (CD #7). Logo band, no horizontal scroll at any width. One DOM for both
@@ -13,7 +13,7 @@ import { workContent, workLogos, WORK_HREF } from '../../../content/work';
  */
 export default function Work() {
     const { ref, isVisible } = useRevealOnce<HTMLElement>();
-    const workSection = { ...workContent[useLocale()], href: WORK_HREF };
+    const workSection = { ...useDict().work, href: WORK_HREF };
 
     return (
         <section

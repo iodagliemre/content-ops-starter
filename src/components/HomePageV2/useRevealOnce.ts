@@ -2,35 +2,51 @@ import { useEffect, useRef, useState } from 'react';
 import { onIdle } from './onIdle';
 
 /**
- * PAKET-P3-WEBFACTORY-DONUSUM. One-shot "entered the viewport" flag for a section's reveal, same
- * pattern as Products.tsx (P2 is locked, so that file keeps its own copy): the observer starts at
- * idle time and disconnects after the first intersection.
+ * PAKET-P3-WEBFACTORY-DONUSUM. One-shot "entered the viewport" flag for a section's reveal: observing
+ * starts at idle time and stops after the first intersection.
+ *
+ * PAKET-P6 A2: every section shares one IntersectionObserver (threshold .2, the value all sections
+ * used) instead of creating its own; Products.tsx uses this hook too now.
  */
-export function useRevealOnce<T extends HTMLElement>(threshold = 0.2) {
+const callbacks = new Map<Element, () => void>();
+let shared: IntersectionObserver | null = null;
+
+function sharedObserver(): IntersectionObserver {
+    if (!shared) {
+        shared = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (!entry.isIntersecting) continue;
+                    const done = callbacks.get(entry.target);
+                    if (!done) continue;
+                    callbacks.delete(entry.target);
+                    shared?.unobserve(entry.target);
+                    done();
+                }
+            },
+            { threshold: 0.2 }
+        );
+    }
+    return shared;
+}
+
+export function useRevealOnce<T extends HTMLElement>() {
     const ref = useRef<T>(null);
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const el = ref.current;
         if (!el) return;
-        let observer: IntersectionObserver | null = null;
         const cancelIdle = onIdle(() => {
-            observer = new IntersectionObserver(
-                ([entry]) => {
-                    if (entry.isIntersecting) {
-                        setIsVisible(true);
-                        observer?.disconnect();
-                    }
-                },
-                { threshold }
-            );
-            observer.observe(el);
+            callbacks.set(el, () => setIsVisible(true));
+            sharedObserver().observe(el);
         });
         return () => {
             cancelIdle();
-            observer?.disconnect();
+            callbacks.delete(el);
+            shared?.unobserve(el);
         };
-    }, [threshold]);
+    }, []);
 
     return { ref, isVisible };
 }

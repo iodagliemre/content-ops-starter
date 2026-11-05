@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ChevronLeft from '../svgs/chevron-left';
 import ChevronRight from '../svgs/chevron-right';
 import ProductStageDesktop from './ProductStageDesktop';
 import ProductRailMobile from './ProductRailMobile';
 import { onIdle } from './onIdle';
-import { useLocale } from './locale';
-import { productsContent, INITIAL_ACTIVE_INDEX } from '../../../content/products';
+import { useRevealOnce } from './useRevealOnce';
+import { useDict } from './locale';
+import { INITIAL_ACTIVE_INDEX } from '../../../content/products';
 
 /**
  * PAKET-P2-URUNLER-CAROUSEL G2 + G5. Section header (eyebrow/H2/description/arrows) + shared
@@ -17,12 +18,12 @@ import { productsContent, INITIAL_ACTIVE_INDEX } from '../../../content/products
  * (visible on page load), this section is below the fold, so its one-shot reveal is triggered
  * by IntersectionObserver the first time it scrolls into view, not a hardcoded animation-delay.
  * See .v2-reveal in main.css for the reduced-motion-safe pattern this reuses.
+ * PAKET-P6 A2: the observer is the shared one in useRevealOnce (same threshold .2, same idle start).
  */
 export default function Products() {
-    const { section: productsSection, items: products, prevLabel, nextLabel } = productsContent[useLocale()];
+    const { section: productsSection, items: products, prevLabel, nextLabel } = useDict().products;
     const [activeIndex, setActiveIndex] = useState(INITIAL_ACTIVE_INDEX);
-    const sectionRef = useRef<HTMLElement>(null);
-    const [isVisible, setIsVisible] = useState(false);
+    const { ref: sectionRef, isVisible } = useRevealOnce<HTMLElement>();
     // B3: starts false so SSR and the first client render match exactly (no hydration
     // mismatch) — ProductStageDesktop renders its cheap non-interactive form until this flips,
     // which only happens post-hydration, deferred to idle time, and only when matchMedia
@@ -40,28 +41,6 @@ export default function Products() {
         return () => {
             cancelIdle();
             mql.removeEventListener('change', update);
-        };
-    }, []);
-
-    useEffect(() => {
-        const el = sectionRef.current;
-        if (!el) return;
-        let observer: IntersectionObserver | null = null;
-        const cancelIdle = onIdle(() => {
-            observer = new IntersectionObserver(
-                ([entry]) => {
-                    if (entry.isIntersecting) {
-                        setIsVisible(true);
-                        observer?.disconnect();
-                    }
-                },
-                { threshold: 0.2 }
-            );
-            observer.observe(el);
-        });
-        return () => {
-            cancelIdle();
-            observer?.disconnect();
         };
     }, []);
 

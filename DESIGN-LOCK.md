@@ -1,6 +1,6 @@
 # DESIGN-LOCK.md — Doveify Site V2
 
-> v0.4 — 03.11.2026. Kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM.
+> v0.5 — 04.11.2026. Kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM, FİNAL CTA, FOOTER, VAKA SAYFASI ŞABLONU.
 > v0.1 → v0.2 değişiklikleri: kafa maske değerleri (CD Karar 01 revizyonu), Karar 04 "görsel davranış kilitli / teknik yöntem serbest", P1 KİLİT listesi eklendi.
 > Görsel otorite: `docs/design/approved/homepage-v1.png` (referans görselin onaylı kopyası, 05.09.2026 CD + Emre onayı).
 > Değişiklik: yalnızca Emre + CD onayıyla, bu dosyada versiyon artırılarak.
@@ -66,5 +66,27 @@ Referans screenshot: `docs/qa/P1R-1280.png`, `docs/qa/P1R-375.png`.
 - Reveal: hat scaleX/scaleY .9s + düğümler .15s kademeli, ≤1.8s, bir kez.
 - Referans: docs/qa/P3-1280-donusum.png, P3-375-donusum.png.
 
-## SAHİPLİK / WHY DOVEIFY / ÇALIŞMALAR / FİNAL CTA / FOOTER — CD-REVİZE-BEKLİYOR (P4)
+## FİNAL CTA (kilitli — P4)
+- Ortalı blok, max-width 640; padding 128 desktop / 80 mobil. Hero heartbeat'in büyük hali (240×40, mavi, opacity .35, glow) H2'nin 32px üstünde; bölüm görünüme girince bir kez çizilir, yüklemede değil.
+- H2 Inter 300 48 / 32px beyaz; alt satır 400 18 / 16px secondary.
+- CTA 1 dolu mavi (hero CTA 1 stili) → cal.com, `_blank`; CTA 2 e-posta text-link 500 14px, küçük harf → `mailto:`.
+- Başka dekor yok. Vaka sayfaları aynı bileşeni kendi metniyle kullanır.
+- Referans: docs/qa/P4-1280-calismalar-cta.png, P4-375.png.
+
+## FOOTER (kilitli — P4)
+- Üstte 1px `--color-v2-border` %40 (sitedeki tek izinli yatay çizgi); padding 64 / 48.
+- Desktop: marka 4 kolon (marka imzası — heartbeat statik — + tagline + konum), 3 link kolonu kalan 8 kolonu paylaşır. Mobil: tek kolon, gruplar arası 32px.
+- Kolon başlığı 500 12px uppercase `.12em` beyaz; link 400 14px secondary, hover beyaz. Alt satır: © solda, Gizlilik Politikası sağda.
+- Marka adları Türkçe büyük harf kuralından korunur (wordmark `lang="en"`, kolon başlığı "DOVEIFY").
+- Referans: docs/qa/P4-1280.png (alt kısım), P4-375.png.
+
+## VAKA SAYFASI ŞABLONU (kilitli — P6, CD final QA'da görür)
+- Yollar: `/sistemler/<slug>/` (TR), `/en/systems/<slug>/` (EN). Nav, footer ve kapanış CTA'sı homepage bileşenleri.
+- Hero: eyebrow `KURDUĞUMUZ SİSTEM` (12px 500 mavi) · H1 sistem adı Inter 300 56 / 36px · tek satır tanım 400 18 / 16px secondary (max 520) · sağda sistem görseli 3:2, Web Factory ekran stili (1px kenarlık, radius 8, 6px tarayıcı şeridi). Motion: fadeUp bir kez.
+- Bölümler sırayla: Kim için → Sorun → Ne kurduk → Teknoloji → Sonuç → kapanış CTA → footer. Her satır: başlık 1–4. kolon (Inter 300 34 / 28px), içerik 5–12. kolon; mobilde alt alta.
+- Sorun: numaralı editorial liste (Why stili, `01`–`03` mavi, aralarında %50 çizgi). Ne kurduk: 2 kolon başlık (400 20px) + açıklama (400 15px). Teknoloji: monokrom pill'ler (1px kenarlık, 13px 500 secondary). Sonuç: 300 20px beyaz, başında 24px mavi çizgi.
+- İkon yok; "ürün" değil "sistem"; fiyat / deneme / kayıt ifadesi yok. Doğrulanmamış rakam yok (`[EMRE-SONUÇ]`).
+- Referans: docs/qa/P6-1280-clinic.png, P6-375-clinic.png, P6-1280-brokers.png, P6-375-brokers.png.
+
+## SAHİPLİK / WHY DOVEIFY / ÇALIŞMALAR — CD-REVİZE-BEKLİYOR
 CD-REVİZE-BEKLİYOR. Görsel otorite `approved/homepage-v1.png`; ölçü/motion kuralları v0.2'de.

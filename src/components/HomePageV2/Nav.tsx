@@ -3,8 +3,7 @@ import MenuIcon from '../svgs/menu';
 import CloseIcon from '../svgs/close';
 import Heartbeat from './Heartbeat';
 import LangSwitch from './LangSwitch';
-import { useLocale } from './locale';
-import { navContent } from '../../../content/nav';
+import { useDict, useLocale } from './locale';
 import { LOCALE_PATH } from '../../../content/locale';
 
 /**
@@ -17,7 +16,7 @@ import { LOCALE_PATH } from '../../../content/locale';
  * v0.2) — the "İletişim" pill now links out to cal.com (Karar #8) instead of anchor-scrolling
  * to the still-placeholder #iletisim section. Composition/size/style untouched.
  *
- * PAKET-P5-SEO-META-DIL G2: copy from content/nav.ts per locale; section links are prefixed with the
+ * PAKET-P5-SEO-META-DIL G2: copy from the page's dictionary (content/{tr,en}/nav.ts); section links are prefixed with the
  * locale's path (`/#urunler`, `/en/#urunler`) so they also work from the 404 page — on the homepage
  * itself that is still a same-page jump. The TR | EN switch sits 24px left of the İletişim pill and
  * below the links in the mobile overlay; nothing else in the nav moved.
@@ -28,7 +27,7 @@ const CAL_COM_URL = 'https://cal.com/emre-dagli-ffwxpr/doveify-demo';
 export default function Nav() {
     const [open, setOpen] = useState(false);
     const locale = useLocale();
-    const t = navContent[locale];
+    const t = useDict().nav;
     const base = LOCALE_PATH[locale];
     const links = t.primary.map((label, i) => ({ label, href: `${base}#${SECTION_IDS[i]}` }));
 

@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+/* PAKET-P6 A4/C: moved-out legacy code must not add utilities to the shared CSS. */
+@source not "../../_legacy";
 @config '../../tailwind.config.js';
 
 /*
@@ -361,126 +363,6 @@
             @apply bg-light;
         }
     }
-    #doveify-manifesto .sb-markdown {
-        @apply mx-auto max-w-[800px] text-center text-lg italic leading-relaxed text-dark/80 sm:text-xl;
-    }
-    #doveify-manifesto .sb-markdown p {
-        margin-top: 0;
-    }
-    /* SaaS vs Doveify - Right Model, Right Time Section */
-    #saas-vs-doveify {
-        @apply bg-light text-dark;
-    }
-    #saas-vs-doveify .sb-component-title,
-    #saas-vs-doveify .sb-component-title span {
-        color: #0f172a;
-    }
-    #saas-vs-doveify > div > div > p.text-lg {
-        color: #475569;
-        font-weight: 500;
-        letter-spacing: 0.015em;
-        line-height: 1.6;
-    }
-    #saas-vs-doveify .grid .sb-card {
-        position: relative;
-        overflow: visible;
-        background: #fff;
-        color: #64748b;
-        font-weight: 400;
-        font-size: 15px;
-        letter-spacing: 0.01em;
-        line-height: 1.7;
-        border-radius: 16px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
-        transition: all 0.3s ease;
-    }
-    #saas-vs-doveify .grid .sb-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15);
-    }
-    #saas-vs-doveify #saas-approach-card,
-    #saas-vs-doveify #doveify-approach-card {
-        border-left: none;
-    }
-    #saas-vs-doveify .grid .sb-card .h3 {
-        font-size: 20px;
-        font-weight: 700;
-        color: #0f172a;
-        letter-spacing: -0.01em;
-        line-height: 1.3;
-    }
-    #saas-vs-doveify .grid .sb-card .sb-markdown {
-        color: #64748b;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 1.7;
-        letter-spacing: 0.01em;
-    }
-    #saas-vs-doveify .grid .sb-card .sb-markdown p:first-child {
-        @apply font-semibold text-dark;
-    }
-    #doveify-ownership-note .sb-markdown {
-        @apply mx-auto max-w-3xl text-center italic text-dark/70;
-    }
-    #saas-vs-doveify .grid .sb-card .sb-markdown strong {
-        color: #475569;
-        font-weight: 600;
-    }
-    #saas-vs-doveify .grid .sb-card .sb-markdown > * + * {
-        margin-top: 0.75rem;
-    }
-    #saas-vs-doveify .grid .sb-card .sb-markdown p {
-        margin-top: 0;
-    }
-
-    /* Why Doveify Section - Enhanced Card Styling */
-    #why-doveify {
-        background: #fafbfc;
-    }
-    #why-doveify .sb-component-badge {
-        color: #2563eb;
-        font-weight: 600;
-        font-size: 12px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-    }
-    #why-doveify .sb-component-title,
-    #why-doveify .sb-component-title span {
-        color: #0f172a;
-    }
-    #why-doveify .grid {
-        gap: 24px;
-    }
-    #why-doveify .grid .sb-card {
-        position: relative;
-        background: #fff;
-        border-radius: 16px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
-        transition: all 0.3s ease;
-        overflow: visible;
-    }
-    #why-doveify .grid .sb-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15);
-    }
-    #why-doveify .grid .sb-card .h3 {
-        font-size: 20px;
-        font-weight: 700;
-        color: #0f172a;
-        letter-spacing: -0.01em;
-        line-height: 1.3;
-    }
-    #why-doveify .grid .sb-card .sb-markdown {
-        color: #64748b;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 1.7;
-    }
-    #why-doveify .grid .sb-card .sb-markdown p {
-        margin-top: 0;
-    }
     /* Navbar Global Link Styling */
     .sb-component-header .sb-component-link {
         font-size: 16px;
@@ -558,26 +440,6 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-    }
-    .sb-phases-section {
-        @apply text-light;
-        background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-    }
-    .sb-turkisg-promo {
-        @apply text-light;
-        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 45%, #1e3a8a 100%);
-    }
-    .sb-turkisg-promo .sb-component-button-primary {
-        @apply border-light bg-light text-primary hover:bg-neutral;
-    }
-    .sb-turkisg-promo .sb-component-button-secondary {
-        @apply border-light text-light hover:bg-light/10;
-    }
-    .sb-turkisg-promo .sb-markdown a {
-        @apply text-light underline;
-    }
-    .sb-turkisg-promo .sb-markdown a:hover {
-        @apply text-neutral;
     }
     /* Only for cards */
     .bg-neutralAlt-fg-dark {
@@ -1103,4 +965,13 @@
 .v2-root :focus-visible {
     outline: 2px solid var(--color-v2-blue);
     outline-offset: 2px;
+}
+
+/*
+ * ===== PAKET-P6-PERF-ALTSAYFA-TEMIZLIK =====
+ * B2: case page rows below the hero skip rendering until near the viewport (measured content box).
+ */
+.v2-cv-case {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 200px;
 }
