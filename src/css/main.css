@@ -1009,3 +1009,23 @@
 .v2-wf-collage ul::-webkit-scrollbar {
     display: none;
 }
+
+/*
+ * P7 düzeltme: browser autofill paints inputs white with black text. Cover it with the elevated surface
+ * (inset shadow — autofill background can't be set directly) and keep the text white.
+ */
+.v2-root input:-webkit-autofill,
+.v2-root input:-webkit-autofill:hover,
+.v2-root input:-webkit-autofill:focus,
+.v2-root textarea:-webkit-autofill,
+.v2-root textarea:-webkit-autofill:hover,
+.v2-root textarea:-webkit-autofill:focus,
+.v2-root select:-webkit-autofill,
+.v2-root select:-webkit-autofill:hover,
+.v2-root select:-webkit-autofill:focus {
+    -webkit-box-shadow: inset 0 0 0 1000px var(--color-v2-bg-elevated);
+    box-shadow: inset 0 0 0 1000px var(--color-v2-bg-elevated);
+    -webkit-text-fill-color: #fff;
+    caret-color: #fff;
+    transition: background-color 9999s ease-out 0s;
+}

@@ -65,7 +65,7 @@
 
 ## Son Paket
 - **P7** — `paketler/PAKET-P7-ILETISIM-REVIZYON.md` (Emre'nin preview bulguları). Rapor: RAPOR-P7.md. Commit'lenmedi.
-- **Yeni sayfalar:** `/iletisim/`, `/en/contact/` (form → `/api/contact/` → Resend, tek kanal; honeypot + rate limit; hata → mesaj + WhatsApp linki),
+- **Yeni sayfalar:** `/iletisim/`, `/en/contact/` (form → `/api/contact/` → Resend, tek kanal; zorunlu yalnız Ad Soyad + Telefon + KVKK; honeypot + rate limit; hata → mesaj + WhatsApp linki),
   `/gizlilik/` (Emre'nin metni aynen, 1272/1272 kelime doğrulandı), `/en/privacy/` (TR metnin resmî olmayan EN çevirisi, P7 son). `/privacy/` → 301 `/gizlilik/`.
 - **Site geneli:** WhatsApp yüzen buton 11 V2 sayfasında; nav imzası büyüdü (36/17/64); pill `Toplantı Talep Et`; nav'a `İletişim`; final CTA
   `TOPLANTI TALEP ET` + `İLETİŞİM FORMU →`; footer `İletişim formu` + gizlilik linkleri; Ürünler'de ekranda olmayan düzen `aria-hidden` + `inert`.

@@ -41,9 +41,9 @@ export function validateContact(body: Record<string, unknown>): { fields: Fields
     const digits = fields.phone.replace(/\D/g, '');
     if (digits.length < 10 || digits.length > 15) errors.push('phone');
     if (fields.email && !EMAIL_RE.test(fields.email)) errors.push('email');
-    if (!fields.business) errors.push('business');
-    if (!SECTORS.has(fields.sector)) errors.push('sector');
-    if (!SERVICES.has(fields.service)) errors.push('service');
+    // P7 düzeltme: business / sector / service are optional; a sent sector or service must be one of the list.
+    if (fields.sector && !SECTORS.has(fields.sector)) errors.push('sector');
+    if (fields.service && !SERVICES.has(fields.service)) errors.push('service');
     if (!fields.consent) errors.push('consent');
     return { fields, errors };
 }
@@ -79,18 +79,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(503).json({ ok: false, error: 'not_configured' });
     }
 
+    const dash = (value: string) => value || '—'; // empty optional field
     const text = [
         `Ad Soyad: ${fields.name}`,
         `Telefon: ${fields.phone}`,
-        `E-posta: ${fields.email || '-'}`,
-        `İşletme / Marka: ${fields.business}`,
-        `Sektör: ${fields.sector}`,
-        `İstenen çalışma: ${fields.service}`,
+        `E-posta: ${dash(fields.email)}`,
+        `İşletme / Marka: ${dash(fields.business)}`,
+        `Sektör: ${dash(fields.sector)}`,
+        `İstenen çalışma: ${dash(fields.service)}`,
         `Dil: ${fields.locale.toUpperCase()}`,
         `KVKK onayı: evet`,
         '',
         'Projenizle ilgili kısaca bilgi:',
-        fields.message || '-'
+        dash(fields.message)
     ].join('\n');
 
     try {
@@ -100,7 +101,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             body: JSON.stringify({
                 from: process.env.RESEND_FROM || 'Doveify Site <onboarding@resend.dev>',
                 to: [process.env.CONTACT_TO || 'emre@doveify.io'],
-                subject: `Yeni iletişim talebi — ${fields.business} (${fields.service})`,
+                subject: `Yeni iletişim talebi — ${fields.business || fields.name}${fields.service ? ` (${fields.service})` : ''}`,
                 text,
                 ...(fields.email ? { reply_to: fields.email } : {})
             })

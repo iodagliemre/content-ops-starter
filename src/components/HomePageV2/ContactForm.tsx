@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
 import classNames from 'classnames';
 import ChevronDown from '../svgs/chevron-down';
 import { useLocale } from './locale';
@@ -11,6 +11,10 @@ import { CONTACT_FORM_NAME, HONEYPOT_FIELD, whatsappHref, type ContactFormConten
  * "WhatsApp'tan yazın" link. Validation runs in the browser first (same rules as the API route); errors are not
  * red: secondary text with a short blue line, and the field border turns blue. On success the form is replaced
  * by the confirmation and a link to the WhatsApp card.
+ * P7 düzeltme (Emre): only Ad Soyad, Telefon and the KVKK consent are required; e-mail (format-checked when
+ * filled), business, sector, service and message are optional. Native <option>s are dark-on-white (the OS
+ * draws the open list, it can't be forced dark); the closed select shows its value in white, the empty
+ * placeholder in secondary. Autofill colours are overridden in main.css (.v2-root :-webkit-autofill).
  */
 type FieldName = 'name' | 'phone' | 'email' | 'business' | 'sector' | 'service' | 'message' | 'consent';
 type Errors = Partial<Record<FieldName, string>>;
@@ -30,9 +34,6 @@ function validate(data: FormData, t: ContactFormContent): Errors {
     if (!value('phone')) errors.phone = t.errors.required;
     else if (digits.length < 10 || digits.length > 15) errors.phone = t.errors.phone;
     if (value('email') && !EMAIL_RE.test(value('email'))) errors.email = t.errors.email;
-    if (!value('business')) errors.business = t.errors.required;
-    if (!value('sector')) errors.sector = t.errors.required;
-    if (!value('service')) errors.service = t.errors.required;
     if (!data.get('consent')) errors.consent = t.errors.consent;
     return errors;
 }
@@ -121,21 +122,21 @@ export default function ContactForm({ t, successHref }: { t: ContactFormContent;
 
             <div className="grid grid-cols-1 gap-x-5 gap-y-5 sm:grid-cols-2">
                 <Field id="name" label={t.name} required error={errors.name}>
-                    <input id="name" name="name" type="text" autoComplete="name" maxLength={100} {...fieldProps('name', errors)} />
+                    <input id="name" name="name" type="text" autoComplete="name" maxLength={100} required {...fieldProps('name', errors)} />
                 </Field>
                 <Field id="phone" label={t.phone} required error={errors.phone}>
-                    <input id="phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" maxLength={30} {...fieldProps('phone', errors)} />
+                    <input id="phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" maxLength={30} required {...fieldProps('phone', errors)} />
                 </Field>
                 <Field id="email" label={t.email} error={errors.email}>
                     <input id="email" name="email" type="email" autoComplete="email" maxLength={120} {...fieldProps('email', errors)} />
                 </Field>
-                <Field id="business" label={t.business} required error={errors.business}>
+                <Field id="business" label={t.business} error={errors.business}>
                     <input id="business" name="business" type="text" autoComplete="organization" maxLength={120} {...fieldProps('business', errors)} />
                 </Field>
-                <Field id="sector" label={t.sector} required error={errors.sector}>
+                <Field id="sector" label={t.sector} error={errors.sector}>
                     <Select id="sector" options={t.sectors} placeholder={t.selectPlaceholder} errors={errors} />
                 </Field>
-                <Field id="service" label={t.service} required error={errors.service}>
+                <Field id="service" label={t.service} error={errors.service}>
                     <Select id="service" options={t.services} placeholder={t.selectPlaceholder} errors={errors} />
                 </Field>
                 <div className="sm:col-span-2">
@@ -218,16 +219,29 @@ function Field({ id, label, required, error, children }: { id: FieldName; label:
     );
 }
 
+// Open list: OS-drawn, so options get explicit dark text on white (#0B1220 / #fff) to stay readable.
+const OPTION_CLASS = 'bg-white text-[#0B1220]';
+
 function Select({ id, options, placeholder, errors }: { id: 'sector' | 'service'; options: string[]; placeholder: string; errors: Errors }) {
     const { className, ...aria } = fieldProps(id, errors);
+    const [empty, setEmpty] = useState(true);
     return (
         <div className="relative">
-            <select id={id} name={id} required defaultValue="" {...aria} className={classNames(className, 'appearance-none pr-10 invalid:text-v2-text-secondary')}>
-                <option value="" disabled className="bg-v2-bg-base">
+            <select
+                id={id}
+                name={id}
+                defaultValue=""
+                onChange={(event: ChangeEvent<HTMLSelectElement>) => setEmpty(event.target.value === '')}
+                {...aria}
+                className={classNames(className, 'appearance-none pr-10')}
+                // inline, not a class: FIELD_CLASS already sets text-white and two text-* utilities would race
+                style={{ color: empty ? 'var(--color-v2-text-secondary)' : '#fff' }}
+            >
+                <option value="" className={OPTION_CLASS}>
                     {placeholder}
                 </option>
                 {options.map((option) => (
-                    <option key={option} value={option} className="bg-v2-bg-base">
+                    <option key={option} value={option} className={OPTION_CLASS}>
                         {option}
                     </option>
                 ))}
