@@ -12,6 +12,7 @@ import Why from './Why';
 import Work from './Work';
 import FinalCta from './FinalCta';
 import Footer from './Footer';
+import WhatsAppButton from './WhatsAppButton';
 
 /**
  * V2 homepage. Rendered by src/pages/index.tsx (tr) and src/pages/en/index.tsx (en) since P6; the
@@ -47,6 +48,7 @@ export default function HomePageV2({ locale, dict }: { locale: Locale; dict: Dic
                     <FinalCta />
                 </main>
                 <Footer />
+                <WhatsAppButton />
             </div>
         </LocaleProvider>
     );

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ArrowRight from '../components/svgs/arrow-right';
 import Nav from '../components/HomePageV2/Nav';
 import SiteHead from '../components/HomePageV2/SiteHead';
+import WhatsAppButton from '../components/HomePageV2/WhatsAppButton';
 import { LocaleProvider } from '../components/HomePageV2/locale';
 import type { Dict } from '../../content/dict';
 
@@ -31,6 +32,8 @@ export default function NotFound({ dict }: { dict: Dict }) {
                         </Link>
                     </div>
                 </main>
+                {/* PAKET-P7 G3: no hero here and the page does not scroll, so the button shows at once. */}
+                <WhatsAppButton showAfter={0} />
             </div>
         </LocaleProvider>
     );

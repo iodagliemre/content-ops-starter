@@ -239,7 +239,7 @@ function Card({
                         }}
                     >
                         {/* eslint-disable-next-line @next/next/no-img-element -- tiny placeholder, see ProductRailMobile.tsx header comment */}
-                        <img src={product.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                        <img src={product.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
                     </div>
                 )}
             </div>

@@ -3,8 +3,8 @@ import type { WhyContent } from '../why';
 
 export const why: WhyContent = {
     eyebrow: 'NEDEN DOVEIFY',
-    figure: '100%',
-    figureLabel: 'OWNERSHIP',
+    figure: '%100', // PAKET-P7 G8 (Emre kararı); EN: 100% / OWNERSHIP
+    figureLabel: 'SAHİPLİK',
     items: [
         { title: '%100 Sahiplik', description: 'Kod, veri ve altyapı sizin mülkünüzdür; kiralamazsınız. Tüm veri müşteride kalır.' },
         { title: 'Uzun Vadeli Değer', description: 'Abonelik değil yatırım; sistem büyüdükçe değeri artar.' },

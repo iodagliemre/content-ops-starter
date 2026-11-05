@@ -18,6 +18,10 @@ export const LOCALE_PATH: Localized<string> = { tr: '/', en: '/en/' };
 export const OG_LOCALE: Localized<string> = { tr: 'tr_TR', en: 'en_GB' };
 
 /** PAKET-P6 B1: vaka sayfaları (kurduğumuz sistemler) ve dillere göre yolları. */
+/** PAKET-P7 G1/G2: contact and privacy pages. */
+export const CONTACT_PATH: Localized<string> = { tr: '/iletisim/', en: '/en/contact/' };
+export const PRIVACY_PATH: Localized<string> = { tr: '/gizlilik/', en: '/en/privacy/' };
+
 export type CaseSlug = 'clinic-os' | 'brokers-brain';
 export const CASE_SLUGS: CaseSlug[] = ['clinic-os', 'brokers-brain'];
 export const CASE_PATH: Localized<Record<CaseSlug, string>> = {

@@ -146,12 +146,12 @@ export default function ProductRailMobile() {
                                 <ArrowRight className="ml-2 h-3 w-3 fill-current" />
                             </a>
                         </div>
-                        {/* A6: object-contain (not cover) — placeholders aren't all the same
-                            aspect ratio, contain avoids cropping any of them. mb-6 (24px) keeps
-                            it off the card's own bottom edge instead of flush. */}
-                        <div className="relative mx-6 mt-4 mb-6 h-[140px]">
+                        {/* A6: mb-6 (24px) keeps it off the card's own bottom edge instead of flush.
+                            PAKET-P7 G5: real 3:2 screens now (were placeholders of mixed ratios, hence
+                            object-contain) → cover from the top, inside a rounded frame. */}
+                        <div className="relative mx-6 mt-4 mb-6 h-[140px] overflow-hidden rounded-lg">
                             {/* eslint-disable-next-line @next/next/no-img-element -- tiny placeholder, see file header comment */}
-                            <img src={product.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain" />
+                            <img src={product.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
                         </div>
                     </div>
                 ))}

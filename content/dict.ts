@@ -14,6 +14,7 @@ import type { WorkContent } from './work';
 import type { FinalCtaContent } from './finalCta';
 import type { FooterContent } from './footer';
 import type { MetaContent } from './meta';
+import type { WhatsAppButtonContent } from './contact';
 
 export type Dict = {
     nav: NavContent;
@@ -27,4 +28,6 @@ export type Dict = {
     finalCta: FinalCtaContent;
     footer: FooterContent;
     meta: MetaContent;
+    /** PAKET-P7 G3: floating WhatsApp button (every V2 page). */
+    whatsapp: WhatsAppButtonContent;
 };

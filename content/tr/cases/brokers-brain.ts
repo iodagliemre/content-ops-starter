@@ -1,14 +1,13 @@
 // PAKET-P6 B3: Broker's Brain vaka sayfası (TR). Kaynak: _legacy/content/pages/brokers-brain.md + ICERIK-ENVANTERI.
 import type { CaseContent } from '../../cases';
-import { EMRE_SONUC, EMRE_STACK } from '../../cases';
-import { CAL_COM, EMAIL } from '../../finalCta';
+import { CAL_COM, CONTACT_FORM } from '../../finalCta';
 
 export const brokersBrain: CaseContent = {
     slug: 'brokers-brain',
     eyebrow: 'KURDUĞUMUZ SİSTEM',
     name: "Broker's Brain",
     definition: 'Gayrimenkul ofisleri için WhatsApp talep yönetimi: gelen talepleri toplar, yapay zekâyla nitelendirir, doğru danışmana yönlendirir.',
-    image: { src: '/products/brokers-brain.webp', width: 640, height: 270 },
+    image: { src: '/products/brokers-brain.webp', width: 1200, height: 800, srcSet: '/products/brokers-brain.webp 1200w, /products/brokers-brain-1600.webp 1600w' }, // P7 G5
     meta: {
         title: "Broker's Brain — Kurduğumuz Sistem | Doveify",
         description: 'Gayrimenkul ofisleri için WhatsApp talep yönetimi: talepleri toplar, yapay zekâyla nitelendirir, doğru danışmana yönlendirir.',
@@ -37,15 +36,19 @@ export const brokersBrain: CaseContent = {
             { title: 'Tam veri sahipliği', description: 'Veri ofisindir; istediği an dışa aktarılır.' }
         ]
     },
-    tech: { title: 'Teknoloji', items: ['WhatsApp Business API', EMRE_STACK] },
+    tech: { title: 'Teknoloji', items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'Twilio WhatsApp API', 'Twilio Functions', 'OpenAI GPT-4o-mini + Whisper', 'Netlify'] },
     results: {
-        title: 'Sonuç',
-        items: ['Talep toplama, nitelendirme ve yönlendirme tek akışta birleşti.', `${EMRE_SONUC} — yanıt süresindeki değişim`, `${EMRE_SONUC} — kurulum süresi`]
+        title: 'Ne değişti',
+        items: [
+            "Gelen WhatsApp lead'leri otomatik sınıflanır ve portföyle eşleşir.",
+            'Sesli mesajlar Whisper ile metne çevrilir, aynı akışta yanıtlanır.',
+            'Takip gecikmesi dakikalara iner; ek personel gerekmez.'
+        ]
     },
     cta: {
         heading: 'Benzerini sizin için kuralım.',
         subline: 'İşletmenize özel sistemi birlikte tasarlayalım.',
-        primary: { label: 'İLETİŞİME GEÇ', href: CAL_COM },
-        secondary: EMAIL
+        primary: { label: 'TOPLANTI TALEP ET', href: CAL_COM },
+        secondary: CONTACT_FORM.tr
     }
 };

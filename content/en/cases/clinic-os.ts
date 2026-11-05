@@ -1,7 +1,6 @@
 // PAKET-P6 B3: Clinic OS case page (EN). Translated from content/tr/cases/clinic-os.ts (list in RAPOR-P6.md).
 import type { CaseContent } from '../../cases';
-import { EMRE_SONUC, EMRE_STACK } from '../../cases';
-import { CAL_COM, EMAIL } from '../../finalCta';
+import { CAL_COM, CONTACT_FORM } from '../../finalCta';
 
 export const clinicOs: CaseContent = {
     slug: 'clinic-os',
@@ -34,18 +33,26 @@ export const clinicOs: CaseContent = {
             { title: 'Billing and payments', description: 'Invoicing, payment tracking and a view of revenue.' },
             { title: 'WhatsApp automation', description: 'Appointment reminders and confirmations go out on WhatsApp automatically.' },
             { title: 'AI assistant', description: 'Answers patient questions around the clock, books appointments, sorts requests.' },
-            { title: 'One screen', description: 'Appointments, patients and revenue in the same view.' }
+            { title: 'One screen', description: 'Appointments, patients and revenue in the same view.' },
+            // PAKET-P7 G6: translated from the three TR items (RAPOR-P7).
+            { title: 'Clinic-specific dynamic AI assistant', description: 'Working hours, treatments, appointments.' },
+            { title: 'Bring-your-own WhatsApp API', description: "The client's own number and token." },
+            { title: 'Multi-tenant Postgres (Supabase)' }
         ]
     },
-    tech: { title: 'Technology', items: ['WhatsApp Business API', EMRE_STACK] },
+    tech: { title: 'Technology', items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'n8n', 'OpenAI GPT-4o-mini', 'WhatsApp Business Cloud API', 'Cloudflare'] },
     results: {
-        title: 'Outcome',
-        items: ['Appointments, patient records and payments now live in one system.', `${EMRE_SONUC} — change in missed appointments`, `${EMRE_SONUC} — time to set up`]
+        title: 'What changed',
+        items: [
+            'Appointment reminders and confirmations run automatically on WhatsApp; less phone load on reception.',
+            'Patient records, treatment templates and billing on one screen.',
+            "Data stays on the clinic's own infrastructure; the system belongs to the clinic."
+        ]
     },
     cta: {
         heading: "Let's build yours.",
         subline: "Let's design a system made for your business, together.",
-        primary: { label: 'GET IN TOUCH', href: CAL_COM },
-        secondary: EMAIL
+        primary: { label: 'BOOK A MEETING', href: CAL_COM },
+        secondary: CONTACT_FORM.en
     }
 };

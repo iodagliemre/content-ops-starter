@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PAKET-P5 G3 / P6 B4: statik sitemap (next-sitemap yok). Eski /clinic/ ve /brokers-brain/ artık 301 → vaka sayfaları. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://doveify.io/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://doveify.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doveify.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doveify.io/"/>
+  </url>
+  <url>
+    <loc>https://doveify.io/en/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://doveify.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doveify.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doveify.io/"/>
+  </url>
+  <url>
+    <loc>https://doveify.io/sistemler/clinic-os/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://doveify.io/sistemler/clinic-os/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doveify.io/en/systems/clinic-os/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doveify.io/sistemler/clinic-os/"/>
+  </url>
+  <url>
+    <loc>https://doveify.io/en/systems/clinic-os/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://doveify.io/sistemler/clinic-os/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doveify.io/en/systems/clinic-os/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doveify.io/sistemler/clinic-os/"/>
+  </url>
+  <url>
+    <loc>https://doveify.io/sistemler/brokers-brain/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://doveify.io/sistemler/brokers-brain/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doveify.io/en/systems/brokers-brain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doveify.io/sistemler/brokers-brain/"/>
+  </url>
+  <url>
+    <loc>https://doveify.io/en/systems/brokers-brain/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://doveify.io/sistemler/brokers-brain/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://doveify.io/en/systems/brokers-brain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://doveify.io/sistemler/brokers-brain/"/>
+  </url>
+  <url><loc>https://doveify.io/privacy/</loc></url>
+</urlset>

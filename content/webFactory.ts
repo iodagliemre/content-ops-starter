@@ -5,12 +5,27 @@
  * PAKET-P5-SEO-META-DIL G2: `{ tr, en }`; EN yeni çeviri (RAPOR-P5.md).
  */
 
-export type WebFactoryContent = { eyebrow: string; heading: string; description: string; cta: string };
+export type WebFactoryContent = {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    cta: string;
+    /** PAKET-P7 G7: slider controls (new microcopy, RAPOR-P7.md). */
+    prevLabel: string;
+    nextLabel: string;
+    /** Appended to the client name on the centre screen's link. */
+    openSuffix: string;
+};
+
+/**
+ * PAKET-P7 G7 (Emre kararı 05.11.2026): the three screens are now a slider — order = auto-play order
+ * (1 → 2 → 3); the next one sits on the right. Client sites from content/work.ts (P4, Emre onaylı).
+ */
 export const webFactoryLinks = {
     href: 'https://web.doveify.io',
-    screens: {
-        center: '/webfactory/screen-1.webp',
-        left: '/webfactory/screen-2.webp',
-        right: '/webfactory/screen-3.webp'
-    }
+    screens: [
+        { src: '/webfactory/screen-1.webp', name: 'Teknik Telsiz', href: 'https://tekniktelsiz.com.tr/' },
+        { src: '/webfactory/screen-2.webp', name: 'Dr. Serap Korkmaz', href: 'https://drserapkorkmaz.com/' },
+        { src: '/webfactory/screen-3.webp', name: 'Dry Clean Online', href: 'https://drycleanonline.com/' }
+    ]
 } as const;

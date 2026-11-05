@@ -1,3 +1,39 @@
 [build]
   command = "npm run build"
   publish = ".next"
+
+# PAKET-P7 G9: 301s at the CDN, before the Next runtime (the same moves are in next.config.js `redirects`).
+[[redirects]]
+  from = "/privacy/*"
+  to = "/gizlilik/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy"
+  to = "/gizlilik/"
+  status = 301
+
+[[redirects]]
+  from = "/clinic"
+  to = "/sistemler/clinic-os/"
+  status = 301
+
+[[redirects]]
+  from = "/brokers-brain"
+  to = "/sistemler/brokers-brain/"
+  status = 301
+
+[[redirects]]
+  from = "/signup"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/pricing"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/careers"
+  to = "/"
+  status = 301

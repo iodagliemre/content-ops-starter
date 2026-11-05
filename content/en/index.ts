@@ -12,4 +12,6 @@ import { finalCta } from './finalCta';
 import { footer } from './footer';
 import { meta } from './meta';
 
-export const dict: Dict = { nav, hero, products, webFactory, transformation, ownership, why, work, finalCta, footer, meta };
+const whatsapp = { label: 'Message us on WhatsApp' }; // PAKET-P7 G3
+
+export const dict: Dict = { nav, hero, products, webFactory, transformation, ownership, why, work, finalCta, footer, meta, whatsapp };

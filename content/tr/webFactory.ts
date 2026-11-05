@@ -5,5 +5,8 @@ export const webFactory: WebFactoryContent = {
     eyebrow: 'WEB FACTORY',
     heading: 'Markanızı dijitalde zirveye taşıyoruz.',
     description: 'Strateji, tasarım ve yazılımı bir araya getirerek yüksek performanslı web deneyimleri sunuyoruz.',
-    cta: "WEB FACTORY'Yİ KEŞFET"
+    cta: "WEB FACTORY'Yİ KEŞFET",
+    prevLabel: 'Önceki site',
+    nextLabel: 'Sonraki site',
+    openSuffix: ' — siteyi yeni sekmede aç'
 };

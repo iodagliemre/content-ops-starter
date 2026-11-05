@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>Forms</title></head>
+<body>
+<form name="signup" netlify hidden>
+  <input name="name" type="text" />
+  <input name="email" type="email" />
+  <input name="clinic" type="text" />
+  <select name="interest">
+    <option>Clinic Management</option>
+    <option>Real Estate (Broker's Brain)</option>
+  </select>
+</form>
+<!-- PAKET-P7 G1: contact page form (src/components/HomePageV2/ContactForm.tsx). Netlify Forms fallback only:
+     used when /api/contact has no RESEND_API_KEY. Field names must match the React form. -->
+<form name="contact" netlify netlify-honeypot="company_website" hidden>
+  <input name="company_website" type="text" />
+  <input name="name" type="text" />
+  <input name="phone" type="tel" />
+  <input name="email" type="email" />
+  <input name="business" type="text" />
+  <input name="sector" type="text" />
+  <input name="service" type="text" />
+  <textarea name="message"></textarea>
+  <input name="consent" type="checkbox" />
+  <input name="locale" type="text" />
+</form>
+</body>
+</html>

@@ -1,7 +1,6 @@
 // PAKET-P6 B3: Clinic OS vaka sayfası (TR). Kaynak: _legacy/content/pages/clinic.md + ICERIK-ENVANTERI.
 import type { CaseContent } from '../../cases';
-import { EMRE_SONUC, EMRE_STACK } from '../../cases';
-import { CAL_COM, EMAIL } from '../../finalCta';
+import { CAL_COM, CONTACT_FORM } from '../../finalCta';
 
 export const clinicOs: CaseContent = {
     slug: 'clinic-os',
@@ -34,18 +33,26 @@ export const clinicOs: CaseContent = {
             { title: 'Faturalama ve tahsilat', description: 'Fatura oluşturma, ödeme takibi ve gelir görünümü.' },
             { title: 'WhatsApp otomasyonu', description: 'Randevu hatırlatma ve onayları WhatsApp üzerinden otomatik gider.' },
             { title: 'Yapay zekâ asistanı', description: 'Hasta sorularını günün her saatinde yanıtlar, randevu alır, talepleri ayırır.' },
-            { title: 'Tek ekran', description: 'Randevu, hasta ve gelir aynı görünümde.' }
+            { title: 'Tek ekran', description: 'Randevu, hasta ve gelir aynı görünümde.' },
+            // PAKET-P7 G6: Emre'nin üç maddesi; parantez içi açıklama alt satıra alındı (RAPOR-P7).
+            { title: 'Klinik bazlı dinamik AI asistan', description: 'Çalışma saatleri, tedaviler, randevu.' },
+            { title: 'Bring-your-own WhatsApp API', description: "Müşterinin kendi numarası ve token'ı." },
+            { title: 'Multi-tenant Postgres (Supabase)' }
         ]
     },
-    tech: { title: 'Teknoloji', items: ['WhatsApp Business API', EMRE_STACK] },
+    tech: { title: 'Teknoloji', items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'n8n', 'OpenAI GPT-4o-mini', 'WhatsApp Business Cloud API', 'Cloudflare'] },
     results: {
-        title: 'Sonuç',
-        items: ['Randevu, hasta kaydı ve tahsilat tek sistemde toplandı.', `${EMRE_SONUC} — gelinmeyen randevu oranındaki değişim`, `${EMRE_SONUC} — kurulum süresi`]
+        title: 'Ne değişti',
+        items: [
+            "Randevu hatırlatma ve onayları WhatsApp'ta otomatik; resepsiyonun telefon yükü düşer.",
+            'Hasta kaydı, tedavi şablonu ve faturalama tek ekranda.',
+            'Veri kliniğin kendi altyapısında; sistem kliniğe ait.'
+        ]
     },
     cta: {
         heading: 'Benzerini sizin için kuralım.',
         subline: 'İşletmenize özel sistemi birlikte tasarlayalım.',
-        primary: { label: 'İLETİŞİME GEÇ', href: CAL_COM },
-        secondary: EMAIL
+        primary: { label: 'TOPLANTI TALEP ET', href: CAL_COM },
+        secondary: CONTACT_FORM.tr
     }
 };

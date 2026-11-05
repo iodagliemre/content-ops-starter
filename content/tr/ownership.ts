@@ -1,10 +1,9 @@
 // PAKET-P6 A1: TR sözlüğü (ownership). Tip ve dilden bağımsız sabitler: content/ownership.ts.
 import type { OwnershipContent } from '../ownership';
-import { STATEMENT } from '../ownership';
 
 export const ownership: OwnershipContent = {
     eyebrow: 'SAHİPLİK',
-    statement: STATEMENT,
+    statement: ['ARAÇLAR KİRALANIR.', 'BİLGİ KİRALANMAZ.'], // PAKET-P7 G8 (Emre kararı); EN: STATEMENT
     subline: 'Dijitalde gerçek sahiplik, geleceğin güvencesi.',
     columns: [
         {

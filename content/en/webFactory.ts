@@ -5,5 +5,8 @@ export const webFactory: WebFactoryContent = {
     eyebrow: 'WEB FACTORY',
     heading: 'We take your brand to the top in digital.',
     description: 'We bring strategy, design and software together to deliver high-performance web experiences.',
-    cta: 'EXPLORE WEB FACTORY'
+    cta: 'EXPLORE WEB FACTORY',
+    prevLabel: 'Previous site',
+    nextLabel: 'Next site',
+    openSuffix: ' — open the site in a new tab'
 };

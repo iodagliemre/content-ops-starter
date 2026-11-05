@@ -10,7 +10,9 @@ const MOVED = [
     ['/brokers-brain', '/sistemler/brokers-brain/'],
     ['/signup', '/'],
     ['/pricing', '/'],
-    ['/careers', '/']
+    ['/careers', '/'],
+    // PAKET-P7 G2: the Stackbit privacy page → the new TR privacy text (EN copy: /en/privacy/).
+    ['/privacy', '/gizlilik/']
 ];
 
 const nextConfig = {

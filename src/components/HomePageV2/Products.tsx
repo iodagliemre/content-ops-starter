@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import ChevronLeft from '../svgs/chevron-left';
-import ChevronRight from '../svgs/chevron-right';
 import ProductStageDesktop from './ProductStageDesktop';
 import ProductRailMobile from './ProductRailMobile';
+import ArrowButton from './ArrowButton';
 import { onIdle } from './onIdle';
 import { useRevealOnce } from './useRevealOnce';
 import { useDict } from './locale';
@@ -30,9 +29,16 @@ export default function Products() {
     // confirms desktop. On mobile it's `hidden lg:block` regardless, so staying non-interactive
     // there costs nothing visually and saves the interactive scene's hydration work.
     const [isDesktopInteractive, setIsDesktopInteractive] = useState(false);
+    // PAKET-P7 G0.2: both layouts are in the SSR HTML, so the cards would be read twice. `layout` is
+    // null on the server/first render (the mobile rail is aria-hidden then); once matchMedia answers,
+    // the layout that is not on screen gets aria-hidden + inert. Set right away, not at idle time.
+    const [layout, setLayout] = useState<'desktop' | 'mobile' | null>(null);
 
     useEffect(() => {
         const mql = window.matchMedia('(min-width: 1024px)');
+        const updateLayout = () => setLayout(mql.matches ? 'desktop' : 'mobile');
+        updateLayout();
+        mql.addEventListener('change', updateLayout);
         const update = () => setIsDesktopInteractive(mql.matches);
         const cancelIdle = onIdle(() => {
             update();
@@ -40,6 +46,7 @@ export default function Products() {
         });
         return () => {
             cancelIdle();
+            mql.removeEventListener('change', updateLayout);
             mql.removeEventListener('change', update);
         };
     }, []);
@@ -76,41 +83,21 @@ export default function Products() {
                 </div>
             </div>
 
-            <ProductStageDesktop
-                activeIndex={isDesktopInteractive ? activeIndex : INITIAL_ACTIVE_INDEX}
-                onSelect={setActiveIndex}
-                interactive={isDesktopInteractive}
-            />
-            <ProductRailMobile />
+            <div {...offscreenProps(layout === 'mobile')}>
+                <ProductStageDesktop
+                    activeIndex={isDesktopInteractive ? activeIndex : INITIAL_ACTIVE_INDEX}
+                    onSelect={setActiveIndex}
+                    interactive={isDesktopInteractive}
+                />
+            </div>
+            <div {...offscreenProps(layout !== 'mobile', layout === 'desktop')}>
+                <ProductRailMobile />
+            </div>
         </section>
     );
 }
 
-function ArrowButton({
-    direction,
-    label,
-    disabled,
-    onClick
-}: {
-    direction: 'left' | 'right';
-    label: string;
-    disabled: boolean;
-    onClick: () => void;
-}) {
-    const Icon = direction === 'left' ? ChevronLeft : ChevronRight;
-    return (
-        <button
-            type="button"
-            aria-label={label}
-            aria-disabled={disabled}
-            disabled={disabled}
-            onClick={onClick}
-            className={classNames(
-                'flex h-9 w-9 items-center justify-center rounded-full border border-v2-border transition-colors',
-                disabled ? 'opacity-35' : 'hover:border-white'
-            )}
-        >
-            <Icon className="h-3.5 w-3.5 fill-current text-white" />
-        </button>
-    );
+/** aria-hidden (+ inert) for the layout that is not on screen. React 18 has no typed `inert` prop. */
+function offscreenProps(hidden: boolean, inert = hidden): Record<string, string | undefined> {
+    return { 'aria-hidden': hidden ? 'true' : undefined, inert: inert ? '' : undefined };
 }

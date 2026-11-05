@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Nav from './Nav';
 import Footer from './Footer';
 import FinalCta from './FinalCta';
+import WhatsAppButton from './WhatsAppButton';
 import SiteHead from './SiteHead';
 import { LocaleProvider } from './locale';
 import { CASE_PATH, SITE_URL, type Locale } from '../../../content/locale';
@@ -43,18 +44,21 @@ export default function CasePage({ locale, dict, content }: { locale: Locale; di
                             </p>
                         </div>
                         <div className="v2-fade-up lg:col-span-6" style={{ animationDelay: '150ms' }}>
-                            <div className="flex aspect-[3/2] w-full flex-col overflow-hidden rounded-lg border border-v2-border bg-v2-bg-base">
+                            {/* PAKET-P7 G5: 3:2 frame with border + browser strip, 640px max (Web Factory screen style). */}
+                            <div className="ml-auto flex aspect-[3/2] w-full max-w-[640px] flex-col overflow-hidden rounded-lg border border-v2-border bg-v2-bg-base">
                                 <div aria-hidden="true" className="h-1.5 shrink-0 border-b border-v2-border" />
                                 <div className="min-h-0 flex-1">
                                     {/* eslint-disable-next-line @next/next/no-img-element -- same pre-sized placeholder as the homepage card */}
                                     <img
                                         src={content.image.src}
+                                        srcSet={content.image.srcSet}
+                                        sizes={content.image.srcSet ? '(min-width: 1024px) 640px, 100vw' : undefined}
                                         alt=""
                                         width={content.image.width}
                                         height={content.image.height}
                                         fetchPriority="high"
                                         decoding="async"
-                                        className="h-full w-full object-cover"
+                                        className="h-full w-full object-cover object-top"
                                     />
                                 </div>
                             </div>
@@ -81,7 +85,9 @@ export default function CasePage({ locale, dict, content }: { locale: Locale; di
                             {content.built.items.map((item) => (
                                 <li key={item.title}>
                                     <h3 className="text-[20px] font-normal leading-[1.3] text-white">{item.title}</h3>
-                                    <p className="mt-2 text-[15px] font-normal leading-[1.6] text-v2-text-secondary">{item.description}</p>
+                                    {item.description && (
+                                        <p className="mt-2 text-[15px] font-normal leading-[1.6] text-v2-text-secondary">{item.description}</p>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -114,6 +120,7 @@ export default function CasePage({ locale, dict, content }: { locale: Locale; di
                     <FinalCta content={content.cta} />
                 </main>
                 <Footer />
+                <WhatsAppButton />
             </div>
         </LocaleProvider>
     );

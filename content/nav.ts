@@ -7,6 +7,8 @@ export type NavContent = {
     /** Order matches the section ids in Nav.tsx. */
     primary: string[];
     cta: string;
+    /** PAKET-P7 G3: text link after the section links → contact page. */
+    contact: string;
     navLabel: string;
     openMenu: string;
     closeMenu: string;
