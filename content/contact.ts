@@ -43,8 +43,6 @@ export type ContactFormContent = {
     errors: { required: string; phone: string; email: string; consent: string; generic: string; rateLimited: string; whatsappLink: string };
     success: string;
     successLink: string;
-    /** Screen-reader-only label of the honeypot field (the field is hidden from everyone). */
-    honeypot: string;
 };
 
 export type ContactContent = {
@@ -58,4 +56,6 @@ export type ContactContent = {
 
 /** Form name and honeypot field shared by the form and the API route. */
 export const CONTACT_FORM_NAME = 'contact';
-export const HONEYPOT_FIELD = 'company_website';
+// P7 Resend fix: was 'company_website' — Chrome autofill matched "company" and filled the trap. Keep this name
+// free of autofill keywords (name, company, organisation, email, phone, url, website, address…).
+export const HONEYPOT_FIELD = 'dv_hp_7f3';

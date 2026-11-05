@@ -45,7 +45,6 @@ export const contact: ContactContent = {
             whatsappLink: 'message us on WhatsApp.'
         },
         success: "Your request has been received. We'll get back to you shortly.",
-        successLink: 'WhatsApp: +90 542 805 08 15',
-        honeypot: 'Leave this field empty'
+        successLink: 'WhatsApp: +90 542 805 08 15'
     }
 };

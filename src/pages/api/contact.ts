@@ -4,13 +4,21 @@ import { contact as contactTr } from '../../../content/tr/contact';
 import { contact as contactEn } from '../../../content/en/contact';
 
 /**
- * PAKET-P7 G1. Contact form → e-mail to emre@doveify.io through the Resend REST API (no SDK: one fetch).
- * Env (Netlify, both set — Emre 05.11.2026): RESEND_API_KEY, RESEND_FROM (sender on the domain verified in
- * Resend); optional CONTACT_TO (default emre@doveify.io). The message is only e-mailed, nothing is stored
- * (privacy text §5/§7a); the Netlify Forms fallback was removed (P7 son). No key → 503, Resend error → 502;
- * the form shows its error line + WhatsApp link for both. Spam: honeypot field (filled → 200 without
- * sending) + a per-IP rate limit (5 requests / 10 minutes, in memory: best effort per function instance).
+ * PAKET-P7 G1. Contact form → e-mail to emre@doveify.io through the Resend REST API (no SDK: one fetch:
+ * POST https://api.resend.com/emails, `Authorization: Bearer <RESEND_API_KEY>`, from = RESEND_FROM).
+ * Env (Netlify): RESEND_API_KEY and RESEND_FROM are both required — either missing → 503. The message is only
+ * e-mailed, nothing is stored (privacy text §5/§7a). Only a Resend response with an `id` is a success (200
+ * `{ ok: true, id }`); a Resend error → 502 with the error logged. Every outcome is logged (no personal data)
+ * so it shows in the Netlify function log. Spam: honeypot + per-IP rate limit (5 / 10 min, in memory).
+ *
+ * P7 Resend fix (root cause, RAPOR-P7): the honeypot was named `company_website` and only moved off-screen.
+ * Chrome's autofill matches "company" to the organisation field and fills off-screen inputs (it ignores
+ * autocomplete="off" there), so a person using autofill filled the trap; the route then answered 200 without
+ * calling Resend ("Talebiniz alındı", nothing in the Resend log). Now: neutral name, display:none (autofill
+ * skips non-rendered fields), and a filled trap is a logged 422 error instead of a silent success.
  */
+const RESEND_ENDPOINT = 'https://api.resend.com/emails';
+const CONTACT_TO = 'emre@doveify.io';
 const RATE_LIMIT = 5;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const hits = new Map<string, number[]>();
@@ -63,19 +71,29 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     const body = (typeof req.body === 'object' && req.body ? req.body : {}) as Record<string, unknown>;
 
-    // Honeypot: bots fill every field. Answer like a success so they don't retry.
-    if (str(body[HONEYPOT_FIELD], 200)) return res.status(200).json({ ok: true });
+    // Honeypot: never a silent success (a real person's browser may have filled it) — logged, visible error.
+    if (str(body[HONEYPOT_FIELD], 200)) {
+        console.warn('contact: honeypot field filled, not sent (422)');
+        return res.status(422).json({ ok: false, error: 'rejected' });
+    }
 
     const forwarded = req.headers['x-nf-client-connection-ip'] ?? req.headers['x-forwarded-for'];
     const ip = (Array.isArray(forwarded) ? forwarded[0] : forwarded)?.split(',')[0].trim() || req.socket.remoteAddress || 'unknown';
-    if (rateLimited(ip)) return res.status(429).json({ ok: false, error: 'rate_limited' });
+    if (rateLimited(ip)) {
+        console.warn('contact: rate limited (429)');
+        return res.status(429).json({ ok: false, error: 'rate_limited' });
+    }
 
     const { fields, errors } = validateContact(body);
-    if (errors.length) return res.status(400).json({ ok: false, error: 'invalid', fields: errors });
+    if (errors.length) {
+        console.warn('contact: invalid fields (400)', errors.join(','));
+        return res.status(400).json({ ok: false, error: 'invalid', fields: errors });
+    }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-        console.error('contact: RESEND_API_KEY is not set');
+    const apiKey = process.env.RESEND_API_KEY?.trim();
+    const from = process.env.RESEND_FROM?.trim();
+    if (!apiKey || !from) {
+        console.error('contact: env missing (503)', { RESEND_API_KEY: Boolean(apiKey), RESEND_FROM: Boolean(from) });
         return res.status(503).json({ ok: false, error: 'not_configured' });
     }
 
@@ -95,24 +113,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     ].join('\n');
 
     try {
-        const response = await fetch('https://api.resend.com/emails', {
+        const response = await fetch(RESEND_ENDPOINT, {
             method: 'POST',
             headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                from: process.env.RESEND_FROM || 'Doveify Site <onboarding@resend.dev>',
-                to: [process.env.CONTACT_TO || 'emre@doveify.io'],
+                from,
+                to: [CONTACT_TO],
                 subject: `Yeni iletişim talebi — ${fields.business || fields.name}${fields.service ? ` (${fields.service})` : ''}`,
                 text,
                 ...(fields.email ? { reply_to: fields.email } : {})
             })
         });
-        if (!response.ok) {
-            console.error('contact: resend error', response.status, (await response.text()).slice(0, 300));
+        const result = (await response.json().catch(() => null)) as { id?: string; message?: string; name?: string } | null;
+        if (!response.ok || !result?.id) {
+            console.error('contact: resend error', response.status, result?.name ?? '', result?.message ?? 'no id in response');
             return res.status(502).json({ ok: false, error: 'send_failed' });
         }
-        return res.status(200).json({ ok: true });
+        console.log('contact: resend sent', result.id);
+        return res.status(200).json({ ok: true, id: result.id });
     } catch (error) {
-        console.error('contact: resend request failed', error);
+        console.error('contact: resend request failed', error instanceof Error ? error.message : error);
         return res.status(502).json({ ok: false, error: 'send_failed' });
     }
 }

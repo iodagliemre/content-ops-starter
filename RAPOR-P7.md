@@ -181,3 +181,36 @@
    - `P7-1280-iletisim.png` ve `P7-375-iletisim.png` yeni yıldızlarla yeniden çekildi.
 - **Kapı:** `tsc --noEmit` 0 · `npm run build` 0 · `npm run lint` 0 (aynı 2 eski uyarı).
 - **Değişen dosyalar:** `src/components/HomePageV2/ContactForm.tsx`, `src/pages/api/contact.ts`, `src/css/main.css` (autofill bloğu), `DESIGN-LOCK.md` (İletişim formu satırı), `PROJECT-STATE.md`, `docs/qa/P7-1280-{iletisim,iletisim-hata,iletisim-basari}.png`, `docs/qa/P7-375-iletisim.png` (+ aynı koşumda yeniden çekilen `P7-1280-{nav,sahiplik,clinic}.png`, `P7-375-{nav,wa-button}.png`, görsel olarak değişmedi).
+
+## P7 Resend düzeltmesi (Emre, 05.11.2026): "Talebiniz alındı" ama Resend loguna istek düşmüyor
+**Kök neden: honeypot alanı.** Gizli alanın adı `company_website` idi ve yalnız ekran dışına (`-left-9999px`) itilmişti. Chrome autofill "company" kelimesini kurum/şirket alanı sayıyor, ekran dışındaki alanları da dolduruyor (bu alanlarda `autocomplete="off"`'u dikkate almıyor). Formu autofill ile dolduran gerçek bir kullanıcı tuzağı da doldurmuş oluyordu. Route da honeypot doluysa Resend'i hiç çağırmadan `200 {"ok":true}` dönüyordu: ekranda "Talebiniz alındı", Resend logunda hiçbir şey. 200 dönüp Resend'i çağırmayan başka bir yol yoktu: anahtar yoksa 503, Resend hatasında 502 dönüyordu, ikisi de hata gösterirdi.
+- **Preview'da doğrulandı (e-posta gönderilmeden):**
+  - `GET /api/contact/` → 405 JSON ve `POST {}` → 400 JSON (`name, phone, consent`): fonksiyon çalışıyor ve son kod yayında.
+  - `POST` ve honeypot dolu → **`200 {"ok":true}`**. Gönderimsiz başarı yolu buydu.
+  - Sondaki `/` olmadan POST → 308 → `/api/contact/` (form zaten slash'lı adresi kullanıyor).
+  - Emre'nin tarayıcısının tuzağı gerçekten doldurduğunu buradan göremem; sonuç bu yolla birebir uyuşuyor. Son olarak autofill'i kullandığı da biliniyor (autofill renk düzeltmesi bundan istendi).
+- **netlify.toml / yönlendirme kontrolü:** `netlify.toml`'da yalnız 7 adet 301 var (`/privacy`, `/privacy/*`, `/clinic`, `/brokers-brain`, `/signup`, `/pricing`, `/careers`). `/*` → `/index.html` gibi bir rewrite yok, `public/_redirects` yok, `middleware` yok, `next.config.js`'de rewrite yok. API route'u engelleyen bir şey bulunmadı.
+
+**Düzeltmeler**
+1. **Env yoksa 503:** `RESEND_API_KEY` *veya* `RESEND_FROM` boşsa `503 {error:'not_configured'}`, log'da hangisinin eksik olduğu yazıyor (değerler yazılmıyor). Yerel test: env'siz 503 + `contact: env missing (503) { RESEND_API_KEY: false, RESEND_FROM: false }`.
+2. **Resend sonucu log'lanıyor, başarı yalnız `id` ile:**
+   - Yanıt JSON olarak okunuyor. `id` varsa `console.log('contact: resend sent <id>')` → `200 {ok:true, id}`.
+   - Yoksa ya da HTTP hata kodu dönerse `console.error('contact: resend error <status> <name> <message>')` → `502`, kullanıcı hata satırını ve WhatsApp linkini görür.
+   - Honeypot, 400 ve 429 da log'lanıyor. Log satırlarında kişisel veri yok.
+   - Form tarafında başarı artık `response.ok && json.ok === true` şartına bağlı; HTML ya da başka bir 200 yanıtı "Talebiniz alındı" göstermez.
+3. **İstek biçimi doğrulandı** (yerel `next start`, sahte env, `api.resend.com` çağrısını yakalayıp loglayan test önyüklemesi, dışarı istek yok):
+   - `POST https://api.resend.com/emails`, `Authorization: Bearer <RESEND_API_KEY>`
+   - `from` = `RESEND_FROM` (varsayılan gönderici kaldırıldı), `to` = `["emre@doveify.io"]` (sabit; `CONTACT_TO` geçersiz kılması kaldırıldı)
+   - konu `Yeni iletişim talebi — <işletme ya da ad>`, e-posta varsa `reply_to`, boş alanlar `—`
+   - Sahte "başarı" → 200 + `resend sent mock-0001` → başarı kartı. Sahte 403 `validation_error` → 502 + log → hata satırı ve WhatsApp linki.
+4. **Honeypot:**
+   - Adı `dv_hp_7f3`, autofill anahtar kelimesi içermiyor.
+   - Kapsayıcı `hidden` (display:none): tarayıcı autofill'i görüntülenmeyen alanları doldurmaz, basit botlar yine doldurur.
+   - Etiket metni kaldırıldı; `data-lpignore` / `data-1p-ignore` eklendi.
+   - Dolu gelirse artık sessiz 200 değil, log'lanan **`422 {error:'rejected'}`** dönüyor: gerçek bir kişi takılırsa hata satırını ve WhatsApp linkini görür, talep sessizce kaybolmaz.
+   - Eski `company_website` adı artık yok sayılıyor; o adla gelen istek normal işleniyor.
+
+**Preview'da kontrol (deploy sonrası):** `/iletisim/` formunu autofill ile doldurup gönder → Netlify → Functions → log'da `contact: resend sent <id>` görünmeli, Resend Emails'de aynı id. Log'da `resend error 403 …` görünürse sorun `RESEND_FROM` alan adı doğrulaması ya da anahtar yetkisidir; mesaj olduğu gibi log'da.
+
+**Kapı:** `tsc --noEmit` 0 · `npm run build` 0 · `npm run lint` 0 (aynı 2 eski uyarı).
+**Değişen dosyalar:** `src/pages/api/contact.ts`, `src/components/HomePageV2/ContactForm.tsx`, `content/contact.ts` (honeypot adı; kullanılmayan `honeypot` etiket alanı kaldırıldı), `content/tr/contact.ts`, `content/en/contact.ts`. Test için `.claude/launch.json`'a geçici bir giriş eklendi ve test sonrası eski haline döndürüldü; test betikleri scratchpad'de, repoya girmedi.

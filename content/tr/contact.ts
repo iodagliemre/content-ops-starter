@@ -51,7 +51,6 @@ export const contact: ContactContent = {
             whatsappLink: "WhatsApp'tan yazın."
         },
         success: 'Talebiniz alındı. En kısa sürede dönüş yapacağız.',
-        successLink: 'WhatsApp: 0542 805 08 15',
-        honeypot: 'Bu alanı boş bırakın'
+        successLink: 'WhatsApp: 0542 805 08 15'
     }
 };

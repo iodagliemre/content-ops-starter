@@ -79,7 +79,10 @@ export default function ContactForm({ t, successHref }: { t: ContactFormContent;
                 setStatus('rate_limited');
                 return;
             }
-            ok = response.ok;
+            // Success only when the route says so in JSON (`{ ok: true, id }`), never on a bare 2xx: an HTML page
+            // or any other 200 must not show "Talebiniz alındı".
+            const result = (await response.json().catch(() => null)) as { ok?: boolean } | null;
+            ok = response.ok && result?.ok === true;
         } catch {
             ok = false;
         }
@@ -112,12 +115,10 @@ export default function ContactForm({ t, successHref }: { t: ContactFormContent;
             onSubmit={onSubmit}
             className="rounded-xl border border-v2-border p-6 lg:p-8"
         >
-            {/* Honeypot: off-screen for everyone, skipped by keyboard, ignored by autofill. */}
-            <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-                <label>
-                    {t.honeypot}
-                    <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" />
-                </label>
+            {/* Honeypot: display:none (not just off-screen) — browser autofill skips non-rendered fields, simple
+                bots still fill it. Neutral name, no label text an autofill heuristic could match (P7 Resend fix). */}
+            <div hidden aria-hidden="true">
+                <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" data-lpignore="true" data-1p-ignore="" defaultValue="" />
             </div>
 
             <div className="grid grid-cols-1 gap-x-5 gap-y-5 sm:grid-cols-2">

@@ -77,7 +77,7 @@
 
 ## Sonraki Adım
 1. **Sonraki: Emre commit+push → preview → CD final tam-sayfa QA → Faz 5.**
-   Preview'da: `/iletisim/`'den bir test talebi gönder → emre@doveify.io'ya ulaştı mı (Resend; ulaşmazsa `RESEND_FROM`, RAPOR-P7 karar 4).
+   Preview'da: `/iletisim/`'den (autofill ile) test talebi → Netlify Functions log'unda `contact: resend sent <id>` + Resend Emails'de aynı id. Önceki "alındı ama Resend'de yok" sorununun kök nedeni honeypot'un autofill ile dolmasıydı (RAPOR-P7, Resend düzeltmesi).
 
 Açık kalanlar:
 - **RAPOR-P7 bekleyen kararlar:** nav 1024–1179 hamburger · gizlilik §2a'da site formu için sektör/çalışma alanları yok ·
