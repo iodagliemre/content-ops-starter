@@ -12,7 +12,10 @@ const MOVED = [
     ['/pricing', '/'],
     ['/careers', '/'],
     // PAKET-P7 G2: the Stackbit privacy page → the new TR privacy text (EN copy: /en/privacy/).
-    ['/privacy', '/gizlilik/']
+    ['/privacy', '/gizlilik/'],
+    // PAKET-P8 G5: the Stackbit demo blog moved to _legacy/content/pages/blog/; every /blog URL → Bilgi Bankası.
+    ['/blog', '/bilgi-bankasi/'],
+    ['/blog/:path*', '/bilgi-bankasi/']
 ];
 
 const nextConfig = {

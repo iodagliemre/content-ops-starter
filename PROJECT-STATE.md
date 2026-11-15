@@ -18,8 +18,8 @@
 |---|---|---|
 | 0 | Kurulum (repo, docs, brand assets, içerik envanteri) | ✅ Tamam — `tsc`/`build`/`lint` üçü de exit 0. bkz. RAPOR-P00.md |
 | 1 | Referans → Araştırma → Performance Gate (hero motion prototipi) | ✅ Emre "geç" dedi (mobil Lighthouse medyan 95, CLS 0). bkz. RAPOR-P01.md, docs/perf/GATE-1-hero.md |
-| 2 | Approved Design → DESIGN-LOCK | ✅ LOCK v0.6 (05.11.2026) — kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM, FİNAL CTA, FOOTER, VAKA SAYFASI ŞABLONU, İLETİŞİM SAYFASI, WHATSAPP BUTON, GİZLİLİK SAYFASI. v0.6 değişiklikleri (nav imzası/pill, Web Factory slayt, TR Sahiplik/Why) Emre kararı — CD final QA'da görecek. Sahiplik / Why / Çalışmalar CD-REVİZE-BEKLİYOR. |
-| 3 | Implementation (P1–P7) | ✅ P1–P7 uygulandı. P6 `ec94b54`'te commit'li. **P7 ✅** (iletişim + gizlilik sayfaları, WhatsApp buton, nav/CTA revizyonu, Web Factory slayt, gerçek sistem ekranları — RAPOR-P7.md), commit'lenmedi. bkz. RAPOR-P1…RAPOR-P7. |
+| 2 | Approved Design → DESIGN-LOCK | ✅ LOCK **v0.7** (15.11.2026, P8: sistem tanıtım şablonu, Kendi Yazılımınız, Bilgi Bankası, carousel 6 kart, homepage'e 2 text link — Emre kararı, CD görecek). v0.6 (05.11.2026) — kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM, FİNAL CTA, FOOTER, VAKA SAYFASI ŞABLONU, İLETİŞİM SAYFASI, WHATSAPP BUTON, GİZLİLİK SAYFASI. v0.6 değişiklikleri (nav imzası/pill, Web Factory slayt, TR Sahiplik/Why) Emre kararı — CD final QA'da görecek. Sahiplik / Why / Çalışmalar CD-REVİZE-BEKLİYOR. |
+| 3 | Implementation (P1–P8) | ✅ P1–P8 uygulandı. **P8 ✅** (6 sistem tanıtım sayfası, Kendi Yazılımınız, Bilgi Bankası, SEO — RAPOR-P8.md), commit'lenmedi. P6 `ec94b54`'te commit'li. **P7 ✅** (iletişim + gizlilik sayfaları, WhatsApp buton, nav/CTA revizyonu, Web Factory slayt, gerçek sistem ekranları — RAPOR-P7.md), `7455cf6`'da commit'li. bkz. RAPOR-P1…RAPOR-P8. |
 | 4 | Visual QA + Lighthouse + Deploy (preview) | ⬜ Bekliyor |
 | 5 | DNS cutover + eski site arşivi | ⬜ Bekliyor |
 
@@ -59,33 +59,33 @@
 - Mevcut site içerik omurgası korunur (bkz. `docs/content/ICERIK-ENVANTERI.md`); metin değişikliği ancak Emre talimatıyla.
 - Hero headline: "DİJİTAL ZEKÂ. GERÇEK ETKİ." (görselden, onaysız değiştirilmez)
 - Sahiplik copy: "Kod, veri ve altyapı sizin mülkünüzdür" — Emre onaylı (03.11.2026), tüm veri müşteride.
-- Doveify SaaS satmaz; Clinic OS/Broker's Brain/OSGB Web/TurkISG AI kuruma özel kurulan sistem örnekleridir. Sitede 'ürün' değil 'sistem'. (Emre 03.11.2026)
+- Doveify SaaS satmaz; Clinic OS / Broker's Brain / Emlak Ofis Paneli / OSGB Yönetim / Kuru Temizleme Paneli / TurkİSG AI kuruma özel kurulan sistem örnekleridir (P8: 6 sistem, her birinin tanıtım sayfası; canlı uygulama yalnız o sayfanın hero'sundan). Sitede 'ürün' değil 'sistem'. (Emre 03.11.2026)
 - Gizlilik metni `docs/legal/gizlilik-2026-09-04.md` Emre'nindir; kelimesi değiştirilmez, `/gizlilik/` build'de aynen okur. (Emre 05.11.2026)
 - İletişim formu yalnız Resend ile emre@doveify.io'ya; `RESEND_API_KEY` + `RESEND_FROM` Netlify'da (Emre 05.11.2026). Netlify Forms fallback'i yok; site formu verisi saklanmaz (gizlilik §5/§7a).
 
 ## Son Paket
-- **P7** — `paketler/PAKET-P7-ILETISIM-REVIZYON.md` (Emre'nin preview bulguları). Rapor: RAPOR-P7.md. Commit'lenmedi.
-- **Yeni sayfalar:** `/iletisim/`, `/en/contact/` (form → `/api/contact/` → Resend, tek kanal; zorunlu yalnız Ad Soyad + Telefon + KVKK; honeypot + rate limit; hata → mesaj + WhatsApp linki),
-  `/gizlilik/` (Emre'nin metni aynen, 1272/1272 kelime doğrulandı), `/en/privacy/` (TR metnin resmî olmayan EN çevirisi, P7 son). `/privacy/` → 301 `/gizlilik/`.
-- **Site geneli:** WhatsApp yüzen buton 11 V2 sayfasında; nav imzası büyüdü (36/17/64); pill `Toplantı Talep Et`; nav'a `İletişim`; final CTA
-  `TOPLANTI TALEP ET` + `İLETİŞİM FORMU →`; footer `İletişim formu` + gizlilik linkleri; Ürünler'de ekranda olmayan düzen `aria-hidden` + `inert`.
-- **İçerik:** vaka placeholder'ları kapandı (stack + "Ne değişti"); TR Sahiplik `ARAÇLAR KİRALANIR. / BİLGİ KİRALANMAZ.`, Why `%100 / SAHİPLİK`.
-- **Görseller:** Broker's Brain, OSGB Web, TurkISG AI gerçek ekran (kişisel veri bulanık); Clinic OS approved crop (demo giriş yok).
-- **Web Factory:** slayt + tek tur otomatik (3.5s, 1→2→3, durur; hover duraklatır; reduced-motion/mobilde yok).
-- tsc/build/lint 0; yatay taşma yok; konsol hatası yok. Lighthouse mobil homepage medyan Perf 97 / A11y 96 / BP 100 / SEO 100
-  (Chrome açıkken; 3 koşumda CPU kıyası ≥1200).
+- **P8** — `paketler/PAKET-P8-SISTEM-SAYFALARI-BILGI-BANKASI.md`. Rapor: RAPOR-P8.md. Commit'lenmedi.
+- **Yeni sayfalar (TR+EN, 26):** 6 sistem tanıtım sayfası (`/sistemler/<slug>/`, `/en/systems/<en-slug>/`; Clinic OS ve Broker's Brain yeni şablona geçti),
+  `/kendi-yaziliminiz/` + `/en/your-own-software/`, `/bilgi-bankasi/` + `/en/knowledge-base/` + 5+5 yazı. Eski Stackbit blog `_legacy/`'de, `/blog/*` → 301 `/bilgi-bankasi/`.
+- **Şablon:** hero `CANLI`/`PROTOTİP` + `SİSTEMİ İNCELE →` (canlı uygulama) + `BENZERİNİ İSTEYİN →` (`/iletisim/?calisma=<slug>`, form önseçili + e-postada sistem satırı) · Ekranlar rail · Rakamlar · Sahiplik kutusu · SSS (FAQPage) · İlgili okumalar.
+- **Homepage:** carousel 6 kart (Clinic OS merkez, index 0), kart CTA'ları iç sayfaya; Sahiplik altı ve Çalışmalar yanı 2 text link; footer 6 sistem + 2 link.
+- **SEO:** title ≤60 / description ≤155 ölçüldü; JSON-LD SoftwareApplication / Service / Article / FAQPage; sitemap `scripts/sitemap.js` ile `prebuild`'de (32 URL); OG `scripts/og.py`.
+- **Görseller:** `public/systems/<slug>/`; kişisel veriler kapatıldı (kuru temizleme müşteri adları/telefonları ve Raporlar'daki tüm tutarlar, hesap e-postaları).
+- tsc/build/lint 0; 26 yeni yol 200; yatay taşma yok. Lighthouse mobil A11y 96 / BP 100 / SEO 100; Perf 79–92 **geçersiz ortamda** (CPU kıyas çoğu <1200, Chrome açık) — yeniden ölçülecek.
 
 ## Sonraki Adım
-1. **Sonraki: Emre commit+push → preview → CD final tam-sayfa QA → Faz 5.**
-   Preview'da: `/iletisim/`'den (autofill ile) test talebi → Netlify Functions log'unda `contact: resend sent <id>` + Resend Emails'de aynı id. Önceki "alındı ama Resend'de yok" sorununun kök nedeni honeypot'un autofill ile dolmasıydı (RAPOR-P7, Resend düzeltmesi).
+1. **Emre:** RAPOR-P8 "Bekleyen kararlar" (özellikle OSGB canlı sitesinin "SaaS" dili; kuru temizleme tutarları kapatıldı) → commit+push → preview.
+2. **Emre:** geçerli ortamda Lighthouse (adaptör takılı, Chrome kapalı): `/`, `/sistemler/osgb-yonetim/`, bir Bilgi Bankası yazısı, 3'er koşum.
+3. Yayın sonrası Search Console: sitemap + RAPOR-P8'deki URL listesi için "Dizine eklenmesini iste".
+4. CD final tam-sayfa QA (LOCK v0.7 yeni şablonlar + 2 text link) → Faz 5.
 
 Açık kalanlar:
-- **RAPOR-P7 bekleyen kararlar:** nav 1024–1179 hamburger · gizlilik §2a'da site formu için sektör/çalışma alanları yok ·
-  EN gizlilik çevirisi Emre onayı · ikinci WhatsApp numarasında mesaj yok · Clinic OS gerçek ekranı (demo hesap).
+- **RAPOR-P8:** SSS cevap taslakları ve stack/süreç maddeleri Emre onayı · EN çeviriler · arama kelimesinin tanımda geçmemesi · "kurduğumuz sistem" etiketi · Clinic OS hero kaynağının çözünürlüğü.
+- **RAPOR-P7 bekleyen kararlar:** nav 1024–1179 hamburger · gizlilik §2a'da site formu için sektör/çalışma alanları yok (P8 ile e-postaya "ilgilenilen sistem" de eklendi) ·
+  EN gizlilik çevirisi Emre onayı · ikinci WhatsApp numarasında mesaj yok.
 - **Kontrast:** Doveify mavisi `#2563eb` koyu zeminde 3,81:1; küçük mavi metinler WCAG 4,5 altında (A11y 96'nın tek düşen kalemi). Karar CD'nin.
 - **Bağımlılıklar:** kalan 22 zafiyet major sürüm istiyor (Next 16, ESLint 9 / eslint-config-next, glob, swiper). `swiper` kullanılmıyor.
-- **EN çeviriler** (P5, P6 vaka, P7 iletişim/mikro metin) Emre gözden geçirecek; **404** yalnız TR.
-- **P4'ten:** Why liste aralığı, Teknik Telsiz logosunun beyaz kopyası, Bizim OSGB / Ömer Mutfak için büyük kaynak.
-- OSGB Web / TurkISG AI vaka sayfaları: Emre stack verirse P8.
-- Kod yeri: V2 bileşenleri `src/components/HomePageV2/`; sayfalar `src/pages/{index,iletisim,gizlilik}.tsx`, `src/pages/en/`, `src/pages/sistemler/`,
-  `src/pages/api/contact.ts`; catch-all `[...slug].js` artık yalnız blog.
+- **404** yalnız TR. **P4'ten:** Why liste aralığı, Teknik Telsiz logosunun beyaz kopyası, Bizim OSGB / Ömer Mutfak için büyük kaynak.
+- Kod yeri: V2 bileşenleri `src/components/HomePageV2/` (CasePage, OwnSoftwarePage, KbPages dahil); içerik `content/` (sistemler `content/{tr,en}/cases/`, yazılar `content/{tr,en}/bilgi/*.md`);
+  sayfalar `src/pages/{index,iletisim,gizlilik,kendi-yaziliminiz}.tsx`, `src/pages/{sistemler,bilgi-bankasi}/`, `src/pages/en/`; yardımcılar `src/utils/{bilgi,case-props}.ts`; betikler `scripts/{og.py,sitemap.js}`.
+  Catch-all `[...slug].js` artık boş (blog `_legacy/`'de).

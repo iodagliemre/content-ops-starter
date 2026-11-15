@@ -1,7 +1,9 @@
 import type { CSSProperties } from 'react';
 import classNames from 'classnames';
 import { useRevealOnce } from './useRevealOnce';
-import { useDict } from './locale';
+import { useDict, useLocale } from './locale';
+import { OWN_SOFTWARE_PATH } from '../../../content/locale';
+import { CASE_UI } from '../../../content/cases';
 
 /**
  * PAKET-P4-SAHIPLIK-FINAL G1 (CD #5). Typography + contrast, no icons. Desktop: full-width statement,
@@ -12,6 +14,7 @@ import { useDict } from './locale';
 export default function Ownership() {
     const { ref, isVisible } = useRevealOnce<HTMLElement>();
     const ownershipSection = useDict().ownership;
+    const locale = useLocale();
     const [saas, doveify] = ownershipSection.columns;
 
     return (
@@ -45,6 +48,13 @@ export default function Ownership() {
                     <span aria-hidden="true" className="mt-[14px] h-px w-6 shrink-0 bg-v2-blue" />
                     {ownershipSection.closing}
                 </p>
+                {/* PAKET-P8 G4: text link under the closing line (Emre kararı; LOCK: composition unchanged, CD note). */}
+                <a
+                    href={OWN_SOFTWARE_PATH[locale]}
+                    className="ml-10 mt-4 inline-flex min-h-11 items-center text-[14px] font-medium text-v2-blue transition-colors hover:text-white"
+                >
+                    {CASE_UI[locale].ownSoftware}
+                </a>
             </div>
         </section>
     );

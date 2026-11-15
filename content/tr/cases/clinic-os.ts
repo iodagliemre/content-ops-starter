@@ -1,5 +1,6 @@
 // PAKET-P6 B3: Clinic OS vaka sayfası (TR). Kaynak: _legacy/content/pages/clinic.md + ICERIK-ENVANTERI.
 import type { CaseContent } from '../../cases';
+import { sysImg } from '../../cases';
 import { CAL_COM, CONTACT_FORM } from '../../finalCta';
 
 export const clinicOs: CaseContent = {
@@ -7,10 +8,12 @@ export const clinicOs: CaseContent = {
     eyebrow: 'KURDUĞUMUZ SİSTEM',
     name: 'Clinic OS',
     definition: 'Sağlık kurumları için bütünleşik yönetim sistemi: randevu, hasta kaydı, faturalama ve WhatsApp iletişimi tek yerde.',
-    image: { src: '/products/clinic-os.webp', width: 640, height: 270 },
+    status: 'live',
+    liveUrl: 'https://clinic.doveify.io', // PAKET-P8 G1
+    image: sysImg('clinic-os', 'hero.webp', 1596, 1064, 'Clinic OS yönetim paneli, dizüstü bilgisayar ekranında'), // PAKET-P8 G7
     meta: {
-        title: 'Clinic OS — Kurduğumuz Sistem | Doveify',
-        description: 'Sağlık kurumları için bütünleşik yönetim sistemi: randevu, hasta kaydı, faturalama ve WhatsApp iletişimi tek yerde.',
+        title: 'Clinic OS — Klinik Yönetim Yazılımı | Doveify', // PAKET-P8 G2
+        description: 'Klinik yönetim yazılımı: randevu, hasta kaydı, faturalama ve WhatsApp iletişimi tek yerde. Klinik randevu programı, kliniğin kendi altyapısında.',
         ogImage: '/og/clinic-os.png'
     },
     forWhom: {
@@ -40,6 +43,10 @@ export const clinicOs: CaseContent = {
             { title: 'Multi-tenant Postgres (Supabase)' }
         ]
     },
+    screens: [
+        sysImg('clinic-os', 'screen-1.webp', 1200, 800, 'Clinic OS — Dashboard: günün randevuları, hasta ve gelir'),
+        sysImg('clinic-os', 'screen-2.webp', 1200, 800, 'Clinic OS — haftalık randevu takvimi'),
+    ],
     tech: { title: 'Teknoloji', items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'n8n', 'OpenAI GPT-4o-mini', 'WhatsApp Business Cloud API', 'Cloudflare'] },
     results: {
         title: 'Ne değişti',
@@ -49,6 +56,30 @@ export const clinicOs: CaseContent = {
             'Veri kliniğin kendi altyapısında; sistem kliniğe ait.'
         ]
     },
+    // PAKET-P8 G3: SSS (FAQPage JSON-LD). Cevap kaynakları RAPOR-P8'de.
+    faq: [
+        {
+            q: 'Klinik yönetim yazılımı nedir?',
+            a: 'Randevu, hasta kaydı, faturalama ve hasta iletişimini tek sistemde toplayan yazılımdır. Clinic OS bunları tek ekranda birleştirir; randevu hatırlatma ve onayları WhatsApp üzerinden otomatik gider.'
+        },
+        {
+            q: 'Clinic OS hangi klinikler için uygun?',
+            a: 'Randevuyla çalışan klinikler ve sağlık kurumları için; özellikle hasta iletişiminin büyük kısmı WhatsApp\'tan yürüyen ekipler için kuruldu. Yapay zekâ asistanı her kliniğin çalışma saatlerine ve tedavilerine göre ayarlanır.'
+        },
+        {
+            q: 'Hastalar WhatsApp\'tan randevu alabilir mi?',
+            a: 'Evet. Yapay zekâ asistanı WhatsApp\'tan gelen soruları günün her saatinde yanıtlar ve randevu alır. Klinik kendi WhatsApp numarasını kullanır.'
+        },
+        {
+            q: 'Verilerimiz nerede tutulur?',
+            a: 'Kliniğin kendi altyapısında. Sistem kliniğe kurulur; kod, veri ve altyapı kliniğe aittir.'
+        },
+        {
+            q: 'Mevcut hasta kayıtlarımızı aktarabilir miyiz?',
+            a: 'Kurulumdan önce mevcut kayıtlarınızın biçimine (Excel ya da kullandığınız programın dışa aktarımı) birlikte bakılır; aktarım kurulum kapsamında planlanır.'
+        },
+    ],
+    articles: ['araclar-kiralanir-bilgi-kiralanmaz', 'isletmenin-kendi-yapay-zekasi'],
     cta: {
         heading: 'Benzerini sizin için kuralım.',
         subline: 'İşletmenize özel sistemi birlikte tasarlayalım.',

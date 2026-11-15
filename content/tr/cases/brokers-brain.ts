@@ -1,5 +1,6 @@
 // PAKET-P6 B3: Broker's Brain vaka sayfası (TR). Kaynak: _legacy/content/pages/brokers-brain.md + ICERIK-ENVANTERI.
 import type { CaseContent } from '../../cases';
+import { sysImg } from '../../cases';
 import { CAL_COM, CONTACT_FORM } from '../../finalCta';
 
 export const brokersBrain: CaseContent = {
@@ -7,10 +8,12 @@ export const brokersBrain: CaseContent = {
     eyebrow: 'KURDUĞUMUZ SİSTEM',
     name: "Broker's Brain",
     definition: 'Gayrimenkul ofisleri için WhatsApp talep yönetimi: gelen talepleri toplar, yapay zekâyla nitelendirir, doğru danışmana yönlendirir.',
-    image: { src: '/products/brokers-brain.webp', width: 1200, height: 800, srcSet: '/products/brokers-brain.webp 1200w, /products/brokers-brain-1600.webp 1600w' }, // P7 G5
+    status: 'live',
+    liveUrl: 'https://brokerbrain.doveify.io', // PAKET-P8 G1
+    image: { ...sysImg('brokers-brain', 'hero.webp', 1600, 1067, "Broker's Brain — talep paneli"), srcSet: '/products/brokers-brain.webp 1200w, /systems/brokers-brain/hero.webp 1600w' }, // PAKET-P8 G7
     meta: {
-        title: "Broker's Brain — Kurduğumuz Sistem | Doveify",
-        description: 'Gayrimenkul ofisleri için WhatsApp talep yönetimi: talepleri toplar, yapay zekâyla nitelendirir, doğru danışmana yönlendirir.',
+        title: 'Broker\'s Brain — Emlak CRM ve WhatsApp Otomasyonu | Doveify', // PAKET-P8 G2
+        description: 'Emlak CRM: WhatsApp\'tan gelen talepleri toplar, yapay zekâyla nitelendirir, doğru danışmana yönlendirir. Gayrimenkul ofisleri için WhatsApp otomasyonu.',
         ogImage: '/og/brokers-brain.png'
     },
     forWhom: {
@@ -36,6 +39,11 @@ export const brokersBrain: CaseContent = {
             { title: 'Tam veri sahipliği', description: 'Veri ofisindir; istediği an dışa aktarılır.' }
         ]
     },
+    screens: [
+        sysImg('brokers-brain', 'screen-1.webp', 1200, 800, "Broker's Brain — canlı WhatsApp konuşmaları"),
+        sysImg('brokers-brain', 'screen-2.webp', 1200, 800, "Broker's Brain — talep listesi ve durumlar"),
+        sysImg('brokers-brain', 'screen-3.webp', 1200, 800, "Broker's Brain — danışman performansı"),
+    ],
     tech: { title: 'Teknoloji', items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'Twilio WhatsApp API', 'Twilio Functions', 'OpenAI GPT-4o-mini + Whisper', 'Netlify'] },
     results: {
         title: 'Ne değişti',
@@ -45,6 +53,30 @@ export const brokersBrain: CaseContent = {
             'Takip gecikmesi dakikalara iner; ek personel gerekmez.'
         ]
     },
+    // PAKET-P8 G3: SSS (FAQPage JSON-LD). Cevap kaynakları RAPOR-P8'de.
+    faq: [
+        {
+            q: 'Emlak ofisi için CRM nedir?',
+            a: 'Müşteri adaylarını, görüşmeleri ve takipleri tek yerde tutan sistemdir. Broker\'s Brain portallerden, WhatsApp\'tan ve web sitesinden gelen talepleri toplar, yapay zekâyla nitelendirir ve doğru danışmana yönlendirir.'
+        },
+        {
+            q: 'WhatsApp\'tan gelen müşteriler nasıl kaydedilir?',
+            a: 'Gelen mesaj otomatik olarak talep kaydına dönüşür. Yapay zekâ bütçe, konum ve zamanlamayı sorar; talebi sıcak, ılık veya soğuk olarak puanlar.'
+        },
+        {
+            q: 'Sesli mesajlar okunur mu?',
+            a: 'Evet. Sesli mesajlar Whisper ile yazıya çevrilir ve aynı akışta yanıtlanır.'
+        },
+        {
+            q: 'Portföy eşleştirme nasıl çalışır?',
+            a: 'Gelen WhatsApp talepleri otomatik sınıflandırılır; yapay zekânın topladığı bütçe, konum ve zamanlama bilgisi ofisin portföyüyle eşleştirilir.'
+        },
+        {
+            q: 'Kaç danışman kullanabilir?',
+            a: 'Sistem ofise özel kurulduğu için danışman yapısı ofise göre ayarlanır; sıcak talepler doğru danışmana bağlamıyla birlikte anında iletilir.'
+        },
+    ],
+    articles: ['isletmenin-kendi-yapay-zekasi', 'saas-mi-ozel-yazilim-mi'],
     cta: {
         heading: 'Benzerini sizin için kuralım.',
         subline: 'İşletmenize özel sistemi birlikte tasarlayalım.',

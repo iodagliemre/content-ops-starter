@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type Rea
 import classNames from 'classnames';
 import ChevronDown from '../svgs/chevron-down';
 import { useLocale } from './locale';
-import { CONTACT_FORM_NAME, HONEYPOT_FIELD, whatsappHref, type ContactFormContent } from '../../../content/contact';
+import { CONTACT_FORM_NAME, HONEYPOT_FIELD, WORK_SERVICE_INDEX, isWorkSlug, whatsappHref, type ContactFormContent } from '../../../content/contact';
 
 /**
  * PAKET-P7 G1. Contact form. POST /api/contact/ → Resend (RESEND_API_KEY + RESEND_FROM in Netlify). No other
@@ -44,6 +44,19 @@ export default function ContactForm({ t, successHref }: { t: ContactFormContent;
     const successRef = useRef<HTMLDivElement>(null);
     const [errors, setErrors] = useState<Errors>({});
     const [status, setStatus] = useState<Status>('idle');
+
+    // PAKET-P8 G2: `?calisma=<slug>` from a system page → preselect "İstenen çalışma" and remember the slug.
+    const [work, setWork] = useState('');
+    useEffect(() => {
+        const slug = new URLSearchParams(window.location.search).get('calisma') ?? '';
+        if (!isWorkSlug(slug)) return;
+        setWork(slug);
+        const select = formRef.current?.elements.namedItem('service') as HTMLSelectElement | null;
+        if (select) {
+            select.value = t.services[WORK_SERVICE_INDEX[slug]] ?? '';
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+    }, [t.services]);
 
     // Move focus to the confirmation once it is in the DOM (a rAF after setStatus could run before the commit).
     useEffect(() => {
@@ -120,6 +133,7 @@ export default function ContactForm({ t, successHref }: { t: ContactFormContent;
             <div hidden aria-hidden="true">
                 <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" data-lpignore="true" data-1p-ignore="" defaultValue="" />
             </div>
+            {work && <input type="hidden" name="calisma" value={work} />}
 
             <div className="grid grid-cols-1 gap-x-5 gap-y-5 sm:grid-cols-2">
                 <Field id="name" label={t.name} required error={errors.name}>

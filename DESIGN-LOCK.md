@@ -1,5 +1,7 @@
 # DESIGN-LOCK.md — Doveify Site V2
 
+> v0.7 — 15.11.2026 (PAKET-P8). Kilitli: v0.6 listesi + SİSTEM TANITIM SAYFASI ŞABLONU (vaka şablonunun yerine), KENDİ YAZILIMINIZ, BİLGİ BANKASI (liste + yazı).
+> v0.6 → v0.7: ÜRÜNLER 4 → 6 kart (geometri aynı) ve sıra; kart CTA'ları tanıtım sayfasına; homepage'e 2 text link (Sahiplik altı `Kendi yazılımınızı yaptırın →`, Çalışmalar CTA yanı `BİLGİ BANKASI →`) — **Emre kararı (P8 brief), CD final QA'da görülecek**; FOOTER DOVEIFY kolonuna 2 link. v0.6 metni aşağıda korunuyor.
 > v0.6 — 05.11.2026 (PAKET-P7). Kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM, FİNAL CTA, FOOTER, VAKA SAYFASI ŞABLONU, İLETİŞİM SAYFASI, WHATSAPP BUTON, GİZLİLİK SAYFASI.
 > v0.5 → v0.6: NAV marka imzası + pill metni + İletişim linki (G3/G4), WEB FACTORY slayt (G7), SAHİPLİK/WHY TR metin (G8) — Emre kararı 05.11.2026 — CD final QA'da görülecek. Yeni şablonlar: İletişim, WhatsApp buton, Gizlilik. v0.5: _legacy/docs/DESIGN-LOCK-v0.5.md.
 > v0.5 — 04.11.2026. Kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM, FİNAL CTA, FOOTER, VAKA SAYFASI ŞABLONU.
@@ -49,7 +51,8 @@ Hero desktop/mobil kompozisyonu · kafa ölçek ve konumu · headline ölçek/a�
 Referans screenshot: `docs/qa/P1R-1280.png`, `docs/qa/P1R-375.png`.
 
 ## ÜRÜNLER (kilitli — CD P2AR GEÇTİ, 03.11.2026)
-- Sıra: Broker's Brain ← CLINIC OS → OSGB Web → TurkISG AI; ilk state Clinic OS merkez.
+- **v0.7 (P8 G1, Emre):** 6 kart, sıra CLINIC OS → BROKER'S BRAIN → EMLAK OFİS PANELİ → OSGB YÖNETİM → KURU TEMİZLEME → TURKISG AI; ilk state Clinic OS merkez (index 0: solda kart yok, sol ok disabled). Her kartın CTA'sı `SİSTEMİ İNCELE` → sistemin tanıtım sayfası (kartta harici link yok). Yeni iki kartın görseli `public/products/{emlak-ofis-paneli,kuru-temizleme}.webp` (3:2, 1200). Geometri, tipografi, oklar değişmedi.
+- (v0.6) Sıra: Broker's Brain ← CLINIC OS → OSGB Web → TurkISG AI; ilk state Clinic OS merkez.
 - Desktop sahne: merkez 560×320; yan 440×280, rotateY ∓30°, translateX ∓310px, translateZ −200px, opacity .9; yan/merkez derinlik ilişkisi ve konumlar kilitli. Yer yansıması yok; sahne altı radial parlama.
 - Mobil: snap-rail, kart calc(100vw − 88px), gap 16, komşu kart peek 19px, pasif scale .94.
 - Otomatik kaydırma YOK; uçlarda oklar disabled; tek transition .55s.
@@ -82,11 +85,37 @@ Referans screenshot: `docs/qa/P1R-1280.png`, `docs/qa/P1R-375.png`.
 - Üstte 1px `--color-v2-border` %40 (sitedeki tek izinli yatay çizgi); padding 64 / 48.
 - Desktop: marka 4 kolon (marka imzası — heartbeat statik — + tagline + konum), 3 link kolonu kalan 8 kolonu paylaşır. Mobil: tek kolon, gruplar arası 32px.
 - Kolon başlığı 500 12px uppercase `.12em` beyaz; link 400 14px secondary, hover beyaz. Alt satır: © solda, Gizlilik Politikası sağda → `/gizlilik/` (EN `/en/privacy/`).
+- v0.7 (P8 G1/G4/G5): Kurduğumuz Sistemler kolonu 6 sistem (hepsi tanıtım sayfasına, harici link yok); DOVEIFY kolonunun sonuna `Kendi Yazılımınız` + `Bilgi Bankası` (EN `Your Own Software`, `Knowledge Base`).
 - v0.6: İletişim kolonunun ilk linki `İletişim formu` / `Contact form`; DOVEIFY kolonundaki bölüm linkleri dil ana sayfasına göre (`/#donusum`, `/en/#donusum`), alt sayfalarda da çalışır.
 - Marka adları Türkçe büyük harf kuralından korunur (wordmark `lang="en"`, kolon başlığı "DOVEIFY").
 - Referans: docs/qa/P4-1280.png (alt kısım), P4-375.png.
 
-## VAKA SAYFASI ŞABLONU (kilitli — P6, CD final QA'da görür)
+## SİSTEM TANITIM SAYFASI ŞABLONU (v0.7 — P8 G2, CD final QA'da görür; vaka şablonunun yerine geçer)
+- 6 sistem: `/sistemler/{clinic-os,brokers-brain,emlak-ofis-paneli,osgb-yonetim,kuru-temizleme,turkisg-ai}/`; EN `/en/systems/{clinic-os,brokers-brain,real-estate-office-panel,osgb-management,dry-cleaning-panel,turkisg-ai}/`.
+- Sıra: **Hero** → Kim için → Sorun → Ne yapar (Clinic OS / Broker's Brain'de başlık "Ne kurduk" kaldı) → **Ekranlar** → **Rakamlar** (yalnız kaynaklı sistemde: OSGB, TurkİSG AI) → Teknoloji → Ne değişti (yalnız Clinic OS / Broker's Brain, P7 metni) → **Sahiplik kutusu** → **SSS** → **İlgili okumalar** → Final CTA.
+- Hero: eyebrow `KURDUĞUMUZ SİSTEM` + yanında durum pill'i (`CANLI` / `PROTOTİP`; 24px, 1px kenarlık, 11px secondary). CTA 1 dolu (hero CTA 1 stili) `SİSTEMİ İNCELE →` → canlı uygulama `_blank`; CTA 2 text `BENZERİNİ İSTEYİN →` (13px 500 uppercase beyaz) → `/iletisim/?calisma=<slug>` (form "İstenen çalışma" önseçili); TurkİSG AI'de 3. text link `ÜCRETSİZ DENE →` mavi. Görsel çerçeve v0.6 ile aynı (3:2, max 640).
+- Ekranlar: yatay rail, native scroll-snap; kart 480px (mobil %85), aynı 3:2 tarayıcı çerçevesi; altında 13px secondary açıklama; ince scrollbar (`--color-v2-border`). JS yok.
+- Rakamlar: 2–4 değer, değer 300 40px beyaz + etiket 400 14px secondary; ikon yok.
+- Sahiplik kutusu (her sayfada aynı metin): 1px kenarlık, radius 12, padding 56/40; başlık 300 40 / 28px, gövde 400 18 / 16px secondary.
+- SSS: soru 400 18px beyaz, cevap 400 16px secondary 1.7; aralarında %50 çizgi (Sorun listesi gibi). Accordion yok (hepsi açık).
+- İlgili okumalar: 16px link, alt çizgi `--color-v2-border`; ilgili Bilgi Bankası yazıları + `/kendi-yaziliminiz/`.
+- JSON-LD `SoftwareApplication` + `FAQPage`; OG `public/og/<slug>{,-en}.png` (P5 şablonu + hero ekran, `scripts/og.py`).
+- Görseller `public/systems/<slug>/hero.webp` (≤1600) + `screen-N.webp` (≤1200, 3:2), hepsi ≤120 KB; kişisel veri kapatıldı (RAPOR-P8).
+- Referans: docs/qa/P8-1280-{emlak,osgb,kuru,turkisg}.png, P8-375-emlak.png.
+
+## KENDİ YAZILIMINIZ (yeni — v0.7, P8 G4; CD final QA'da görür)
+- `/kendi-yaziliminiz/`, EN `/en/your-own-software/`. Nav'a girmez; footer + homepage Sahiplik text link'i.
+- Hero: eyebrow 12px mavi, H1 300 64 / 40px, alt satır 18 / 16px secondary, CTA 1 dolu `TOPLANTI TALEP ET` + text `İLETİŞİM FORMU →` (`?calisma=kendi-yaziliminiz`).
+- Satırlar (sistem sayfası satır düzeni): Kritik süreçler (giriş + 3 kolon etiket/metin) → manifesto (Sahiplik ana ifadesi tipografisi, 56/36px, 2. satır mavi) → SaaS vs Doveify (Sahiplik karşılaştırma stili) → Nasıl çalışıyoruz (4 numaralı adım) → Rakamlarla Doveify (5 değer) → Adım adım (3 adım) → Kurduğumuz sistemler (6 link, 2 kolon, `→` mavi) → SSS → İlgili okumalar → Final CTA (homepage metni). JSON-LD `Service` + `FAQPage`.
+- Referans: docs/qa/P8-1280-kendi-yazilim.png.
+
+## BİLGİ BANKASI (yeni — v0.7, P8 G5; CD final QA'da görür)
+- Liste `/bilgi-bankasi/` (EN `/en/knowledge-base/`): eyebrow `BİLGİ BANKASI`, H1 300 56 / 36px; kart grid 2 kolon (mobil 1), kart 1px kenarlık radius 12 padding 32/24, hover kenarlık mavi; kartta üst satır tarih · okuma süresi · ilgili sistem (mavi), başlık 300 22px, açıklama 15px secondary.
+- Yazı `/bilgi-bankasi/<slug>/`: sol 8 kolon editorial (Gizlilik sayfası tipografisi: H1 300 40/32, H2 400 22, gövde 400 16 secondary 1.7, kalın kısımlar beyaz 500, liste işaretleri mavi), sağ 4 kolon sticky kutu `İLGİLİ SİSTEM` (ilgili sistem + Kendi Yazılımınız); mobilde kutu metnin altında. Sonra Final CTA. Motion yok. JSON-LD `Article`; OG başlık + marka imzası (`public/og/bilgi/`).
+- İçerik `content/{tr,en}/bilgi/*.md` (title, description, date, slug, system, readMin); dosya eklenince sonraki build'de yayınlanır, sitemap `prebuild`'de güncellenir.
+- Referans: docs/qa/P8-1280-bilgi-liste.png, P8-1280-bilgi-yazi.png, P8-375-bilgi-yazi.png.
+
+## VAKA SAYFASI ŞABLONU (v0.6 — P6; v0.7'de yukarıdaki tanıtım şablonu geçerli)
 - Yollar: `/sistemler/<slug>/` (TR), `/en/systems/<slug>/` (EN). Nav, footer ve kapanış CTA'sı homepage bileşenleri.
 - Hero: eyebrow `KURDUĞUMUZ SİSTEM` (12px 500 mavi) · H1 sistem adı Inter 300 56 / 36px · tek satır tanım 400 18 / 16px secondary (max 520) · sağda sistem görseli 3:2, Web Factory ekran stili (1px kenarlık, radius 8, 6px tarayıcı şeridi). Motion: fadeUp bir kez.
 - Bölümler sırayla: Kim için → Sorun → Ne kurduk → Teknoloji → Ne değişti (v0.6; eski "Sonuç") → kapanış CTA → footer. Her satır: başlık 1–4. kolon (Inter 300 34 / 28px), içerik 5–12. kolon; mobilde alt alta.
@@ -97,6 +126,7 @@ Referans screenshot: `docs/qa/P1R-1280.png`, `docs/qa/P1R-375.png`.
 
 ## SAHİPLİK / WHY DOVEIFY / ÇALIŞMALAR — CD-REVİZE-BEKLİYOR
 CD-REVİZE-BEKLİYOR. Görsel otorite `approved/homepage-v1.png`; ölçü/motion kuralları v0.2'de.
+- **v0.7 (P8, Emre kararı — CD'ye not, final QA'da görülecek):** Sahiplik kapanış cümlesinin altına text link `Kendi yazılımınızı yaptırın →` (14px 500 mavi, kapanış metniyle hizalı); Çalışmalar'da `TÜM ÇALIŞMALARI GÖR` yanına aynı stilde ikinci text link `BİLGİ BANKASI` + ok (EN `KNOWLEDGE BASE`). Kompozisyon değişmedi; piksel farkı yalnız bu iki link.
 - **v0.6 (G8, Emre kararı 05.11.2026 — CD final QA'da görülecek):** Sahiplik ana ifade TR `ARAÇLAR KİRALANIR.` / `BİLGİ KİRALANMAZ.` (300 56/36px, satır 2 mavi; 1280'de her satır tek satır, 56px korundu); EN `TOOLS ARE RENTED.` / `KNOWLEDGE SHOULD NOT BE.`. Why TR `%100` / `SAHİPLİK`, EN `100%` / `OWNERSHIP`. Dönüşüm etiketleri EN kalır.
 
 ## İLETİŞİM SAYFASI (yeni — v0.6, P7 G1; CD final QA'da görür)

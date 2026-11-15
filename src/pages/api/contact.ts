@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { HONEYPOT_FIELD } from '../../../content/contact';
+import { HONEYPOT_FIELD, isWorkSlug } from '../../../content/contact';
 import { contact as contactTr } from '../../../content/tr/contact';
 import { contact as contactEn } from '../../../content/en/contact';
 
@@ -27,7 +27,7 @@ const SECTORS = new Set([...contactTr.form.sectors, ...contactEn.form.sectors]);
 const SERVICES = new Set([...contactTr.form.services, ...contactEn.form.services]);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-type Fields = { name: string; phone: string; email: string; business: string; sector: string; service: string; message: string; consent: boolean; locale: string };
+type Fields = { name: string; phone: string; email: string; business: string; sector: string; service: string; work: string; message: string; consent: boolean; locale: string };
 
 const str = (value: unknown, max: number) => (typeof value === 'string' ? value.trim().slice(0, max) : '');
 const oneLine = (value: string) => value.replace(/[\r\n]+/g, ' ');
@@ -40,6 +40,8 @@ export function validateContact(body: Record<string, unknown>): { fields: Fields
         business: oneLine(str(body.business, 120)),
         sector: str(body.sector, 60),
         service: str(body.service, 60),
+        // PAKET-P8 G2: system slug from `?calisma=` (hidden field); anything else is dropped, never rejected.
+        work: isWorkSlug(str(body.calisma, 40)) ? str(body.calisma, 40) : '',
         message: str(body.message, 2000),
         consent: body.consent === true || body.consent === 'true' || body.consent === 'on',
         locale: body.locale === 'en' ? 'en' : 'tr'
@@ -105,6 +107,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         `İşletme / Marka: ${dash(fields.business)}`,
         `Sektör: ${dash(fields.sector)}`,
         `İstenen çalışma: ${dash(fields.service)}`,
+        ...(fields.work ? [`İlgilenilen sistem: ${fields.work}`] : []),
         `Dil: ${fields.locale.toUpperCase()}`,
         `KVKK onayı: evet`,
         '',

@@ -13,6 +13,17 @@
   to = "/gizlilik/"
   status = 301
 
+# PAKET-P8 G5: Stackbit demo blog → Bilgi Bankası.
+[[redirects]]
+  from = "/blog/*"
+  to = "/bilgi-bankasi/"
+  status = 301
+
+[[redirects]]
+  from = "/blog"
+  to = "/bilgi-bankasi/"
+  status = 301
+
 [[redirects]]
   from = "/clinic"
   to = "/sistemler/clinic-os/"

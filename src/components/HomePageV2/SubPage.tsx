@@ -17,17 +17,20 @@ export default function SubPage({
     dict,
     paths,
     meta,
+    jsonLd,
     children
 }: {
     locale: Locale;
     dict: Dict;
     paths: Localized<string>;
     meta: { title: string; description: string; ogImage?: string };
+    /** PAKET-P8: page-specific JSON-LD (Service, FAQPage, Article, …). */
+    jsonLd?: object[];
     children: ReactNode;
 }) {
     return (
         <LocaleProvider locale={locale} dict={dict} paths={paths}>
-            <SiteHead title={meta.title} description={meta.description} ogImage={meta.ogImage} />
+            <SiteHead title={meta.title} description={meta.description} ogImage={meta.ogImage} extraJsonLd={jsonLd} />
             <div className="v2-root min-h-screen overflow-x-hidden bg-v2-bg-base text-v2-text-primary">
                 <Nav />
                 <main>{children}</main>

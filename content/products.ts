@@ -11,7 +11,7 @@
  * P5 ek (Emre, 03.11.2026): Doveify SaaS satmaz; bunlar kuruma özel kurulan sistem örnekleri — sitede
  * "ürün" değil "sistem" (eyebrow, açıklama, kart CTA, ok etiketleri). Kimlikler (`#urunler`, `Product` tipi) aynı.
  */
-import { CASE_PATH, type Locale } from './locale';
+import { CASE_PATH, type CaseSlug, type Locale } from './locale';
 
 export type Product = {
     id: string;
@@ -29,17 +29,24 @@ export type ProductsContent = {
     nextLabel: string;
 };
 
-// Clinic OS / Broker's Brain → kendi dilindeki vaka sayfası (P6 B1); OSGB Web / TurkISG AI harici kalır.
-const LINKS: Record<string, { href: string | null; external: boolean; image: string }> = {
-    'brokers-brain': { href: null, external: false, image: '/products/brokers-brain.webp' },
-    'clinic-os': { href: null, external: false, image: '/products/clinic-os.webp' },
-    'osgb-web': { href: 'https://osgb.doveify.io', external: true, image: '/products/osgb-web.webp' },
-    'turkisg-ai': { href: 'https://turkisgai.doveify.io', external: true, image: '/products/turkisg-ai.webp' }
+// PAKET-P8 G1: six cards, every card CTA goes to the system's own intro page (no external link on a card;
+// the live app is linked from the intro page). Order (Emre): Clinic OS → Broker's Brain → Emlak Ofis Paneli →
+// OSGB Yönetim → Kuru Temizleme → TurkİSG AI. First state: Clinic OS in the centre (index 0, left arrow disabled).
+const IMAGES: Record<CaseSlug, string> = {
+    'clinic-os': '/products/clinic-os.webp',
+    'brokers-brain': '/products/brokers-brain.webp',
+    'emlak-ofis-paneli': '/products/emlak-ofis-paneli.webp',
+    'osgb-yonetim': '/products/osgb-web.webp',
+    'kuru-temizleme': '/products/kuru-temizleme.webp',
+    'turkisg-ai': '/products/turkisg-ai.webp'
 };
 
-export const item = (locale: Locale, id: string, title: string, description: string): Product => {
-    const link = LINKS[id];
-    const href = link.href ?? CASE_PATH[locale][id as 'clinic-os' | 'brokers-brain'];
-    return { id, title, description, href, external: link.external, image: link.image };
-};
-export const INITIAL_ACTIVE_INDEX = 1; // Clinic OS
+export const item = (locale: Locale, id: CaseSlug, title: string, description: string): Product => ({
+    id,
+    title,
+    description,
+    href: CASE_PATH[locale][id],
+    external: false,
+    image: IMAGES[id]
+});
+export const INITIAL_ACTIVE_INDEX = 0; // Clinic OS (P8 G1)

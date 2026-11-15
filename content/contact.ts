@@ -59,3 +59,21 @@ export const CONTACT_FORM_NAME = 'contact';
 // P7 Resend fix: was 'company_website' — Chrome autofill matched "company" and filled the trap. Keep this name
 // free of autofill keywords (name, company, organisation, email, phone, url, website, address…).
 export const HONEYPOT_FIELD = 'dv_hp_7f3';
+
+/**
+ * PAKET-P8 G2: `/iletisim/?calisma=<slug>` ("BENZERİNİ İSTEYİN →" on a system page). The form preselects the
+ * matching "İstenen çalışma" option (index into `services`, same order in TR and EN) and sends the slug in a
+ * hidden `calisma` field, so the e-mail says which system the request is about.
+ */
+export const WORK_SLUGS = ['clinic-os', 'brokers-brain', 'emlak-ofis-paneli', 'osgb-yonetim', 'kuru-temizleme', 'turkisg-ai', 'kendi-yaziliminiz'] as const;
+/** services[2] = "İşletmeye özel yapay zekâ", services[4] = "Kurumsal sistem (CRM/ERP benzeri)", services[1] = "Web / mobil uygulama". */
+export const WORK_SERVICE_INDEX: Record<(typeof WORK_SLUGS)[number], number> = {
+    'clinic-os': 4,
+    'brokers-brain': 4,
+    'emlak-ofis-paneli': 4,
+    'osgb-yonetim': 4,
+    'kuru-temizleme': 4,
+    'turkisg-ai': 2,
+    'kendi-yaziliminiz': 1
+};
+export const isWorkSlug = (value: string): value is (typeof WORK_SLUGS)[number] => (WORK_SLUGS as readonly string[]).includes(value);

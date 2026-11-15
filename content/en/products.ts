@@ -10,9 +10,11 @@ export const products: ProductsContent = {
         cardCta: 'VIEW SYSTEM'
     },
     items: [
-        item('en', 'brokers-brain', "BROKER'S BRAIN", 'Smart tracking and analytics platform for real estate professionals.'),
         item('en', 'clinic-os', 'CLINIC OS', 'Integrated management system for healthcare organizations.'),
-        item('en', 'osgb-web', 'OSGB WEB', 'The platform that digitizes your occupational health and safety work.'),
+        item('en', 'brokers-brain', "BROKER'S BRAIN", 'Smart tracking and analytics platform for real estate professionals.'),
+        item('en', 'emlak-ofis-paneli', 'REAL ESTATE OFFICE', 'Portfolio, client and appointment tracking for real estate offices.'),
+        item('en', 'osgb-yonetim', 'OSGB MANAGEMENT', 'The platform that digitizes your occupational health and safety work.'),
+        item('en', 'kuru-temizleme', 'DRY CLEANING', 'Order, customer and payment management for dry cleaners.'),
         item('en', 'turkisg-ai', 'TURKISG AI', 'AI assistant for occupational health and safety professionals.')
     ],
     prevLabel: 'Previous system',

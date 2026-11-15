@@ -1029,3 +1029,69 @@
     caret-color: #fff;
     transition: background-color 9999s ease-out 0s;
 }
+
+/*
+ * ===== PAKET-P8-SISTEM-SAYFALARI-BILGI-BANKASI =====
+ * G2: screens rail on system pages — native scroll-snap, a thin scrollbar in the border colour.
+ * G5: Bilgi Bankası article body (markdown → HTML). Same scale as LegalPage: H2 400 22px, body 400 16px
+ * secondary, line-height 1.7; bold runs in white.
+ */
+.v2-screen-rail {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-v2-border) transparent;
+}
+.v2-prose h2 {
+    margin-top: 3.5rem;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.35;
+    color: #fff;
+}
+.v2-prose h3 {
+    margin-top: 2rem;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #fff;
+}
+.v2-prose p,
+.v2-prose li {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--color-v2-text-secondary);
+}
+.v2-prose p {
+    margin-top: 1rem;
+}
+.v2-prose > p:first-child {
+    margin-top: 2rem;
+}
+.v2-prose ul,
+.v2-prose ol {
+    margin-top: 1rem;
+    padding-left: 1.25rem;
+}
+.v2-prose ul {
+    list-style: disc;
+}
+.v2-prose ol {
+    list-style: decimal;
+}
+.v2-prose li {
+    margin-top: 0.5rem;
+    padding-left: 0.25rem;
+}
+.v2-prose li::marker {
+    color: var(--color-v2-blue);
+}
+.v2-prose strong {
+    font-weight: 500;
+    color: #fff;
+}
+.v2-prose a {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: var(--color-v2-border);
+    text-underline-offset: 4px;
+}

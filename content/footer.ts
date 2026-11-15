@@ -4,7 +4,8 @@
  * PAKET-P5-SEO-META-DIL G2: `{ tr, en }`. EN tagline, "Istanbul • London" ve "Privacy Policy" mevcut
  * siteden; kolon başlıkları ve bölüm linkleri yeni çeviri.
  */
-import { CASE_PATH, type Locale } from './locale';
+import { CASE_PATH, CASE_SLUGS, type Locale } from './locale';
+import { caseName } from './cases';
 
 export type FooterLink = { label: string; href: string; external?: boolean };
 
@@ -16,12 +17,8 @@ export type FooterContent = {
     privacy: { label: string; href: string };
 };
 
-export const systemLinks = (locale: Locale): FooterLink[] => [
-    { label: 'Clinic OS', href: CASE_PATH[locale]['clinic-os'] },
-    { label: "Broker's Brain", href: CASE_PATH[locale]['brokers-brain'] },
-    { label: 'OSGB Web', href: 'https://osgb.doveify.io', external: true },
-    { label: 'TurkISG AI', href: 'https://turkisgai.doveify.io', external: true }
-];
+/** PAKET-P8 G1: six systems, each to its intro page (Emre's order). */
+export const systemLinks = (locale: Locale): FooterLink[] => CASE_SLUGS.map((slug) => ({ label: caseName(locale, slug), href: CASE_PATH[locale][slug] }));
 
 export const CONTACT_LINKS: FooterLink[] = [
     { label: 'emre@doveify.io', href: 'mailto:emre@doveify.io' },

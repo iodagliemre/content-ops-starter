@@ -22,9 +22,31 @@ export const OG_LOCALE: Localized<string> = { tr: 'tr_TR', en: 'en_GB' };
 export const CONTACT_PATH: Localized<string> = { tr: '/iletisim/', en: '/en/contact/' };
 export const PRIVACY_PATH: Localized<string> = { tr: '/gizlilik/', en: '/en/privacy/' };
 
-export type CaseSlug = 'clinic-os' | 'brokers-brain';
-export const CASE_SLUGS: CaseSlug[] = ['clinic-os', 'brokers-brain'];
-export const CASE_PATH: Localized<Record<CaseSlug, string>> = {
-    tr: { 'clinic-os': '/sistemler/clinic-os/', 'brokers-brain': '/sistemler/brokers-brain/' },
-    en: { 'clinic-os': '/en/systems/clinic-os/', 'brokers-brain': '/en/systems/brokers-brain/' }
+/**
+ * PAKET-P8 G1: six systems, in Emre's order (homepage carousel, footer, sitemap). Each has an intro page;
+ * the live app is linked from that page's hero, never from the card.
+ */
+export type CaseSlug = 'clinic-os' | 'brokers-brain' | 'emlak-ofis-paneli' | 'osgb-yonetim' | 'kuru-temizleme' | 'turkisg-ai';
+export const CASE_SLUGS: CaseSlug[] = ['clinic-os', 'brokers-brain', 'emlak-ofis-paneli', 'osgb-yonetim', 'kuru-temizleme', 'turkisg-ai'];
+const EN_CASE_SLUG: Record<CaseSlug, string> = {
+    'clinic-os': 'clinic-os',
+    'brokers-brain': 'brokers-brain',
+    'emlak-ofis-paneli': 'real-estate-office-panel',
+    'osgb-yonetim': 'osgb-management',
+    'kuru-temizleme': 'dry-cleaning-panel',
+    'turkisg-ai': 'turkisg-ai'
 };
+export const CASE_PATH: Localized<Record<CaseSlug, string>> = {
+    tr: Object.fromEntries(CASE_SLUGS.map((s) => [s, `/sistemler/${s}/`])) as Record<CaseSlug, string>,
+    en: Object.fromEntries(CASE_SLUGS.map((s) => [s, `/en/systems/${EN_CASE_SLUG[s]}/`])) as Record<CaseSlug, string>
+};
+
+/** PAKET-P8 G4: "yazılım yaptırma" solution page (not in the nav; footer + homepage text link). */
+export const OWN_SOFTWARE_PATH: Localized<string> = { tr: '/kendi-yaziliminiz/', en: '/en/your-own-software/' };
+
+/** PAKET-P8 G5: Bilgi Bankası list and article URLs (article slugs are the same in both languages). */
+export const KB_PATH: Localized<string> = { tr: '/bilgi-bankasi/', en: '/en/knowledge-base/' };
+export const kbArticlePath = (locale: Locale, slug: string) => `${KB_PATH[locale]}${slug}/`;
+
+/** Contact page with the "istenen çalışma" preselected for a system (`?calisma=<slug>`). */
+export const contactForWork = (locale: Locale, slug: string) => `${CONTACT_PATH[locale]}?calisma=${slug}`;

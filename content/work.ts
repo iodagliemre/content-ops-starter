@@ -4,7 +4,8 @@
  * width/height = dosyanın kendi boyutu (CLS için en-boy oranı); gösterim yüksekliği CSS'te.
  */
 
-export type WorkContent = { eyebrow: string; heading: string; cta: string };
+/** PAKET-P8 G5: `kbCta` = second text link to the Bilgi Bankası. */
+export type WorkContent = { eyebrow: string; heading: string; cta: string; kbCta: string };
 
 /** PAKET-P5-SEO-META-DIL G2: `{ tr, en }`; EN yeni çeviri. Logolar ve linkler dilden bağımsız. */
 export const WORK_HREF = 'https://web.doveify.io';

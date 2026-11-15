@@ -10,11 +10,14 @@ export const products: ProductsContent = {
         cardCta: 'SİSTEMİ İNCELE'
     },
     items: [
-        item('tr', 'brokers-brain', "BROKER'S BRAIN", 'Gayrimenkul profesyonelleri için akıllı takip ve analiz platformu.'),
+        // PAKET-P8 G1: Emre'nin sırası. Mevcut 4 kart metni aynı (OSGB WEB → OSGB YÖNETİM: sistemin adı); iki yeni kartın
+        // tek satırlık açıklaması tanıtım sayfası tanımından kısaltıldı (RAPOR-P8).
         item('tr', 'clinic-os', 'CLINIC OS', 'Sağlık kurumları için bütünleşik yönetim sistemi.'),
-        item('tr', 'osgb-web', 'OSGB WEB', 'İş sağlığı ve güvenliği süreçlerinizi dijitalleştiren platform.'),
-        // TR metin Emre onaylı (05.09.2026) — V2 için ayrı bir metin yoktu, brief'in G1
-        // önerisi onaylanarak kesinleşti.
+        item('tr', 'brokers-brain', "BROKER'S BRAIN", 'Gayrimenkul profesyonelleri için akıllı takip ve analiz platformu.'),
+        item('tr', 'emlak-ofis-paneli', 'EMLAK OFİS PANELİ', 'Emlak ofisleri için portföy, müşteri ve randevu takibi.'),
+        item('tr', 'osgb-yonetim', 'OSGB YÖNETİM', 'İş sağlığı ve güvenliği süreçlerinizi dijitalleştiren platform.'),
+        item('tr', 'kuru-temizleme', 'KURU TEMİZLEME', 'Kuru temizleme için sipariş, müşteri ve tahsilat yönetimi.'),
+        // TR metin Emre onaylı (05.09.2026).
         item('tr', 'turkisg-ai', 'TURKISG AI', 'İSG profesyonelleri için yapay zekâ asistanı.')
     ],
     prevLabel: 'Önceki sistem',

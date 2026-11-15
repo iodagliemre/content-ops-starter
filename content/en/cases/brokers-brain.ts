@@ -1,6 +1,7 @@
 // PAKET-P6 B3: Broker's Brain case page (EN). Translated from content/tr/cases/brokers-brain.ts; several lines
 // come from the old English page (_legacy/content/pages/brokers-brain.md) — list in RAPOR-P6.md.
 import type { CaseContent } from '../../cases';
+import { sysImg } from '../../cases';
 import { CAL_COM, CONTACT_FORM } from '../../finalCta';
 
 export const brokersBrain: CaseContent = {
@@ -8,10 +9,12 @@ export const brokersBrain: CaseContent = {
     eyebrow: 'SYSTEM WE BUILT',
     name: "Broker's Brain",
     definition: 'WhatsApp lead management for real estate agencies: collects incoming leads, qualifies them with AI, routes them to the right broker.',
-    image: { src: '/products/brokers-brain.webp', width: 1200, height: 800, srcSet: '/products/brokers-brain.webp 1200w, /products/brokers-brain-1600.webp 1600w' }, // P7 G5
+    status: 'live',
+    liveUrl: 'https://brokerbrain.doveify.io', // PAKET-P8 G1
+    image: { ...sysImg('brokers-brain', 'hero.webp', 1600, 1067, "Broker's Brain — lead dashboard"), srcSet: '/products/brokers-brain.webp 1200w, /systems/brokers-brain/hero.webp 1600w' }, // PAKET-P8 G7
     meta: {
-        title: "Broker's Brain — System We Built | Doveify",
-        description: 'WhatsApp lead management for real estate agencies: collects leads, qualifies them with AI, routes them to the right broker.',
+        title: 'Broker\'s Brain — Real Estate WhatsApp CRM | Doveify', // PAKET-P8 G2
+        description: 'Real estate CRM: collects WhatsApp leads, qualifies them with AI and routes them to the right broker. WhatsApp automation for real estate agencies.',
         ogImage: '/og/brokers-brain-en.png'
     },
     forWhom: {
@@ -37,6 +40,11 @@ export const brokersBrain: CaseContent = {
             { title: 'Full data ownership', description: 'The data belongs to the agency; export everything anytime.' }
         ]
     },
+    screens: [
+        sysImg('brokers-brain', 'screen-1.webp', 1200, 800, "Broker's Brain — live WhatsApp conversations"),
+        sysImg('brokers-brain', 'screen-2.webp', 1200, 800, "Broker's Brain — lead list and statuses"),
+        sysImg('brokers-brain', 'screen-3.webp', 1200, 800, "Broker's Brain — broker performance"),
+    ],
     tech: { title: 'Technology', items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Supabase', 'Twilio WhatsApp API', 'Twilio Functions', 'OpenAI GPT-4o-mini + Whisper', 'Netlify'] },
     results: {
         title: 'What changed',
@@ -46,6 +54,30 @@ export const brokersBrain: CaseContent = {
             'Follow-up delay drops to minutes; no extra staff needed.'
         ]
     },
+    // PAKET-P8 G3: SSS (FAQPage JSON-LD). Cevap kaynakları RAPOR-P8'de.
+    faq: [
+        {
+            q: 'What is a CRM for a real estate agency?',
+            a: 'A system that keeps leads, conversations and follow-ups in one place. Broker\'s Brain collects leads from portals, WhatsApp and the website, qualifies them with AI and routes them to the right broker.'
+        },
+        {
+            q: 'How are WhatsApp leads recorded?',
+            a: 'An incoming message becomes a lead record automatically. The AI asks about budget, location and timeline, and scores the lead hot, warm or cold.'
+        },
+        {
+            q: 'Are voice messages understood?',
+            a: 'Yes. Voice messages are transcribed with Whisper and answered in the same flow.'
+        },
+        {
+            q: 'How does portfolio matching work?',
+            a: 'Incoming WhatsApp leads are classified automatically; the budget, location and timeline the AI collects are matched with the agency\'s portfolio.'
+        },
+        {
+            q: 'How many brokers can use it?',
+            a: 'The system is built for each agency, so the broker setup follows the agency; hot leads reach the right broker instantly, with full context.'
+        },
+    ],
+    articles: ['isletmenin-kendi-yapay-zekasi', 'saas-mi-ozel-yazilim-mi'],
     cta: {
         heading: "Let's build yours.",
         subline: "Let's design a system made for your business, together.",

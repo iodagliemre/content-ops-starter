@@ -2,7 +2,8 @@ import type { CSSProperties } from 'react';
 import classNames from 'classnames';
 import ArrowRight from '../svgs/arrow-right';
 import { useRevealOnce } from './useRevealOnce';
-import { useDict } from './locale';
+import { useDict, useLocale } from './locale';
+import { KB_PATH } from '../../../content/locale';
 import { workLogos, WORK_HREF } from '../../../content/work';
 
 /**
@@ -14,6 +15,7 @@ import { workLogos, WORK_HREF } from '../../../content/work';
 export default function Work() {
     const { ref, isVisible } = useRevealOnce<HTMLElement>();
     const workSection = { ...useDict().work, href: WORK_HREF };
+    const locale = useLocale();
 
     return (
         <section
@@ -29,15 +31,17 @@ export default function Work() {
                 <h2 className="mt-3 max-w-[380px] text-[28px] font-light leading-[1.2] text-white lg:text-[34px]">{workSection.heading}</h2>
             </div>
 
-            <a
-                href={workSection.href}
-                target="_blank"
-                rel="noopener"
-                className="group order-3 mt-10 inline-flex h-12 items-center gap-2 justify-self-start text-[13px] font-medium uppercase tracking-[0.08em] text-v2-blue lg:col-start-2 lg:row-start-1 lg:mt-0 lg:self-end"
-            >
-                {workSection.cta}
-                <ArrowRight className="h-4 w-4 fill-current transition-transform group-hover:translate-x-1" />
-            </a>
+            {/* PAKET-P8 G5: second text link next to the CTA (Emre kararı; LOCK: same style, CD note). */}
+            <div className="order-3 mt-10 flex flex-wrap items-center gap-x-8 justify-self-start lg:col-start-2 lg:row-start-1 lg:mt-0 lg:self-end">
+                <a href={workSection.href} target="_blank" rel="noopener" className="group inline-flex h-12 items-center gap-2 text-[13px] font-medium uppercase tracking-[0.08em] text-v2-blue">
+                    {workSection.cta}
+                    <ArrowRight className="h-4 w-4 fill-current transition-transform group-hover:translate-x-1" />
+                </a>
+                <a href={KB_PATH[locale]} className="group inline-flex h-12 items-center gap-2 text-[13px] font-medium uppercase tracking-[0.08em] text-v2-blue">
+                    {workSection.kbCta}
+                    <ArrowRight className="h-4 w-4 fill-current transition-transform group-hover:translate-x-1" />
+                </a>
+            </div>
 
             <ul className="order-2 mt-10 grid grid-cols-2 items-center justify-items-center gap-x-6 gap-y-8 lg:col-span-2 lg:row-start-2 lg:mt-12 lg:flex lg:justify-between">
                 {workLogos.map((logo, index) => (
