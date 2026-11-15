@@ -9,6 +9,8 @@ export type NavContent = {
     cta: string;
     /** PAKET-P7 G3: text link after the section links → contact page. */
     contact: string;
+    /** PAKET-P8 ek (Emre 15.11.2026): text link between Çalışmalar and İletişim → Bilgi Bankası. */
+    kb: string;
     navLabel: string;
     openMenu: string;
     closeMenu: string;

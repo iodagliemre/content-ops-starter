@@ -4,7 +4,7 @@ import CloseIcon from '../svgs/close';
 import Heartbeat from './Heartbeat';
 import LangSwitch from './LangSwitch';
 import { useDict, useLocale } from './locale';
-import { CONTACT_PATH, LOCALE_PATH } from '../../../content/locale';
+import { CONTACT_PATH, KB_PATH, LOCALE_PATH } from '../../../content/locale';
 
 /**
  * PAKET-P1-HERO-NAV G2 (was PAKET-01 G1). h-16 mobile / h-20 desktop, no border — nav sits on
@@ -27,6 +27,11 @@ import { CONTACT_PATH, LOCALE_PATH } from '../../../content/locale';
  * Six links + the longer pill + the larger brand need ~1175px (EN, measured) — they do not fit at 1024 even
  * with 24px gaps, so the full nav starts at 1180px (gap 24, 32 from 1280 as before) and 1024–1179 uses the
  * menu button (RAPOR-P7, bekleyen karar).
+ *
+ * PAKET-P8 ek (Emre 15.11.2026): seventh link "Bilgi Bankası" / "Knowledge Base" between Çalışmalar and İletişim. Measured
+ * at 1280 (content box 1232px, the max — wider viewports don't add room): brand 223 + nav 952 (TR) / 1006 (EN) at gap 24,
+ * 1008 / 1062 at gap 32 → gap 32 overflowed EN by 53px. So the link gap is 24px at every width and the full nav starts
+ * at 1280 (xl); below that the menu button. EN leaves only ~3px between the brand and the first link (RAPOR-P8).
  */
 const SECTION_IDS = ['urunler', 'web-factory', 'donusum', 'sahiplik', 'calismalar'] as const;
 const CAL_COM_URL = 'https://cal.com/emre-dagli-ffwxpr/doveify-demo';
@@ -38,6 +43,7 @@ export default function Nav() {
     const base = LOCALE_PATH[locale];
     const links = [
         ...t.primary.map((label, i) => ({ label, href: `${base}#${SECTION_IDS[i]}` })),
+        { label: t.kb, href: KB_PATH[locale] }, // P8 ek: between Çalışmalar and İletişim (desktop + mobile overlay)
         { label: t.contact, href: CONTACT_PATH[locale] }
     ];
 
@@ -53,7 +59,7 @@ export default function Nav() {
                     <Heartbeat className="h-3 w-12 shrink-0 text-v2-blue lg:h-4 lg:w-16" strokeWidth={1.5} delayMs={300} />
                 </a>
 
-                <nav className="hidden items-center gap-6 min-[1180px]:flex xl:gap-8" aria-label={t.navLabel}>
+                <nav className="hidden items-center gap-6 xl:flex" aria-label={t.navLabel}>
                     {links.map((link) => (
                         <a
                             key={link.href}
@@ -81,14 +87,14 @@ export default function Nav() {
                     aria-label={open ? t.closeMenu : t.openMenu}
                     aria-expanded={open}
                     onClick={() => setOpen((v) => !v)}
-                    className="flex h-10 w-10 items-center justify-center text-v2-text-primary min-[1180px]:hidden"
+                    className="flex h-10 w-10 items-center justify-center text-v2-text-primary xl:hidden"
                 >
                     {open ? <CloseIcon className="h-6 w-6 fill-current" /> : <MenuIcon className="h-6 w-6 fill-current" />}
                 </button>
             </div>
 
             {open && (
-                <div className="fixed inset-x-0 top-16 bottom-0 z-40 flex flex-col gap-1 overflow-y-auto bg-v2-bg-base px-6 py-8 lg:top-20 min-[1180px]:hidden">
+                <div className="fixed inset-x-0 top-16 bottom-0 z-40 flex flex-col gap-1 overflow-y-auto bg-v2-bg-base px-6 py-8 lg:top-20 xl:hidden">
                     {links.map((link) => (
                         <a
                             key={link.href}

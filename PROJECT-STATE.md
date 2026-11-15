@@ -37,7 +37,7 @@
 5. ✅ **Sahiplik bölümü** — "TOOLS ARE RENTED. KNOWLEDGE SHOULD NOT BE." + ikonsuz SaaS/Doveify karşılaştırma (CD). P4'te uygulandı.
 6. ✅ **Why Doveify (CD 06)** — `100% OWNERSHIP` + 5 maddelik editorial liste. P4'te uygulandı.
 7. ✅ **Work/Proof** — 6 gerçek projenin logo bandı (CD). P4'te uygulandı.
-8. ✅ **Nav** — pill `Toplantı Talep Et` → cal.com, 6. link `İletişim` → `/iletisim/` (P7, Emre 05.11.2026). ⏳ 1024–1179'da tam nav sığmıyor → hamburger; Emre onayı bekliyor (RAPOR-P7 bekleyen karar 1).
+8. ✅ **Nav** — pill `Toplantı Talep Et` → cal.com, `İletişim` → `/iletisim/` (P7), 7. link `Bilgi Bankası` (P8 ek, Emre 15.11.2026). Tam nav ≥1280, gap 24; <1280 hamburger. EN nav etiketi `Knowledge` (Emre 15.11.2026).
 9. ✅ **Hero motion tekniği** — Framer Motion ONAYLI (bu proje için). Önce CSS dene; Framer Motion yalnızca CSS ile temiz çözülemeyen yerde (hero kafa oluşumu, 3D carousel). Performance Gate şartı değişmez. (03.09.2026) **PAKET-01 sonucu**: saf CSS yeterli oldu, Framer Motion'a hiç gerek kalmadı. **Sapma (hâlâ geçerli)**: kafa katmanı animasyonunda `opacity` YOK — `opacity:0` ile başlayan elemanlar Chrome'da LCP adayı sayılmıyor, `NO_LCP` hatasına yol açıyordu (RAPOR-P01.md, docs/perf/GATE-1-hero.md). **PAKET-P1-HERO-NAV günceli**: LOCK'un "overlay-fade" tarifi (F7) bu kısıtla uyumlu şekilde uygulandı — kafa `opacity:1` sabit, üstündeki `bg` renkli overlay `opacity 1→0` fade oluyor (görsel olarak "kafa beliriyor" hissi opacity yerine overlay ile veriliyor). Emre/CD onayı hâlâ bekliyor.
 10. ✅ **Hero görseli kaynağı** — (a) seçildi: referans görselden Python/Pillow ile kesilmiş statik WebP (`public/hero/head-placeholder*.webp`), gerçek CD katmanları gelene kadar placeholder. Performance Gate'i geçti (mobil medyan 95). (03.09.2026) **PAKET-P1-HERO-NAV**: aynı görsel, maske F5'e göre güncellendi (2 linear-gradient + intersect — sol/üst/alt erime, sağ keskin), boyut/konum değişmedi. **PAKET-P1R-KAFA-MASKE (CD Karar 01 revizyonu, 05.09.2026)**: maske değerleri yatay `38%→46%`, dikey `14-86%→20-80%`; placeholder zemin rengi `--color-v2-bg-base` (#050B14) ile eşleşecek şekilde yeniden boyandı (eski dosyalar `_legacy/hero/`'da). Tam "RGB farkı 0" lossy WebP ile sağlanamadı (1-3 birim kaldı, gözle ayırt edilemez) — detay RAPOR-P1R-KAFA-MASKE.md. Kafa boyutu/konumu DEĞİŞMEDİ (CD: "büyütülmeyecek").
 11. ✅ **Stackbit / Netlify Create** — `v2`'de ÇIKARILIR. Düz Next.js. (03.09.2026) **Uygulama notu
@@ -68,6 +68,7 @@
 - **Yeni sayfalar (TR+EN, 26):** 6 sistem tanıtım sayfası (`/sistemler/<slug>/`, `/en/systems/<en-slug>/`; Clinic OS ve Broker's Brain yeni şablona geçti),
   `/kendi-yaziliminiz/` + `/en/your-own-software/`, `/bilgi-bankasi/` + `/en/knowledge-base/` + 5+5 yazı. Eski Stackbit blog `_legacy/`'de, `/blog/*` → 301 `/bilgi-bankasi/`.
 - **Şablon:** hero `CANLI`/`PROTOTİP` + `SİSTEMİ İNCELE →` (canlı uygulama) + `BENZERİNİ İSTEYİN →` (`/iletisim/?calisma=<slug>`, form önseçili + e-postada sistem satırı) · Ekranlar rail · Rakamlar · Sahiplik kutusu · SSS (FAQPage) · İlgili okumalar.
+- **Nav (P8 ek):** 7. link `Bilgi Bankası` / EN `Knowledge` (Çalışmalar–İletişim arası, overlay dahil); tam nav ≥1280, gap 24; marka–ilk link arası TR 57 / EN 42px.
 - **Homepage:** carousel 6 kart (Clinic OS merkez, index 0), kart CTA'ları iç sayfaya; Sahiplik altı ve Çalışmalar yanı 2 text link; footer 6 sistem + 2 link.
 - **SEO:** title ≤60 / description ≤155 ölçüldü; JSON-LD SoftwareApplication / Service / Article / FAQPage; sitemap `scripts/sitemap.js` ile `prebuild`'de (32 URL); OG `scripts/og.py`.
 - **Görseller:** `public/systems/<slug>/`; kişisel veriler kapatıldı (kuru temizleme müşteri adları/telefonları ve Raporlar'daki tüm tutarlar, hesap e-postaları).
@@ -81,7 +82,7 @@
 
 Açık kalanlar:
 - **RAPOR-P8:** SSS cevap taslakları ve stack/süreç maddeleri Emre onayı · EN çeviriler · arama kelimesinin tanımda geçmemesi · "kurduğumuz sistem" etiketi · Clinic OS hero kaynağının çözünürlüğü.
-- **RAPOR-P7 bekleyen kararlar:** nav 1024–1179 hamburger · gizlilik §2a'da site formu için sektör/çalışma alanları yok (P8 ile e-postaya "ilgilenilen sistem" de eklendi) ·
+- **RAPOR-P7 bekleyen kararlar:** nav <1280 hamburger (P8'de eşik 1180 → 1280) · gizlilik §2a'da site formu için sektör/çalışma alanları yok (P8 ile e-postaya "ilgilenilen sistem" de eklendi) ·
   EN gizlilik çevirisi Emre onayı · ikinci WhatsApp numarasında mesaj yok.
 - **Kontrast:** Doveify mavisi `#2563eb` koyu zeminde 3,81:1; küçük mavi metinler WCAG 4,5 altında (A11y 96'nın tek düşen kalemi). Karar CD'nin.
 - **Bağımlılıklar:** kalan 22 zafiyet major sürüm istiyor (Next 16, ESLint 9 / eslint-config-next, glob, swiper). `swiper` kullanılmıyor.

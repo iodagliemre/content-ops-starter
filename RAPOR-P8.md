@@ -181,6 +181,7 @@ https://doveify.io/en/knowledge-base/excelden-sisteme-gecis/
 - `RAPOR-P8.md`
 
 **Değişen**
+- `content/nav.ts`, `content/{tr,en}/nav.ts`, `src/components/HomePageV2/Nav.tsx` (P8 ek)
 - `content/locale.ts`, `content/cases.ts`, `content/products.ts`, `content/footer.ts`, `content/work.ts`, `content/contact.ts`
 - `content/{tr,en}/{products,footer,work}.ts`, `content/{tr,en}/cases/{clinic-os,brokers-brain}.ts`
 - `src/components/HomePageV2/{CasePage,Ownership,Work,SubPage,ContactForm}.tsx`, `src/pages/api/contact.ts`
@@ -193,3 +194,17 @@ https://doveify.io/en/knowledge-base/excelden-sisteme-gecis/
 **Taşınan:** `content/pages/blog/*` (12 dosya) → `_legacy/content/pages/blog/`.
 
 **Framer Motion:** kullanılmadı. Yeni motion yok (hero fadeUp mevcut sınıf).
+
+## Ek — Nav'a Bilgi Bankası (Emre, 15.11.2026)
+
+- Nav'a 7. link: TR `Bilgi Bankası` → `/bilgi-bankasi/`, EN `Knowledge` → `/en/knowledge-base/` (aşağıda: etiket kısaltıldı); Çalışmalar ile İletişim arasında, desktop ve mobil overlay'de (overlay sırası doğrulandı). Dosyalar: `content/nav.ts` (`kb` alanı), `content/{tr,en}/nav.ts`, `src/components/HomePageV2/Nav.tsx`.
+- **Ölçüm (1280, içerik kutusu 1232px — `max-w-7xl` yüzünden daha geniş ekranda da 1232 kalır):**
+
+| | gap 32 | gap 24 |
+|---|---:|---:|
+| TR: marka 223 + nav | 223 + 1008 = 1231 (1px pay) | 223 + 952 = 1175 (**57px pay**) |
+| EN: marka 223 + nav | 223 + 1062 = 1285 (**53px taşma**) | 223 + 1006 = 1229 (**3px pay**) |
+
+- Uygulanan (talimat dahilinde): link gap her genişlikte **24px** (`xl:gap-8` kalktı); tam nav eşiği **1180 → 1280** (`xl`), 1279 ve altı hamburger (1279'da nav gizli, 1280'de görünür — ölçüldü). Taşma ve satır kırılması yok.
+- ✅ **EN nav kapandı (Emre: "Etiketi kısalt"):** EN nav etiketi `Knowledge Base` → **`Knowledge`** (yalnız nav ve mobil overlay; sayfa başlığı, footer, Çalışmalar linki `Knowledge Base` olarak kaldı). 1280'de EN nav 1006 → 967px; marka ile ilk link arası **3 → 42px** (TR 57px). `docs/qa/P8-1280-nav-en.png` yeniden çekildi.
+- `tsc --noEmit` 0 · `npm run build` 0. Görseller: `docs/qa/P8-1280-nav-{tr,en}.png`, `docs/qa/P8-375-nav-overlay.png`.

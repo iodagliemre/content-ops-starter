@@ -1,7 +1,7 @@
 # DESIGN-LOCK.md — Doveify Site V2
 
 > v0.7 — 15.11.2026 (PAKET-P8). Kilitli: v0.6 listesi + SİSTEM TANITIM SAYFASI ŞABLONU (vaka şablonunun yerine), KENDİ YAZILIMINIZ, BİLGİ BANKASI (liste + yazı).
-> v0.6 → v0.7: ÜRÜNLER 4 → 6 kart (geometri aynı) ve sıra; kart CTA'ları tanıtım sayfasına; homepage'e 2 text link (Sahiplik altı `Kendi yazılımınızı yaptırın →`, Çalışmalar CTA yanı `BİLGİ BANKASI →`) — **Emre kararı (P8 brief), CD final QA'da görülecek**; FOOTER DOVEIFY kolonuna 2 link. v0.6 metni aşağıda korunuyor.
+> v0.6 → v0.7: ÜRÜNLER 4 → 6 kart (geometri aynı) ve sıra; kart CTA'ları tanıtım sayfasına; homepage'e 2 text link (Sahiplik altı `Kendi yazılımınızı yaptırın →`, Çalışmalar CTA yanı `BİLGİ BANKASI →`) — **Emre kararı (P8 brief), CD final QA'da görülecek**; FOOTER DOVEIFY kolonuna 2 link; NAV'a 7. link `Bilgi Bankası`, tam nav eşiği 1180 → 1280, gap 24 (P8 ek, Emre 15.11.2026). v0.6 metni aşağıda korunuyor.
 > v0.6 — 05.11.2026 (PAKET-P7). Kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM, FİNAL CTA, FOOTER, VAKA SAYFASI ŞABLONU, İLETİŞİM SAYFASI, WHATSAPP BUTON, GİZLİLİK SAYFASI.
 > v0.5 → v0.6: NAV marka imzası + pill metni + İletişim linki (G3/G4), WEB FACTORY slayt (G7), SAHİPLİK/WHY TR metin (G8) — Emre kararı 05.11.2026 — CD final QA'da görülecek. Yeni şablonlar: İletişim, WhatsApp buton, Gizlilik. v0.5: _legacy/docs/DESIGN-LOCK-v0.5.md.
 > v0.5 — 04.11.2026. Kilitli: NAV, HERO, ÜRÜNLER, WEB FACTORY, DİJİTAL DÖNÜŞÜM, FİNAL CTA, FOOTER, VAKA SAYFASI ŞABLONU.
@@ -21,9 +21,10 @@
 - Sol: **tek marka imzası** — `logo-mark.svg` + "DOVEIFY" wordmark + heartbeat, tek yatay flex. Heartbeat wordmark'ın hemen sağından başlar, `--color-v2-blue`, 1.5px stroke. Üç ayrı obje gibi okunmayacak.
   - **v0.6 (G4, Emre kararı 05.11.2026 — CD final QA'da görülecek):** desktop amblem **36px**, wordmark **17px**, heartbeat **64px**, gap 12px; mobil amblem 32px, wordmark 15px, heartbeat 48px, gap 8px. Nav yüksekliği 80/64 değişmedi. Footer `BrandSignature` aynı ölçü. OG görseli yeniden üretilmedi. (v0.5: 28px / 15px / ~56px, gap 10/6.)
 - Wordmark: Inter 400, uppercase, `letter-spacing: 0.22em`, beyaz (`lang="en"`).
-- Sağ: 6 link — Sistemler · Web Factory · Dijital Dönüşüm · Sahiplik · Çalışmalar · **İletişim** (→ `/iletisim/`, EN `/en/contact/`) — 15px, 400, `--color-v2-text-secondary`, hover beyaz; TR | EN anahtarı; outline pill **"Toplantı Talep Et" / "Book a Meeting"** → cal.com `_blank` (1px `--color-v2-border`, 40px yükseklik, 22px yatay padding, radius full). **v0.6 (G3, Emre kararı 05.11.2026 — CD final QA'da görülecek).**
-  - Tam nav **≥1180px** (link gap 24px; ≥1280 gap 32px). Altı link + uzun pill + büyük imza 1024'te 24px gap ile de sığmıyor (EN ölçü ~1175px) → 1024–1179 hamburger. Bekleyen karar (RAPOR-P7).
-- Mobil / <1180: hamburger (24px, 2 çizgi, beyaz) → tam ekran overlay, linkler dikey (İletişim dahil), dil anahtarı, pill. Overlay açılış fadeIn .3s.
+- Sağ: 7 link (v0.7) — Sistemler · Web Factory · Dijital Dönüşüm · Sahiplik · Çalışmalar · **Bilgi Bankası** · **İletişim** (→ `/iletisim/`, EN `/en/contact/`) — 15px, 400, `--color-v2-text-secondary`, hover beyaz; TR | EN anahtarı; outline pill **"Toplantı Talep Et" / "Book a Meeting"** → cal.com `_blank` (1px `--color-v2-border`, 40px yükseklik, 22px yatay padding, radius full). **v0.6 (G3, Emre kararı 05.11.2026 — CD final QA'da görülecek).**
+  - **v0.7 (P8 ek, Emre 15.11.2026):** 7. link `Bilgi Bankası` / `Knowledge` (EN nav etiketi kısa — Emre 15.11.2026; sayfa adı ve footer `Knowledge Base`) (→ `/bilgi-bankasi/`, `/en/knowledge-base/`) Çalışmalar ile İletişim arasında, mobil overlay'de de. Tam nav artık **≥1280px**, link gap her genişlikte **24px**; <1280 hamburger. Ölçüm 1280 (içerik kutusu 1232, daha geniş ekranda büyümüyor): marka 223 + nav TR 952 / EN 967 → marka ile ilk link arası TR 57px, EN 42px. (`Knowledge Base` ile EN 3px kalıyordu.) Referans: docs/qa/P8-1280-nav-{tr,en}.png, P8-375-nav-overlay.png.
+  - (v0.6) Tam nav **≥1180px** (link gap 24px; ≥1280 gap 32px). Altı link + uzun pill + büyük imza 1024'te 24px gap ile de sığmıyor (EN ölçü ~1175px) → 1024–1179 hamburger. Bekleyen karar (RAPOR-P7).
+- Mobil / <1280 (v0.7; v0.6'da <1180): hamburger (24px, 2 çizgi, beyaz) → tam ekran overlay, linkler dikey (İletişim dahil), dil anahtarı, pill. Overlay açılış fadeIn .3s.
 
 ## HERO (kilitli — CD Karar 01, 02, 04)
 ### Yerleşim

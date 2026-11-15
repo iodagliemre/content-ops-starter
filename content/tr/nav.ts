@@ -4,6 +4,7 @@ import type { NavContent } from '../nav';
 export const nav: NavContent = {
     primary: ['Sistemler', 'Web Factory', 'Dijital Dönüşüm', 'Sahiplik', 'Çalışmalar'],
     cta: 'Toplantı Talep Et',
+    kb: 'Bilgi Bankası', // P8 ek
     contact: 'İletişim',
     navLabel: 'Ana menü',
     openMenu: 'Menüyü aç',
